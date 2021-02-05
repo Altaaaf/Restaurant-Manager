@@ -1,8 +1,12 @@
 node_modules/
 node_modules
-package-lock
-package.json
-package-lock.json
+
+/server/package-lock
+/server/package.json
+/package-lock.json
+
+/client/package.json
+/client/package-lock.json
 
 /client/.env.local
 /client/.env.development.local
