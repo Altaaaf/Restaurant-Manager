@@ -1,43 +1,47 @@
 const mongoose = require('mongoose');
 
-const LoginSchema = mongoose.Schema(
+const Account = mongoose.Schema(
 	{
+		// Unique user id to identify every account
+		USERID: {
+			type: Number,
+			required: false,
+		},
 		Username: {
 			type: String,
 			required: true,
 		},
 		Password: {
-			type: String,
-			required: true,
-		},
-		CaptchaToken: {
-			type: String,
-			required: true,
-		},
-	},
-	{ versionKey: false },
-);
-const RegisterSchema = mongoose.Schema(
-	{
-		Username: {
 			type: String,
 			required: true,
 		},
 		Email: {
 			type: String,
-			required: true,
+			required: false,
 		},
-		Password: {
+		PhoneNumber: {
+			type: String,
+			required: false,
+		},
+		WorkLocation: {
+			type: String,
+			required: false,
+		},
+		AccountType: {
 			type: String,
 			required: true,
 		},
-		CaptchaToken: {
+		LastLoginLocation: {
 			type: String,
 			required: true,
+		},
+		Salary: {
+			type: Number,
+			required: false,
+			default: 20,
 		},
 	},
 	{ versionKey: false },
 );
 
-module.exports = mongoose.model('Login', LoginSchema);
-module.exports = mongoose.model('Register', RegisterSchema);
+module.exports = mongoose.model('Account', Account);
