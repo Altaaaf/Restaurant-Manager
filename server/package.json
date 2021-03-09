@@ -5,30 +5,16 @@
   "main": "Server.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-<<<<<<< HEAD
-=======
-    "body-parser": "^1.19.0",
-    "concurrently": "^6.0.0",
->>>>>>> 45e16e1236048426cfd3ac34d4602360f3e4c3e8
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
-<<<<<<< HEAD
     "joi": "^17.4.0",
     "mongoose": "^5.11.15",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"
-=======
-    "is-empty": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.15",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
-    "validator": "^13.5.2"
->>>>>>> 45e16e1236048426cfd3ac34d4602360f3e4c3e8
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
