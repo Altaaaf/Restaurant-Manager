@@ -48,10 +48,6 @@ const Account = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		LastLoginLocation: {
-			type: String,
-			required: true,
-		},
 		Salary: {
 			type: Number,
 			required: false,

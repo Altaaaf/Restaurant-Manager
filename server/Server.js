@@ -1,9 +1,8 @@
 const express = require('express');
-const bodyParser = require("body-parser");
 const cors = require('cors');
 const helmet = require('helmet');
 const DatabaseConnection = require('./Database/Connection');
-
+const passport = require('passport');
 const app = express();
 
 // Connect to Mongo DB
@@ -15,6 +14,13 @@ app.enable('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 
+//Passport middleware
+app.use(passport.initialize());
+
+// Routes
+
+const Access = require('./routes/Authentication/Access');
+app.use('/Api/Account', Access);
 app.get('*', (req, res) => {
 	res.status(200).json({ msg: 'Server is up and running...' });
 });
