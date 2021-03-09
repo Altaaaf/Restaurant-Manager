@@ -19,6 +19,10 @@ const Table = mongoose.Schema(
 			type: Boolean,
 			required: false,
 		},
+		ReservedTimeSlot: {
+			type: Date,
+			required: true,
+		},
 	},
 	{ versionKey: false },
 );

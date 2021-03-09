@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 // Login
 router.post('/Login', async (req, res) => {
 	try {
@@ -11,6 +10,7 @@ router.post('/Login', async (req, res) => {
 		res.status(500).json({ status: 'Server Error' });
 	}
 });
+
 // Register
 router.post('/Register', async (req, res) => {
 	try {

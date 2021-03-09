@@ -10,21 +10,17 @@ const Inventory = mongoose.Schema(
 			type: String,
 			required: false,
 		},
-		Expense: {
+		Cost: {
 			type: Number,
 			required: false,
 		},
-		Received: {
+		ReceivedDate: {
 			type: Date,
 			required: false,
 			default: Date.now,
 		},
-		Expiration: {
+		ItemExpirationDate: {
 			type: Date,
-			required: false,
-		},
-		Supplier: {
-			type: String,
 			required: false,
 		},
 		Refrigerate: {
