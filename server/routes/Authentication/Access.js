@@ -18,13 +18,13 @@ router.post('/Login', async (req, res) => {
 			});
 		}
 		// validate username exists before continuing
-		Access.findOne({ Username: req.body.Username }).then((user) => {
+		Access.findOne({ Email: req.body.Email }).then((user) => {
 			if (user) {
 				if (bcrypt.compareSync(req.body.Password, user.Password)) {
 					jwt.sign(
 						{
 							id: user.id,
-							name: user.name,
+							name: user.Email,
 						},
 						process.env.secretOrKey,
 						{
@@ -63,21 +63,30 @@ router.post('/Register', async (req, res) => {
 				message: error.message,
 			});
 		}
+
+		// check to see both passwords are the same
+		// probably do it on client side!
+
 		//validate email doesn't exist already
 		// If email exists already return error
 		// If email does not exist create new user with hashed password
-		Access.findOne({ Username: req.body.Username }).then((user) => {
+		Access.findOne({ Email: req.body.Email }).then((user) => {
 			if (user) {
 				return res.status(400).json({ status: 'username already exists' });
 			} else {
 				//const HashedPassword = await bcrypt.hash(req.body.Password, 10)
-				const RegisterUser = new Access({
-					Username: req.body.Username,
-					Password: bcrypt.hashSync(req.body.Password, 10),
-					AccountType: req.body.AccountType,
-				});
-				RegisterUser.save();
-				return res.status(200).json({ status: 'Successfully registered user' });
+				try {
+					const RegisterUser = new Access({
+						Username: req.body.Username,
+						Email: req.body.Email,
+						Password: bcrypt.hashSync(req.body.Password, 10),
+						AccountType: req.body.AccountType,
+					});
+					RegisterUser.save();
+					return res.status(200).json({ status: 'Successfully registered user' });
+				} catch {
+					res.status(500).json({ status: 'Server Error' });
+				}
 			}
 		});
 	} catch (err) {

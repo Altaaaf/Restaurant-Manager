@@ -46,7 +46,7 @@ const Account = mongoose.Schema(
 		},
 		AccountType: {
 			type: String,
-			required: true,
+			required: false,
 		},
 		Salary: {
 			type: Number,

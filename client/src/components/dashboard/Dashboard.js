@@ -19,8 +19,8 @@ class Dashboard extends Component {
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-               Restaurant Automation Management Hub{" "}
-                <span style={{ fontFamily: "monospace" }}>Barns</span> Link 👏
+               Welcome to Your Restaurant Automation Management Hub{" "}
+                  👏
               </p>
             </h4>
             <button
