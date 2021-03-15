@@ -51,7 +51,7 @@ class Register extends Component {
 
 	render() {
 		const { errors } = this.state;
-
+		console.log(this.state.errors.status);
 		return (
 			<div className='container'>
 				<div className='row'>
@@ -68,7 +68,7 @@ class Register extends Component {
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
-							<p className='red-text'> Error: {this.state.errors.status}</p>
+							<p className='red-text col s12'>  {this.state.errors.status}</p>
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}

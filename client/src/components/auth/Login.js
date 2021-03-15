@@ -67,7 +67,7 @@ class Login extends Component {
 	render() {
 		const { errors } = this.state;
 
-		console.log('error: ' + this.state.errors.status);
+		console.log(this.state.errors.status);
 
 		return (
 			<div className='container'>
@@ -85,7 +85,7 @@ class Login extends Component {
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
-							<p className='red-text'> Error: {this.state.errors.status}</p>
+						<p className='red-text text-darken-1 col s12'> {this.state.errors.status}</p>
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}
