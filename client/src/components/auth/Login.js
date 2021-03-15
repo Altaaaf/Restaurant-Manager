@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { loginUser } from '../../actions/authActions';
-import classnames from 'classnames';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions";
+import classnames from "classnames";
+
 
 class Login extends Component {
 	constructor() {
@@ -55,6 +56,7 @@ class Login extends Component {
 		e.preventDefault();
 
 		const userData = {
+      Username: this.state.name,
 			Email: this.state.email,
 			Password: this.state.password,
 		};
