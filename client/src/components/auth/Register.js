@@ -110,6 +110,7 @@ class Register extends Component {
 								<label htmlFor='password'>Password</label>
 								<span className='red-text'>{errors.password}</span>
 							</div>
+							
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}
@@ -124,6 +125,7 @@ class Register extends Component {
 								<label htmlFor='password2'>Confirm Password</label>
 								<span className='red-text'>{errors.password2}</span>
 							</div>
+							
 							<div className='col s12' style={{ paddingLeft: '11.250px' }}>
 								<button
 									style={{
