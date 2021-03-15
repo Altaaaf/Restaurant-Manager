@@ -13,7 +13,7 @@ router.post('/Login', async (req, res) => {
 		if (error) {
 			console.error(error.message);
 			return res.status(400).json({
-				Status: 'Missing request body parameters',
+				status: 'Missing request body parameters',
 				message: error.message,
 			});
 		}
@@ -24,7 +24,8 @@ router.post('/Login', async (req, res) => {
 					jwt.sign(
 						{
 							id: user.id,
-							name: user.Email,
+							name: user.Username,
+							accountType: user.AccountType,
 						},
 						process.env.secretOrKey,
 						{
@@ -59,7 +60,7 @@ router.post('/Register', async (req, res) => {
 		if (error) {
 			console.error(error.message);
 			return res.status(400).json({
-				Status: 'Missing request body parameters',
+				status: 'Missing request body parameters',
 				message: error.message,
 			});
 		}

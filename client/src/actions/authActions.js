@@ -32,6 +32,7 @@ export const loginUser = (userData) => (dispatch) => {
 			// Decode token to get user data
 			const decoded = jwt_decode(token);
 			// Set current user
+			// Auth user becomes jwt token that was created on backend!!
 			dispatch(setCurrentUser(decoded));
 		})
 		.catch((err) =>
