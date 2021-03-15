@@ -68,6 +68,7 @@ class Register extends Component {
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
+							<p className='red-text'> Error: {this.state.errors.status}</p>
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}
