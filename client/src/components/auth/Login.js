@@ -18,13 +18,26 @@ class Login extends Component {
 
 	componentDidMount() {
 		// If logged in and user navigates to Login page, should redirect them to dashboard
+		console.log(this.props.auth);
 		if (this.props.auth.isAuthenticated) {
+			console.log(this.props.auth.user);
+			if (this.props.auth.user.accountType == 'Manager') {
+				console.log('Role type is manager');
+			} else {
+				console.log('not a manager!');
+			}
 			this.props.history.push('/dashboard');
 		}
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.auth.isAuthenticated) {
+			console.log(this.props.auth.user);
+			if (this.props.auth.user.accountType == 'Manager') {
+				console.log('Role type is manager');
+			} else {
+				console.log('not a manager!');
+			}
 			this.props.history.push('/dashboard');
 		}
 
@@ -54,6 +67,8 @@ class Login extends Component {
 	render() {
 		const { errors } = this.state;
 
+		console.log('error: ' + this.state.errors.status);
+
 		return (
 			<div className='container'>
 				<div style={{ marginTop: '4rem' }} className='row'>
@@ -70,6 +85,7 @@ class Login extends Component {
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
+							<p className='red-text'> Error: {this.state.errors.status}</p>
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}
