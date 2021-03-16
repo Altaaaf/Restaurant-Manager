@@ -12,6 +12,9 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Menus from "./components/dashboard/customer/Menus";
+import { mains, sides, drinks } from "./menu";
+import { Provider1 } from "./Context";
 
 import "./App.css";
 
@@ -46,10 +49,22 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/customer/Menus" component ={Menus} />
             </Switch>
           </div>
         </Router>
+        <div className="menu">
+        
+        <Menus meals={mains} />
+        <aside className="aside">
+          <Menus type="Sides" items={sides} />
+          <Menus type="Drinks" items={drinks} />
+        </aside>
+        <Menus />
+      </div>
       </Provider>
+   
+   
     );
   }
 }

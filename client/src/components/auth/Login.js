@@ -97,7 +97,7 @@ class Login extends Component {
 										invalid: errors.email || errors.emailnotfound,
 									})}
 								/>
-								
+								<label htmlFor='username'>username</label>
 								<span className='red-text'>
 									{errors.email}
 									{errors.emailnotfound}
