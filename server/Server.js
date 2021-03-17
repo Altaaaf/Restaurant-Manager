@@ -19,7 +19,7 @@ app.use(passport.initialize());
 
 // Routes
 
-const Access = require('./routes/Authentication/Access');
+const Access = require('./routes/Access');
 app.use('/Api/Account', Access);
 app.get('*', (req, res) => {
 	res.status(200).json({ msg: 'Server is up and running...' });
