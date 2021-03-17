@@ -12,22 +12,21 @@ class Menus extends Component {
 			menu: {
 				mains: [
 					{
-						name: 'loading',
-						description: 'loading',
-						price: 'loading',
+						Name: '',
+						Description: '',
+						Price: '',
 					},
 				],
 				sides: [
 					{
-						name: 'loading',
-						price: 'loading',
+						Name: '',
+						Price: '',
 					},
 				],
 				drinks: [
 					{
-						name: 'loading',
-						price: 'loading',
-						category: 'loading',
+						Name: '',
+						Price: '',
 					},
 				],
 			},
@@ -38,7 +37,7 @@ class Menus extends Component {
 
 	componentWillMount() {
 		axios
-			.get('http://localhost:5000/api/Menu/View')
+			.get('http://localhost:5000/Api/Menu/View')
 			.then((res) => this.setState({ menu: res.data }))
 			.catch((err) => this.setState({ error: err }));
 		this.setState({ loading: false });

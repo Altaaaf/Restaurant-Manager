@@ -19,14 +19,6 @@ const Inventory = mongoose.Schema(
 			required: false,
 			default: Date.now,
 		},
-		ItemExpirationDate: {
-			type: Date,
-			required: false,
-		},
-		Refrigerate: {
-			type: Boolean,
-			required: false,
-		},
 	},
 	{ versionKey: false },
 );

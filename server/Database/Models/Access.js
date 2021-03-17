@@ -2,16 +2,6 @@ const mongoose = require('mongoose');
 
 const Account = mongoose.Schema(
 	{
-		// Unique ID assigned to each employee
-		EmployeeID: {
-			type: Number,
-			required: false,
-		},
-		// API key is auto generated, which will be passed as a header when sending requests from frontend to backend
-		APIKey: {
-			type: Number,
-			required: false,
-		},
 		Username: {
 			type: String,
 			required: true,

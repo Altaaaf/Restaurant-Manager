@@ -13,8 +13,7 @@ router.post('/Login', async (req, res) => {
 		if (error) {
 			console.error(error.message);
 			return res.status(400).json({
-				status: 'Missing request body parameters',
-				message: error.message,
+				status: error.message,
 			});
 		}
 		// validate username exists before continuing
@@ -60,8 +59,7 @@ router.post('/Register', async (req, res) => {
 		if (error) {
 			console.error(error.message);
 			return res.status(400).json({
-				status: 'Missing request body parameters',
-				message: error.message,
+				status: error.message,
 			});
 		}
 

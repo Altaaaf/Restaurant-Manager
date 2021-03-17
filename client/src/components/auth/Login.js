@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions";
-import classnames from "classnames";
-
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authActions';
+import classnames from 'classnames';
 
 class Login extends Component {
 	constructor() {
@@ -56,7 +55,7 @@ class Login extends Component {
 		e.preventDefault();
 
 		const userData = {
-      Username: this.state.name,
+			Username: this.state.name,
 			Email: this.state.email,
 			Password: this.state.password,
 		};
@@ -85,7 +84,7 @@ class Login extends Component {
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
-						<p className='red-text text-darken-1 col s12'> {this.state.errors.status}</p>
+							<p className='red-text text-darken-1 col s12'> {this.state.errors.status}</p>
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}
@@ -97,7 +96,9 @@ class Login extends Component {
 										invalid: errors.email || errors.emailnotfound,
 									})}
 								/>
-								<label className='white-text' htmlFor='username'>username</label>
+								<label className='white-text' htmlFor='username'>
+									Email
+								</label>
 								<span className='red-text'>
 									{errors.email}
 									{errors.emailnotfound}
@@ -114,7 +115,9 @@ class Login extends Component {
 										invalid: errors.password || errors.passwordincorrect,
 									})}
 								/>
-								<label className='white-text' htmlFor='password'>Password</label>
+								<label className='white-text' htmlFor='password'>
+									Password
+								</label>
 								<span className='red-text'>
 									{errors.password}
 									{errors.passwordincorrect}

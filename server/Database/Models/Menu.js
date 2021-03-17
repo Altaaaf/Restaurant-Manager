@@ -7,19 +7,15 @@ const Menu = mongoose.Schema(
 			required: true,
 		},
 		Price: {
+			type: Number,
+			required: true,
+		},
+		Type: {
 			type: String,
-			required: false,
+			required: true,
 		},
-		Ingredients: {
-			type: Array,
-			required: false,
-		},
-		LimitedTime: {
-			type: Boolean,
-			required: false,
-		},
-		Beverage: {
-			type: Boolean,
+		Description: {
+			type: String,
 			required: false,
 		},
 	},

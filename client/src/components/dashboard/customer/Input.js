@@ -4,6 +4,8 @@ import { Context } from './Context';
 export default function Input({ type, name, index }) {
 	const [items, updateItem] = useContext(Context);
 
+	console.log(name);
+
 	return (
 		<input
 			type='text'
