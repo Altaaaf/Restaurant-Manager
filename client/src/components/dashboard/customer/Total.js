@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { Context } from './Context';
 
 export default function Total({ data }) {
-	console.log(data);
 	const [items] = useContext(Context);
-	console.log(items);
 
 	const totalPrice = Object.keys(items).reduce((acc, curr) => {
 		const [group, item] = curr.split('-');

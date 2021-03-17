@@ -15,7 +15,6 @@ import Dashboard from './components/dashboard/Dashboard';
 import Menus from './components/dashboard/customer/Menus';
 import { Context } from './components/dashboard/customer/Context';
 
-
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
 	// Set auth token header auth
@@ -44,7 +43,7 @@ export default function App() {
 					<Route exact path='/' component={Landing} />
 					<Route exact path='/register' component={Register} />
 					<Route exact path='/login' component={Login} />
-					<Route exact path='/customer/menu' component={Menus} />
+					<Route exact path='/customer/Menu' component={Menus} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard' component={Dashboard} />
 					</Switch>
