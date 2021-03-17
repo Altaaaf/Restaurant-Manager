@@ -19,3 +19,10 @@ input.form-control {
 input[type=file] {
   width: 100%;
 }
+
+.footer {
+  flex-shrink: 0;
+  text-align: left;
+  background-color: #18505e;
+  color: white;
+}
