@@ -1,64 +1,132 @@
-import React, { useContext } from "react";
-import { Context } from "../../../Context";
-import data from "../../../menu.json";
+import React, { Component } from 'react';
+import Mains from './Mains';
+import Extras from './Extras';
+import Total from './Total';
+import { Provider } from './Context';
+import './MenuStyles.css';
+import { GetMenu } from '../../../actions/CustomerActions';
 
-
-export default function Input({ type, name, index }) {
-  const [items, updateItem] = useContext(Context);
-  return (
-    <input
-      type="text"
-      inputmode="numeric"
-      pattern="[0-9]*"
-      onChange={({ target }) => updateItem(type, index, target.value)}
-      name={name.replace(" ", "-").toLowerCase()}
-    />
-  );
+class Menus extends Component {
+	constructor() {
+		super();
+		this.state = {
+			menu: {
+				mains: [
+					{
+						name: 'The Caesar',
+						description:
+							'Crisp romaine lettuce tossed with our homemade Caesar dressing, croutons, and shredded parmesan cheese.',
+						price: '19',
+					},
+					{
+						name: 'Surf & Turf',
+						description: 'A grilled, queen-cut ribeye served with shrimp and scallop alfredo.',
+						price: '17',
+					},
+					{
+						name: 'Creamy Sage',
+						description:
+							'Chicken breast sautéed with fresh sage and prosciutto. Served atop creamy asiago linguini.',
+						price: '21',
+					},
+					{
+						name: 'From the Sea',
+						description:
+							'Fresh haddock, gulf shrimp, and sea scallops dipped in beer batter and fried to a golden brown.',
+						price: '23',
+					},
+					{
+						name: "BB's Tenderloin",
+						description:
+							'Tenderloin tips, sautéed with bacon and mushrooms and finished with a bourbon-BBQ sauce.',
+						price: '18',
+					},
+					{
+						name: 'Chicken Marsala',
+						description:
+							'Boneless chicken breast sautéed with mushrooms and finished in a marsala and cream reduction.',
+						price: '22',
+					},
+				],
+				sides: [
+					{
+						name: 'Fries',
+						price: '5',
+					},
+					{
+						name: 'Onion Rings',
+						price: '4',
+					},
+					{
+						name: 'Hash Brown',
+						price: '3',
+					},
+					{
+						name: 'Chicken Nuggets',
+						price: '4',
+					},
+					{
+						name: 'Salad',
+						price: '6',
+					},
+					{
+						name: 'Coleslaw',
+						price: '5',
+					},
+				],
+				drinks: [
+					{
+						name: 'Soft Drink',
+						price: '4',
+						category: 'drink',
+					},
+					{
+						name: 'Orange Juice',
+						price: '5',
+						category: 'drink',
+					},
+					{
+						name: 'Iced Tea',
+						price: '4',
+						category: 'drink',
+					},
+					{
+						name: 'Coffee',
+						price: '6',
+						category: 'drink',
+					},
+					{
+						name: 'Smoothie',
+						price: '4',
+						category: 'drink',
+					},
+					{
+						name: 'Water',
+						price: '2',
+						category: 'drink',
+					},
+				],
+			},
+			error: '',
+		};
+	}
+	componentDidMount() {
+		GetMenu(this.state);
+	}
+	render() {
+		const { menu } = this.state;
+		return (
+			<Provider>
+				<div className='menu'>
+					<Mains meals={menu.mains} />
+					<aside className='aside'>
+						<Extras type='Sides' items={menu.sides} />
+						<Extras type='Drinks' items={menu.drinks} />
+					</aside>
+					<Total />
+				</div>
+			</Provider>
+		);
+	}
 }
-
-export function Menus({ meals }) {
-    return (
-      <section className="mains">
-        {meals.map((meal, index) => (
-          <article className="menu-item" key={index}>
-            <h3 className="mains-name">{meal.name}</h3>
-            <Input type="mains" name={meal.name} index={index} />
-            <strong className="mains-price">${meal.price}</strong>
-            <p className="mains-description">{meal.description}</p>
-          </article>
-        ))}
-      </section>
-    );
-  }
-
-  export function Extras({ type, items }) {
-    return (
-      <section className="extras">
-        <h2 className="extras-heading">{type}</h2>
-        {items.map((item, index) => (
-          <article className="menu-item" key={index}>
-            <div className="extras-name">{item.name}</div>
-            <Input type={type} name={item.name} index={index} />
-            <strong className="extras-price">${item.price}</strong>
-          </article>
-        ))}
-      </section>
-    );
-  }
-
-  export function Total() {
-    const [items] = useContext(Context);
-  
-    const totalPrice = Object.keys(items).reduce((acc, curr) => {
-      const [group, item] = curr.split("-");
-      const amount = items[curr] * data[group][item].price;
-      return acc + amount;
-    }, 0);
-  
-    return (
-      <div className="total">
-        <span className="total-title">Total:</span>
-        <span className="total-price">${totalPrice}</span>
-      </div>
-    );
-  }
+export default Menus;

@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const { Login, Register } = require('../../validator/Access');
-const Access = require('../../Database/Models/Access');
+const { Login, Register } = require('../validator/Access');
+const Access = require('../Database/Models/Access');
 const jwt = require('jsonwebtoken');
 require('dotenv/config');
 const router = express.Router();
