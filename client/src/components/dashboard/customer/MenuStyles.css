@@ -1,5 +1,9 @@
 
-
+:root {
+	--primary: #ccb94d;
+	--secondary: #635a88;
+	--light: #f2f3ef;
+}
 html {
 	box-sizing: border-box;
 }
