@@ -14,7 +14,7 @@ import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
 import Menus from './components/dashboard/customer/Menus';
 import { Context } from './components/dashboard/customer/Context';
-import './App.css';
+
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
