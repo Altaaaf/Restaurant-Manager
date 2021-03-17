@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const Footer = () => (
+    <footer className="footer">
+      <p>Some footer nonsense!</p>
+    </footer>
+  );
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

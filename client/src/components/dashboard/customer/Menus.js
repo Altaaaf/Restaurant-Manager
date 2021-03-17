@@ -5,6 +5,8 @@ import { Provider } from './Context';
 import './MenuStyles.css';
 import Total from './Total';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+
 class Menus extends Component {
 	constructor() {
 		super();
@@ -56,6 +58,36 @@ class Menus extends Component {
 					</aside>
 					<Total data={this.state.menu} />
 				</div>
+				<div style={{ height: '15vh' }}className="container valign-wrapper" >
+				<div className="row">
+				<div className="col s6 center-align">
+              <Link
+                to="/Dashboard"
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-large waves-effect waves-light hoverable navy accent-3"
+              >
+                Previous
+              </Link>
+            </div>
+            <div className="col s6 center-align">
+              <Link
+                to="/"
+                style={{
+                  width: "140px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-large waves-effect waves-light hoverable navy accent-3"
+              >
+                Order Now
+              </Link>
+			  </div>
+			  </div>
+			  </div>
 			</Provider>
 		);
 	}

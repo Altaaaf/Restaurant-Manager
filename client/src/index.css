@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+=======
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Open Sans", sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "PT Serif", serif;
+  }
+
+select.form-control,
+textarea.form-control,
+input.form-control {
+  font-size: 1rem;
+}
+input[type=file] {
+  width: 100%;
+}
+
+.footer {
+  flex-shrink: 0;
+  text-align: left;
+  background-color: #18505e;
+  color: white;
+}
+>>>>>>> 9e09d1d6b8c497d8127ec3e1d5a6fcaa5f7f05d9
