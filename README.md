@@ -7,3 +7,7 @@ Restaurant Management PWA
 
 * Use ReactJS for the Login/Sign Up 
 * Set MongoDB for user authtication.
+* Created Login page and Register page
+* Created Menu for customer selection and inform customer their totoal and appliicable tax
+* Created Header and Footer
+* Created Manager Dashboard (in progress)
