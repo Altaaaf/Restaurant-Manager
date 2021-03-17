@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Mains from './Mains';
 import Extras from './Extras';
-import Total from './Total';
 import { Provider } from './Context';
 import './MenuStyles.css';
-import { GetMenu } from '../../../actions/CustomerActions';
-
+import Total from './Total';
+import axios from 'axios';
 class Menus extends Component {
 	constructor() {
 		super();
@@ -13,108 +12,41 @@ class Menus extends Component {
 			menu: {
 				mains: [
 					{
-						name: 'The Caesar',
-						description:
-							'Crisp romaine lettuce tossed with our homemade Caesar dressing, croutons, and shredded parmesan cheese.',
-						price: '19',
-					},
-					{
-						name: 'Surf & Turf',
-						description: 'A grilled, queen-cut ribeye served with shrimp and scallop alfredo.',
-						price: '17',
-					},
-					{
-						name: 'Creamy Sage',
-						description:
-							'Chicken breast sautéed with fresh sage and prosciutto. Served atop creamy asiago linguini.',
-						price: '21',
-					},
-					{
-						name: 'From the Sea',
-						description:
-							'Fresh haddock, gulf shrimp, and sea scallops dipped in beer batter and fried to a golden brown.',
-						price: '23',
-					},
-					{
-						name: "BB's Tenderloin",
-						description:
-							'Tenderloin tips, sautéed with bacon and mushrooms and finished with a bourbon-BBQ sauce.',
-						price: '18',
-					},
-					{
-						name: 'Chicken Marsala',
-						description:
-							'Boneless chicken breast sautéed with mushrooms and finished in a marsala and cream reduction.',
-						price: '22',
+						name: 'loading',
+						description: 'loading',
+						price: 'loading',
 					},
 				],
 				sides: [
 					{
-						name: 'Fries',
-						price: '5',
-					},
-					{
-						name: 'Onion Rings',
-						price: '4',
-					},
-					{
-						name: 'Hash Brown',
-						price: '3',
-					},
-					{
-						name: 'Chicken Nuggets',
-						price: '4',
-					},
-					{
-						name: 'Salad',
-						price: '6',
-					},
-					{
-						name: 'Coleslaw',
-						price: '5',
+						name: 'loading',
+						price: 'loading',
 					},
 				],
 				drinks: [
 					{
-						name: 'Soft Drink',
-						price: '4',
-						category: 'drink',
-					},
-					{
-						name: 'Orange Juice',
-						price: '5',
-						category: 'drink',
-					},
-					{
-						name: 'Iced Tea',
-						price: '4',
-						category: 'drink',
-					},
-					{
-						name: 'Coffee',
-						price: '6',
-						category: 'drink',
-					},
-					{
-						name: 'Smoothie',
-						price: '4',
-						category: 'drink',
-					},
-					{
-						name: 'Water',
-						price: '2',
-						category: 'drink',
+						name: 'loading',
+						price: 'loading',
+						category: 'loading',
 					},
 				],
 			},
 			error: '',
+			loading: true,
 		};
 	}
-	componentDidMount() {
-		GetMenu(this.state);
+
+	componentWillMount() {
+		axios
+			.get('http://localhost:5000/api/Menu/View')
+			.then((res) => this.setState({ menu: res.data }))
+			.catch((err) => this.setState({ error: err }));
+		this.setState({ loading: false });
 	}
+
+	// add a loading page while retrieving data from back end
 	render() {
-		const { menu } = this.state;
+		const { menu, error, loading } = this.state;
 		return (
 			<Provider>
 				<div className='menu'>
@@ -123,7 +55,7 @@ class Menus extends Component {
 						<Extras type='Sides' items={menu.sides} />
 						<Extras type='Drinks' items={menu.drinks} />
 					</aside>
-					<Total />
+					<Total data={this.state.menu} />
 				</div>
 			</Provider>
 		);

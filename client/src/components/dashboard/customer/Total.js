@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Context } from './Context';
-import data from './data.json';
 
-export default function Total() {
+export default function Total({ data }) {
+	console.log(data);
 	const [items] = useContext(Context);
+	console.log(items);
 
 	const totalPrice = Object.keys(items).reduce((acc, curr) => {
 		const [group, item] = curr.split('-');
@@ -14,7 +15,7 @@ export default function Total() {
 	return (
 		<div className='total'>
 			<span className='total-title'>Total:</span>
-			<span className='total-price'>${totalPrice}</span>
+			<span className='total-price'>${totalPrice.toLocaleString()}</span>
 		</div>
 	);
 }
