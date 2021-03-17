@@ -18,17 +18,18 @@ class Dashboard extends Component {
 		return (
 			<div style={{ height: '75vh' }} className='container valign-wrapper'>
 				<div className='row'>
-					<div className='landing-copy col s12 center-align'>
+					<div className='landing-copy col s12 white-text center-align'>
 						<h4>
 							<b>Hey there,</b> {user.name.split(' ')[0]}
-							<p className='flow-text grey-text text-darken-1'>
+							<p className='flow-text white-text text-darken'>
 								Restaurant Automation Management Hub{' '}
 								<span style={{ fontFamily: 'monospace' }}>Barns</span> Link 👏
 							</p>
 						</h4>
+						<div className="col s6">
 						<button
 							style={{
-								width: '150px',
+								width: '140px',
 								borderRadius: '3px',
 								letterSpacing: '1.5px',
 								marginTop: '1rem',
@@ -37,13 +38,15 @@ class Dashboard extends Component {
 							className='btn btn-large waves-effect waves-light hoverable blue accent-3'>
 							Logout
 						</button>
-						<div className="col s12">
+						</div>
+						<div className="col s6">
               			<Link
-               			 	to="/customer/Menus"
+               			 	to="customer/Menu"
                 			style={{
                  			width: "140px",
                   			borderRadius: "3px",
-                  			letterSpacing: "1.5px"
+                  			letterSpacing: "1.5px",
+							marginTop: '1rem',
                 			}}
                 			className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             			  >
