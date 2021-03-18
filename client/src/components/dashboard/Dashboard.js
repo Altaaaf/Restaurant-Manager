@@ -35,7 +35,7 @@ class Dashboard extends Component {
 								marginTop: '1rem',
 							}}
 							onClick={this.onLogoutClick}
-							className='btn btn-large waves-effect waves-light hoverable blue accent-3'>
+							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
 							Logout
 						</button>
 						</div>
@@ -48,7 +48,7 @@ class Dashboard extends Component {
                   			letterSpacing: "1.5px",
 							marginTop: '1rem',
                 			}}
-                			className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                			className="btn btn-large waves-effect waves-light hoverable navy accent-3"
             			  >
                 		Menu
              		 </Link>

@@ -14,7 +14,7 @@ export const Box = styled.div`
     font-size:12px;
   } 
 `; 
-   
+
 export const Container = styled.div` 
     
     display: flex; 
@@ -23,8 +23,9 @@ export const Container = styled.div`
     max-width: 1000px; 
     margin: 0 auto; 
     font-size:12px;
+
     
-` 
+`;
    
 export const Column = styled.div` 
   display: flex; 
@@ -32,8 +33,9 @@ export const Column = styled.div`
   text-align: left; 
   margin-left: 60px; 
   font-size:2px;
+  
 `; 
-   
+
 export const Row = styled.div` 
   display: grid; 
   grid-template-columns: repeat(auto-fill,  
@@ -45,7 +47,7 @@ export const Row = styled.div`
                            minmax(200px, 1fr)); 
   } 
 `; 
-   
+
 export const FooterLink = styled.a` 
   color: #fff; 
   margin-bottom: 20px; 
@@ -59,8 +61,9 @@ export const FooterLink = styled.a`
 `; 
    
 export const Heading = styled.p` 
-  font-size: 24px; 
+  font-size: 18px; 
   color: #fff; 
   margin-bottom: 40px; 
   font-weight: bold; 
+  
 `; 

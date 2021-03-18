@@ -8,7 +8,16 @@ export default function Extras({ type, items }) {
 			{items.map((item, index) => (
 				<article className='menu-item' key={index}>
 					<div className='extras-name'>{item.name}</div>
-					<Input type={type} name={item.name} index={index} />
+					<Input style={{
+                 width: "1rem",
+  				height: "1rem",
+  				padding: "0.25rem",
+ 				margin: "0 0.75rem",
+  				backgroundColor: "transparent",
+  				border: "1px",
+  				borderRadius: "50%",
+ 				textAlign: "center",
+              }} type={type} name={item.name} index={index} />
 					<strong className='extras-price'>${item.price}</strong>
 				</article>
 			))}

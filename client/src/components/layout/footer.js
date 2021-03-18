@@ -13,7 +13,9 @@ class Footer extends Component {
     render() {
         return ( 
       <Box className="flow-text white-text text-darken-1"> 
-        <Container> 
+        <Container style={{
+                fontFamily: "monospace"
+              }}> 
           <Row> 
             <Column> 
               <Heading>About Us</Heading> 

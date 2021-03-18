@@ -6,6 +6,16 @@ export default function Input({ type, name, index }) {
 
 	return (
 		<input
+		style={{
+                width: "1rem",
+  				height: "1rem",
+  				padding: "0.25rem",
+ 				margin: "0 0.75rem",
+  				backgroundColor: "transparent",
+  				border: "1px solid grey",
+  				borderRadius: "50%",
+ 				textAlign: "center",
+              }}
 			type='text'
 			inputmode='numeric'
 			pattern='[0-9]*'
