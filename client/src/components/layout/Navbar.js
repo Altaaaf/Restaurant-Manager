@@ -10,12 +10,11 @@ class Navbar extends Component {
             <Link
               to="/"
               style={{
-                fontFamily: "monospace"
+                fontFamily: "monospace",
+                fontSize:"20px"
               }}
-              className="col s5 brand-logo center black-text"
+              className="col s7 brand-logo center black-text"
             >
-    
-            
               <i className="material-icons">code</i>
               Barns Link
             </Link>

@@ -11,10 +11,10 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
-import Dashboard from './components/dashboard/Dashboard';
+import Dashboard from './components/dashboard/customer/Dashboard';
 import Menus from './components/dashboard/customer/Menus';
 import { Context } from './components/dashboard/customer/Context';
-import Footer from './components/layout/footer';
+
 
 
 // Check for token to keep user logged in
@@ -49,7 +49,7 @@ export default function App() {
 					<Switch>
 						<PrivateRoute exact path='/dashboard' component={Dashboard} />
 					</Switch>
-					<Footer />
+					
 				</div>
 			</Router>
 		</Provider>

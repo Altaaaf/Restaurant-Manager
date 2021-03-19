@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authActions';
+import { logoutUser } from '../../../actions/authActions';
 import { Link } from "react-router-dom";
+
+
+
 
 class Dashboard extends Component {
 	onLogoutClick = (e) => {
 		e.preventDefault();
 		this.props.logoutUser();
 	};
+	  
 
 	render() {
 		const { user } = this.props.auth;
@@ -16,6 +20,7 @@ class Dashboard extends Component {
 		console.log(user);
 
 		return (
+			
 			<div style={{ height: '75vh' }} className='container valign-wrapper'>
 				<div className='row'>
 					<div className='landing-copy col s12 white-text center-align'>

@@ -1,43 +1,46 @@
 import React, { Component } from "react";
-import { 
-    Box, 
-    Container, 
-    Row, 
-    Column, 
-    FooterLink, 
-    Heading, 
-  } from "./FooterStyles"; 
-    
+
+
+function Footer(props) {
+  const styles = {
+    footer: {
+      position: 'absolute',
+      bottom: 0,
+      width: '100%',
+      marginTop: '1rem',
+      marginLeft:"0rem",
+      display:'flex',
+      flexDirection:'column',
+      justifyContent:'center',
+      alignItems:'center',
+      color: "black",
+    },
+    line: {
+      height:'1px',
+      width:'90%',
+      background: props.color,
+    },
+    text: {
+      padding: '0.5rem',
+    }
+  }  
   
-class Footer extends Component {
-    render() {
-        return ( 
-      <Box className="flow-text white-text text-darken-1"> 
-        <Container style={{
-                fontFamily: "monospace"
-              }}> 
-          <Row> 
-            <Column> 
-              <Heading>About Us</Heading> 
-              
-            </Column> 
-            <Column> 
-              <Heading>Partnership</Heading> 
-              
-            </Column> 
-            <Column> 
-              <Heading>Contact Us</Heading> 
-              
-            </Column> 
-            <Column> 
-              <Heading>Social Media</Heading> 
-              
-            </Column> 
-          </Row> 
-        </Container> 
-      </Box> 
-    ); 
-  }
+  return (
+    <div style={styles.footer}>
+      <div style={styles.line}>
+      </div>
+      <div style={styles.text}>{props.title} created by NYIT Fab Five&copy; 2021
+      </div>
+    </div>
+  )
 }
+
+Footer.defaultProps = {
+  color: 'black',
+  title: 'Barns Link'
+}
+
+
+
 
   export default Footer; 
