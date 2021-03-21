@@ -12,6 +12,7 @@ class Dashboard extends Component {
 		e.preventDefault();
 		this.props.logoutUser();
 	};
+	
 	  
 
 	render() {
@@ -20,7 +21,7 @@ class Dashboard extends Component {
 		console.log(user);
 
 		return (
-			
+
 			<div style={{ height: '75vh' }} className='container valign-wrapper'>
 				<div className='row'>
 					<div className='landing-copy col s12 white-text center-align'>
@@ -46,7 +47,7 @@ class Dashboard extends Component {
 						</div>
 						<div className="col s6">
               			<Link
-               			 	to="customer/Menu"
+               			 	to="customer/meanus/Menu"
                 			style={{
                  			width: "140px",
                   			borderRadius: "3px",
@@ -56,6 +57,20 @@ class Dashboard extends Component {
                 			className="btn btn-large waves-effect waves-light hoverable navy accent-3"
             			  >
                 		Menu
+             		 </Link>
+            		</div>
+					<div className="col s6">
+              			<Link
+               			 	to="customer/booking/BookingPage"
+                			style={{
+                 			width: "140px",
+                  			borderRadius: "3px",
+                  			letterSpacing: "1.5px",
+							marginTop: '1rem',
+                			}}
+                			className="btn btn-large waves-effect waves-light hoverable navy accent-3"
+            			  >
+                		Reservation
              		 </Link>
             		</div>
 					</div>

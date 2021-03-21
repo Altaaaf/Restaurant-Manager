@@ -12,8 +12,9 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/customer/Dashboard';
-import Menus from './components/dashboard/customer/Menus';
-import { Context } from './components/dashboard/customer/Context';
+import Menus from './components/dashboard/customer/menus/Menus';
+import { Context } from './components/dashboard/customer/menus/Context';
+import BookingPage from './components/dashboard/customer/booking/BookingPage';
 
 
 
@@ -45,7 +46,8 @@ export default function App() {
 					<Route exact path='/' component={Landing} />
 					<Route exact path='/register' component={Register} />
 					<Route exact path='/login' component={Login} />
-					<Route exact path='/customer/menu' component={Menus} />
+					<Route exact path='/customer/menus' component={Menus} />
+					<Route exact path='/customer/booking' component={BookingPage} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard' component={Dashboard} />
 					</Switch>
