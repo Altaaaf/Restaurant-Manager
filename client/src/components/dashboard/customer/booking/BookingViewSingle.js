@@ -1,39 +1,56 @@
 import React from 'react';
-import BookingApi from '/BookingApi';
-
-const BookingView = ({booking, assignSeat}) => {
-	let onSeatAssign = function(){
-		if(confirm(`Are you sure you want to seat ${booking.firstName}?`)){
-			assignSeat(booking);
-		}
+import BookingApi from '../api/BookingApi';
+import PropTypes from 'prop-types';
+const BookingView = ({ booking, assignSeat }) => {
+	let onSeatAssign = function () {
+		// I think confirm is a function that's missing -
+		// Find the function and add it to this so it can be used..
+		// Commented it out for now
+		//if (confirm(`Are you sure you want to seat ${booking.firstName}?`)) {
+		//	assignSeat(booking);
+		//}
 	};
 	return (
 		<div>
-			<h3>{booking.firstName} {booking.lastName}</h3>
-			<small>Booking #{booking.bookingId}</small><br/>
-			<small>Time: {booking.diningDate}</small><br/>
-			<small>Cover: {booking.coverNo}</small><br/>
-			<small>Phone: {booking.phone}</small><br/>
+			<h3>
+				{booking.firstName} {booking.lastName}
+			</h3>
+			<small>Booking #{booking.bookingId}</small>
+			<br />
+			<small>Time: {booking.diningDate}</small>
+			<br />
+			<small>Cover: {booking.coverNo}</small>
+			<br />
+			<small>Phone: {booking.phone}</small>
+			<br />
 			<div>
-				<p className="pull-right">
+				<p className='pull-right'>
 					{(() => {
 						if (!booking.isSeated) {
-							return <button type="button" title="click to seat" onClick={onSeatAssign} className="btn btn-warning">Not seated</button>;
+							return (
+								<button
+									type='button'
+									title='click to seat'
+									onClick={onSeatAssign}
+									className='btn btn-warning'>
+									Not seated
+								</button>
+							);
 						} else {
-							return <div className="success">Seated</div>;
+							return <div className='success'>Seated</div>;
 						}
 					})()}
 				</p>
-				<br/>
+				<br />
 			</div>
-			<hr/>
+			<hr />
 		</div>
 	);
 };
 
 BookingView.propTypes = {
-	booking: React.PropTypes.object.required,
-	assignSeat: React.PropTypes.function
+	booking: PropTypes.object.isRequired,
+	assignSeat: PropTypes.func,
 };
 
 export default BookingView;

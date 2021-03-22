@@ -12,23 +12,18 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboards from './components/dashboard/customer/Dashboards';
-import Dashboard from './components/dashboard/manager/Dashboard';
+import Dashboard from './components/dashboard/Manager/Dashboard';
 import Menus from './components/dashboard/customer/menus/Menus';
 import './App.css';
 
 import Overview from './components/Pages/Overview/Overview';
-import {Reports, ReportsOne, ReportsTwo, ReportsThree} from './components/Pages/Reports/Reports';
+import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './components/Pages/Reports/Reports';
 import Revenue from './components/Pages/Revenue/Revenue';
 import Users from './components/Pages/Users/Users';
 import Analytics from './components/Pages/Analytics/analytics';
-import Sidebar from './components/dashboard/manager/Sidebar';
-i
-
-
-
+import Sidebar from './components/dashboard/Manager/Sidebar';
 
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
-
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -57,12 +52,8 @@ export default function App() {
 					<Route exact path='/' component={Landing} />
 					<Route exact path='/register' component={Register} />
 					<Route exact path='/login' component={Login} />
-<<<<<<< HEAD
-					<Route exact path='/customer/Menu' component={Menus} />
-=======
 					<Route exact path='/customer/menus' component={Menus} />
 					<Route exact path='/customer/booking' component={BookingPage} />
->>>>>>> 6b252ebb250ec7081af033e7509a1e2da3920571
 					<Switch>
 						<PrivateRoute exact path='/customer/Dashboards' component={Dashboards} />
 						<PrivateRoute exact path='/manager/Dashboards' component={Dashboard} />
@@ -74,7 +65,6 @@ export default function App() {
 						<Route path='/reports/reports/maintenance' exact component={ReportsThree} />
 						<PrivateRoute path='/revenue/revenue' exact component={Revenue} />
 						<PrivateRoute path='/users/users' exact component={Users} />
-						
 					</Switch>
 				</div>
 			</Router>
