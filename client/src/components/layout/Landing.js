@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Footer from './footer';
+import Navbar from './Navbar';
 
 
 class Landing extends Component {
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div className = "Nav-Top">
+        <Navbar />
+      <div style={{ height: "75vh" }} className="valign-wrapper">
         <div className="row">
+        
           <div className="col s12 white-text center-align">
             <h4>
               <b>Automate your restaurant business with us </b>
@@ -45,8 +50,11 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+        <Footer />
+      </div>
       </div>
     );
+    
   }
 }
 
