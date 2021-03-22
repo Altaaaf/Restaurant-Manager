@@ -7,6 +7,7 @@ class Navbar extends Component {
       <div className="navbar-fixed">
         <nav className="z-depth-0">
           <div className="nav-wrapper white">
+        
             <Link
               to="/"
               style={{
