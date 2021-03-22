@@ -11,10 +11,9 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
-<<<<<<< HEAD
+import Dashboards from './components/dashboard/customer/Dashboards';
 import Dashboard from './components/dashboard/manager/Dashboard';
-import Menus from './components/dashboard/customer/Menus';
-import { Context } from './components/dashboard/customer/Context';
+import Menus from './components/dashboard/customer/menus/Menus';
 import './App.css';
 
 import Overview from './components/Pages/Overview/Overview';
@@ -23,21 +22,12 @@ import Revenue from './components/Pages/Revenue/Revenue';
 import Users from './components/Pages/Users/Users';
 import Analytics from './components/Pages/Analytics/analytics';
 import Sidebar from './components/dashboard/manager/Sidebar';
-
-//<PrivateRoute path='./././inventory' exact component={Inventory} />
-//<PrivateRoute path='./././payroll' exact component={Payroll} />
-
-//import Payroll from './components/Pages/Overview/Payroll';
-//import Inventory from './components/Pages/Overview/Inventory';
+i
 
 
 
-=======
-import Dashboard from './components/dashboard/customer/Dashboard';
-import Menus from './components/dashboard/customer/menus/Menus';
-import { Context } from './components/dashboard/customer/menus/Context';
+
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
->>>>>>> 28e6afd462559ca4c24f76e0f189d3c2aeff297f
 
 
 
@@ -71,7 +61,8 @@ export default function App() {
 					<Route exact path='/customer/menus' component={Menus} />
 					<Route exact path='/customer/booking' component={BookingPage} />
 					<Switch>
-						<PrivateRoute exact path='/dashboard' component={Dashboard} />
+						<PrivateRoute exact path='/customer/Dashboards' component={Dashboards} />
+						<PrivateRoute exact path='/manager/Dashboards' component={Dashboard} />
 						<Route path='/overview' exact component={Overview} />
 						<PrivateRoute path='analytics/analytics' exact component={Analytics} />
 						<Route path='/reports/reports' exact component={Reports} />
@@ -80,7 +71,7 @@ export default function App() {
 						<Route path='/reports/reports/maintenance' exact component={ReportsThree} />
 						<PrivateRoute path='/revenue/revenue' exact component={Revenue} />
 						<PrivateRoute path='/users/users' exact component={Users} />
-						<PrivateRoute exact path='/customer/menu' component={Menus} />
+						
 					</Switch>
 				</div>
 			</Router>
