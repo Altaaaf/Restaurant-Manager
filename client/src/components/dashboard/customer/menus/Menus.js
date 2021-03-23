@@ -5,9 +5,7 @@ import { Provider } from './Context';
 import './MenuStyles.css';
 import Total from './Total';
 import axios from 'axios';
-import { Link } from "react-router-dom";
-
-
+import { Link } from 'react-router-dom';
 
 class Menus extends Component {
 	constructor() {
@@ -16,21 +14,21 @@ class Menus extends Component {
 			menu: {
 				mains: [
 					{
-						Name: '',
-						Description: '',
-						Price: '',
+						Name: 'testing',
+						Description: 'testing',
+						Price: '1',
 					},
 				],
 				sides: [
 					{
-						Name: '',
-						Price: '',
+						Name: 'testing',
+						Price: '1',
 					},
 				],
 				drinks: [
 					{
-						Name: '',
-						Price: '',
+						Name: 'testing',
+						Price: '1',
 					},
 				],
 			},
@@ -39,10 +37,14 @@ class Menus extends Component {
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		axios
 			.get('http://localhost:5000/Api/Menu/View')
-			.then((res) => this.setState({ menu: res.data }))
+			.then((res) => {
+				const data = res.data;
+				console.log(data);
+				this.setState({ menu: data });
+			})
 			.catch((err) => this.setState({ error: err }));
 		this.setState({ loading: false });
 	}
@@ -53,7 +55,6 @@ class Menus extends Component {
 		return (
 			<Provider>
 				<div className='menu'>
-					
 					<Mains meals={menu.mains} />
 					<aside className='aside'>
 						<Extras type='Sides' items={menu.sides} />
@@ -61,37 +62,34 @@ class Menus extends Component {
 					</aside>
 					<Total data={this.state.menu} />
 				</div>
-				<div style={{ height: '15vh' }}className="container valign-wrapper" >
-				<div className="row">
-				<div className="col s6 center-align">
-              <Link
-                to="/Dashboard"
-                style={{
-                  width: "140px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px"
-                }}
-                className="btn btn-large waves-effect waves-light hoverable navy accent-3"
-              >
-                Previous
-              </Link>
-            </div>
-            <div className="col s6 center-align">
-              <Link
-                to="/"
-                style={{
-                  width: "140px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px"
-                }}
-                className="btn btn-large waves-effect waves-light hoverable navy accent-3"
-              >
-                Order Now
-              </Link>
-			  </div>
-			  </div>
-			  </div>
-			 
+				<div style={{ height: '15vh' }} className='container valign-wrapper'>
+					<div className='row'>
+						<div className='col s6 center-align'>
+							<Link
+								to='/Dashboard'
+								style={{
+									width: '140px',
+									borderRadius: '3px',
+									letterSpacing: '1.5px',
+								}}
+								className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
+								Previous
+							</Link>
+						</div>
+						<div className='col s6 center-align'>
+							<Link
+								to='/'
+								style={{
+									width: '140px',
+									borderRadius: '3px',
+									letterSpacing: '1.5px',
+								}}
+								className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
+								Order Now
+							</Link>
+						</div>
+					</div>
+				</div>
 			</Provider>
 		);
 	}

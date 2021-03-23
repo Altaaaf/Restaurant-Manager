@@ -6,24 +6,10 @@ export default function Mains({ meals }) {
 		<section className='mains'>
 			{meals.map((meal, index) => (
 				<article className='menu-item' key={index}>
-					<h3 className='mains-name'>{meal.name}</h3>
-					<Input
-						style={{
-							width: '1rem',
-							height: '1rem',
-							padding: '0.25rem',
-							margin: '0 0.75rem',
-							backgroundColor: 'transparent',
-							border: '1px solid grey',
-							borderRadius: '50%',
-							textAlign: 'center',
-						}}
-						type='mains'
-						name={meal.name}
-						index={index}
-					/>
-					<strong className='mains-price'>${meal.price}</strong>
-					<p className='mains-description'>{meal.description}</p>
+					<h3 className='mains-name'>{meal.Name}</h3>
+					<Input type='mains' name={meal.Name} index={index} />
+					<strong className='mains-price'>${meal.Price}</strong>
+					<p className='mains-description'>{meal.Description}</p>
 				</article>
 			))}
 		</section>
