@@ -1,24 +1,9 @@
-<<<<<<< HEAD
+
 :root {
-	--primary: #312951;
-	--secondary: #473d72;
+	--primary: #2eac9b;
+	--secondary: #48359c;
 	--light: #fafafd;
-}
-
-=======
-
-:root {
-	--primary: #071820;
-	--secondary: #12413a;
-	--light: #f9faf8;
-}
-<<<<<<< HEAD:client/src/components/dashboard/customer/MenuStyles.css
->>>>>>> 9e09d1d6b8c497d8127ec3e1d5a6fcaa5f7f05d9
-=======
-
-
->>>>>>> 6b252ebb250ec7081af033e7509a1e2da3920571:client/src/components/dashboard/customer/menus/MenuStyles.css
-html {
+}html {
 	box-sizing: border-box;
 }
 

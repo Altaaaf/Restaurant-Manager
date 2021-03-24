@@ -33,21 +33,8 @@ class Dashboard extends Component {
 							</p>
 						</h4>
 						<div className="col s6">
-						<button
-							style={{
-								width: '140px',
-								borderRadius: '3px',
-								letterSpacing: '1.5px',
-								marginTop: '1rem',
-							}}
-							onClick={this.onLogoutClick}
-							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
-							Logout
-						</button>
-						</div>
-						<div className="col s6">
               			<Link
-               			 	to="customer/meanus/Menu"
+               			 	to="/customer/menus"
                 			style={{
                  			width: "140px",
                   			borderRadius: "3px",
@@ -61,7 +48,7 @@ class Dashboard extends Component {
             		</div>
 					<div className="col s6">
               			<Link
-               			 	to="customer/booking/BookingPage"
+               			 	to="/customer/booking"
                 			style={{
                  			width: "140px",
                   			borderRadius: "3px",
@@ -70,9 +57,22 @@ class Dashboard extends Component {
                 			}}
                 			className="btn btn-large waves-effect waves-light hoverable navy accent-3"
             			  >
-                		Reservation
+                		Book
              		 </Link>
             		</div>
+					<div className="col s6">
+						<button
+							style={{
+								width: '140px',
+								borderRadius: '3px',
+								letterSpacing: '1.5px',
+								marginTop: '1rem',
+							}}
+							onClick={this.onLogoutClick}
+							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
+							Logout
+						</button>
+						</div>
 					</div>
 				</div>
 			</div>

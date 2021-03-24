@@ -54,7 +54,7 @@ export const SidebarData = [
   },
   {
     title: 'Menu',
-    path: 'customer/Menu',
+    path: '',
     icon: <FaIcons.FaCartPlus />
   },
   {
@@ -86,6 +86,11 @@ export const SidebarData = [
   {
     title: 'Users',
     path: '/users/users',
+    icon: <IoIcons.IoMdHelpCircle />
+  },
+  {
+    title: 'Log Out',
+    path: '/',
     icon: <IoIcons.IoMdHelpCircle />
   }
 ];

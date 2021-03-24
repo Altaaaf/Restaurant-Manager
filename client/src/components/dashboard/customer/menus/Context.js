@@ -12,5 +12,7 @@ export const Provider = (props) => {
 		setItems({ ...items, [key]: Number(amount) });
 	};
 
-	return <Context.Provider value={[items, updateItem]}>{props.children}</Context.Provider>;
+	return <Context.Provider value={[items, updateItem]}>
+	{props.children}
+	</Context.Provider>;
 };

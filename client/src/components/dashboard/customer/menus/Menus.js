@@ -60,13 +60,13 @@ class Menus extends Component {
 						<Extras type='Sides' items={menu.sides} />
 						<Extras type='Drinks' items={menu.drinks} />
 					</aside>
-					<Total data={this.state.menu} />
+					<Total data={this.state.menu}/>
 				</div>
 				<div style={{ height: '15vh' }} className='container valign-wrapper'>
 					<div className='row'>
 						<div className='col s6 center-align'>
 							<Link
-								to='/Dashboard'
+								to='/dashboard/customer/Dashboards'
 								style={{
 									width: '140px',
 									borderRadius: '3px',

@@ -25,7 +25,7 @@ class Login extends Component {
 			} else {
 				console.log('not a manager!');
 			}
-			this.props.history.push('/dashboard');
+			this.props.history.push('/dashboard/customer/Dashboards');
 		}
 	}
 
@@ -37,7 +37,7 @@ class Login extends Component {
 			} else {
 				console.log('not a manager!');
 			}
-			this.props.history.push('/dashboard');
+			this.props.history.push('/dashboard/customer/Dashboards');
 		}
 
 		if (nextProps.errors) {
