@@ -53,9 +53,7 @@ class BookingPage extends React.Component {
 						onChange={this.onFieldChange}
 					/>
 				</div>
-				<div className='col-xs-4'>
-					<BookingsList bookings={this.state.bookingsList} />
-				</div>
+				
 			</div>
 		);
 	}

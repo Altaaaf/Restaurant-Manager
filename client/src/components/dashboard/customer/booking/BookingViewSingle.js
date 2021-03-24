@@ -10,42 +10,8 @@ const BookingView = ({ booking, assignSeat }) => {
 		//	assignSeat(booking);
 		//}
 	};
-	return (
-		<div>
-			<h3>
-				{booking.firstName} {booking.lastName}
-			</h3>
-			<small>Booking #{booking.bookingId}</small>
-			<br />
-			<small>Time: {booking.diningDate}</small>
-			<br />
-			<small>Cover: {booking.coverNo}</small>
-			<br />
-			<small>Phone: {booking.phone}</small>
-			<br />
-			<div>
-				<p className='pull-right'>
-					{(() => {
-						if (!booking.isSeated) {
-							return (
-								<button
-									type='button'
-									title='click to seat'
-									onClick={onSeatAssign}
-									className='btn btn-warning'>
-									Not seated
-								</button>
-							);
-						} else {
-							return <div className='success'>Seated</div>;
-						}
-					})()}
-				</p>
-				<br />
-			</div>
-			<hr />
-		</div>
-	);
+	
+		
 };
 
 BookingView.propTypes = {

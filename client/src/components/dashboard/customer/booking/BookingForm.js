@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 const BookingForm = ({ booking, onSave, onChange }) => {
 	return (
 		<form>
+			<div style={{ height: '15vh' }} className='container valign-wrapper'>
+				<div className='row'>
+						<div className='col s12 dark-text center-align'>
 			<InputField
 				name='firstName'
 				value={booking.firstName}
@@ -30,8 +33,23 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 
 			<InputField name='phone' value={booking.phone} label='Phone' onChange={onChange} />
 
-			<input type='submit' className='btn btn-primary' onClick={onSave} />
-		</form>
+			<div className="col s12">
+						<button
+							style={{
+								width: '140px',
+								borderRadius: '3px',
+								letterSpacing: '1.5px',
+								marginTop: '1rem',
+							}}
+							onClick={onSave}
+							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
+							summit
+						</button>
+						</div>
+			</div>
+		</div>
+		</div>
+	</form>
 	);
 };
 
