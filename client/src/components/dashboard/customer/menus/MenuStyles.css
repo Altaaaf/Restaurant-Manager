@@ -1,7 +1,7 @@
 
 :root {
-	--primary: #0f9281;
-	--secondary: #48359c;
+	--primary: #eaeff0;
+	--secondary: #4b2828;
 	--light: #fafafd;
 }html {
 	box-sizing: border-box;
@@ -15,11 +15,11 @@
 
 ::selection {
 	background-color: var(--primary);
-	color: var(--light);
+	color: ;
 }
 
 body {
-	color: var(--primary);
+	color: var(--secondary);
 	background-color: var(--primary);
 	
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
@@ -41,7 +41,7 @@ input {
 	padding: 2rem 2.25rem 1rem;
 	margin: 0 auto;
 	max-width: 50rem;
-	background-color: var(--light);
+	background-color: #eaeff0;
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 	font-size: 2rem;
 }
@@ -82,7 +82,7 @@ input {
 .mains-description {
 	flex: 1 1 100%;
 	margin: 0.75rem 0 0;
-	color: var(--primary);
+	color: var(--secondary);
 }
 
 .aside {
@@ -90,7 +90,7 @@ input {
 }
 
 .extras {
-	color: var(--primary);
+	color: var(--secondary);
 }
 
 .extras + .extras {
@@ -110,7 +110,7 @@ input {
 
 .extras-heading {
 	margin: 0 0 1.5rem;
-	border-bottom: 1px solid var(--primary);
+	border-bottom: 1px solid var(--secondary);
 	font-size: 2rem;
 }
 
@@ -128,10 +128,10 @@ input {
 	align-items: flex-end;
 	position: sticky;
 	bottom: 0;
-	color: var(--primary);
-	background-color: var(--light);
+	color: var(--secondary);
+	background-color:  #eaeff0;
 	border-top: 1px solid var(--secondary);
-	box-shadow: 0 -0.5rem 0.75rem 0.5rem var(--light);
+
 }
 
 @media (min-width: 660px) {

@@ -43,7 +43,7 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 							}}
 							onClick={onSave}
 							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
-							summit
+							submit
 						</button>
 						</div>
 			</div>

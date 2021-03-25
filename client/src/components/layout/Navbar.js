@@ -16,7 +16,7 @@ class Navbar extends Component {
               }}
               className="col s7 brand-logo center black-text"
             >
-              <i className="material-icons">code</i>
+              <i className="material-icons"></i>
               Barns Link
             </Link>
             

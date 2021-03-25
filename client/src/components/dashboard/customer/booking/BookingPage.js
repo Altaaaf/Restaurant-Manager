@@ -45,7 +45,7 @@ class BookingPage extends React.Component {
 	render() {
 		return (
 			<div className='row'>
-				<div className='col-xs-8'>
+				<div className='center-align'>
 					<h1>Make a booking</h1>
 					<BookingForm
 						booking={this.state.booking}

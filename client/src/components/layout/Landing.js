@@ -8,16 +8,16 @@ class Landing extends Component {
   render() {
     return (
       <div className = "Nav-Top">
-        <Navbar />
+        
       <div style={{ height: "75vh" }} className="valign-wrapper">
         <div className="row">
         
-          <div className="col s12 white-text center-align">
+          <div className="col s12 dark-text center-align">
             <h4>
               <b>Automate your restaurant business with us </b>
               
             </h4>
-            <p className="flow-text white-text text-darken-1">
+            <p className="flow-text dark-text text-darken-1">
               A full-stack app created by the Fabulous Five from NYIT
               
             </p>
