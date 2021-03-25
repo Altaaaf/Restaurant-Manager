@@ -24,9 +24,12 @@ class ManagerDashboard extends Component {
 		console.log(user);
 
 		return (
-			
-			<div className="dashboard container center">
+			<div style={{ height: '15vh' }} className='container valign-wrapper'>
+					<div className='row'>
+						<div className='col s6 center-align'>
 				<Sidebar/>
+			</div>
+			</div>
 			</div>
 			
 		);
