@@ -17,9 +17,7 @@ class Login extends Component {
 
 	componentDidMount() {
 		// If logged in and user navigates to Login page, should redirect them to dashboard
-		console.log(this.props.auth);
 		if (this.props.auth.isAuthenticated) {
-			console.log(this.props.auth.user);
 			if (this.props.auth.user.accountType == 'Manager') {
 				console.log('Role type is manager');
 				this.props.history.push('/dashboard/manager/ManagerDashboard');
@@ -31,6 +29,15 @@ class Login extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			if (nextProps.auth.user.accountType == 'Manager') {
+				console.log('Role type is manager');
+				nextProps.history.push('/dashboard/manager/ManagerDashboard');
+			} else {
+				console.log('not a manager - means customer!');
+				nextProps.history.push('/dashboard/customer/Dashboards');
+			}
+		}
 		if (nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors,
