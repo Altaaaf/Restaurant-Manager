@@ -7,6 +7,7 @@ import Total from './Total';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
 class Menus extends Component {
 	constructor() {
 		super();
@@ -54,6 +55,7 @@ class Menus extends Component {
 		const { menu, error, loading } = this.state;
 		return (
 			<Provider>
+			
 				<div className='menu'>
 					<Mains meals={menu.mains} />
 					<aside className='aside'>

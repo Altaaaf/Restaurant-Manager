@@ -64,20 +64,25 @@ class Register extends Component {
 			<div className='container'>
 				<div className='row'>
 					<div className='col s8 offset-s2'>
-						<Link to='/' className='btn-flat white-text waves-effect'>
+						<Link to='/' className='btn-flat dark-text waves-effect'>
 							<i className='material-icons left'>keyboard_backspace</i> Back to home
 						</Link>
-						<div className='col s12 white-text' style={{ paddingLeft: '11.250px' }}>
+						<div className='col s12 dark-text' style={{ paddingLeft: '11.250px' }}>
 							<h4>
 								<b>Register</b> below
 							</h4>
-							<p className='white-text text-darken-1'>
+							<p className='dark-text text-darken-1'>
 								Already have an account? <Link to='/login'>Log in</Link>
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
+<<<<<<< HEAD
 							<p className='red-text col s12'> {this.state.errors.status}</p>
 							<div className='input-field white-text col s12'>
+=======
+							<p className='red-text col s12'>  {this.state.errors.status}</p>
+							<div className='input-field dark-text col s12'>
+>>>>>>> 1fdf56a5c3730bccd7e794dfa438948c75f13e3a
 								<input
 									onChange={this.onChange}
 									value={this.state.name}
@@ -88,9 +93,13 @@ class Register extends Component {
 										invalid: errors.name,
 									})}
 								/>
+<<<<<<< HEAD
 								<label className='white-text' htmlFor='name'>
 									Name
 								</label>
+=======
+								<label className='dark-text' htmlFor='name'>Name</label>
+>>>>>>> 1fdf56a5c3730bccd7e794dfa438948c75f13e3a
 								<span className='red-text'>{errors.name}</span>
 							</div>
 							<div className='input-field col s12'>
@@ -104,9 +113,13 @@ class Register extends Component {
 										invalid: errors.email,
 									})}
 								/>
+<<<<<<< HEAD
 								<label className='white-text' htmlFor='email'>
 									Email
 								</label>
+=======
+								<label className='dark-text' htmlFor='email'>Email</label>
+>>>>>>> 1fdf56a5c3730bccd7e794dfa438948c75f13e3a
 								<span className='red-text'>{errors.email}</span>
 							</div>
 							<div className='input-field col s12'>
@@ -120,9 +133,13 @@ class Register extends Component {
 										invalid: errors.password,
 									})}
 								/>
+<<<<<<< HEAD
 								<label className='white-text' htmlFor='password'>
 									Password
 								</label>
+=======
+								<label className='dark-text' htmlFor='password'>Password</label>
+>>>>>>> 1fdf56a5c3730bccd7e794dfa438948c75f13e3a
 								<span className='red-text'>{errors.password}</span>
 							</div>
 
@@ -137,9 +154,13 @@ class Register extends Component {
 										invalid: errors.password2,
 									})}
 								/>
+<<<<<<< HEAD
 								<label className='white-text' htmlFor='password2'>
 									Confirm Password
 								</label>
+=======
+								<label className='dark-text' htmlFor='password2'>Confirm Password</label>
+>>>>>>> 1fdf56a5c3730bccd7e794dfa438948c75f13e3a
 								<span className='red-text'>{errors.password2}</span>
 							</div>
 

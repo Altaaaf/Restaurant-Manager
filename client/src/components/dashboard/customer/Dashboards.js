@@ -24,10 +24,10 @@ class Dashboard extends Component {
 
 			<div style={{ height: '75vh' }} className='container valign-wrapper'>
 				<div className='row'>
-					<div className='landing-copy col s12 white-text center-align'>
+					<div className='landing-copy col s12 dark-text center-align'>
 						<h4>
 							<b>Hey there,</b> {user.name.split(' ')[0]}
-							<p className='flow-text white-text text-darken'>
+							<p className='flow-text dark-text text-darken'>
 								Restaurant Automation Management Hub{' '}
 								<span style={{ fontFamily: 'monospace' }}>Barns</span> Link 👏
 							</p>

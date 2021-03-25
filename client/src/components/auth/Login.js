@@ -66,11 +66,11 @@ class Login extends Component {
 						<Link to='/' className='btn-flat waves-effect'>
 							<i className='material-icons left'>keyboard_backspace</i> Back to home
 						</Link>
-						<div className='col s12 white-text' style={{ paddingLeft: '11.250px' }}>
+						<div className='col s12 dark-text' style={{ paddingLeft: '11.250px' }}>
 							<h4>
 								<b>Login</b> below
 							</h4>
-							<p className='white-text text-darken-1'>
+							<p className='dark-text text-darken-1'>
 								Don't have an account? <Link to='/register'>Register</Link>
 							</p>
 						</div>
@@ -87,7 +87,7 @@ class Login extends Component {
 										invalid: errors.email || errors.emailnotfound,
 									})}
 								/>
-								<label className='white-text' htmlFor='username'>
+								<label className='dark-text' htmlFor='username'>
 									Email
 								</label>
 								<span className='red-text'>
@@ -106,7 +106,7 @@ class Login extends Component {
 										invalid: errors.password || errors.passwordincorrect,
 									})}
 								/>
-								<label className='white-text' htmlFor='password'>
+								<label className='dark-text' htmlFor='password'>
 									Password
 								</label>
 								<span className='red-text'>

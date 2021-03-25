@@ -38,6 +38,7 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 
 						<InputField name='phone' value={booking.phone} label='Phone' onChange={onChange} />
 
+<<<<<<< HEAD
 						<div className='col s12'>
 							<button
 								style={{
@@ -50,6 +51,20 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 								className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
 								summit
 							</button>
+=======
+			<div className="col s12">
+						<button
+							style={{
+								width: '140px',
+								borderRadius: '3px',
+								letterSpacing: '1.5px',
+								marginTop: '1rem',
+							}}
+							onClick={onSave}
+							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
+							submit
+						</button>
+>>>>>>> 1fdf56a5c3730bccd7e794dfa438948c75f13e3a
 						</div>
 					</div>
 				</div>
