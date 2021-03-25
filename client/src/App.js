@@ -10,6 +10,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/customer/Dashboards';
 import ManagerDashboard from './components/dashboard/Manager/ManagerDashboard';
@@ -53,11 +54,16 @@ export default function App() {
 					<Route exact path='/' component={Landing} />
 					<Route exact path='/register' component={Register} />
 					<Route exact path='/login' component={Login} />
+					<Route exact path='/logout' component={Logout} />
 					<Route exact path='/customer/menus' component={Menus} />
 					<Route exact path='/customer/booking' component={BookingPage} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
-						<PrivateRoute exact path='/dashboard/manager/ManagerDashboard' component={ManagerDashboard} />
+						<PrivateRoute
+							exact
+							path='/dashboard/manager/ManagerDashboard'
+							component={ManagerDashboard}
+						/>
 						<Route path='/overview' exact component={Overview} />
 						<PrivateRoute path='analytics/analytics' exact component={Analytics} />
 						<Route path='/reports/reports' exact component={Reports} />
