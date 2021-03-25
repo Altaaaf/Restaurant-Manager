@@ -4,7 +4,7 @@ import toastr from 'toastr';
 import BookingApi from '../api/BookingApi';
 import BookingForm from './BookingForm';
 import BookingsList from './BookingList';
-import './booking.css';
+
 
 class BookingPage extends React.Component {
 	constructor(props, context) {
@@ -44,7 +44,7 @@ class BookingPage extends React.Component {
 
 	render() {
 		return (
-			<div style={{ height: '35vh' }} className='container valign-wrapper'>
+			<div style={{ height: '65vh' }} className='container valign-wrapper'>
 			<div className='row'>
 			<div className='col s12 center-align'>
 
