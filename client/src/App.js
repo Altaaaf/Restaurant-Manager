@@ -17,12 +17,7 @@ import ManagerDashboard from './components/dashboard/Manager/ManagerDashboard';
 import Menus from './components/dashboard/customer/menus/Menus';
 import './App.css';
 
-import Overview from './components/Pages/Overview/Overview';
-import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './components/Pages/Reports/Reports';
-import Revenue from './components/Pages/Revenue/Revenue';
-import Users from './components/Pages/Users/Users';
-import Analytics from './components/Pages/Analytics/analytics';
-import Sidebar from './components/dashboard/Manager/Sidebar';
+
 
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
 
@@ -64,14 +59,7 @@ export default function App() {
 							path='/dashboard/manager/ManagerDashboard'
 							component={ManagerDashboard}
 						/>
-						<Route path='/overview' exact component={Overview} />
-						<PrivateRoute path='analytics/analytics' exact component={Analytics} />
-						<Route path='/reports/reports' exact component={Reports} />
-						<Route path='/Reports/Reports/ep' exact component={ReportsOne} />
-						<Route path='/Reports/Reports/cs' exact component={ReportsTwo} />
-						<Route path='/reports/reports/maintenance' exact component={ReportsThree} />
-						<PrivateRoute path='/revenue/revenue' exact component={Revenue} />
-						<PrivateRoute path='/users/users' exact component={Users} />
+						
 					</Switch>
 				</div>
 			</Router>

@@ -1,12 +1,4 @@
 
-:root {
-	--primary: #eaeff0;
-	--secondary: #4b2828;
-	--light: #fafafd;
-}html {
-	box-sizing: border-box;
-}
-
 *,
 *:before,
 *:after {
