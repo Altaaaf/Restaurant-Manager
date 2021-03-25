@@ -7,7 +7,7 @@ class Logout extends Component {
 		this.props.logoutUser();
 	}
 	render() {
-		return <h1> Successfully logged out..?</h1>;
+		return <h3> Successfully logged out.</h3>;
 	}
 }
 const mapStateToProps = (state) => ({
