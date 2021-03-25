@@ -44,16 +44,17 @@ class BookingPage extends React.Component {
 
 	render() {
 		return (
+			<div style={{ height: '35vh' }} className='container valign-wrapper'>
 			<div className='row'>
-				<div className='center-align'>
-					<h1>Make a booking</h1>
+			<div className='col s12 center-align'>
+
 					<BookingForm
 						booking={this.state.booking}
 						onSave={this.onSaveForm}
 						onChange={this.onFieldChange}
 					/>
 				</div>
-				
+				</div>
 			</div>
 		);
 	}
