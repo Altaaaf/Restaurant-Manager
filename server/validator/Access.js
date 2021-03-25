@@ -19,7 +19,7 @@ const Register = (data) => {
 	return schema.validate(data);
 };
 
-const BookingForm = (data) => {
+const BookingPage = (data) => {
 	const schema = Joi.object({
 		firstName: Joi.string().min(1).required(),
 		lastName: Joi.string().min(1).required(),
@@ -28,4 +28,4 @@ const BookingForm = (data) => {
 	});
 	return schema.validate(data);
 };
-module.exports = { Login, Register,BookingForm };
+module.exports = { Login, Register, BookingPage };

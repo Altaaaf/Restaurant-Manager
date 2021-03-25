@@ -3,12 +3,11 @@ const Reservation = require('../Database/Models/Reservation');
 const { BookingForm } = require('../validator/Access');
 const router = express.Router();
 
-router.post('/BookingForm', async (req, res) => {
 	
 
-router.post('/CreateReservation', async (req, res) => {
+router.post('/BookingPage', async (req, res) => {
 	try {
-		const { error } = BookingForm(req.body);
+		const { error } = BookingPage(req.body);
 		if (error) {
 			console.error(error.message);
 			return res.status(400).json({

@@ -30,6 +30,7 @@ class BookingPage extends React.Component {
 	}
 
 	render() {
+		
 		return (
 			<div style={{ height: '65vh' }} className='container valign-wrapper'>
 				<div className='row'>
