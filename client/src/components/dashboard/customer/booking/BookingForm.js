@@ -36,7 +36,10 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 							onChange={onChange}
 						/>
 
-						<InputField name='phone' value={booking.phone} label='Phone' onChange={onChange} />
+						<InputField name='phone' 
+						value={booking.phone} 
+						label='Phone' 
+						onChange={onChange} />
 
 						<div className='col s12'>
 							<button

@@ -19,4 +19,13 @@ const Register = (data) => {
 	return schema.validate(data);
 };
 
-module.exports = { Login, Register };
+const BookingForm = (data) => {
+	const schema = Joi.object({
+		firstName: Joi.string().min(1).required(),
+		lastName: Joi.string().min(1).required(),
+		coverNo: Joi.string().min(2).required("reservation for 2 people and up"),
+		phone:Joi.string().min(10).required("10 digits phone number")
+	});
+	return schema.validate(data);
+};
+module.exports = { Login, Register,BookingForm };
