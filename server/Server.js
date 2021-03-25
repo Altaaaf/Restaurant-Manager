@@ -21,6 +21,7 @@ app.use(passport.initialize());
 
 app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
+app.use('/Api/Reservations', require('./routes/Reservations'));
 app.get('*', (req, res) => {
 	res.status(200).json({ msg: 'Server is up and running...' });
 });

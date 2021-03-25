@@ -18,9 +18,17 @@ class Register extends Component {
 	}
 
 	componentDidMount() {
-		// If logged in and user navigates to Register page, should redirect them to dashboard
+		// If logged in and user navigates to Login page, should redirect them to dashboard
+		console.log(this.props.auth);
 		if (this.props.auth.isAuthenticated) {
-			this.props.history.push('/dashboard/customer/Dashboards');
+			console.log(this.props.auth.user);
+			if (this.props.auth.user.accountType == 'Manager') {
+				console.log('Role type is manager');
+				this.props.history.push('/dashboard/manager/ManagerDashboard');
+			} else {
+				console.log('not a manager - means customer!');
+				this.props.history.push('/dashboard/customer/Dashboards');
+			}
 		}
 	}
 
@@ -68,7 +76,7 @@ class Register extends Component {
 							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
-							<p className='red-text col s12'>  {this.state.errors.status}</p>
+							<p className='red-text col s12'> {this.state.errors.status}</p>
 							<div className='input-field white-text col s12'>
 								<input
 									onChange={this.onChange}
@@ -80,7 +88,9 @@ class Register extends Component {
 										invalid: errors.name,
 									})}
 								/>
-								<label className='white-text' htmlFor='name'>Name</label>
+								<label className='white-text' htmlFor='name'>
+									Name
+								</label>
 								<span className='red-text'>{errors.name}</span>
 							</div>
 							<div className='input-field col s12'>
@@ -94,7 +104,9 @@ class Register extends Component {
 										invalid: errors.email,
 									})}
 								/>
-								<label className='white-text' htmlFor='email'>Email</label>
+								<label className='white-text' htmlFor='email'>
+									Email
+								</label>
 								<span className='red-text'>{errors.email}</span>
 							</div>
 							<div className='input-field col s12'>
@@ -108,10 +120,12 @@ class Register extends Component {
 										invalid: errors.password,
 									})}
 								/>
-								<label className='white-text' htmlFor='password'>Password</label>
+								<label className='white-text' htmlFor='password'>
+									Password
+								</label>
 								<span className='red-text'>{errors.password}</span>
 							</div>
-							
+
 							<div className='input-field col s12'>
 								<input
 									onChange={this.onChange}
@@ -123,10 +137,12 @@ class Register extends Component {
 										invalid: errors.password2,
 									})}
 								/>
-								<label className='white-text' htmlFor='password2'>Confirm Password</label>
+								<label className='white-text' htmlFor='password2'>
+									Confirm Password
+								</label>
 								<span className='red-text'>{errors.password2}</span>
 							</div>
-							
+
 							<div className='col s12' style={{ paddingLeft: '11.250px' }}>
 								<button
 									style={{

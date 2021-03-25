@@ -1,9 +1,7 @@
 import React from 'react';
-
 import toastr from 'toastr';
 import BookingApi from '../api/BookingApi';
 import BookingForm from './BookingForm';
-import BookingsList from './BookingList';
 import './booking.css';
 
 class BookingPage extends React.Component {
@@ -12,17 +10,10 @@ class BookingPage extends React.Component {
 
 		this.state = {
 			booking: {},
-			bookingsList: [],
 		};
 
 		this.onFieldChange = this.onFieldChange.bind(this);
 		this.onSaveForm = this.onSaveForm.bind(this);
-	}
-
-	componentDidMount() {
-		BookingApi.listBookings().then((bookings) => {
-			this.setState({ bookingsList: bookings });
-		});
 	}
 
 	onFieldChange(event) {
@@ -34,12 +25,9 @@ class BookingPage extends React.Component {
 
 	onSaveForm(event) {
 		event.preventDefault();
-		// let history = this.props.history;
-		BookingApi.saveBooking(this.state.booking).then(() => {
-			toastr.success('Booking saved');
-			this.setState({ booking: {} });
-			// browserHistory.push('/seatings');
-		});
+		BookingApi.saveBooking(this.state.booking);
+		toastr.success('Successfully created booking!');
+		this.setState({ booking: {} });
 	}
 
 	render() {
@@ -53,7 +41,6 @@ class BookingPage extends React.Component {
 						onChange={this.onFieldChange}
 					/>
 				</div>
-				
 			</div>
 		);
 	}

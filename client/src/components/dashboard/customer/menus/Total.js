@@ -6,7 +6,7 @@ export default function Total({ data }) {
 
 	const totalPrice = Object.keys(items).reduce((acc, curr) => {
 		const [group, item] = curr.split('-');
-		const amount = items[curr] * data[group][item].price;
+		const amount = items[curr] * data[group][item].Price;
 		return acc + amount;
 	}, 0);
 
@@ -15,7 +15,7 @@ export default function Total({ data }) {
 			<span className='total-title'>Total:</span>
 			<span className='total-price'>${totalPrice.toLocaleString()}</span>
 			<span className='total-title'>Tax:</span>
-			<span className='total-price'>${(totalPrice.toLocaleString()*0.0875).toFixed(2)}</span>
+			<span className='total-price'>${(totalPrice.toLocaleString() * 0.0875).toFixed(2)}</span>
 		</div>
 	);
 }

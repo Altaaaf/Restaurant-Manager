@@ -22,24 +22,15 @@ class Login extends Component {
 			console.log(this.props.auth.user);
 			if (this.props.auth.user.accountType == 'Manager') {
 				console.log('Role type is manager');
+				this.props.history.push('/dashboard/manager/ManagerDashboard');
 			} else {
-				console.log('not a manager!');
+				console.log('not a manager - means customer!');
+				this.props.history.push('/dashboard/customer/Dashboards');
 			}
-			this.props.history.push('/dashboard/customer/Dashboards');
 		}
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.auth.isAuthenticated) {
-			console.log(this.props.auth.user);
-			if (this.props.auth.user.accountType == 'Manager') {
-				console.log('Role type is manager');
-			} else {
-				console.log('not a manager!');
-			}
-			this.props.history.push('/dashboard/customer/Dashboards');
-		}
-
 		if (nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors,
