@@ -30,7 +30,7 @@ class Dashboard extends Component {
 					  <FiHome size={16} color="#e02041"/>
 					  Home
 					</Link>
-					<Link to="/menu">
+					<Link to="/customer/menus">
 					  <FiMenu size={16} color="#e02041"/>
 					  Menu
 					</Link>
@@ -39,11 +39,11 @@ class Dashboard extends Component {
 				  <img src={barnsLink} alt=""/>
 			
 				  <div className="logged-right-links">
-					<Link to="/menus">
+					<Link to="">
 					<FiUser size={16} color="#e02041"/>
 					  Profile
 					</Link>
-					<Link to="/booking">
+					<Link to="/customer/booking">
 					<FiBookOpen size={16} color="#e02041"/>
 					  Bookings
 					</Link>
