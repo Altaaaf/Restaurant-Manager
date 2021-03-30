@@ -7,8 +7,8 @@ import axios from 'axios';
 import './EditMenu.css';
 
 class EditMenu extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             menu: {
@@ -60,47 +60,45 @@ class EditMenu extends Component {
         });     
     };
 
-    validateForm() {
-        return this.state.itemName.length > 0 && this.state.price.length > 0;
-    };
+   
 
-    handleSubmit = () => {
-        this.props.addItem(this.state, this.props.menu);
-        this.props.addItemRow(this.state);
+    handleSubmit= (event) => {
+        event.preventDefault();
+
     };
 
     render() {
-        const { menu, error, loading } = this.state;
+        const { menu } = this.state;
         return (
             <div className='admin-create-menu-container'>
             <div className="admin-create-menu-content">
-            <h1>Create Menu Item</h1>
+            <h2>Create Menu Item</h2>
 
-            <Link to='Manager/ManagerMenu'>
-            <FiArrowLeft size={16} color="#0c71c3"/>
+            <Link to='/Manager/ViewMenu'>
+            <FiArrowLeft size={13} color="#0c71c3"/>
             All Menu Items 
             </Link> 
-                <input name='itemType' placeholder='Types' value={this.state} onChange={this.handleChange} />
+            <form>
+               <strong>Name:</strong>
                 <input name='itemName' placeholder='Name' value={this.state.Name} onChange={this.handleChange} />
+                <strong>Price:</strong>
                 <input name='price' placeholder='Price' value={this.state.Price} onChange={this.handleChange}/>
+                <strong>Description:</strong>
                 <input name='description' placeholder='Description' value={this.state.Description} onChange={this.handleChange}/>
-                <button onClick={this.handleSubmit} disabled={!this.validateForm()} className='btn_primary' type='submit'>Add Item</button>
+                <button onClick={this.handleSubmit} className='botton' type='submit'>Add Item</button>
+                </form>
             </div>
             </div>
         );
     };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         menu: state.menu
     };
 };
 
-function mapDispatchToProps() {
-    return {
-        addItem
-    };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps())(EditMenu);
+
+export default connect(mapStateToProps)(EditMenu);
