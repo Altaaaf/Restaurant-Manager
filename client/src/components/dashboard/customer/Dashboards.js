@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../actions/authActions';
 import { Link } from "react-router-dom";
+import { FiHome,  FiMenu, FiLogIn, FiEdit, FiUser, FiBookOpen, FiBook, FiLogOut } from 'react-icons/fi';
 
+import './Dashboards.css';
 
+import barnsLink from '../../../img/BarnsLink.png';
 
 
 class Dashboard extends Component {
@@ -21,64 +24,41 @@ class Dashboard extends Component {
 		console.log(user);
 
 		return (
-
-			<div style={{ height: '75vh' }} className='container valign-wrapper'>
-				<div className='row'>
-					<div className='landing-copy col s12 dark-text center-align'>
-						<h4>
-							<b>Hey there,</b> {user.name.split(' ')[0]}
-							<p className='flow-text dark-text text-darken'>
-								Restaurant Automation Management Hub{' '}
-								<span style={{ fontFamily: 'monospace' }}>Barns</span> Link 👏
-							</p>
-						</h4>
-						<div className="col s6">
-              			<Link
-               			 	to="/customer/menus"
-                			style={{
-                 			width: "140px",
-                  			borderRadius: "3px",
-                  			letterSpacing: "1.5px",
-							marginTop: '1rem',
-                			}}
-                			className="btn btn-large waves-effect waves-light hoverable navy accent-3"
-            			  >
-                		Menu
-             		 </Link>
-            		</div>
-					<div className="col s6">
-              			<Link
-               			 	to="/customer/booking"
-                			style={{
-                 			width: "140px",
-                  			borderRadius: "3px",
-                  			letterSpacing: "1.5px",
-							marginTop: '1rem',
-                			}}
-                			className="btn btn-large waves-effect waves-light hoverable navy accent-3"
-            			  >
-                		Book
-             		 </Link>
-            		</div>
-					<div className="col s6">
-						<button
-							style={{
-								width: '140px',
-								borderRadius: '3px',
-								letterSpacing: '1.5px',
-								marginTop: '1rem',
-							}}
-							onClick={this.onLogoutClick}
-							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
-							Logout
-						</button>
-						</div>
-					</div>
+				<div className="navigation-menu">
+				  <div className="left-links">
+					<Link to="/">
+					  <FiHome size={16} color="#e02041"/>
+					  Home
+					</Link>
+					<Link to="/menu">
+					  <FiMenu size={16} color="#e02041"/>
+					  Menu
+					</Link>
+				  </div>
+					
+				  <img src={barnsLink} alt=""/>
+			
+				  <div className="logged-right-links">
+					<Link to="/menus">
+					<FiUser size={16} color="#e02041"/>
+					  Profile
+					</Link>
+					<Link to="/booking">
+					<FiBookOpen size={16} color="#e02041"/>
+					  Bookings
+					</Link>
+					<Link className="book-online" to="/bookings/new">
+					<FiBook size={16} color="#FFF"/>
+					  Book Online
+					</Link>
+					 <Link className="logout-text" to='/Logout'>Logout
+					  <FiLogOut size={16} color="#e02041"/>
+					  </Link>
+				  </div>
 				</div>
-			</div>
-		);
-	}
-}
+			  )
+			}
+		}
 
 Dashboard.propTypes = {
 	logoutUser: PropTypes.func.isRequired,
