@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logoutUser } from '../../../actions/authActions';
-import { FiUsers, FiMenu, FiBookOpen, FiClock, FiHome } from 'react-icons/fi';
+import { logoutUser } from '../../../../actions/authActions';
+import { FiUsers, FiMenu, FiBookOpen, FiClock, FiLogOut } from 'react-icons/fi';
 import { Link } from "react-router-dom";
 import './ManagerDashboard.css';
 
@@ -24,23 +24,33 @@ class ManagerDashboard extends Component {
 
 		return (
 			<div className="admin-home-main-container">
-      <div className="admin-home-main-content">
-        <h1 className="center-align">Welcome to the Admin Panel</h1>
+      <div className="admin-home-main-content center-align">
+	  <h4>
+							<b>Welcome back,</b> {user.name.split(' ')[0]}
+							<p className='flow-text dark-text text-darken'>
+								Your Restaurant Automation Management Hub{' '}
+								<span style={{ fontFamily: 'monospace' }}></span> 👏
+							</p>
+						</h4>
 
         <div className="links">
 
 
-        <FiUsers className="users-icon" size={75} color="#0c71c3"/>
+        <FiUsers className="users-icon" size={35} color="#0c71c3"/>
         <Link className="users-text" to='/admin/users'>Users</Link>
 
-        <FiClock className="slots-icon" size={75} color="#0c71c3"/>
+        <FiClock className="slots-icon" size={35} color="#0c71c3"/>
         <Link className="slots-text" to='/admin/slots'>Slots</Link>
 
-		<FiMenu className="menu-icon" size={75} color="#0c71c3"/>
+		<FiMenu className="menu-icon" size={35} color="#0c71c3"/>
         <Link className="menu-text" to='/admin/menu'>Menu</Link>
 
-        <FiBookOpen className="bookings-icon" size={75} color="#0c71c3"/>
+        <FiBookOpen className="bookings-icon" size={35} color="#0c71c3"/>
         <Link className="bookings-text" to='/admin/bookings'>Bookings</Link>
+
+		 <FiLogOut className="logout-icon" size={35} color="#0c71c3"/>
+        <Link className="logout-text" to='/Logout'>Logout</Link>
+
         </div>
 
       </div>

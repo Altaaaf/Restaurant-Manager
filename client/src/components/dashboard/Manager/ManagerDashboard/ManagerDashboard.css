@@ -29,13 +29,13 @@
   }
   
   .admin-home-main-content a {
-    font-size: 24px;
+    font-size: 18px;
     color: #5f6670;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: opacity 0.5s;
-    margin-left: -15px;
-    margin-top: -30px;
+    margin-left: -10px;
+    margin-top: -10px;
   }
   
   .admin-home-main-content a:hover  {
@@ -44,16 +44,17 @@
   
   .links {
     height: 20%;
-    width: 75%;
+    width: 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    'usersLogo slotsLogo menuLogo bookingsLogo'
-    'usersText slotsText menuText bookingsText'
+    'usersLogo slotsLogo menuLogo bookingsLogo logoutLogo'
+    'usersText slotsText menuText bookingsText logoutText'
     ;
-    margin-top: 75px;
-    margin-left: 12%;
+    margin-top: 125px;
+    margin-left: 25%;
     align-items: center;
     justify-items: center;
   }
@@ -72,6 +73,9 @@
   
   .menu-icon{
     grid-area: menuLogo;
+  }
+  .logout-icon {
+      grid-area: logoutLogo;
   }
   
   .admin-home-main-content .strong-link:active {
