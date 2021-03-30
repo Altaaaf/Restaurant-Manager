@@ -25,23 +25,20 @@ app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
 app.use('/Api/Reservations', require('./routes/Reservations'));
 
-app.get('/ChangePermissions', (req, res) => {
+app.get('/ChangePermissions', async (req, res) => {
 	try {
-		console.log(req.query.Email);
-		if (req.query.Email === undefined) {
+		if (typeof req.query.Email === undefined || req.query.email === null) {
 			return res
 				.status(400)
 				.json({ status: 'Enter an email you would like to switch permissions' });
 		}
-		var account = Access.find({ Email: req.query.Email });
-		if (account.AccountType === undefined) {
+		const account = await Access.findOne({ Email: req.query.Email });
+		if (typeof account.AccountType === undefined || account.AccountType === null) {
 			return res.status(400).json({ status: 'Email does not exist' });
 		}
-		console.log(account);
-		console.log('Current perms: ' + account.AccountType);
 		if (account.AccountType == 'Manager') {
-			// change to customer
-			const updateuser = Access.updateOne(
+			// change from customer to manager
+			const updateuser = await Access.updateOne(
 				{ Email: req.query.Email },
 				{ $set: { AccountType: 'Customer' } },
 			);
@@ -49,7 +46,8 @@ app.get('/ChangePermissions', (req, res) => {
 				.status(200)
 				.json({ status: 'Successfully changed account permissions to Customer' });
 		} else {
-			const updateuser = Access.updateOne(
+			// change from customer to manager
+			const updateuser = await Access.updateOne(
 				{ Email: req.query.Email },
 				{ $set: { AccountType: 'Manager' } },
 			);
