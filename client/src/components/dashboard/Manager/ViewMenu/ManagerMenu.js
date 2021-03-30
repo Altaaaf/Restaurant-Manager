@@ -1,56 +1,115 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
-
+import axios from 'axios';
 import './ManagerMenu.css';
+class ManagerMenu extends Component {
+	constructor() {
+		super();
+		this.state = {
+			menu: {
+				mains: [
+					{
+						Name: 'testing',
+						Description: 'testing',
+						Price: '1',
+					},
+				],
+				sides: [
+					{
+						Name: 'testing',
+						Price: '1',
+					},
+				],
+				drinks: [
+					{
+						Name: 'testing',
+						Price: '1',
+					},
+				],
+			},
+			error: '',
+			loading: true,
+		};
+	}
+	componentDidMount() {
+		axios
+			.get('http://localhost:5000/Api/Menu/View')
+			.then((res) => {
+				const data = res.data;
+				console.log(data);
+				this.setState({ menu: data });
+			})
+			.catch((err) => this.setState({ error: err }));
+		this.setState({ loading: false });
+	}
+	render() {
+		const { menu, error, loading } = this.state;
+		return (
+			<div className='admin-view-menu-container'>
+				<div className='admin-view-menu-content'>
+					<h1>Menu Items</h1>
+					<Link to='/admin/menu/new'>
+						<FiEdit size={16} color='#0c71c3' />
+						Create Menu Item
+					</Link>
+					<h3>Mains</h3>
+					<ul>
+						{menu.mains.map((meal, index) => (
+							<li key={index}>
+								<strong>Menu Item ID:</strong>
+								<p>{index}</p>
 
-import api from './api';
+								<strong>Name:</strong>
+								<p>{meal.Name}</p>
 
-export default function ManagerMenu(){
-  const [menu, setMenuItems] = useState([]);
+								<strong>Price:</strong>
+								<p>${meal.Price}</p>
 
-  useEffect(() => {
-    async function loadMenuItems(){
-    try {
-      
-      const response = await api.get(`/menu`);
-      setMenuItems(response.data);
+								<strong>Description:</strong>
+								<p>{meal.Description}</p>
+							</li>
+						))}
+					</ul>
+					<h3>Sides</h3>
+					<ul>
+						{menu.sides.map((meal, index) => (
+							<li key={index}>
+								<strong>Menu Item ID:</strong>
+								<p>{index}</p>
 
-    } catch (error) {
-      alert(`Couldn't Load Menu Items. Please try again. Error: ${error}.`);
-    }
-  }
-  loadMenuItems();
-  }, [])
+								<strong>Name:</strong>
+								<p>{meal.Name}</p>
 
-  return (
-    <div className="admin-view-menu-container">
-      <div className="admin-view-menu-content">
-        <h1>Menu Items</h1>  
+								<strong>Price:</strong>
+								<p>{meal.Price}</p>
 
-        <Link to='/admin/menu/new'>
-          <FiEdit size={16} color="#0c71c3"/>
-          Create Menu Item  
-        </Link> 
+								<strong>Description:</strong>
+								<p>{meal.Description}</p>
+							</li>
+						))}
+					</ul>
+					<h3>Drinks</h3>
+					<ul>
+						{menu.drinks.map((meal, index) => (
+							<li key={index}>
+								<strong>Menu Item ID:</strong>
+								<p>{index}</p>
 
-        <ul>
-          {menu.map((meal, index) => (
-            <li key={index}>
-              <strong>Menu Item ID:</strong>
-              <p>{meal.index}</p>
+								<strong>Name:</strong>
+								<p>{meal.Name}</p>
 
-              <strong>Name:</strong>
-              <p>{meal.Name}</p>
+								<strong>Price:</strong>
+								<p>{meal.Price}</p>
 
-              <strong>Price:</strong>
-              <p>€{meal.Price}</p>
-
-              <strong>Description:</strong>
-              <p>{meal.Description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  )
+								<strong>Description:</strong>
+								<p>{meal.Description}</p>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		);
+	}
 }
+export default ManagerMenu;
