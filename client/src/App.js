@@ -16,11 +16,13 @@ import Dashboard from './components/dashboard/customer/Dashboards';
 import ManagerDashboard from './components/dashboard/Manager/ManagerDashboard/ManagerDashboard';
 import Menus from './components/dashboard/customer/menus/Menus';
 import ManagerMenu from './components/dashboard/Manager/ViewMenu/ManagerMenu';
+import EditMenu from './components/dashboard/Manager/EditMenu/EditMenu';
 import './App.css';
 
 
 
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
+
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -54,6 +56,7 @@ export default function App() {
 					<Route exact path='/customer/menus' component={Menus} />
 					<Route exact path='/Manager/ViewMenu' component={ManagerMenu} />
 					<Route exact path='/customer/booking' component={BookingPage} />
+					<Route exact path='/Manager/EditMenu' component={EditMenu} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
 						<PrivateRoute

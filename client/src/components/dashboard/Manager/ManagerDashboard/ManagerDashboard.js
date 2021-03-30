@@ -43,7 +43,7 @@ class ManagerDashboard extends Component {
         <Link className="slots-text" to='/admin/slots'>Slots</Link>
 
 		<FiMenu className="menu-icon" size={35} color="#0c71c3"/>
-        <Link className="menu-text" to='/admin/menu'>Menu</Link>
+        <Link className="menu-text" to='/Manager/ViewMenu'>Menu</Link>
 
         <FiBookOpen className="bookings-icon" size={35} color="#0c71c3"/>
         <Link className="bookings-text" to='/admin/bookings'>Bookings</Link>

@@ -48,9 +48,9 @@ class ManagerMenu extends Component {
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
-					<h1>Menu Items</h1>
-					<Link to='/admin/menu/new'>
-						<FiEdit size={16} color='#0c71c3' />
+					<h2>Menu Items</h2>
+					<Link to='/Manager/EditMenu'>
+						<FiEdit size={15} color='#0c71c3' />
 						Create Menu Item
 					</Link>
 					<h3>Mains</h3>
@@ -82,7 +82,7 @@ class ManagerMenu extends Component {
 								<p>{meal.Name}</p>
 
 								<strong>Price:</strong>
-								<p>{meal.Price}</p>
+								<p>${meal.Price}</p>
 
 								<strong>Description:</strong>
 								<p>{meal.Description}</p>
@@ -100,7 +100,7 @@ class ManagerMenu extends Component {
 								<p>{meal.Name}</p>
 
 								<strong>Price:</strong>
-								<p>{meal.Price}</p>
+								<p>${meal.Price}</p>
 
 								<strong>Description:</strong>
 								<p>{meal.Description}</p>
