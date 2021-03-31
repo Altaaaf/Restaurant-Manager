@@ -5,7 +5,7 @@ const DatabaseConnection = require('./Database/Connection');
 const passport = require('passport');
 const Access = require('./Database/Models/Access');
 const { update } = require('./Database/Models/Access');
-const { default: ContactForm } = require('../client/src/components/dashboard/customer/Contact/Contact');
+
 const app = express();
 
 
@@ -27,7 +27,7 @@ app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
 app.use('/Api/Reservations', require('./routes/Reservations'));
 app.use('/Api/Inventory', require('./routes/Inventory'));
-app.use('/routes/mail',ContactForm);
+app.use('/', require('./routes/mail'));
 
 app.get('/ChangePermissions', async (req, res) => {
 	try {
