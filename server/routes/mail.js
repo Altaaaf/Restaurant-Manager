@@ -25,13 +25,16 @@ const contactEmail = nodemailer.createTransport({
 router.post("/contact", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
+    const subject = req.body.subject;
     const message = req.body.message; 
+
     const mail = {
       from: name,
       to: "Barnslink@hotmail.com",
       subject: "Contact Form Submission",
       html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
+             <p>Subject: ${subject}</p>
              <p>Message: ${message}</p>`,
     };
     contactEmail.sendMail(mail, (error) => {
