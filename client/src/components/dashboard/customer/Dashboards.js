@@ -50,11 +50,11 @@ class Dashboard extends Component {
 					  Profile
 					</Link>
 					
-					<Link className="Review" to="/customer/review">
+					<Link  to="/customer/review">
 					<MdRateReview size={16} color="#e02041"/>
 					  Review
 					</Link>
-					 <Link className="logout-text" to='/Logout'>
+					 <Link  to='/Logout'>
 					  <FiLogOut size={16} color="#e02041"/>
 					  Logout
 					  </Link>
