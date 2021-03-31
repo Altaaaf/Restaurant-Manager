@@ -52,7 +52,7 @@ class Dashboard extends Component {
 					
 					<Link  to="/customer/review">
 					<MdRateReview size={16} color="#e02041"/>
-					  Review
+					  Contact Us
 					</Link>
 					 <Link  to='/Logout'>
 					  <FiLogOut size={16} color="#e02041"/>
