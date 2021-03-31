@@ -9,6 +9,7 @@ import { MdRateReview }from 'react-icons/md';
 import './Dashboards.css';
 
 import barnsLink from '../../../img/BarnsLinkLogo.png';
+import Dining from '../../../img/dining.jpeg';
 
 
 class Dashboard extends Component {
@@ -25,6 +26,7 @@ class Dashboard extends Component {
 		console.log(user);
 
 		return (
+			<div className="home-page-body">
 				<div className="navigation-menu">
 				  <div className="left-links">
 					<Link to="/">
@@ -48,16 +50,19 @@ class Dashboard extends Component {
 					  Profile
 					</Link>
 					
-					<Link className="Review" to="/customer/review">
+					<Link  to="/customer/review">
 					<MdRateReview size={16} color="#e02041"/>
 					  Review
 					</Link>
-					 <Link className="logout-text" to='/Logout'>
+					 <Link  to='/Logout'>
 					  <FiLogOut size={16} color="#e02041"/>
 					  Logout
 					  </Link>
 				  </div>
 				</div>
+				<img src={Dining}/>
+				</div>
+				
 			  )
 			}
 		}

@@ -1,3 +1,18 @@
+
+.home-page-body {
+  grid-area: mainContent;
+  display: block;
+  position: relative;
+  
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-body img {
+  height: 100%;
+  width: 100%;
+}
+
 .navigation-menu {
     grid-area: navigationMenu;
     display: flex;
