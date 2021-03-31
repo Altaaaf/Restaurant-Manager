@@ -29,7 +29,6 @@ class ManagerMenu extends Component {
 				],
 			},
 			error: '',
-			loading: true,
 		};
 	}
 	componentDidMount() {
@@ -51,7 +50,7 @@ class ManagerMenu extends Component {
 					<h2>Menu Items</h2>
 					<Link to='/Manager/EditMenu'>
 						<FiEdit size={15} color='#0c71c3' />
-						Create Menu Item
+						Add items to menu!
 					</Link>
 					<h3>Mains</h3>
 					<ul>
@@ -108,11 +107,10 @@ class ManagerMenu extends Component {
 						))}
 					</ul>
 					<div>
-					<Link className='botton' 
-					 to='/dashboard/manager/ManagerDashboard'>
-					 Back To Dashboard
-					 </Link>
-					 </div>
+						<Link className='botton' to='/dashboard/manager/ManagerDashboard'>
+							Back To Dashboard
+						</Link>
+					</div>
 				</div>
 			</div>
 		);

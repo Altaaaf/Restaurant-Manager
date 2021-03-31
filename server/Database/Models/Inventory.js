@@ -7,14 +7,15 @@ const Inventory = mongoose.Schema(
 			required: true,
 		},
 		Quantity: {
-			type: String,
-			required: false,
+			type: Number,
+			required: true,
 		},
-		Cost: {
+		TotalRequests: {
 			type: Number,
 			required: false,
+			default: 0,
 		},
-		ReceivedDate: {
+		LastRequested: {
 			type: Date,
 			required: false,
 			default: Date.now,

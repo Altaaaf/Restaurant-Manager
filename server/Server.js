@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
 app.use('/Api/Reservations', require('./routes/Reservations'));
-
+app.use('/Api/Inventory', require('./routes/Inventory'));
 app.get('/ChangePermissions', async (req, res) => {
 	try {
 		if (typeof req.query.Email === undefined || req.query.email === null) {
