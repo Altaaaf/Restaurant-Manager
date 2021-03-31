@@ -19,6 +19,8 @@ import ManagerMenu from './components/dashboard/Manager/ViewMenu/ManagerMenu';
 import EditMenu from './components/dashboard/Manager/EditMenu/EditMenu';
 import ViewInventory from './components/dashboard/Manager/Inventory/ViewInventory';
 import EditInventory from './components/dashboard/Manager/Inventory/EditInventory';
+import ContactForm from './components/dashboard/customer/Contact/Contact';
+
 import './App.css';
 
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
@@ -58,6 +60,7 @@ export default function App() {
 					<Route exact path='/Manager/EditMenu' component={EditMenu} />
 					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
+					<Route exact path='/customer/Contact' component={ContactForm} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
 						<PrivateRoute

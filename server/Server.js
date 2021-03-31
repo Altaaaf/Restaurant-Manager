@@ -5,7 +5,9 @@ const DatabaseConnection = require('./Database/Connection');
 const passport = require('passport');
 const Access = require('./Database/Models/Access');
 const { update } = require('./Database/Models/Access');
+const { default: ContactForm } = require('../client/src/components/dashboard/customer/Contact/Contact');
 const app = express();
+
 
 // Connect to Mongo DB
 DatabaseConnection();
@@ -25,6 +27,8 @@ app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
 app.use('/Api/Reservations', require('./routes/Reservations'));
 app.use('/Api/Inventory', require('./routes/Inventory'));
+app.use('/routes/mail',ContactForm);
+
 app.get('/ChangePermissions', async (req, res) => {
 	try {
 		if (typeof req.query.Email === undefined || req.query.email === null) {
@@ -67,3 +71,6 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+

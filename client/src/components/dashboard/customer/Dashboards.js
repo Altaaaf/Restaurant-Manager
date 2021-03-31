@@ -50,7 +50,7 @@ class Dashboard extends Component {
 					  Profile
 					</Link>
 					
-					<Link  to="/customer/review">
+					<Link  to="/customer/Contact">
 					<MdRateReview size={16} color="#e02041"/>
 					  Contact Us
 					</Link>

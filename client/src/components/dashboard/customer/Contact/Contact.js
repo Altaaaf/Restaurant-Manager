@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Contact.css';
 
 const ContactForm = () => {
   const [status, setStatus] = useState("Submit");
@@ -23,22 +24,28 @@ const ContactForm = () => {
     alert(result.status);
   };
   return (
+    <div className='customer-contact-container'>
+    <div className='customer-contact-content'>
+    <h2>Send us a message</h2>
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="inputbox">
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" required />
       </div>
-      <div>
+      <div className="inputbox">
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" required />
       </div>
-      <div>
+      <div className="inputbox">
         <label htmlFor="message">Message:</label>
-        <textarea id="message" required />
+        <textarea type="message" id="message" required />
       </div>
-      <button type="submit">{status}</button>
+      <button className="button" type="submit">{status}</button>
     </form>
+    </div>
+</div>
   );
 };
+
 
 export default ContactForm;
