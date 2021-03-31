@@ -50,8 +50,8 @@
     grid-template-columns: 100px 100px 100px 100px 100px;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    'usersLogo slotsLogo menuLogo bookingsLogo logoutLogo'
-    'usersText slotsText menuText bookingsText logoutText'
+    'usersLogo InventoryLogo menuLogo bookingsLogo logoutLogo'
+    'usersText InventoryText menuText bookingsText logoutText'
     ;
     margin-top: 125px;
     margin-left: 25%;
@@ -63,7 +63,7 @@
     grid-area: usersLogo;
   }
   
-  .slots-icon{
+  .Inventory-icon{
     grid-area: slotsLogo;
   }
   

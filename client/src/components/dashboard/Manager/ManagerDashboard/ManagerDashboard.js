@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
 import { FiUsers, FiMenu, FiBookOpen, FiClock, FiLogOut } from 'react-icons/fi';
+import { GrResources } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import './ManagerDashboard.css';
 
@@ -39,8 +40,8 @@ class ManagerDashboard extends Component {
         <FiUsers className="users-icon" size={35} color="#0c71c3"/>
         <Link className="users-text" to='/admin/users'>Users</Link>
 
-        <FiClock className="slots-icon" size={35} color="#0c71c3"/>
-        <Link className="slots-text" to='/admin/slots'>Slots</Link>
+        <GrResources className="Inventory-icon" size={35} color="#0c71c3"/>
+        <Link className="Inventory-text" to=''>Inventory</Link>
 
 		<FiMenu className="menu-icon" size={35} color="#0c71c3"/>
         <Link className="menu-text" to='/Manager/ViewMenu'>Menu</Link>
