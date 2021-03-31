@@ -1,106 +1,96 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
 import { FiArrowLeft } from 'react-icons/fi';
 import axios from 'axios';
-
+import toastr from 'toastr';
 import './EditMenu.css';
 
 class EditMenu extends Component {
-    constructor() {
-        super();
+	constructor() {
+		super();
 
-        this.state = {
-            menu: {
-				mains: [
-					{
-						Name: 'testing',
-						Description: 'testing',
-						Price: '1',
-					},
-				],
-				sides: [
-					{
-						Name: 'testing',
-						Price: '1',
-					},
-				],
-				drinks: [
-					{
-						Name: 'testing',
-						Price: '1',
-					},
-				],
-			},
-			error: '',
-			loading: true,
+		this.state = {
+			Name: '',
+			Price: '',
+			Description: '',
+			ItemType: '',
 		};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
 
-        
-    }
+	handleChange(event) {
+		const target = event.target;
+		const value = event.target.value;
+		const name = target.name;
+		this.setState({
+			[name]: value,
+		});
+	}
 
-    componentDidMount() {
+	handleSubmit(event) {
+		event.preventDefault();
+		const PostRequestData = {
+			Name: this.state.Name,
+			Price: this.state.Price,
+			Description: this.state.Description,
+			Type: this.state.ItemType,
+		};
 		axios
-			.get('http://localhost:5000/Api/Menu/View')
+			.post('http://localhost:5000/Api/Menu/item', PostRequestData)
 			.then((res) => {
 				const data = res.data;
 				console.log(data);
-				this.setState({ menu: data });
+				if (res.status == 200) {
+					toastr.success('Successfully added item to menu!');
+				} else {
+					toastr.error('Failed to add item to menu!');
+				}
 			})
-			.catch((err) => this.setState({ error: err }));
-		this.setState({ loading: false });
+			.catch((err) => {
+				toastr.error('Error occured when adding item to menu!');
+				console.log(err);
+			});
 	}
 
-    handleChange(event){   
-        const target = event.target;
-        const value = event.target.value;
-        const name = target.name;
-        this.setState({
-            [name]: value
-        });     
-    };
+	render() {
+		const { Name, Price, Description, ItemType } = this.state;
+		return (
+			<div className='admin-create-menu-container'>
+				<div className='admin-create-menu-content'>
+					<h2>Create Menu Item</h2>
 
-   
+					<Link to='/Manager/ViewMenu'>
+						<FiArrowLeft size={13} color='#0c71c3' />
+						All Menu Items
+					</Link>
+					<form onSubmit={this.handleSubmit}>
+						<strong>Name:</strong>
+						<input name='Name' placeholder='Name' value={Name} onChange={this.handleChange} />
+						<strong>Price:</strong>
+						<input name='Price' placeholder='Price' value={Price} onChange={this.handleChange} />
+						<strong>Description:</strong>
+						<input
+							name='Description'
+							placeholder='Description'
+							value={Description}
+							onChange={this.handleChange}
+						/>
+						<strong>Item Type:</strong>
+						<input
+							name='ItemType'
+							placeholder='ItemType'
+							value={ItemType}
+							onChange={this.handleChange}
+						/>
+						<button className='botton' type='submit'>
+							Add Item
+						</button>
+					</form>
+				</div>
+			</div>
+		);
+	}
+}
 
-    handleSubmit(event) {
-        alert('A item was submitted: ' + this.state.menu.mains);
-        event.preventDefault();
-
-    };
-
-    render() {
-        const { menu } = this.state;
-        return (
-            <div className='admin-create-menu-container'>
-            <div className="admin-create-menu-content">
-            <h2>Create Menu Item</h2>
-
-            <Link to='/Manager/ViewMenu'>
-            <FiArrowLeft size={13} color="#0c71c3"/>
-            All Menu Items 
-            </Link> 
-            <form onSubmit={this.handleSubmit}> 
-               <strong>Name:</strong>
-                <input name='itemName' placeholder='Name' value={this.state.menu.mains.Name} onChange={this.handleChange} />
-                <strong>Price:</strong>
-                <input name='price' placeholder='Price' value={this.state.menu.mains.Price} onChange={this.handleChange}/>
-                <strong>Description:</strong>
-                <input name='description' placeholder='Description' value={this.state.menu.mains.Description} onChange={this.handleChange}/>
-                <button className='botton' type='submit'>Add Item</button>
-                </form>
-            </div>
-            </div>
-        );
-    };
-};
-
-const mapStateToProps = (state) => {
-    return {
-        menu: state.menu
-    };
-};
-
-
-export default connect(mapStateToProps)(EditMenu);
+export default EditMenu;
