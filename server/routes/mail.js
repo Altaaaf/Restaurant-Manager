@@ -5,9 +5,9 @@ const nodemailer = require("nodemailer");
 const { getMaxListeners } = require("../Database/Models/Access");
 
 const contactEmail = nodemailer.createTransport({
-	service: 'gmail',
+	service: 'hotmail',
 	auth: {
-	  user: 'barnkslink@gmail.com',
+	  user: 'Barnslink@hotmail.com',
 	  pass: 'Nyit2021',
 	},
   });
@@ -19,6 +19,8 @@ const contactEmail = nodemailer.createTransport({
 	  console.log("Ready to Send");
 	}
   });
+ 
+
 
 router.post("/contact", (req, res) => {
     const name = req.body.name;
@@ -26,7 +28,7 @@ router.post("/contact", (req, res) => {
     const message = req.body.message; 
     const mail = {
       from: name,
-      to: "barnslink@gmail.com",
+      to: "Barnslink@hotmail.com",
       subject: "Contact Form Submission",
       html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>

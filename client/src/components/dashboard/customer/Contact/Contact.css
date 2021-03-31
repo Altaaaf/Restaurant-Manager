@@ -28,8 +28,8 @@
   
   }
   .customer-contact-content h2 {
-    font-size: 28px;
-    margin-left: 100px;
+    font-size: 22px;
+    margin-left: 95px;
     margin-bottom: 1px
     
   }
@@ -54,7 +54,7 @@
   }
 
   .customer-contact-content form button {
-    width: 12%;
+    width: 30%;
     height: 35px;
     margin-top: 60px;
   
