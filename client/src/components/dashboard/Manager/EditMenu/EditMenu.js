@@ -35,8 +35,9 @@ class EditMenu extends Component {
 			error: '',
 			loading: true,
 		};
-	
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
         
     }
 
@@ -52,7 +53,7 @@ class EditMenu extends Component {
 		this.setState({ loading: false });
 	}
 
-    handleChange = (event) => {   
+    handleChange(event){   
         const target = event.target;
         const value = event.target.value;
         const name = target.name;
@@ -82,11 +83,11 @@ class EditMenu extends Component {
             </Link> 
             <form onSubmit={this.handleSubmit}> 
                <strong>Name:</strong>
-                <input name='itemName' placeholder='Name' value={this.state.Name} onChange={this.handleChange} />
+                <input name='itemName' placeholder='Name' value={this.state.menu.mains.Name} onChange={this.handleChange} />
                 <strong>Price:</strong>
-                <input name='price' placeholder='Price' value={this.state.Price} onChange={this.handleChange}/>
+                <input name='price' placeholder='Price' value={this.state.menu.mains.Price} onChange={this.handleChange}/>
                 <strong>Description:</strong>
-                <input name='description' placeholder='Description' value={this.state.Description} onChange={this.handleChange}/>
+                <input name='description' placeholder='Description' value={this.state.menu.mains.Description} onChange={this.handleChange}/>
                 <button className='botton' type='submit'>Add Item</button>
                 </form>
             </div>

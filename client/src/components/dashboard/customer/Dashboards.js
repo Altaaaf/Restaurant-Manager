@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../actions/authActions';
 import { Link } from "react-router-dom";
-import { FiHome,  FiMenu, FiLogIn, FiEdit, FiUser, FiBookOpen, FiBook, FiLogOut } from 'react-icons/fi';
+import { FiHome,  FiMenu, FiLogIn, FiEdit, FiUser, FiBookOpen, FiLogOut } from 'react-icons/fi';
+import { MdRateReview }from 'react-icons/md';
 
 import './Dashboards.css';
 
-import barnsLink from '../../../img/BarnsLink.png';
+import barnsLink from '../../../img/BarnsLinkLogo.png';
 
 
 class Dashboard extends Component {
@@ -34,8 +35,11 @@ class Dashboard extends Component {
 					  <FiMenu size={16} color="#e02041"/>
 					  Menu
 					</Link>
-				  </div>
-					
+				  <Link to="/customer/booking">
+					<FiBookOpen size={16} color="#e02041"/>
+					  Bookings
+					</Link>
+					</div>
 				  <img src={barnsLink} alt=""/>
 			
 				  <div className="logged-right-links">
@@ -43,16 +47,14 @@ class Dashboard extends Component {
 					<FiUser size={16} color="#e02041"/>
 					  Profile
 					</Link>
-					<Link to="/customer/booking">
-					<FiBookOpen size={16} color="#e02041"/>
-					  Bookings
+					
+					<Link className="Review" to="/customer/review">
+					<MdRateReview size={16} color="#e02041"/>
+					  Review
 					</Link>
-					<Link className="book-online" to="/bookings/new">
-					<FiBook size={16} color="#FFF"/>
-					  Book Online
-					</Link>
-					 <Link className="logout-text" to='/Logout'>Logout
+					 <Link className="logout-text" to='/Logout'>
 					  <FiLogOut size={16} color="#e02041"/>
+					  Logout
 					  </Link>
 				  </div>
 				</div>

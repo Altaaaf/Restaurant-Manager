@@ -20,12 +20,12 @@
   
   .navigation-menu .logged-right-links {
     position: absolute;
-    right: 110px;
+    right: 250px;
   }
   
   .navigation-menu img {
     height: 125px;
-    width: 350px;
+    width: 250px;
   }
   
   .navigation-menu a {
@@ -41,11 +41,6 @@
     opacity: 0.5;
   }
   
-  .navigation-menu .book-online {
-    border-radius: 5px;
-    padding: 5px;
-    background: #ff6257;
-  }
   
   .navigation-menu svg {
     margin-right: 10px;

@@ -29,7 +29,7 @@
   }
   
   .admin-create-menu-content h2 {
-    font-size: 38px;
+    font-size: 36px;
     margin-bottom: 33px;
   }
   
@@ -74,16 +74,16 @@
   }
   
   .admin-create-menu-content form button {
-    width: 15%;
-    height: 45px;
+    width: 10%;
+    height: 35px;
     margin-top: 30px;
   
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 8px;
     border-color: #000;
     
     font-weight: 700;
-    font-size: 24px;
+    font-size: 12px;
     color: #000;
   
     text-align: center;
