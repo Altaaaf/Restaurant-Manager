@@ -23,9 +23,20 @@ const BookingPage = (data) => {
 	const schema = Joi.object({
 		firstName: Joi.string().min(1).required(),
 		lastName: Joi.string().min(1).required(),
-		coverNo: Joi.string().min(2).required("reservation for 2 people and up"),
-		phone:Joi.string().min(10).required("10 digits phone number")
+		coverNo: Joi.string().min(2).required('reservation for 2 people and up'),
+		phone: Joi.string().min(10).required('10 digits phone number'),
 	});
 	return schema.validate(data);
 };
-module.exports = { Login, Register, BookingPage };
+
+const AddItem = (data) => {
+	const schema = Joi.object({
+		Name: Joi.string().min(1).required('Any name to describe thee item'),
+		Price: Joi.number().required('Dollar amount for the item'),
+		Description: Joi.string(),
+		Type: Joi.string().valid('mains', 'drinks', 'sides').required('Either, Drinks, Sides or Mains'),
+	});
+	return schema.validate(data);
+};
+
+module.exports = { Login, Register, BookingPage, AddItem };

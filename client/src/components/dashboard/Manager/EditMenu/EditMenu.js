@@ -44,12 +44,11 @@ class EditMenu extends Component {
 				if (res.status == 200) {
 					toastr.success('Successfully added item to menu!');
 				} else {
-					toastr.error('Failed to add item to menu!');
+					toastr.error('Unexpected failure when adding item to menu!');
 				}
 			})
 			.catch((err) => {
-				toastr.error('Error occured when adding item to menu!');
-				console.log(err);
+				toastr.error(err.response.data.status);
 			});
 	}
 

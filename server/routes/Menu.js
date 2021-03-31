@@ -1,5 +1,6 @@
 const express = require('express');
 const Menu = require('../Database/Models/Menu');
+const { AddItem } = require('../validator/Access');
 const router = express.Router();
 
 router.get('/view', async (req, res) => {
@@ -38,6 +39,13 @@ router.get('/view', async (req, res) => {
 });
 router.post('/item', async (req, res) => {
 	try {
+		const { error } = AddItem(req.body);
+		if (error) {
+			console.error(error.message);
+			return res.status(400).json({
+				status: error.message,
+			});
+		}
 		Menu.findOne({ Name: req.body.Name }).then((item) => {
 			if (item) {
 				return res.status(400).json({ status: 'item already exists on menu' });
