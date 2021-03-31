@@ -36,8 +36,9 @@ class EditMenu extends Component {
 			loading: true,
 		};
 	
-        this.handleSubmit = this.handleSubmit.bind(this)
-    };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        
+    }
 
     componentDidMount() {
 		axios
@@ -62,7 +63,8 @@ class EditMenu extends Component {
 
    
 
-    handleSubmit= (event) => {
+    handleSubmit(event) {
+        alert('A item was submitted: ' + this.state.menu.mains);
         event.preventDefault();
 
     };
@@ -78,14 +80,14 @@ class EditMenu extends Component {
             <FiArrowLeft size={13} color="#0c71c3"/>
             All Menu Items 
             </Link> 
-            <form>
+            <form onSubmit={this.handleSubmit}> 
                <strong>Name:</strong>
                 <input name='itemName' placeholder='Name' value={this.state.Name} onChange={this.handleChange} />
                 <strong>Price:</strong>
                 <input name='price' placeholder='Price' value={this.state.Price} onChange={this.handleChange}/>
                 <strong>Description:</strong>
                 <input name='description' placeholder='Description' value={this.state.Description} onChange={this.handleChange}/>
-                <button onClick={this.handleSubmit} className='botton' type='submit'>Add Item</button>
+                <button className='botton' type='submit'>Add Item</button>
                 </form>
             </div>
             </div>
@@ -98,7 +100,6 @@ const mapStateToProps = (state) => {
         menu: state.menu
     };
 };
-
 
 
 export default connect(mapStateToProps)(EditMenu);
