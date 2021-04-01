@@ -5,8 +5,8 @@ import axios from 'axios';
 
 
 class ManagerBooking extends Component {
-	constructor() {
-		super();
+	constructor(props, context) {
+		super(props, context);
 		this.state = {
 			booking: {},
 	}}
@@ -27,44 +27,42 @@ class ManagerBooking extends Component {
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
-  <h2>All Bookings</h2>
-  <Link to=''>
-    <FiEdit size={16} color="#0c71c3"/>
-    Create Booking  
-  </Link> 
-  <h3>bookings details</h3>
-  <ul>
-     {booking.map((bk, index) => (
-      <li key={index}>
-        <strong>Booking ID:</strong>
-        <p>{index}</p>
+  					<h2>All Bookings</h2>
+  				<Link to=''>
+   			 <FiEdit size={16} color="#0c71c3"/>
+   			 Create Booking  
+  			</Link> 
+ 			<h3>bookings details</h3>
+			 <ul>
+    		 {booking.map((bk, index) => (
+      			<li key={index}>
+       			 <strong>Booking ID:</strong>
+       			 <p>{index}</p>
 
-        <strong>Date:</strong>
-        <p>{bk.ReservationTime}</p>
+        		<strong>Date:</strong>
+        		<p>{bk.ReservationTime}</p>
 
-        <strong>Number of People:</strong>
-        <p>{bk.coverNo}</p>
+        		<strong>Number of People:</strong>
+        		<p>{bk.coverNo}</p>
 
-        <strong>phone:</strong>
-        <p>{bk.phone}</p>
+        		<strong>phone:</strong>
+        		<p>{bk.phone}</p>
 
-        <strong>First Name:</strong>
-        <p>{bk.FirstName}</p>
+        		<strong>First Name:</strong>
+        		<p>{bk.FirstName}</p>
 
-        <strong>Last Name:</strong>
-        <p>{bk.lastName}</p>
-      </li>
-    ))}
-  </ul>
-</div>
-
-    <div>
+        		<strong>Last Name:</strong>
+        		<p>{bk.lastName}</p>
+     		 </li>
+  		  ))}
+ 		 </ul>
+ 				 <div>
 						<Link className='botton' to='/dashboard/manager/ManagerDashboard'>
 							Back To Dashboard
 						</Link>
 					</div>
 				</div>
-			
+			</div>
       
 		);
 	}

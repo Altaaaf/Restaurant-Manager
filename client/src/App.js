@@ -19,12 +19,10 @@ import ManagerMenu from './components/dashboard/Manager/ViewMenu/ManagerMenu';
 import EditMenu from './components/dashboard/Manager/EditMenu/EditMenu';
 import ViewInventory from './components/dashboard/Manager/Inventory/ViewInventory';
 import EditInventory from './components/dashboard/Manager/Inventory/EditInventory';
-import ContactForm from './components/dashboard/customer/Contact/Contact';
 import ManagerBooking from './components/dashboard/Manager/ViewBooking/ManagerBooking';
-
-import './App.css';
-
+import ContactForm from './components/dashboard/customer/Contact/Contact';
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
+import './App.css';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -61,7 +59,8 @@ export default function App() {
 					<Route exact path='/Manager/EditMenu' component={EditMenu} />
 					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
-					<Route exact path='/Manager/ManagerBooking' component={ManagerBooking} />
+					<Route exact path='/Manager/ViewBooking' Component={ManagerBooking} />
+					
 					<Route exact path='/customer/Contact' component={ContactForm} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
