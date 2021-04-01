@@ -59,8 +59,8 @@ export default function App() {
 					<Route exact path='/Manager/EditMenu' component={EditMenu} />
 					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
-					<Route exact path='/Manager/ViewBooking' Component={ManagerBooking} />
-					
+					<Route exact path='/Manager/ViewBooking' component={ManagerBooking} />
+
 					<Route exact path='/customer/Contact' component={ContactForm} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />

@@ -2,25 +2,24 @@ const mongoose = require('mongoose');
 
 const Reservation = mongoose.Schema(
 	{
-		FirstName: {
-			type: String,
-			required: false,
-		},
-		LastName: {
-			type: String,
-			required: false,
-		},
-		PhoneNumber: {
-			type: String,
-			required: false,
-		},
-		// change to date eventually ( will require parsing / validation from front end!)
 		ReservationTime: {
 			type: String,
 			required: false,
 		},
-		People: {
+		coverNo: {
 			type: Number,
+			required: false,
+		},
+		phone: {
+			type: String,
+			required: false,
+		},
+		FirstName: {
+			type: String,
+			required: false,
+		},
+		lastName: {
+			type: String,
 			required: true,
 		},
 	},
