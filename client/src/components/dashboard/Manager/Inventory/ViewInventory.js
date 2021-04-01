@@ -64,7 +64,7 @@ class ViewInventory extends Component {
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
-					<h2>Current Inventory</h2>
+					<h3>Current Inventory</h3>
 					<Link to='/Manager/EditInventory'>
 						<FiEdit size={15} color='#0c71c3' />
 						Add items to Inventory!
@@ -103,9 +103,11 @@ class ViewInventory extends Component {
 						))}
 					</ul>
 					<div>
-						<Link className='botton' to='/dashboard/manager/ManagerDashboard'>
+					<Link to='/dashboard/manager/ManagerDashboard'>
+						<button >
 							Back To Dashboard
-						</Link>
+						</button>
+					</Link>
 					</div>
 				</div>
 			</div>

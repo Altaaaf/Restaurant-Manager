@@ -1,6 +1,7 @@
 .admin-home-main-container {
     display: flex;
-  
+    flex: 5;
+    height: 100%;
     grid-area: main;
     
     justify-content: center;
@@ -16,7 +17,6 @@
     width: 95%;
     margin-top: 15px;
     margin-bottom: 30px;
-  
     align-items: center;
     justify-items: center;
   
@@ -47,13 +47,17 @@
     width: 50%;
     display: grid;
     justify-content: center;
-    grid-template-columns: 100px 100px 100px 100px 100px;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 140px 140px;
+    grid-template-rows: repeat(5,50px);
     grid-template-areas: 
-    'usersLogo InventoryLogo menuLogo bookingsLogo logoutLogo'
-    'usersText InventoryText menuText bookingsText logoutText'
+    'usersLogo usersText'
+    'menuLogo menuText'
+    'bookingsLogo bookingsText'
+    'OrderLogo orderText'
+    'InventoryLogo InventoryText'
+    'logoutLogo logoutText'
     ;
-    margin-top: 125px;
+    margin-top: 90px;
     margin-left: 25%;
     align-items: center;
     justify-items: center;
@@ -74,6 +78,10 @@
   .menu-icon{
     grid-area: menuLogo;
   }
+  .Order-icon{
+    grid-area: OrderLogo;
+  }
+
   .logout-icon {
       grid-area: logoutLogo;
   }

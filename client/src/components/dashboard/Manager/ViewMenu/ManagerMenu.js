@@ -107,11 +107,13 @@ class ManagerMenu extends Component {
 						))}
 					</ul>
 					<div>
-						<Link className='botton' to='/dashboard/manager/ManagerDashboard'>
+					<Link to='/dashboard/manager/ManagerDashboard'>
+						<button >
 							Back To Dashboard
-						</Link>
-					</div>
+						</button>
+					</Link>
 				</div>
+			</div>
 			</div>
 		);
 	}

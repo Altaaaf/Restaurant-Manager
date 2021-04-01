@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
-import { FiUsers, FiMenu, FiBookOpen, FiClock, FiLogOut } from 'react-icons/fi';
-import { GrResources } from 'react-icons/gr';
+import { FiUsers, FiMenu, FiBookOpen, FiShoppingBag, FiLogOut } from 'react-icons/fi';
+import {RiCalendar2Fill} from 'react-icons/ri';
+import { GoChecklist } from "react-icons/go";
 import { Link } from 'react-router-dom';
 import './ManagerDashboard.css';
 
@@ -21,6 +22,7 @@ class ManagerDashboard extends Component {
 		console.log(user);
 
 		return (
+		
 			<div className='admin-home-main-container'>
 				<div className='admin-home-main-content center-align'>
 					<h4>
@@ -34,22 +36,27 @@ class ManagerDashboard extends Component {
 					<div className='links'>
 						<FiUsers className='users-icon' size={35} color='#0c71c3' />
 						<Link className='users-text' to='/admin/users'>
-							Users
-						</Link>
-
-						<GrResources className='Inventory-icon' size={35} color='#0c71c3' />
-						<Link className='Inventory-text' to='/Manager/ViewInventory'>
-							Inventory
+							Users Details
 						</Link>
 
 						<FiMenu className='menu-icon' size={35} color='#0c71c3' />
 						<Link className='menu-text' to='/Manager/ViewMenu'>
-							Menu
+							Menu Summary
 						</Link>
 
-						<FiBookOpen className='bookings-icon' size={35} color='#0c71c3' />
+						<RiCalendar2Fill className='bookings-icon' size={35} color='#0c71c3' />
 						<Link className='bookings-text' to='/Manager/ViewBooking'>
-							Bookings
+							Booking Summary
+						</Link>
+
+						<GoChecklist className='Order-icon' size={35} color='#0c71c3' />
+						<Link className='order-text' to='/Manager/ViewOrder'>
+							Order Summary
+						</Link>
+
+						<FiShoppingBag className='Inventory-icon' size={35} color='#0c71c3' />
+						<Link className='Inventory-text' to='/Manager/ViewInventory'>
+							Inventory 
 						</Link>
 
 						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />
@@ -59,6 +66,7 @@ class ManagerDashboard extends Component {
 					</div>
 				</div>
 			</div>
+			
 		);
 	}
 }

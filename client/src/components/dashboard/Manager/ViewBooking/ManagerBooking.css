@@ -1,12 +1,12 @@
+
+
+
 .admin-view-menu-container {
     display: flex;
-  
-
-    
+    overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
     justify-content: center;
-  
-    overflow: auto;
-  
     background: #E4F0FB;
   }
   
@@ -27,7 +27,7 @@
   
   }
   
-  .admin-view-menu-content h2 {
+  .admin-view-menu-content h1 {
     font-size: 38px;
     margin-bottom: 40px;
   }
@@ -50,11 +50,9 @@
   
   
   .admin-view-menu-content ul {
-    
-  
     margin-top: 25px;
     display: grid;
-    grid-template-columns:repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 25px;
     list-style: none;
     margin-bottom: 25px;
@@ -65,8 +63,8 @@
     background: #CDE3F5;
     padding: 24px;
     border-radius: 8px;
-    display: list-item;
-   
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: start;
     transition: opacity 0.4s;
@@ -85,7 +83,15 @@
     font-size: 17px;
   }
   
-
+  .admin-view-menu-content ul li button {
+    position: flex;
+    background: transparent;
+    max-width: 2px;
+    border: 0;
+    margin-top: 10px;
+    margin-left: 0px;
+    cursor: pointer;
+  }
   .admin-view-menu-content button {
     width: 10%;
     height: 35px;

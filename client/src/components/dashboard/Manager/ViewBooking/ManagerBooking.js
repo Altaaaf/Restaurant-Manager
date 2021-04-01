@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
+import './ManagerBooking.css'
 
 class ManagerBooking extends Component {
 	constructor() {
@@ -65,9 +66,11 @@ class ManagerBooking extends Component {
 						))}
 					</ul>
 					<div>
-						<Link className='botton' to='/dashboard/manager/ManagerDashboard'>
+					<Link to='/dashboard/manager/ManagerDashboard'>
+						<button >
 							Back To Dashboard
-						</Link>
+						</button>
+					</Link>
 					</div>
 				</div>
 			</div>
