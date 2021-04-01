@@ -2,6 +2,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "nodemailer": "^6.5.0",
-    "puppeteer": "^8.0.0"
+    "puppeteer": "^8.0.0",
+    "react-datepicker": "^3.7.0"
   }
 }
