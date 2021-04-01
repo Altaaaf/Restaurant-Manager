@@ -19,7 +19,6 @@ router.post('/BookingPage', async (req, res) => {
 			LastName: req.body.lastName,
 			PhoneNumber: req.body.phone,
 			ReservationTime: req.body.diningDate,
-			
 			People: req.body.coverNo,
 		});
 		CreateReservation_.save();

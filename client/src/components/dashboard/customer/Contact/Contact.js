@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import "./Contact.css";
 
-=======
-import './Contact.css';
->>>>>>> cc6811e (contactbackend)
 
 const ContactForm = () => {
   const [status, setStatus] = useState("Submit");
@@ -30,7 +26,6 @@ const ContactForm = () => {
     alert(result.status);
   };
   return (
-<<<<<<< HEAD
     <section class="contact-page-section">
     
     <div class="container"> 
@@ -99,38 +94,12 @@ const ContactForm = () => {
     </div>
 </section>
     
-=======
-    <div className='customer-contact-container'>
-    <div className='customer-contact-content'>
-    <h2>Send us a message</h2>
-    <form onSubmit={handleSubmit}>
-      <div className="inputbox">
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" required />
-      </div>
-      <div className="inputbox">
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" required />
-      </div>
-      <div className="inputbox">
-        <label htmlFor="message">Message:</label>
-        <textarea type="message" id="message" required />
-      </div>
-      <button className="button" type="submit">{status}</button>
-    </form>
-    </div>
-</div>
->>>>>>> cc6811e (contactbackend)
   );
 };
 
 
-<<<<<<< HEAD
 export default ContactForm;
 
 
 
 
-=======
-export default ContactForm;
->>>>>>> cc6811e (contactbackend)

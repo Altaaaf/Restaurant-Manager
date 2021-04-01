@@ -48,7 +48,7 @@ class ManagerDashboard extends Component {
 						</Link>
 
 						<FiBookOpen className='bookings-icon' size={35} color='#0c71c3' />
-						<Link className='bookings-text' to='/admin/bookings'>
+						<Link className='bookings-text' to='Manager/ManagerBooking'>
 							Bookings
 						</Link>
 
