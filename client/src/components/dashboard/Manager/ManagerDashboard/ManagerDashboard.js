@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
 import { FiUsers, FiMenu, FiBookOpen, FiShoppingBag, FiLogOut } from 'react-icons/fi';
-import {RiCalendar2Fill} from 'react-icons/ri';
-import { GoChecklist } from "react-icons/go";
+import { RiCalendar2Fill } from 'react-icons/ri';
+import { GoChecklist } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import './ManagerDashboard.css';
 
@@ -22,7 +22,6 @@ class ManagerDashboard extends Component {
 		console.log(user);
 
 		return (
-		
 			<div className='admin-home-main-container'>
 				<div className='admin-home-main-content center-align'>
 					<h4>
@@ -35,7 +34,7 @@ class ManagerDashboard extends Component {
 
 					<div className='links'>
 						<FiUsers className='users-icon' size={35} color='#0c71c3' />
-						<Link className='users-text' to='/admin/users'>
+						<Link className='users-text' to='/Manager/Users'>
 							Users Details
 						</Link>
 
@@ -56,7 +55,7 @@ class ManagerDashboard extends Component {
 
 						<FiShoppingBag className='Inventory-icon' size={35} color='#0c71c3' />
 						<Link className='Inventory-text' to='/Manager/ViewInventory'>
-							Inventory 
+							Inventory
 						</Link>
 
 						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />
@@ -66,7 +65,6 @@ class ManagerDashboard extends Component {
 					</div>
 				</div>
 			</div>
-			
 		);
 	}
 }

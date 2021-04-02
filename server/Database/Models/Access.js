@@ -22,15 +22,7 @@ const Account = mongoose.Schema(
 			type: String,
 			required: false,
 		},
-		MiddleName: {
-			type: String,
-			required: false,
-		},
 		LastName: {
-			type: String,
-			required: false,
-		},
-		WorkLocation: {
 			type: String,
 			required: false,
 		},

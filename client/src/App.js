@@ -22,6 +22,8 @@ import EditInventory from './components/dashboard/Manager/Inventory/EditInventor
 import ManagerBooking from './components/dashboard/Manager/ViewBooking/ManagerBooking';
 import ContactForm from './components/dashboard/customer/Contact/Contact';
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
+import ViewUsers from './components/dashboard/Manager/Users/ViewUsers';
+
 import './App.css';
 
 // Check for token to keep user logged in
@@ -60,6 +62,7 @@ export default function App() {
 					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
 					<Route exact path='/Manager/ViewBooking' component={ManagerBooking} />
+					<Route exact path='/Manager/Users' component={ViewUsers} />
 
 					<Route exact path='/customer/Contact' component={ContactForm} />
 					<Switch>
