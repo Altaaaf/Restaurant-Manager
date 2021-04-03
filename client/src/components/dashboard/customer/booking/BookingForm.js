@@ -3,13 +3,13 @@ import InputField from './inputField';
 import PropTypes from 'prop-types';
 import Timeslot from './Timeslot';
 import { Link } from 'react-router-dom';
-const BookingForm = ({ booking, onSave, onChange }) => {
+const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 	return (
 		<form>
 			<div style={{ height: '15vh' }} className='container '>
-			<Link to='/dashboard/customer/Dashboards' className='btn-flat waves-effect'>
-							<i className='material-icons left'>keyboard_backspace</i> Back to home
-						</Link>
+				<Link to='/dashboard/customer/Dashboards' className='btn-flat waves-effect'>
+					<i className='material-icons left'>keyboard_backspace</i> Back to home
+				</Link>
 				<div className='row'>
 					<div className='col s12 dark-text center-align'>
 						<InputField
@@ -27,8 +27,8 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 						/>
 
 						<Timeslot
-							name='diningDate'
-							value={booking.diningDate}
+							name='ReservationTime'
+							value={booking.ReservationTime}
 							label='Dining Date'
 							onChange={onChange}
 						/>
@@ -40,28 +40,22 @@ const BookingForm = ({ booking, onSave, onChange }) => {
 							onChange={onChange}
 						/>
 
-						<InputField name='phone' 
-						value={booking.phone} 
-						label='Phone' 
-						onChange={onChange} />
-		
-							<Link
-								style={{
-									width: '140px',
-									borderRadius: '3px',
-									letterSpacing: '1.5px',
-									marginTop: '3rem',
-								}}
-								onClick={onSave}
-								className='btn btn-small waves-effect waves-light hoverable navy accent-3'>
-								submit
-							</Link>
-						</div>
+						<InputField name='phone' value={booking.phone} label='Phone' onChange={onChange} />
+
+						<Link
+							style={{
+								width: '140px',
+								borderRadius: '3px',
+								letterSpacing: '1.5px',
+								marginTop: '3rem',
+							}}
+							onClick={onSave}
+							className='btn btn-small waves-effect waves-light hoverable navy accent-3'>
+							submit
+						</Link>
 					</div>
 				</div>
-	
-			
-			
+			</div>
 		</form>
 	);
 };

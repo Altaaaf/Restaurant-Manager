@@ -35,11 +35,12 @@ router.post('/BookingPage', async (req, res) => {
 		//		status: error.message,
 		//	});
 		//}
+		console.log(req.body);
 		const CreateReservation_ = new Reservation({
 			FirstName: req.body.firstName,
 			lastName: req.body.lastName,
 			phone: req.body.phone,
-			ReservationTime: req.body.diningDate,
+			ReservationTime: req.body.ReservationTime,
 			coverNo: req.body.coverNo,
 		});
 		CreateReservation_.save();

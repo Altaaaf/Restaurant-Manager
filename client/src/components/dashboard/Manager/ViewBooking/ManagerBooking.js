@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
-import './ManagerBooking.css'
+import './ManagerBooking.css';
 
 class ManagerBooking extends Component {
 	constructor() {
@@ -36,11 +36,6 @@ class ManagerBooking extends Component {
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
-					<h2>All Bookings</h2>
-					<Link to=''>
-						<FiEdit size={16} color='#0c71c3' />
-						Create Booking
-					</Link>
 					<h3>bookings details</h3>
 					<ul>
 						{booking.map((BookingsList, index) => (
@@ -66,11 +61,9 @@ class ManagerBooking extends Component {
 						))}
 					</ul>
 					<div>
-					<Link to='/dashboard/manager/ManagerDashboard'>
-						<button >
-							Back To Dashboard
-						</button>
-					</Link>
+						<Link to='/dashboard/manager/ManagerDashboard'>
+							<button>Back To Dashboard</button>
+						</Link>
 					</div>
 				</div>
 			</div>

@@ -3,7 +3,6 @@ import toastr from 'toastr';
 import BookingApi from '../api/BookingApi';
 import BookingForm from './BookingForm';
 
-
 class BookingPage extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -14,13 +13,28 @@ class BookingPage extends React.Component {
 
 		this.onFieldChange = this.onFieldChange.bind(this);
 		this.onSaveForm = this.onSaveForm.bind(this);
+		this.handleDate = this.onSaveForm.bind(this);
+	}
+
+	handleDate(date) {
+		let booking = this.state.booking;
+		booking['ReservationTime'] = date;
+		return this.setState({ booking: booking });
 	}
 
 	onFieldChange(event) {
-		const field = event.target.name;
-		let booking = this.state.booking;
-		booking[field] = event.target.value;
-		return this.setState({ booking: booking });
+		try {
+			const field = event.target.name;
+			console.log(field);
+			let booking = this.state.booking;
+			booking[field] = event.target.value;
+			return this.setState({ booking: booking });
+		} catch {
+			let booking = this.state.booking;
+			booking['ReservationTime'] = event;
+			console.log(event);
+			return this.setState({ booking: booking });
+		}
 	}
 
 	onSaveForm(event) {
@@ -31,16 +45,15 @@ class BookingPage extends React.Component {
 	}
 
 	render() {
-		
 		return (
 			<div style={{ height: '65vh' }} className='container valign-wrapper'>
 				<div className='row'>
 					<div className='col s12 dark-text center-align'>
-					
-							<BookingForm
+						<BookingForm
 							booking={this.state.booking}
 							onSave={this.onSaveForm}
 							onChange={this.onFieldChange}
+							updateDate={this.handleDate}
 						/>
 					</div>
 				</div>
