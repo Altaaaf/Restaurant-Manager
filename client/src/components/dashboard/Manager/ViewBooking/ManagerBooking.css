@@ -15,7 +15,7 @@
     width: 95%;
     margin-top: 30px;
     margin-bottom: 30px;
-  
+    margin-right: 40px;
     align-items: center;
     justify-items: center;
   
@@ -27,7 +27,7 @@
   
   }
   
-  .admin-view-menu-content h1 {
+  .admin-view-menu-content h3 {
     font-size: 38px;
     margin-bottom: 40px;
   }
@@ -52,7 +52,7 @@
   .admin-view-menu-content ul {
     margin-top: 25px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 25px;
     list-style: none;
     margin-bottom: 25px;

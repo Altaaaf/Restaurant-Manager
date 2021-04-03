@@ -2,26 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
-import './ManagerBooking.css'
 
-class ManagerBooking extends Component {
+
+class ManagerOder extends Component {
 	constructor() {
 		super();
 		this.state = {
-			booking: [
-				{
-					firstName: 'Testing',
-					lastName: 'Testing',
-					phone: 'Testingggggg',
-					diningDate: 'Testing',
-					coverNo: 5,
-				},
-			],
+			order: [],
 		};
 	}
 	componentDidMount() {
 		axios
-			.get('http://localhost:5000/Api/Reservations/View')
+			.get('http://localhost:5000/Api/Orders/View')
 			.then((res) => {
 				const data = res.data;
 				console.log(data);
@@ -32,7 +24,7 @@ class ManagerBooking extends Component {
 	}
 
 	render() {
-		const { booking, error, loading } = this.state;
+		const { order, error, loading } = this.state;
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
@@ -77,4 +69,4 @@ class ManagerBooking extends Component {
 		);
 	}
 }
-export default ManagerBooking;
+export default ManagerOrder;

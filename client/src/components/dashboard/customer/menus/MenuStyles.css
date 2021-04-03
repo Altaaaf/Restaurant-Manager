@@ -26,7 +26,10 @@ input {
 	background-color: transparent;
 	border: 1px solid var(--secondary);
 	border-radius: 50%;
-	text-align: center;
+	margin-left: 190px;
+	text-align: left;
+	justify-items: right;
+	
 }
 
 .menu {
@@ -36,6 +39,7 @@ input {
 	background-color: #eaeff0;
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 	font-size: 2rem;
+
 }
 
 @media (min-width: 660px) {
@@ -50,10 +54,12 @@ input {
 .menu-item {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
+	align-items: left;
 	justify-content: space-between;
 	margin-bottom: 1.5rem;
+	margin-left: 1.5rem;
 	font-size: 1rem;
+	justify-items: center;
 }
 
 
@@ -98,6 +104,7 @@ input {
 .extras .menu-item {
 	margin-bottom: 0.75rem;
 	font-size: 1rem;
+	justify-items: left;
 }
 
 .extras-heading {
@@ -109,13 +116,15 @@ input {
 .extras-name {
 	flex-grow: 1;
 	font-size: 1rem;
+	justify-items: left;
 }
 
 .total {
 	grid-column: 1 / 3;
 	margin-top: 2.5rem;
 	padding: 0.75rem 0 1.25rem;
-	display: flex;
+	display: grid;
+	grid-template-columns: 140px 39px;
 	justify-content: space-between;
 	align-items: flex-end;
 	position: sticky;
@@ -123,19 +132,25 @@ input {
 	color: var(--secondary);
 	background-color:  #eaeff0;
 	border-top: 1px solid var(--secondary);
+	font-size: 1rem;
 
 }
 
 @media (min-width: 660px) {
 	.total {
 		margin-top: 0;
+		justify-items: left;
 	}
 }
 
-.total-title {
+.total-title .tax-title .Order-title {
 	margin: 0;
+	font-size: 1rem;
+	justify-items: left;
+
 }
 
-.total-price {
-	font-size: 1.5rem;
+.total-price .tax-price .Order-price {
+	font-size: 1rem;
+	justify-items: left;
 }
