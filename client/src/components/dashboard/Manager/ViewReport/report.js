@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import {AgGridReact} from 'ag-grid-react';
+import {AgGridReact, AgGridColumn} from 'ag-grid-react';
 import axios from 'axios';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -18,6 +18,7 @@ class report extends Component {
                 {headerName: 'Number of People', field: 'coverNo', editable: true},
                 {headerName: 'Reservation Time', field: 'ReservationTime',editable: true},
 			],
+        
 			rowData: []
             
 		}
@@ -45,9 +46,26 @@ class report extends Component {
 				}}
 			>
 				<AgGridReact
+                defaultColDef={{
+            flex: 1,
+            minWidth: 100,
+            filter: true,
+            resizable: true,
+          }}
+          sideBar={'filters'}
                     pagination={true}
 					columnDefs={this.state.columnDefs}
 					rowData={this.state.rowData}>
+                    <AgGridColumn
+            field="FirstName"
+            minWidth={200}
+            filter="agTextColumnFilter"
+          />
+          <AgGridColumn field="lastName" />
+          <AgGridColumn field="phone" minWidth={200} />
+          <AgGridColumn field="people" />
+          <AgGridColumn field="ReservationTime" minWidth={180} />
+       
 				</AgGridReact>
 			</div>
             </div>
