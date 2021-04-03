@@ -55,7 +55,7 @@ class Menus extends Component {
 		const { menu, error, loading } = this.state;
 		return (
 			<Provider>
-			
+				
 				<div className='menu'>
 					<Mains meals={menu.mains} />
 					<aside className='aside'>

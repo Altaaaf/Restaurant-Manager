@@ -43,25 +43,25 @@ class ManagerBooking extends Component {
 					</Link>
 					<h3>bookings details</h3>
 					<ul>
-						{booking.map((bk, index) => (
+						{booking.map((BookingsList, index) => (
 							<li key={index}>
 								<strong>Booking ID:</strong>
 								<p>{index}</p>
 
 								<strong>Date:</strong>
-								<p>{bk.ReservationTime}</p>
+								<p>{BookingsList.ReservationTime}</p>
 
 								<strong>Number of People:</strong>
-								<p>{bk.coverNo}</p>
+								<p>{BookingsList.coverNo}</p>
 
 								<strong>phone:</strong>
-								<p>{bk.phone}</p>
+								<p>{BookingsList.phone}</p>
 
 								<strong>First Name:</strong>
-								<p>{bk.FirstName}</p>
+								<p>{BookingsList.FirstName}</p>
 
 								<strong>Last Name:</strong>
-								<p>{bk.lastName}</p>
+								<p>{BookingsList.lastName}</p>
 							</li>
 						))}
 					</ul>

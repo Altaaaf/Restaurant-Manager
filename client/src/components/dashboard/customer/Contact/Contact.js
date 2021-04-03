@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Contact.css";
 
 
@@ -29,11 +30,13 @@ const ContactForm = () => {
     <section class="contact-page-section">
     
     <div class="container"> 
-    
+    <Link to='/dashboard/customer/Dashboards' className='btn-flat waves-effect'>
+							<i className='material-icons left'>keyboard_backspace</i> Back to home
+						</Link>
         <div class="row clearfix">
         <h2>Send us a message</h2>
             <div class="column col-lg-8 col-md-12 col-sm-12">
-                
+            
                 <div class="contact-form">
               
                     <form onSubmit={handleSubmit} >
