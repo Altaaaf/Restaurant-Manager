@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
-class Cart extends Component {
+class orderDetail extends Component {
     render() {
         return (
             
@@ -13,4 +13,4 @@ class Cart extends Component {
         )
     }; 
 };
-export default Cart;
+export default orderDetail;
