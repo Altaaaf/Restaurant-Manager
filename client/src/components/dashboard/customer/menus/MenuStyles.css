@@ -22,12 +22,11 @@ input {
 	width: 1.75rem;
 	height: 1.75rem;
 	padding: 0.25rem;
-	margin: 0 3rem;
+	margin: 0 0.75rem;
 	background-color: transparent;
-	border: 1px solid var(#eaeff0);
+	border: 1px solid var(--secondary);
 	border-radius: 50%;
-	text-align: right;
-	
+	text-align: center;
 }
 
 .menu {
