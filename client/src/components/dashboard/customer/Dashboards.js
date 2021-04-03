@@ -45,7 +45,7 @@ class Dashboard extends Component {
 				  <img src={barnsLink} alt=""/>
 			
 				  <div className="logged-right-links">
-					<Link to="">
+					<Link to="/customer/profile">
 					<FiUser size={16} color="#e02041"/>
 					  Profile
 					</Link>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
-import { FiUsers, FiMenu, FiBookOpen, FiShoppingBag, FiLogOut } from 'react-icons/fi';
+import { FiUsers, FiMenu, FiShoppingBag, FiLogOut,FiBarChart } from 'react-icons/fi';
 import { RiCalendar2Fill } from 'react-icons/ri';
 import { GoChecklist } from 'react-icons/go';
 import { Link } from 'react-router-dom';
@@ -56,6 +56,11 @@ class ManagerDashboard extends Component {
 						<FiShoppingBag className='Inventory-icon' size={35} color='#0c71c3' />
 						<Link className='Inventory-text' to='/Manager/ViewInventory'>
 							Inventory
+						</Link>
+
+						<FiBarChart className='report-icon' size={35} color='#0c71c3' />
+						<Link className='report-text' to='/Manager/ViewReport'>
+							Reports
 						</Link>
 
 						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />

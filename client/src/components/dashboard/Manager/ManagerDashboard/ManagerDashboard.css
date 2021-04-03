@@ -45,14 +45,16 @@
     display: grid;
     justify-content: center;
     grid-template-columns: 140px 140px;
-    grid-template-rows: repeat(6,50px);
+    grid-template-rows: repeat(7,50px);
     grid-template-areas: 
     'usersLogo usersText'
     'menuLogo menuText'
     'bookingsLogo bookingsText'
     'OrderLogo orderText'
     'InventoryLogo InventoryText'
+    'reportLogo reportTex'
     'logoutLogo logoutText'
+    
     ;
     margin-top: 90px;
     margin-left: 25%;
@@ -78,6 +80,11 @@
   .Order-icon{
     grid-area: OrderLogo;
   }
+
+  .report-icon{
+    grid-area:reportLogo;
+  }
+  
 
   .logout-icon {
       grid-area: logoutLogo;

@@ -23,7 +23,9 @@ import ManagerBooking from './components/dashboard/Manager/ViewBooking/ManagerBo
 import ContactForm from './components/dashboard/customer/Contact/Contact';
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
 import ViewUsers from './components/dashboard/Manager/Users/ViewUsers';
-import Cart from './components/dashboard/customer/cart';
+import Profile from "./components/dashboard/customer/Profile/profile";
+import report from './components/dashboard/Manager/ViewReport/report';
+
 
 import './App.css';
 
@@ -64,9 +66,9 @@ export default function App() {
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
 					<Route exact path='/Manager/ViewBooking' component={ManagerBooking} />
 					<Route exact path='/Manager/Users' component={ViewUsers} />
-					<Route exact path='/customer/cart' component={Cart} />
-
+					<Route exact path='/customer/profile' component={Profile} />
 					<Route exact path='/customer/Contact' component={ContactForm} />
+					<Route exact path='/Manager/ViewReport' component={report} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
 						<PrivateRoute
