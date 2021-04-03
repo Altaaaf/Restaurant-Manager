@@ -1,25 +1,22 @@
 .admin-home-main-container {
     display: flex;
-    flex: 5;
     height: 100%;
-    grid-area: main;
-    
+    width: 100%;
     justify-content: center;
     align-items: center;
   
     overflow: auto;
   
-    background: #E4F0FB;
+    background: #81a6c9;
   }
   
   .admin-home-main-content {
-    height: 95%;
+    height: 88vh;
     width: 95%;
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: 30px;
     align-items: center;
     justify-items: center;
-  
     padding: 30px;
   
     border-radius: 8px;
@@ -43,12 +40,12 @@
   }
   
   .links {
-    height: 20%;
+    height: 30%;
     width: 50%;
     display: grid;
     justify-content: center;
     grid-template-columns: 140px 140px;
-    grid-template-rows: repeat(5,50px);
+    grid-template-rows: repeat(6,50px);
     grid-template-areas: 
     'usersLogo usersText'
     'menuLogo menuText'
