@@ -80,7 +80,7 @@ class Menus extends Component {
 						</div>
 						<div className='col s6 center-align'>
 							<Link
-								to='/'
+								to='/dashboard/customer/cart'
 								style={{
 									width: '140px',
 									borderRadius: '3px',
