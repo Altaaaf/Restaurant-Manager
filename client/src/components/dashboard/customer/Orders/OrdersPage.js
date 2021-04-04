@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './OrdersCss.css';
+
 import { Link } from 'react-router-dom';
 import toastr from 'toastr';
 import axios from 'axios';
@@ -23,8 +23,12 @@ class OrdersPage extends Component {
 	render() {
 		const { Order } = this.props.location.state;
 		return (
+			
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
+				<Link to='/customer/menus' className='btn-flat waves-effect'>
+					<i className='material-icons left'>keyboard_backspace</i> Back to home
+				</Link>
 					<ul>
 						{Order.map((Item, index) => (
 							<li key={index}>
@@ -44,25 +48,16 @@ class OrdersPage extends Component {
 					</ul>
 					<div>
 						<Link
-							to='/customer/menus'
-							style={{
-								width: '140px',
-								borderRadius: '3px',
-								letterSpacing: '1.5px',
-							}}
-							className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
-							Previous
-						</Link>
-						<Link
 							style={{
 								width: '140px',
 								borderRadius: '3px',
 								letterSpacing: '1.5px',
 								marginTop: '3rem',
+								textSize:'12px',
 							}}
 							onClick={this.onSaveForm}
-							className='btn btn-small waves-effect waves-light hoverable navy accent-3'>
-							Purchase!
+							className='btn small waves-effect waves-light hoverable navy accent-3'>
+							Submit
 						</Link>
 					</div>
 				</div>

@@ -3,6 +3,7 @@ import "./Task.css";
 import List from "./List";
 import InputForm from "./InputForm";
 import Header from "./Header";
+import { Link } from 'react-router-dom';
 
 class Task extends Component {
   // getInitialState
@@ -90,6 +91,13 @@ class Task extends Component {
           toggleIsEditingAt={this.toggleIsEditingAt}
           setNameAt={this.setNameAt}
         />
+        <div>
+					<Link to='/dashboard/manager/ManagerDashboard'>
+						<button >
+							Back To Dashboard
+						</button>
+					</Link>
+				</div>
       </div>
       </div>
       </div>

@@ -46,14 +46,13 @@
   }
   
   button {
-    background: #62c7ff;
-    border: none;
+    border: 1px solid rgb(26, 25, 25);
     font-size: 1rem;
     font-weight: 300;
     font-family: "Lato", sans-serif;
     padding: 15px 25px;
     border-radius: 4px;
-    color: #fff;
+    color: rgb(17, 16, 16);
   }
   
   ul {

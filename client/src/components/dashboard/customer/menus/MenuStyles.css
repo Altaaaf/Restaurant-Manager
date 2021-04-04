@@ -60,6 +60,8 @@ input {
 	margin-left: 1.5rem;
 	font-size: 1rem;
 	justify-items: center;
+	color: rgb(59, 167, 158);
+	
 }
 
 
@@ -75,12 +77,20 @@ input {
 .mains-name {
 	margin: 0;
 	flex-grow: 1;
+	color: rgb(59, 167, 158);
+	
 }
 
 .mains-description {
 	flex: 1 1 100%;
 	margin: 0.75rem 0 0;
-	color: var(--secondary);
+	color: rgb(59, 167, 158);
+}
+.mains-heading {
+	margin: 0 0 1.5rem;
+	border-bottom: 1px solid black;
+	font-size: 2rem;
+	color: rgb(59, 167, 158);
 }
 
 .aside {
@@ -88,7 +98,7 @@ input {
 }
 
 .extras {
-	color: var(--secondary);
+	color: rgb(59, 167, 158);
 }
 
 .extras + .extras {
@@ -109,7 +119,7 @@ input {
 
 .extras-heading {
 	margin: 0 0 1.5rem;
-	border-bottom: 1px solid var(--secondary);
+	border-bottom: 1px solid black;
 	font-size: 2rem;
 }
 
@@ -131,8 +141,9 @@ input {
 	bottom: 0;
 	color: var(--secondary);
 	background-color:  #eaeff0;
-	border-top: 1px solid var(--secondary);
+	border-top: 1px solid black;
 	font-size: 1rem;
+	color: rgb(59, 167, 158);
 
 }
 

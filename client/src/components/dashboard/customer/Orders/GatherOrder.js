@@ -23,7 +23,9 @@ export default function Total({ data }) {
 				state: {
 					Order: Order,
 				},
-			}}>
+				
+			}}
+			className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
 			Order Now
 		</Link>
 	);
