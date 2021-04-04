@@ -23,9 +23,12 @@ import ManagerBooking from './components/dashboard/Manager/ViewBooking/ManagerBo
 import ContactForm from './components/dashboard/customer/Contact/Contact';
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
 import ViewUsers from './components/dashboard/Manager/Users/ViewUsers';
-import Profile from "./components/dashboard/customer/Profile/profile";
+import Profile from './components/dashboard/customer/Profile/profile';
 import report from './components/dashboard/Manager/ViewReport/report';
+import ManagerOrder from './components/dashboard/Manager/ViewOrder/ManagerOrder';
+import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
 
+import CustomerOrdersPage from './components/dashboard/customer/Orders/ViewOrders';
 
 import './App.css';
 
@@ -59,15 +62,18 @@ export default function App() {
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/logout' component={Logout} />
 					<Route exact path='/customer/menus' component={Menus} />
-					<Route exact path='/Manager/ViewMenu' component={ManagerMenu} />
+					<Route exact path='/customer/cart' component={OrdersPage} />
 					<Route exact path='/customer/booking' component={BookingPage} />
+					<Route exact path='/customer/profile' component={Profile} />
+					<Route exact path='/customer/Contact' component={ContactForm} />
+					<Route exact path='/customer/Orders' component={CustomerOrdersPage} />
+					<Route exact path='/Manager/ViewMenu' component={ManagerMenu} />
 					<Route exact path='/Manager/EditMenu' component={EditMenu} />
 					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
 					<Route exact path='/Manager/ViewBooking' component={ManagerBooking} />
 					<Route exact path='/Manager/Users' component={ViewUsers} />
-					<Route exact path='/customer/profile' component={Profile} />
-					<Route exact path='/customer/Contact' component={ContactForm} />
+					<Route exact path='/Manager/ViewOrder' component={ManagerOrder} />
 					<Route exact path='/Manager/ViewReport' component={report} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />

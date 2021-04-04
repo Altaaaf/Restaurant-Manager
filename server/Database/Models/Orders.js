@@ -3,22 +3,13 @@ const mongoose = require('mongoose');
 const Orders = mongoose.Schema(
 	{
 		// unique id for each order, which is auto incremeted to keep track of total orders over some duration
-		OrderID: {
-			type: Number,
+		CustomerName: {
+			type: String,
 			required: true,
 		},
-		BillingMethod: {
-			type: true,
-			required: false,
-		},
-		Amount: {
-			type: Number,
+		Order: {
+			type: Array,
 			required: true,
-		},
-		TimeStamp: {
-			type: Date,
-			required: true,
-			default: Date.now,
 		},
 	},
 	{ versionKey: false },

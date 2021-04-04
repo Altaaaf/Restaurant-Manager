@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-class ManagerOrder extends Component {
+class ViewOrders extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -14,7 +14,6 @@ class ManagerOrder extends Component {
 			.get('http://localhost:5000/Api/Orders/View')
 			.then((res) => {
 				const data = res.data;
-				//console.log(data);
 				this.setState({ orders: data.Orders });
 			})
 			.catch((err) => this.setState({ error: err }));
@@ -35,10 +34,6 @@ class ManagerOrder extends Component {
 							<li key={index}>
 								<strong>Order ID:</strong>
 								<p>{index}</p>
-
-								<strong>Customer Name:</strong>
-								<p>{order.CustomerName}</p>
-
 								{order.Order.map((item, idx) => {
 									return (
 										<li key={idx}>
@@ -60,7 +55,7 @@ class ManagerOrder extends Component {
 						))}
 					</ul>
 					<div>
-						<Link to='/dashboard/manager/ManagerDashboard'>
+						<Link to='/dashboard/customer/Dashboards'>
 							<button>Back To Dashboard</button>
 						</Link>
 					</div>
@@ -69,4 +64,4 @@ class ManagerOrder extends Component {
 		);
 	}
 }
-export default ManagerOrder;
+export default ViewOrders;

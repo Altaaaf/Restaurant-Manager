@@ -6,8 +6,7 @@ import './MenuStyles.css';
 import Total from './Total';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
-
+import GatherOrder from '../Orders/GatherOrder';
 class Menus extends Component {
 	constructor() {
 		super();
@@ -33,6 +32,9 @@ class Menus extends Component {
 					},
 				],
 			},
+			Order: {
+				total: '???',
+			},
 			error: '',
 			loading: true,
 		};
@@ -43,26 +45,24 @@ class Menus extends Component {
 			.get('http://localhost:5000/Api/Menu/View')
 			.then((res) => {
 				const data = res.data;
-				console.log(data);
+				//console.log(data);
 				this.setState({ menu: data });
 			})
 			.catch((err) => this.setState({ error: err }));
-		this.setState({ loading: false });
 	}
 
 	// add a loading page while retrieving data from back end
 	render() {
-		const { menu, error, loading } = this.state;
+		const { menu } = this.state;
 		return (
 			<Provider>
-				
 				<div className='menu'>
 					<Mains meals={menu.mains} />
 					<aside className='aside'>
 						<Extras type='Sides' items={menu.sides} />
 						<Extras type='Drinks' items={menu.drinks} />
 					</aside>
-					<Total data={this.state.menu}/>
+					<Total data={this.state.menu} />
 				</div>
 				<div style={{ height: '15vh' }} className='container valign-wrapper'>
 					<div className='row'>
@@ -79,16 +79,7 @@ class Menus extends Component {
 							</Link>
 						</div>
 						<div className='col s6 center-align'>
-							<Link
-								to='/dashboard/customer/cart'
-								style={{
-									width: '140px',
-									borderRadius: '3px',
-									letterSpacing: '1.5px',
-								}}
-								className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
-								Order Now
-							</Link>
+							<GatherOrder data={this.state.menu} />
 						</div>
 					</div>
 				</div>

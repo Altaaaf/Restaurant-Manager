@@ -4,9 +4,7 @@ import BookingApi from '../api/BookingApi';
 import BookingForm from './BookingForm';
 
 class BookingPage extends React.Component {
-	constructor(props, context) {
-		super(props, context);
-
+	constructor() {
 		this.state = {
 			booking: {},
 		};
