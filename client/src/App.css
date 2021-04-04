@@ -21,8 +21,8 @@ html, body, #root {
   font-family: 'Roboto', sans-serif;
 }
 
-:root {
-  --primary: #FFF;
-  --secondary: #000;
+.completed-task {
+  text-decoration: line-through;
+  color: #db3545;
 }
 

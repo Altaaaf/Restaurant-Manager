@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
 import { FiUsers, FiMenu, FiShoppingBag, FiLogOut,FiBarChart } from 'react-icons/fi';
 import { RiCalendar2Fill } from 'react-icons/ri';
-import { GoChecklist } from 'react-icons/go';
+import { GoChecklist,GoListOrdered } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import './ManagerDashboard.css';
 
@@ -61,6 +61,11 @@ class ManagerDashboard extends Component {
 						<FiBarChart className='report-icon' size={35} color='#0c71c3' />
 						<Link className='report-text' to='/Manager/ViewReport'>
 							Reports
+						</Link>
+
+						<GoListOrdered className='task-icon' size={35} color='#0c71c3' />
+						<Link className='task-text' to='/Manager/ManagerTask'>
+							To Do List
 						</Link>
 
 						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />

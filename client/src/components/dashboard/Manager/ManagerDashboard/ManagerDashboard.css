@@ -45,14 +45,15 @@
     display: grid;
     justify-content: center;
     grid-template-columns: 140px 140px;
-    grid-template-rows: repeat(7,50px);
+    grid-template-rows: repeat(8,50px);
     grid-template-areas: 
     'usersLogo usersText'
     'menuLogo menuText'
     'bookingsLogo bookingsText'
     'OrderLogo orderText'
     'InventoryLogo InventoryText'
-    'reportLogo reportTex'
+    'reportLogo reportText'
+    'taskLogo taskText'
     'logoutLogo logoutText'
     
     ;
@@ -83,6 +84,9 @@
 
   .report-icon{
     grid-area:reportLogo;
+  }
+  .task-icon{
+    grid-area: taskLogo;
   }
   
 

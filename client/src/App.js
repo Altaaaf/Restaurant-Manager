@@ -29,6 +29,7 @@ import ManagerOrder from './components/dashboard/Manager/ViewOrder/ManagerOrder'
 import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
 
 import CustomerOrdersPage from './components/dashboard/customer/Orders/ViewOrders';
+import Task from './components/dashboard/Manager/ManagerTask/Task';
 
 import './App.css';
 
@@ -75,6 +76,7 @@ export default function App() {
 					<Route exact path='/Manager/Users' component={ViewUsers} />
 					<Route exact path='/Manager/ViewOrder' component={ManagerOrder} />
 					<Route exact path='/Manager/ViewReport' component={report} />
+					<Route exact path='/Manager/ManagerTask' component={Task} />
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
 						<PrivateRoute
