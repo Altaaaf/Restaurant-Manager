@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {AgGridReact, AgGridColumn} from 'ag-grid-react';
 import { AllModules } from '@ag-grid-enterprise/all-modules';
 
@@ -21,7 +22,7 @@ class report extends Component {
                 {headerName: 'Number of People', field: 'coverNo', editable: true},
                 {field: 'ReservationTime', editable: true},
 			],
-			components: { datePicker: getDatePicker() },
+			
         
 			rowData: [],
 			
@@ -105,6 +106,13 @@ class report extends Component {
 		  
        
 				</AgGridReact>
+				<div>
+					<Link to='/dashboard/manager/ManagerDashboard'>
+						<button style={{ margin: '5px', fontWeight: 'bold' }} >
+							Back To Dashboard
+						</button>
+					</Link>
+				</div>
 			</div>
             </div>
             </div>
@@ -113,35 +121,7 @@ class report extends Component {
 	}
 
 }
-function getDatePicker() {
-	function Datepicker() {}
-	Datepicker.prototype.init = function (params) {
-	  this.eInput = document.createElement('input');
-	  this.eInput.value = params.value;
-	  this.eInput.classList.add('ag-input');
-	  this.eInput.style.height = '100%';
-	  this.eInput.$(this.eInput).datepicker({ dateFormat: 'dd/mm/yy' });
-	};
-	Datepicker.prototype.getGui = function () {
-	  return this.eInput;
-	};
-	Datepicker.prototype.afterGuiAttached = function () {
-	  this.eInput.focus();
-	  this.eInput.select();
-	};
-	Datepicker.prototype.getValue = function () {
-	  return this.eInput.value;
-	};
-	Datepicker.prototype.destroy = function () {};
-	Datepicker.prototype.isPopup = function () {
-	  return false;
-	};
-	return Datepicker;
-  }
 
-  function getBooleanValue(cssSelector) {
-	return document.querySelector(cssSelector).checked === true;
-  }
   
 
 export default report;
