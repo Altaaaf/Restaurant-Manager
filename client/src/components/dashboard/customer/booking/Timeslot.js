@@ -27,7 +27,7 @@ class Timeslot extends Component {
 	render() {
 		return (
 			<form onSubmit={this.onFormSubmit}>
-				<div className='col s12 dark-text center-align'>
+				<div className='col s6 dark-text'>
 					<DatePicker
 						selected={this.state.startDate}
 						onChange={(e) => {

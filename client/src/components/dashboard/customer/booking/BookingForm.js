@@ -3,6 +3,7 @@ import InputField from './inputField';
 import PropTypes from 'prop-types';
 import Timeslot from './Timeslot';
 import { Link } from 'react-router-dom';
+import "./booking.css";
 const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 	return (
 		<form>
@@ -11,7 +12,7 @@ const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 					<i className='material-icons left'>keyboard_backspace</i> Back to home
 				</Link>
 				<div className='row'>
-					<div className='col s12 dark-text center-align'>
+					
 						<InputField
 							name='firstName'
 							value={booking.firstName}
@@ -55,7 +56,7 @@ const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 						</Link>
 					</div>
 				</div>
-			</div>
+			
 		</form>
 	);
 };
