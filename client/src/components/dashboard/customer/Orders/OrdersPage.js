@@ -14,7 +14,7 @@ class OrdersPage extends Component {
 		const { Order } = this.props.location.state;
 		axios
 			.post('http://localhost:5000/Api/Orders/Create', { Order: Order })
-			.then((res) => console.log('Successfully created reservation '))
+			.then((res) => console.log('Successfully created order '))
 			.catch((err) => console.log('Error occured: ' + err));
 		toastr.success('Successfully saved order');
 	}

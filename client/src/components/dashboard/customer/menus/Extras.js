@@ -13,5 +13,6 @@ export default function Extras({ type, items }) {
 				</article>
 			))}
 		</section>
+		
 	);
 }

@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
+import Mains from '../menus/Mains';
+import Extras from '../menus/Extras';
+import { Provider } from '../menus/Context';
+import '../menus/MenuStyles.css';
+import Total from '../menus/Total';
+
 class ViewOrders extends Component {
 	constructor() {
 		super();
@@ -24,10 +30,10 @@ class ViewOrders extends Component {
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
-					<h2>All Bookings</h2>
-					<Link to=''>
+					<h2>Your Orders</h2>
+					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
-						Create Booking
+						Add more to your cart
 					</Link>
 					<ul>
 						{orders.map((order, index) => (
@@ -58,6 +64,7 @@ class ViewOrders extends Component {
 							</li>
 						))}
 					</ul>
+					
 					<div>
 						<Link to='/dashboard/customer/Dashboards'>
 							<button>Back To Dashboard</button>
