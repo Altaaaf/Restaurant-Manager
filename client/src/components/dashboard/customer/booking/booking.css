@@ -9,9 +9,10 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 30px;
+  
 }
 
-.form-group {
+.form-group  {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
