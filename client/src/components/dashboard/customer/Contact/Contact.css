@@ -19,7 +19,7 @@ margin: 0;
 }
 .contact-page-section .contact-form .form-group input[type=submit],
 .contact-page-section .contact-form .form-group button{
-margin-top: 20px;
+margin-top: 5px;
 }
 .contact-page-section .text{
 position: relative;
@@ -111,4 +111,11 @@ resize: none;
 }
     .contact-form .form-group input:focus, .contact-form .form-group select:focus, .contact-form .form-group textarea:focus {
 border-color: #ff9f14; outline: none;
+}
+.footer{
+    background-color: #c3d5db;
+    margin:0px auto;
+    padding: 10px 0px 20px 0px;
+    color: #1a1817;
+    position:relative;
 }

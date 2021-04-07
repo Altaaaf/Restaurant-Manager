@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import Footer from './contactFooter';
 import "./Contact.css";
 
 
@@ -68,33 +69,11 @@ const ContactForm = () => {
                 </div>
                
             </div>
-           
-            <div class="column col-lg-4 col-md-12 col-sm-12">
-                <div class="text">You can also reach us at: </div>
-
-                <ul class="contact-info">
-                    <li>
-                    <span class="icon fa fa-globe"></span> 
-                        <strong>Location: </strong>
-                        1855 Broadway, New York, NY 10023
-                    </li>
-
-                    <li>
-                    <span class="icon fa fa-phone"></span>
-                        <strong>Phone:</strong>
-                         <a href="2122222222">212-222-2222 </a>
-                    </li>
-
-                    <li>
-                    <span class="icon fa fa-envelope-open"></span>
-                        <strong>Email Us:</strong> 
-                        <a href="#">Barnslink@hotmail.com</a>
-                    </li>
-                </ul>
-                
-            </div>
+            
+            
         </div>
    </div>
+   <Footer />
 </section>
     
   );
