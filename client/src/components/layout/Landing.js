@@ -8,10 +8,8 @@ class Landing extends Component {
   render() {
     return (
       <div className = "Nav-Top">
-        
       <div style={{ height: "75vh" }} className="valign-wrapper">
         <div className="row">
-        
           <div className="col s12 dark-text center-align">
             <h4>
               <b>Automate your restaurant business with us </b>

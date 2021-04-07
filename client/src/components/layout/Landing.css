@@ -6,7 +6,15 @@
 
   grid-template-areas: 
     'navigationMenu'
+    'Video'
     'mainContent'
     'footer'
   ;
+}
+video {
+  object-fit: flex;
+  width: 50%;
+  height: 50%;
+  position: fixed;
+  z-index: -1;
 }

@@ -31,13 +31,11 @@ import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
 import CustomerOrdersPage from './components/dashboard/customer/Orders/ViewOrders';
 import Task from './components/dashboard/Manager/ManagerTask/Task';
 
-<<<<<<< HEAD
+
 import View from './components/dashboard/Manager/Distbutors/View';
 import Edit from './components/dashboard/Manager/Distbutors/Edit';
-=======
 import {LicenseManager} from "@ag-grid-enterprise/core";
 
->>>>>>> d27ba02998367e90a6df3c920dca3834b6f8cd32
 
 import './App.css';
 
