@@ -31,8 +31,13 @@ import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
 import CustomerOrdersPage from './components/dashboard/customer/Orders/ViewOrders';
 import Task from './components/dashboard/Manager/ManagerTask/Task';
 
+<<<<<<< HEAD
 import View from './components/dashboard/Manager/Distbutors/View';
 import Edit from './components/dashboard/Manager/Distbutors/Edit';
+=======
+import {LicenseManager} from "@ag-grid-enterprise/core";
+
+>>>>>>> d27ba02998367e90a6df3c920dca3834b6f8cd32
 
 import './App.css';
 
@@ -56,9 +61,12 @@ if (localStorage.jwtToken) {
 	}
 }
 export default function App() {
+	LicenseManager.setLicenseKey("For_Trialing_ag-Grid_Only-Not_For_Real_Development_Or_Production_Projects-Valid_Until-5_June_2021_[v2]_MTYyMjg0NzYwMDAwMA==5b68c05fc0cc6643272084120d86f3c7");
 	return (
+		
 		<Provider store={store}>
 			<Router>
+			
 				<Navbar />
 				<div className='App'>
 					<Route exact path='/' component={Landing} />

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import Footer from './contactFooter';
 import "./Contact.css";
 
 
@@ -33,10 +34,10 @@ const ContactForm = () => {
     <Link to='/dashboard/customer/Dashboards' className='btn-flat waves-effect'>
 							<i className='material-icons left'>keyboard_backspace</i> Back to home
 						</Link>
-        <div class="row clearfix">
+       
         <h2>Send us a message</h2>
             <div class="column col-lg-8 col-md-12 col-sm-12">
-            
+            <div class="row clearfix">
                 <div class="contact-form">
               
                     <form onSubmit={handleSubmit} >
@@ -68,33 +69,11 @@ const ContactForm = () => {
                 </div>
                
             </div>
-           
-            <div class="column col-lg-4 col-md-12 col-sm-12">
-                <div class="text">You can also reach us at: </div>
-
-                <ul class="contact-info">
-                    <li>
-                        <span class="icon fa fa-globe"></span> 
-                        <strong>Location </strong>
-                        1855 Broadway, New York, NY 10023
-                    </li>
-
-                    <li>
-                        <span class="icon fa fa-phone"></span>
-                        <strong>Phone</strong>
-                        <a >212-222-2222</a>
-                    </li>
-
-                    <li>
-                        <span class="icon fa fa-envelope-open"></span>
-                        <strong>Email Us</strong> 
-                        <a href="#">Barnslink@hotmail.com</a>
-                    </li>
-                </ul>
-                
-            </div>
+            
+            
         </div>
-    </div>
+   </div>
+   <Footer />
 </section>
     
   );

@@ -48,6 +48,10 @@ class ViewOrders extends Component {
 
 											<strong>Item Price: </strong>
 											<p>{item.Price}</p>
+											
+											<strong>Total price for item</strong>
+											<p>{item.Price * item.Quantity}</p>
+
 										</li>
 									);
 								})}

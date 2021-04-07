@@ -3,15 +3,18 @@ import InputField from './inputField';
 import PropTypes from 'prop-types';
 import Timeslot from './Timeslot';
 import { Link } from 'react-router-dom';
+import "./booking.css";
 const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 	return (
-		<form>
-			<div style={{ height: '15vh' }} className='container '>
-				<Link to='/dashboard/customer/Dashboards' className='btn-flat waves-effect'>
+		
+		<form class="container">
+		
+		<Link to='/dashboard/customer/Dashboards' className='btn-flat waves-effect'>
 					<i className='material-icons left'>keyboard_backspace</i> Back to home
 				</Link>
-				<div className='row'>
-					<div className='col s12 dark-text center-align'>
+				
+			<div class="row clearfix">
+					
 						<InputField
 							name='firstName'
 							value={booking.firstName}
@@ -26,13 +29,6 @@ const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 							onChange={onChange}
 						/>
 
-						<Timeslot
-							name='ReservationTime'
-							value={booking.ReservationTime}
-							label='Dining Date'
-							onChange={onChange}
-						/>
-
 						<InputField
 							name='coverNo'
 							value={booking.coverNo}
@@ -40,8 +36,18 @@ const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 							onChange={onChange}
 						/>
 
-						<InputField name='phone' value={booking.phone} label='Phone' onChange={onChange} />
-
+						<InputField 
+							name='phone' 
+							value={booking.phone} 
+							label='Phone' 
+							onChange={onChange} 
+						/>
+						<Timeslot 
+							name='ReservationTime'
+							value={booking.ReservationTime}
+							label='Dining Date'
+							onChange={onChange}
+						/>
 						<Link
 							style={{
 								width: '140px',
@@ -54,8 +60,9 @@ const BookingForm = ({ booking, onSave, onChange, handleDate }) => {
 							submit
 						</Link>
 					</div>
-				</div>
-			</div>
+				
+				
+			
 		</form>
 	);
 };

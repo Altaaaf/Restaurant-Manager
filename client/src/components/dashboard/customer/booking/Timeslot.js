@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
 import 'react-datepicker/dist/react-datepicker.css';
 
+
 class Timeslot extends Component {
 	constructor(props) {
 		super(props);
@@ -27,8 +28,9 @@ class Timeslot extends Component {
 	render() {
 		return (
 			<form onSubmit={this.onFormSubmit}>
-				<div className='col s12 dark-text center-align'>
+				<div className='col s12 dark-text'>
 					<DatePicker
+					
 						selected={this.state.startDate}
 						onChange={(e) => {
 							this.handleChange(e);

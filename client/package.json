@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@ag-grid-enterprise/all-modules": "^25.1.0",
     "@date-io/date-fns": "^2.10.8",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",

@@ -3,8 +3,10 @@ import toastr from 'toastr';
 import BookingApi from '../api/BookingApi';
 import BookingForm from './BookingForm';
 
+
 class BookingPage extends React.Component {
 	constructor() {
+		super ()
 		this.state = {
 			booking: {},
 		};
@@ -46,7 +48,7 @@ class BookingPage extends React.Component {
 		return (
 			<div style={{ height: '65vh' }} className='container valign-wrapper'>
 				<div className='row'>
-					<div className='col s12 dark-text center-align'>
+					<div className='col s18 dark-text center-align'>
 						<BookingForm
 							booking={this.state.booking}
 							onSave={this.onSaveForm}
@@ -55,7 +57,7 @@ class BookingPage extends React.Component {
 						/>
 					</div>
 				</div>
-			</div>
+				</div>
 		);
 	}
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
+import './ManagerOrder.css';
 class ManagerOrder extends Component {
 	constructor() {
 		super();
@@ -23,13 +24,10 @@ class ManagerOrder extends Component {
 	render() {
 		const { orders } = this.state;
 		return (
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
-					<h2>All Bookings</h2>
-					<Link to=''>
-						<FiEdit size={16} color='#0c71c3' />
-						Create Booking
-					</Link>
+			<div className='admin-view-order-container'>
+				<div className='admin-view-order-content'>
+					<h2>All orders</h2>
+					
 					<ul>
 						{orders.map((order, index) => (
 							<li key={index}>
@@ -53,9 +51,14 @@ class ManagerOrder extends Component {
 
 											<strong>Item Price: </strong>
 											<p>{item.Price}</p>
+
+											<strong>Order Total: </strong>
+											<p>{item.Price * item.Quantity}</p>
 										</li>
+									
 									);
 								})}
+								
 							</li>
 						))}
 					</ul>

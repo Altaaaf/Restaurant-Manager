@@ -59,7 +59,7 @@
 	padding: 24px;
 	border-radius: 8px;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(4, 1fr);
 	align-items: center;
 	justify-items: start;
 	transition: opacity 0.4s;
