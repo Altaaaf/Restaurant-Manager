@@ -34,8 +34,8 @@ class ManagerBooking extends Component {
 	render() {
 		const { booking, error, loading } = this.state;
 		return (
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
+			<div className='admin-view-bookings-container'>
+				<div className='admin-view-bookings-content'>
 					<h2>All Bookings</h2>
 					<Link to=''>
 						<FiEdit size={16} color='#0c71c3' />
