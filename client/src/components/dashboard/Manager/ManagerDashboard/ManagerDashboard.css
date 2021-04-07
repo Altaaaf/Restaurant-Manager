@@ -54,6 +54,7 @@
     'InventoryLogo InventoryText'
     'reportLogo reportText'
     'taskLogo taskText'
+    'distLogo distText'
     'logoutLogo logoutText'
     
     ;
@@ -87,6 +88,10 @@
   }
   .task-icon{
     grid-area: taskLogo;
+  }
+
+  .distbute-icon{
+    grid-area: distLogo;
   }
   
 

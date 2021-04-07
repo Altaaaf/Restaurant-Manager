@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
 import { FiUsers, FiMenu, FiShoppingBag, FiLogOut,FiBarChart } from 'react-icons/fi';
+import { FaTruckMoving } from "react-icons/fa";
 import { RiCalendar2Fill } from 'react-icons/ri';
 import { GoChecklist,GoListOrdered } from 'react-icons/go';
 import { Link } from 'react-router-dom';
@@ -66,6 +67,11 @@ class ManagerDashboard extends Component {
 						<GoListOrdered className='task-icon' size={35} color='#0c71c3' />
 						<Link className='task-text' to='/Manager/ManagerTask'>
 							To Do List
+						</Link>
+
+						<FaTruckMoving className='distbute-icon' size={35} color='#0c71c3' />
+						<Link className='dist-text' to='/Manager/View'>
+							Disbutors
 						</Link>
 
 						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />
