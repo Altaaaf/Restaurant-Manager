@@ -75,20 +75,21 @@ class EditMenu extends Component {
 							value={Description}
 							onChange={this.handleChange}
 						/>
-						 <strong>Item Type:</strong>
-                        <input
-                         list="browsers"
-                            name='ItemType'
-                            placeholder='ItemType'
-                            value={ItemType}
-                            onChange={this.handleChange}/>
-                            <select  value={this.state.ItemType} onChange={this.handleChange}>
-							<datalist id="browsers">
-  							<option value="sides"/>
- 							 <option value="mains"/>
-  							<option value="drinks"/>
+						<strong>Item Type:</strong>
+						<input
+							list='browsers'
+							name='ItemType'
+							placeholder='ItemType'
+							value={ItemType}
+							onChange={this.handleChange}
+						/>
+						<select value={this.state.ItemType} onChange={this.handleChange}>
+							<datalist id='browsers'>
+								<option value='sides' />
+								<option value='mains' />
+								<option value='drinks' />
 							</datalist>
-							</select>
+						</select>
 						<button className='botton' type='submit'>
 							Add Item
 						</button>
