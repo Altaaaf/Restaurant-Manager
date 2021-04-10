@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
 import toastr from 'toastr';
+
 class View extends Component {
 	constructor() {
 		super();
@@ -64,10 +65,10 @@ class View extends Component {
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>
-					<h3>Distbutors</h3>
+					<h3>Distributors</h3>
 					<Link to='/Manager/Edit'>
 						<FiEdit size={15} color='#0c71c3' />
-						Add Distbutors
+						Add Distributors
 					</Link>
 					{console.log(inventory)}
 					<ul>

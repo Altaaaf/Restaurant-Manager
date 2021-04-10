@@ -28,13 +28,13 @@ class ViewOrders extends Component {
 	render() {
 		const { orders } = this.state;
 		return (
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
+			<div className="container">
 					<h2>Your Orders</h2>
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
 						Add more to your cart
 					</Link>
+					<div className="order-container">
 					<ul>
 						{orders.map((order, index) => (
 							<li key={index}>
@@ -43,36 +43,30 @@ class ViewOrders extends Component {
 								{order.Order.map((item, idx) => {
 									return (
 										<li key={idx}>
-											<strong>Item Number: </strong>
-											<p>{idx}</p>
-
-											<strong>Item Name: </strong>
-											<p>{item.Name}</p>
-
-											<strong>Item Quantity: </strong>
-											<p>{item.Quantity}</p>
-
-											<strong>Item Price: </strong>
-											<p>{item.Price}</p>
 											
+											<p>{item.Name}</p>
+											
+											<p>{item.Price}</p>	
 											<strong>Total price for item</strong>
 											<p>{item.Price * item.Quantity}</p>
-
 										</li>
 									);
 								})}
 							</li>
 						))}
 					</ul>
-					
+					</div>
 					<div>
 						<Link to='/dashboard/customer/Dashboards'>
 							<button>Back To Dashboard</button>
 						</Link>
 					</div>
 				</div>
-			</div>
+				
+				
+				
 		);
 	}
 }
 export default ViewOrders;
+

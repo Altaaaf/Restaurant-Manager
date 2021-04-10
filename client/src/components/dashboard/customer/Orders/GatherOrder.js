@@ -11,7 +11,7 @@ export default function Total({ data }) {
 				Name: data[group][item].Name,
 				Quantity: items[curr],
 				Price: data[group][item].Price,
-				Total:items[curr]*data[group][item].Price,
+				Total:items[curr]* (data[group][item].Price),
 			});
 		});
 	} catch {}

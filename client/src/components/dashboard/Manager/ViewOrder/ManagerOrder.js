@@ -53,7 +53,7 @@ class ManagerOrder extends Component {
 											<p>{item.Price}</p>
 
 											<strong>Order Total: </strong>
-											<p>{item.Price * item.Quantity}</p>
+											<p>{item.Total}</p>
 										</li>
 									
 									);
