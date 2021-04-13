@@ -6,6 +6,7 @@ export default function Total({ data }) {
 		totalPrice += item.Quantity * item.Price;
 	});
 	const tax = (totalPrice * 0.0875).toFixed(2);
+	
 
 	return (
 		<div className='total'>

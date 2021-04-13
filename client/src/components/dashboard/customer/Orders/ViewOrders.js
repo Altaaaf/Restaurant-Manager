@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-import Total from '../menus/Total';
+import Total from './OrderTotal';
 import { Provider } from '../menus/Context';
 
 class ViewOrders extends Component {
@@ -30,7 +30,7 @@ class ViewOrders extends Component {
 					<h2>Your Orders</h2>
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
-						Add more to your cart
+						Place another order:
 					</Link>
 					<br />
 					<section className='extras'>
@@ -42,16 +42,15 @@ class ViewOrders extends Component {
 									return (
 										<li key={idx}>
 											<h3 className='extras-name'>{item.Name}</h3>
-
 											<strong className='mains-price'>${item.Price}</strong>
 										</li>
 									);
 								})}
 								;
+								<Total data={this.state.order} />
 							</article>
 						))}
 					</section>
-					<Total data={this.state.orders} />
 
 					<div>
 						<Link to='/dashboard/customer/Dashboards'>
