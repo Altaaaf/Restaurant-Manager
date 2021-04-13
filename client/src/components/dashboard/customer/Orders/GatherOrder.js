@@ -5,6 +5,7 @@ export default function Total({ data }) {
 	let Order = [];
 	try {
 		const [items] = useContext(Context);
+		
 		Object.keys(items).reduce((acc, curr) => {
 			const [group, item] = curr.split('-');
 			Order.push({

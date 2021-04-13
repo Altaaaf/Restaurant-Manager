@@ -78,6 +78,8 @@ router.post('/Register', async (req, res) => {
 					const RegisterUser = new Access({
 						Username: req.body.Username,
 						Email: req.body.Email,
+						FirstName: req.body.FirstName,
+						LastName:req.body.LastName,
 						Password: bcrypt.hashSync(req.body.Password, 10),
 						AccountType: req.body.AccountType,
 					});
