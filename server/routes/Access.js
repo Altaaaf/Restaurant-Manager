@@ -16,7 +16,7 @@ router.post('/Login', async (req, res) => {
 				status: error.message,
 			});
 		}
-		// validate username exists before continuing
+		// validate email exists before checking password
 		Access.findOne({ Email: req.body.Email }).then((user) => {
 			if (user) {
 				if (bcrypt.compareSync(req.body.Password, user.Password)) {
@@ -54,7 +54,6 @@ router.post('/Login', async (req, res) => {
 // /api/account/Register
 router.post('/Register', async (req, res) => {
 	try {
-		// validate the parameters sent in request body are what's required
 		const { error } = Register(req.body);
 		if (error) {
 			console.error(error.message);
@@ -63,17 +62,10 @@ router.post('/Register', async (req, res) => {
 			});
 		}
 
-		// check to see both passwords are the same
-		// probably do it on client side!
-
-		//validate email doesn't exist already
-		// If email exists already return error
-		// If email does not exist create new user with hashed password
 		Access.findOne({ Email: req.body.Email }).then((user) => {
 			if (user) {
 				return res.status(400).json({ status: 'username already exists' });
 			} else {
-				//const HashedPassword = await bcrypt.hash(req.body.Password, 10)
 				try {
 					const RegisterUser = new Access({
 						Username: req.body.Username,
