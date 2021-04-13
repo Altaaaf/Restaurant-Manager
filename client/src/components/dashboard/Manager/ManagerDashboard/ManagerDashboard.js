@@ -71,7 +71,7 @@ class ManagerDashboard extends Component {
 
 						<FaTruckMoving className='distbute-icon' size={35} color='#0c71c3' />
 						<Link className='dist-text' to='/Manager/View'>
-							Disbutors
+							Distributors
 						</Link>
 
 						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />

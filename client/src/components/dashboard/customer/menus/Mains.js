@@ -13,6 +13,6 @@ export default function Mains({ meals }) {
 					<p className='mains-description'>{meal.Description}</p>
 				</article>
 			))}
-		</section>
+			</section>
 	);
 }

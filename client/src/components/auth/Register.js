@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import classnames from 'classnames';
+import { faGrinTongueSquint } from '@fortawesome/free-regular-svg-icons';
 
 class Register extends Component {
 	constructor() {
 		super();
 		this.state = {
-			name: '',
+			firstname: '',
+			lastname: '',
+			name:'',
 			email: '',
 			password: '',
 			password2: '',
@@ -57,6 +60,8 @@ class Register extends Component {
 		e.preventDefault();
 
 		const newUser = {
+			FirstName: this.state.FirstName,
+			LastName: this.state.LastName,
 			Username: this.state.name,
 			Email: this.state.email,
 			Password: this.state.password,
@@ -89,6 +94,38 @@ class Register extends Component {
 							<div className='input-field dark-text col s12'>
 								<input
 									onChange={this.onChange}
+									value={this.state.firstname}
+									error={errors.firstname}
+									id='name'
+									type='text'
+									className={classnames('', {
+										invalid: errors.firstname,
+									})}
+								/>
+								<label className='dark-text' htmlFor='name'>
+									First Name
+								</label>
+								<span className='red-text'>{errors.firstname}</span>
+							</div>
+							<div className='input-field dark-text col s12'>
+								<input
+									onChange={this.onChange}
+									value={this.state.lastname}
+									error={errors.lastname}
+									id='name'
+									type='text'
+									className={classnames('', {
+										invalid: errors.lastname,
+									})}
+								/>
+								<label className='dark-text' htmlFor='name'>
+									Last Name
+								</label>
+								<span className='red-text'>{errors.lastname}</span>
+							</div>
+							<div className='input-field dark-text col s12'>
+								<input
+									onChange={this.onChange}
 									value={this.state.name}
 									error={errors.name}
 									id='name'
@@ -98,7 +135,7 @@ class Register extends Component {
 									})}
 								/>
 								<label className='dark-text' htmlFor='name'>
-									Name
+									User Name
 								</label>
 								<span className='red-text'>{errors.name}</span>
 							</div>

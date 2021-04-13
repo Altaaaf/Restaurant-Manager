@@ -102,7 +102,7 @@ class report extends Component {
 					<div
 						className='ag-theme-balham'
 						style={{
-							height: '90%',
+							height: '80%',
 							width: '100%',
 						}}>
 						<AgGridReact

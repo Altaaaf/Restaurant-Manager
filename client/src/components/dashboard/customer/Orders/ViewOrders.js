@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-import Mains from '../menus/Mains';
-import Extras from '../menus/Extras';
-import { Provider } from '../menus/Context';
-import '../menus/MenuStyles.css';
 import Total from '../menus/Total';
+import { Provider } from '../menus/Context';
+
+
 
 class ViewOrders extends Component {
 	constructor() {
@@ -28,51 +27,48 @@ class ViewOrders extends Component {
 	render() {
 		const { orders } = this.state;
 		return (
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
+			<Provider>
+			<div className="container" >
 					<h2>Your Orders</h2>
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
 						Add more to your cart
 					</Link>
-					<ul>
+					<br />
+					<section className='extras'>
+					<h2 className='mains-heading'>Order History</h2>
 						{orders.map((order, index) => (
-							<li key={index}>
-								<strong>Order ID:</strong>
-								<p>{index}</p>
+							<article key={index}>
+							<p>{index}</p>
+								
 								{order.Order.map((item, idx) => {
 									return (
-										<li key={idx}>
-											<strong>Item Number: </strong>
-											<p>{idx}</p>
-
-											<strong>Item Name: </strong>
-											<p>{item.Name}</p>
-
-											<strong>Item Quantity: </strong>
-											<p>{item.Quantity}</p>
-
-											<strong>Item Price: </strong>
-											<p>{item.Price}</p>
-											
-											<strong>Total price for item</strong>
-											<p>{item.Price * item.Quantity}</p>
-
-										</li>
+									<li key={idx}> 
+									<h3 className='extras-name'>{item.Name}</h3>
+									
+									<strong className='mains-price'>${item.Price}</strong>
+									
+									</li>
+									
 									);
-								})}
-							</li>
+								})};
+								
+							</article>
 						))}
-					</ul>
-					
+						</section>
+						<Total data={this.state.orders} />
+				
 					<div>
 						<Link to='/dashboard/customer/Dashboards'>
 							<button>Back To Dashboard</button>
 						</Link>
 					</div>
 				</div>
-			</div>
+				
+				</Provider>
+				
 		);
 	}
 }
 export default ViewOrders;
+

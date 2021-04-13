@@ -7,6 +7,7 @@ import Total from './Total';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import GatherOrder from '../Orders/GatherOrder';
+
 class Menus extends Component {
 	constructor() {
 		super();

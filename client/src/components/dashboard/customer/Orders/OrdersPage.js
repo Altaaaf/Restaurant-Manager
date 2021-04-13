@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
-
+import { UnderlinedTitle, InfoTitle } from './infoHelp';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import toastr from 'toastr';
 import axios from 'axios';
+import Total from '../menus/Total';
+import { Provider } from '../menus/Context';
 class OrdersPage extends Component {
 	constructor() {
 		super();
 		this.onSaveForm = this.onSaveForm.bind(this);
 	}
-
+	componentDidMount() {
+		axios
+			.get('http://localhost:5000/Api/Orders/Create')
+			.then((res) => {
+				const data = res.data;
+				//console.log(data);
+				this.setState({ Order: data });
+			})
+			.catch((err) => this.setState({ error: err }));
+	}
 	onSaveForm(event) {
 		event.preventDefault();
 		const { Order } = this.props.location.state;
@@ -19,34 +31,33 @@ class OrdersPage extends Component {
 		toastr.success('Successfully saved order');
 	}
 
+	
 	// add a loading page while retrieving data from back end
 	render() {
 		const { Order } = this.props.location.state;
+		
 		return (
-			
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
-				<Link to='/customer/menus' className='btn-flat waves-effect'>
-					<i className='material-icons left'>keyboard_backspace</i> Back to home
-				</Link>
-					<ul>
+			<Provider>
+			<div className='container'>
+				
+				<section className='mains'>
+				
+				<h2 className='mains-heading'>Order Detail</h2>
 						{Order.map((Item, index) => (
-							<li key={index}>
-								<strong>Name:</strong>
-								<p>{Item.Name}</p>
-
-								<strong>Quantity</strong>
-								<p>{Item.Quantity}</p>
-
-								<strong>Price of each</strong>
-								<p>{Item.Price}</p>
-
-								<strong>Total price for item</strong>
-								<p>{Item.Price * Item.Quantity}</p>
+							<li className='mains-item' key={index}>
+							<h3 className='extras-name'>{Item.Name}</h3>
+					
+							<strong className='extras-price'>${Item.Price}</strong>
+							
+							
+							
 							</li>
 						))}
-					</ul>
-					<div>
+						</section>
+						
+						<Total data={this.props.location.state.Order} />
+						
+						<div className='col s6 center-align'>
 						<Link
 							style={{
 								width: '140px',
@@ -60,8 +71,9 @@ class OrdersPage extends Component {
 							Submit
 						</Link>
 					</div>
-				</div>
-			</div>
+					</div>
+					
+			</Provider>
 		);
 	}
 }

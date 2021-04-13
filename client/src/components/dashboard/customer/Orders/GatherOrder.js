@@ -5,13 +5,14 @@ export default function Total({ data }) {
 	let Order = [];
 	try {
 		const [items] = useContext(Context);
+		
 		Object.keys(items).reduce((acc, curr) => {
 			const [group, item] = curr.split('-');
 			Order.push({
 				Name: data[group][item].Name,
 				Quantity: items[curr],
 				Price: data[group][item].Price,
-				Total:items[curr]*data[group][item].Price,
+				Total:items[curr]* (data[group][item].Price),
 			});
 		});
 	} catch {}
