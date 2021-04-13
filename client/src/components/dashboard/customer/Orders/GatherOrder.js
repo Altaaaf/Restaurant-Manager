@@ -5,17 +5,22 @@ export default function Total({ data }) {
 	let Order = [];
 	try {
 		const [items] = useContext(Context);
-		
-		Object.keys(items).reduce((acc, curr) => {
-			const [group, item] = curr.split('-');
-			Order.push({
-				Name: data[group][item].Name,
-				Quantity: items[curr],
-				Price: data[group][item].Price,
-				Total:items[curr]* (data[group][item].Price),
-			});
-		});
-	} catch {}
+		for (var item of Object.keys(items)) {
+			const [group, index] = item.split('-');
+			const Quantity = items[item];
+			const MenuItem = data[group][index];
+			if (Quantity > 0) {
+				Order.push({
+					Name: MenuItem.Name,
+					Quantity: Quantity,
+					Price: MenuItem.Price,
+					Total: Quantity * MenuItem.Price,
+				});
+			}
+		}
+	} catch (err) {
+		console.log(err);
+	}
 	console.log(Order);
 
 	return (
@@ -25,7 +30,6 @@ export default function Total({ data }) {
 				state: {
 					Order: Order,
 				},
-				
 			}}
 			className='btn btn-large waves-effect waves-light hoverable navy accent-3'>
 			Order Now

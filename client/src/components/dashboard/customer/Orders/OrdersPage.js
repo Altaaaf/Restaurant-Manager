@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { UnderlinedTitle, InfoTitle } from './infoHelp';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import toastr from 'toastr';
 import axios from 'axios';
