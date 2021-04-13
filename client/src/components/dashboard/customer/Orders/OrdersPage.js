@@ -4,6 +4,7 @@ import toastr from 'toastr';
 import axios from 'axios';
 import Total from './OrderTotal';
 import { Provider } from '../menus/Context';
+import { FiEdit } from 'react-icons/fi';
 class OrdersPage extends Component {
 	constructor() {
 		super();
@@ -26,6 +27,12 @@ class OrdersPage extends Component {
 		return (
 			<Provider>
 				<div className='container'>
+				<h2>Your Orders</h2>
+					<Link to='/customer/menus'>
+						<FiEdit size={16} color='#0c71c3' />
+						Add more to your cart
+					</Link>
+					<br />
 					<section className='mains'>
 						<h2 className='mains-heading'>Order Detail</h2>
 						{Order.map((Item, index) => (
