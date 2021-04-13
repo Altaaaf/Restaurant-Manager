@@ -46,13 +46,13 @@ class ViewOrders extends Component {
 									<li key={idx}> 
 									<h3 className='extras-name'>{item.Name}</h3>
 									<strong className='mains-price'>${item.Price}</strong>
+									<Total data={this.state.orders} />
 				
 									</li>
 									
 									);
-									
 								})};
-								<Total data={this.state.order} />
+								
 							</article>
 						))}
 						</section>
