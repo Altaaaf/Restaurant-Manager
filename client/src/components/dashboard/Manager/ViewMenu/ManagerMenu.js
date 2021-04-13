@@ -43,7 +43,7 @@ class ManagerMenu extends Component {
 		this.setState({ loading: false });
 	}
 	render() {
-		const { menu, error, loading } = this.state;
+		const { menu } = this.state;
 		return (
 			<div className='admin-view-menu-container'>
 				<div className='admin-view-menu-content'>

@@ -5,8 +5,6 @@ import axios from 'axios';
 import Total from '../menus/Total';
 import { Provider } from '../menus/Context';
 
-
-
 class ViewOrders extends Component {
 	constructor() {
 		super();
@@ -28,7 +26,7 @@ class ViewOrders extends Component {
 		const { orders } = this.state;
 		return (
 			<Provider>
-			<div className="container" >
+				<div className='container'>
 					<h2>Your Orders</h2>
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
@@ -36,39 +34,33 @@ class ViewOrders extends Component {
 					</Link>
 					<br />
 					<section className='extras'>
-					<h2 className='mains-heading'>Order History</h2>
+						<h2 className='mains-heading'>Order History</h2>
 						{orders.map((order, index) => (
 							<article key={index}>
-							<p>{index}</p>
-								
+								<p>{index}</p>
 								{order.Order.map((item, idx) => {
 									return (
-									<li key={idx}> 
-									<h3 className='extras-name'>{item.Name}</h3>
-									
-									<strong className='mains-price'>${item.Price}</strong>
-									
-									</li>
-									
+										<li key={idx}>
+											<h3 className='extras-name'>{item.Name}</h3>
+
+											<strong className='mains-price'>${item.Price}</strong>
+										</li>
 									);
-								})};
-								
+								})}
+								;
 							</article>
 						))}
-						</section>
-						<Total data={this.state.orders} />
-				
+					</section>
+					<Total data={this.state.orders} />
+
 					<div>
 						<Link to='/dashboard/customer/Dashboards'>
 							<button>Back To Dashboard</button>
 						</Link>
 					</div>
 				</div>
-				
-				</Provider>
-				
+			</Provider>
 		);
 	}
 }
 export default ViewOrders;
-
