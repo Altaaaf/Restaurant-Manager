@@ -4,14 +4,14 @@ import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
 import './ManagerBooking.css'
 
+
 class ManagerBooking extends Component {
 	constructor() {
 		super();
 		this.state = {
 			booking: [
 				{
-					firstName: 'Testing',
-					lastName: 'Testing',
+					Name: 'Testing',
 					phone: 'Testingggggg',
 					diningDate: 'Testing',
 					coverNo: 5,
@@ -30,23 +30,28 @@ class ManagerBooking extends Component {
 			.catch((err) => this.setState({ error: err }));
 		this.setState({ loading: false });
 	}
-
 	render() {
 		const { booking, error, loading } = this.state;
 		return (
 			<div className='admin-view-bookings-container'>
 				<div className='admin-view-bookings-content'>
-					<h2>All Bookings</h2>
+					<h2>Reservations</h2>
+					<div className='new-form-button'>
 					<Link to=''>
-						<FiEdit size={16} color='#0c71c3' />
-						Create Booking
+						<FiEdit size={16} color='grey' />
+						<button> Create Reservation</button>
+						
 					</Link>
-					<h3>bookings details</h3>
+					</div>
+					<h3>Reservation Details</h3>
 					<ul>
 						{booking.map((BookingsList, index) => (
 							<li key={index}>
 								<strong>Booking ID:</strong>
 								<p>{index}</p>
+
+								<strong>Name:</strong>
+								<p>{BookingsList.Name}</p>
 
 								<strong>Date:</strong>
 								<p>{BookingsList.ReservationTime}</p>
@@ -54,13 +59,10 @@ class ManagerBooking extends Component {
 								<strong>Number of People:</strong>
 								<p>{BookingsList.coverNo}</p>
 
-								<strong>phone:</strong>
+								<strong>Phone:</strong>
 								<p>{BookingsList.phone}</p>
 
-								<strong>First Name:</strong>
-								<p>{BookingsList.FirstName}</p>
-
-								<strong>Last Name:</strong>
+								<strong>Time:</strong>
 								<p>{BookingsList.lastName}</p>
 							</li>
 						))}

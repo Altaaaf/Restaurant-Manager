@@ -12,9 +12,9 @@
   ;
 }
 video {
-  object-fit: flex;
-  width: 50%;
-  height: 50%;
+  object-fit: cover;
+  width: 5%;
+  height: 5%;
   position: fixed;
   z-index: -1;
 }

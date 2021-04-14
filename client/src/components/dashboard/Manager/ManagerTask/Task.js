@@ -94,7 +94,7 @@ class Task extends Component {
         <div>
 					<Link to='/dashboard/manager/ManagerDashboard'>
 						<button >
-							Back To Dashboard
+						Dashboard
 						</button>
 					</Link>
 				</div>

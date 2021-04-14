@@ -25,56 +25,59 @@ class ManagerDashboard extends Component {
 		return (
 			<div className='admin-home-main-container'>
 				<div className='admin-home-main-content center-align'>
-					<h4>
+					
+						<div className='admin-home-main-content-welcome-text'>
+						<h4>
 						<b>Welcome back,</b> {user.name.split(' ')[0]}
 						<p className='flow-text dark-text text-darken'>
 							Your Restaurant Automation Management Hub{' '}
 							<span style={{ fontFamily: 'monospace' }}></span> 👏
 						</p>
-					</h4>
+					  </h4>
+					  </div>
 
 					<div className='links'>
-						<FiUsers className='users-icon' size={35} color='#0c71c3' />
+						<FiUsers className='users-icon' size={35} color='black' />
 						<Link className='users-text' to='/Manager/Users'>
 							Users Details
 						</Link>
 
-						<FiMenu className='menu-icon' size={35} color='#0c71c3' />
+						<FiMenu className='menu-icon' size={35} color='black' />
 						<Link className='menu-text' to='/Manager/ViewMenu'>
 							Menu Summary
 						</Link>
 
-						<RiCalendar2Fill className='bookings-icon' size={35} color='#0c71c3' />
+						<RiCalendar2Fill className='bookings-icon' size={35} color='black' />
 						<Link className='bookings-text' to='/Manager/ViewBooking'>
-							Booking Summary
+							Reservations
 						</Link>
 
-						<GoChecklist className='Order-icon' size={35} color='#0c71c3' />
+						<GoChecklist className='Order-icon' size={35} color='black' />
 						<Link className='order-text' to='/Manager/ViewOrder'>
 							Order Summary
 						</Link>
 
-						<FiShoppingBag className='Inventory-icon' size={35} color='#0c71c3' />
+						<FiShoppingBag className='Inventory-icon' size={35} color='black' />
 						<Link className='Inventory-text' to='/Manager/ViewInventory'>
 							Inventory
 						</Link>
 
-						<FiBarChart className='report-icon' size={35} color='#0c71c3' />
+						<FiBarChart className='report-icon' size={35} color='black' />
 						<Link className='report-text' to='/Manager/ViewReport'>
 							Reports
 						</Link>
 
-						<GoListOrdered className='task-icon' size={35} color='#0c71c3' />
+						<GoListOrdered className='task-icon' size={35} color='black' />
 						<Link className='task-text' to='/Manager/ManagerTask'>
 							To Do List
 						</Link>
 
-						<FaTruckMoving className='distbute-icon' size={35} color='#0c71c3' />
+						<FaTruckMoving className='distbute-icon' size={35} color='black' />
 						<Link className='dist-text' to='/Manager/View'>
 							Disbutors
 						</Link>
 
-						<FiLogOut className='logout-icon' size={35} color='#0c71c3' />
+						<FiLogOut className='logout-icon' size={35} color='black' />
 						<Link className='logout-text' to='/Logout'>
 							Logout
 						</Link>

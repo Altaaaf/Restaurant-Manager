@@ -56,8 +56,8 @@ class Edit extends Component {
 	render() {
 		const { Name, Product, Manager, Email, Number } = this.state;
 		return (
-			<div className='admin-create-menu-container'>
-				<div className='admin-create-menu-content'>
+			<div className='admin-view-menu-container'>
+				<div className='admin-view-menu-content'>
 					<h2>Add Distbutors</h2>
 
 					<Link to='/Manager/View'>

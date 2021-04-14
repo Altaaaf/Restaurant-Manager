@@ -24,8 +24,8 @@ class ManagerOrder extends Component {
 	render() {
 		const { orders } = this.state;
 		return (
-			<div className='admin-view-order-container'>
-				<div className='admin-view-order-content'>
+			<div className='admin-view-menu-container'>
+				<div className='admin-view-menu-content'>
 					<h2>All orders</h2>
 					
 					<ul>
@@ -64,7 +64,7 @@ class ManagerOrder extends Component {
 					</ul>
 					<div>
 						<Link to='/dashboard/manager/ManagerDashboard'>
-							<button>Back To Dashboard</button>
+							<button> Dashboard</button>
 						</Link>
 					</div>
 				</div>

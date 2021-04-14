@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './ViewUsers.css';
 class ViewUsers extends Component {
 	constructor() {
 		super();
@@ -55,13 +56,13 @@ class ViewUsers extends Component {
 								<strong>Email:</strong>
 								<p>{user.Email}</p>
 
-								<strong>PhoneNumber:</strong>
+								<strong>Number:</strong>
 								<p>{user.PhoneNumber}</p>
 
-								<strong>FirstName:</strong>
+								<strong>Name:</strong>
 								<p>{user.FirstName}</p>
 
-								<strong>LastName:</strong>
+								<strong></strong>
 								<p>{user.LastName}</p>
 							</li>
 						))}
@@ -79,20 +80,20 @@ class ViewUsers extends Component {
 								<strong>Email:</strong>
 								<p>{user.Email}</p>
 
-								<strong>PhoneNumber:</strong>
+								<strong>Number:</strong>
 								<p>{user.PhoneNumber}</p>
 
-								<strong>FirstName:</strong>
+								<strong> Name:</strong>
 								<p>{user.FirstName}</p>
 
-								<strong>LastName:</strong>
+								<strong></strong>
 								<p>{user.LastName}</p>
 							</li>
 						))}
 					</ul>
 					<div>
 						<Link to='/dashboard/manager/ManagerDashboard'>
-							<button>Back To Dashboard</button>
+							<button>Dashboard</button>
 						</Link>
 					</div>
 				</div>

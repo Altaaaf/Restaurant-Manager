@@ -50,8 +50,8 @@ class EditInventory extends Component {
 	render() {
 		const { Name, Quantity } = this.state;
 		return (
-			<div className='admin-create-menu-container'>
-				<div className='admin-create-menu-content'>
+			<div className='admin-view-menu-container'>
+				<div className='admin-view-menu-content'>
 					<h2>Add items to inventory</h2>
 
 					<Link to='/Manager/ViewInventory'>

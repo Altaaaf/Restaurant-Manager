@@ -22,7 +22,7 @@
     padding: 30px;
   
     border-radius: 8px;
-  
+    
     background: #ffffff;
   
   }
@@ -51,7 +51,6 @@
   
   .admin-view-menu-content ul {
     
-  
     margin-top: 25px;
     display: grid;
     grid-template-columns:repeat(5, 1fr);

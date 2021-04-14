@@ -13,7 +13,6 @@ class Landing extends Component {
           <div className="col s12 dark-text center-align">
             <h4>
               <b>Automate your restaurant business with us </b>
-              
             </h4>
             <p className="flow-text dark-text text-darken-1">
               A full-stack app created by the Fabulous Five from NYIT

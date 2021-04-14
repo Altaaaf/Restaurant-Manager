@@ -64,7 +64,6 @@ export default function App() {
 		
 		<Provider store={store}>
 			<Router>
-			
 				<Navbar />
 				<div className='App'>
 					<Route exact path='/' component={Landing} />

@@ -23,6 +23,8 @@
   }
   
   .title1 {
+    font-weight: bold;
+     font-style: italic;
     align-self: flex-start;
     font-size: 2rem;
     font-weight: 300;
