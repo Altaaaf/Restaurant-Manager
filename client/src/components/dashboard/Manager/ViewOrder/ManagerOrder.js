@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
+import Total from '../../customer/Orders/OrderTotal';
 import './ManagerOrder.css';
 class ManagerOrder extends Component {
 	constructor() {
@@ -54,14 +55,16 @@ class ManagerOrder extends Component {
 
 											<strong>Order Total: </strong>
 											<p>{item.Price * item.Quantity}</p>
+											
 										</li>
-									
+										
 									);
 								})}
 								
 							</li>
 						))}
 					</ul>
+					
 					<div>
 						<Link to='/dashboard/manager/ManagerDashboard'>
 							<button> Dashboard</button>

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
 import toastr from 'toastr';
 import axios from 'axios';
+import Total from './OrderTotal';
+import { Provider } from '../menus/Context';
+import { FiEdit } from 'react-icons/fi';
 class OrdersPage extends Component {
 	constructor() {
 		super();
 		this.onSaveForm = this.onSaveForm.bind(this);
 	}
-
 	onSaveForm(event) {
 		event.preventDefault();
 		const { Order } = this.props.location.state;
@@ -22,38 +23,36 @@ class OrdersPage extends Component {
 	// add a loading page while retrieving data from back end
 	render() {
 		const { Order } = this.props.location.state;
+
 		return (
-			
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
-				<Link to='/customer/menus' className='btn-flat waves-effect'>
-					<i className='material-icons left'>keyboard_backspace</i> Back to home
-				</Link>
-					<ul>
+			<Provider>
+				<div className='container'>
+				<h2>Your Orders</h2>
+					<Link to='/customer/menus'>
+						<FiEdit size={16} color='#0c71c3' />
+						Add more to your cart
+					</Link>
+					<br />
+					<section className='mains'>
+						<h2 className='mains-heading'>Order Detail</h2>
 						{Order.map((Item, index) => (
-							<li key={index}>
-								<strong>Name:</strong>
-								<p>{Item.Name}</p>
+							<li className='mains-item' key={index}>
+								<h3 className='extras-name'>{Item.Name}</h3>
 
-								<strong>Quantity</strong>
-								<p>{Item.Quantity}</p>
-
-								<strong>Price of each</strong>
-								<p>{Item.Price}</p>
-
-								<strong>Total price for item</strong>
-								<p>{Item.Price * Item.Quantity}</p>
+								<strong className='extras-price'>${Item.Price}</strong>
 							</li>
 						))}
-					</ul>
-					<div>
+					</section>
+					<Total data={this.props.location.state.Order} />
+
+					<div className='col s6 center-align'>
 						<Link
 							style={{
 								width: '140px',
 								borderRadius: '3px',
 								letterSpacing: '1.5px',
 								marginTop: '3rem',
-								textSize:'12px',
+								textSize: '12px',
 							}}
 							onClick={this.onSaveForm}
 							className='btn small waves-effect waves-light hoverable navy accent-3'>
@@ -61,7 +60,7 @@ class OrdersPage extends Component {
 						</Link>
 					</div>
 				</div>
-			</div>
+			</Provider>
 		);
 	}
 }

@@ -66,33 +66,14 @@ router.delete('/item', async (req, res) => {
 			if (item) {
 				try {
 					item.remove();
-					return res.status(200).json({ status: 'successfully removed item from inventory' });
+					return res.status(200).json({ status: 'Successfully removed item from inventory' });
 				} catch {
-					return res.status(400).json({ status: 'failed to remove item from inventory' });
+					return res.status(400).json({ status: 'Failed to remove item from inventory' });
 				}
 			} else {
-				return res.status(400).json({ status: 'item does not exist in inventory!' });
+				return res.status(400).json({ status: 'Item does not exist in inventory!' });
 			}
 		});
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
-	}
-});
-// update existing items in inventory
-router.put('/item', async (req, res) => {
-	try {
-		const Item = await Inventory.findOne({ Name: req.body.Name });
-		if (typeof Item === undefined || Item === null) {
-			return res.status(400).json({ status: 'Item does not exist in inventory!' });
-		} else {
-			// item exists already so updating current record!
-			const updateItem = await Inventory.updateOne(
-				{ Name: req.body.Name },
-				{ $set: { Cost: item.Cost + req.body.Cost, Quantity: item.Cost + req.body.Quantity } },
-			);
-			return res.status(200).json({ status: 'successfully updated item!' });
-		}
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ status: 'Server Error' });

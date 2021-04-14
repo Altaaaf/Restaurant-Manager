@@ -96,9 +96,8 @@ router.put('/item', async (req, res) => {
 					if (Price) modifyItem.Price = Price;
 					if (Description) modifyItem.Description = Description;
 					if (Type) modifyItem.Type = Type;
-					console.log(modifyItem);
-					const update = Menu.findOneAndUpdate({ Name: req.body.Name }, { $set: modifyItem });
-					console.log(udpate);
+
+					Menu.findOneAndUpdate({ Name: req.body.Name }, { $set: modifyItem });
 
 					return res.status(200).json({ status: 'successfully updated item on menu' });
 				} catch (err) {
