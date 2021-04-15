@@ -60,7 +60,7 @@ input {
 	margin-left: 1.5rem;
 	font-size: 1rem;
 	justify-items: center;
-	color: rgb(59, 167, 158);
+	color: rgb(25, 53, 65);
 	
 }
 
@@ -77,20 +77,20 @@ input {
 .mains-name {
 	margin: 0;
 	flex-grow: 1;
-	color: rgb(59, 167, 158);
+	color: rgb(25, 53, 65);
 	
 }
 
 .mains-description {
 	flex: 1 1 100%;
 	margin: 0.75rem 0 0;
-	color: rgb(59, 167, 158);
+	color:  rgb(25, 53, 65);
 }
 .mains-heading {
 	margin: 0 0 1.5rem;
 	border-bottom: 1px solid black;
 	font-size: 2rem;
-	color: rgb(59, 167, 158);
+	color:  rgb(25, 53, 65);
 }
 
 .aside {
@@ -98,7 +98,7 @@ input {
 }
 
 .extras {
-	color: rgb(59, 167, 158);
+	color:  rgb(25, 53, 65);
 }
 
 .extras + .extras {
@@ -140,10 +140,10 @@ input {
 	position: sticky;
 	bottom: 0;
 	color: var(--secondary);
-	background-color:  #eaeff0;
+	background-color:  #eaf0f0;
 	border-top: 1px solid black;
 	font-size: 1rem;
-	color: rgb(59, 167, 158);
+	color: rgb(25, 53, 65);
 
 }
 

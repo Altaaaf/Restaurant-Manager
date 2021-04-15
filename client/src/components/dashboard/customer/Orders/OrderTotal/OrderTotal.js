@@ -1,8 +1,10 @@
 import React from 'react';
+import './OrderTotal.css'
 
-export default function Total({ data }) {
+export default function Total(props) {
 	var totalPrice = 0;
-	data.forEach(function (item) {
+	console.log(props.data)
+	props.data.forEach(function (item) {
 		totalPrice += item.Quantity * item.Price;
 	});
 	const tax = (totalPrice * 0.0875).toFixed(2);

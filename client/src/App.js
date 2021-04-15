@@ -38,6 +38,7 @@ import {LicenseManager} from "@ag-grid-enterprise/core";
 
 
 import './App.css';
+import PublicRoute from './components/public-route/PublicRoute';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -96,6 +97,7 @@ export default function App() {
 							path='/dashboard/manager/ManagerDashboard'
 							component={ManagerDashboard}
 						/>
+						<PublicRoute exact path='/' component={Landing}/>
 					</Switch>
 				</div>
 			</Router>

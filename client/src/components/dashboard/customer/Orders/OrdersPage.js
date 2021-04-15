@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import toastr from 'toastr';
 import axios from 'axios';
-import Total from './OrderTotal';
-import { Provider } from '../menus/Context';
+import Total from './OrderTotal/OrderTotal';
+
 import { FiEdit } from 'react-icons/fi';
 class OrdersPage extends Component {
 	constructor() {
@@ -15,7 +15,10 @@ class OrdersPage extends Component {
 		const { Order } = this.props.location.state;
 		axios
 			.post('http://localhost:5000/Api/Orders/Create', { Order: Order })
-			.then((res) => console.log('Successfully created order '))
+			.then((res) => {
+				console.log('Successfully created order ')
+				this.props.history.replace('/')
+			})
 			.catch((err) => console.log('Error occured: ' + err));
 		toastr.success('Successfully saved order');
 	}
@@ -25,7 +28,7 @@ class OrdersPage extends Component {
 		const { Order } = this.props.location.state;
 
 		return (
-			<Provider>
+			
 				<div className='container'>
 				<h2>Your Orders</h2>
 					<Link to='/customer/menus'>
@@ -33,13 +36,20 @@ class OrdersPage extends Component {
 						Add more to your cart
 					</Link>
 					<br />
-					<section className='mains'>
+					<section className='order-container'>
 						<h2 className='mains-heading'>Order Detail</h2>
+						<div className="order-header">
+            			<span>Name</span>
+           				 <span>Quantity</span>
+           				 <span>Price</span>
+           				 <span>Total</span>
+       					 </div>
 						{Order.map((Item, index) => (
-							<li className='mains-item' key={index}>
-								<h3 className='extras-name'>{Item.Name}</h3>
-
-								<strong className='extras-price'>${Item.Price}</strong>
+							<li key={index} className='order-items'>
+							<span>{Item.Name}</span>
+            				<span>{Item.Quantity}</span>
+           					 <span>{Item.Price}</span>
+            				<span>{Item.Total}</span>
 							</li>
 						))}
 					</section>
@@ -47,6 +57,7 @@ class OrdersPage extends Component {
 
 					<div className='col s6 center-align'>
 						<Link
+							to=""
 							style={{
 								width: '140px',
 								borderRadius: '3px',
@@ -60,7 +71,7 @@ class OrdersPage extends Component {
 						</Link>
 					</div>
 				</div>
-			</Provider>
+		
 		);
 	}
 }

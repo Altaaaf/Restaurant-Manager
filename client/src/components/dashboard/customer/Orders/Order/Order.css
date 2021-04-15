@@ -1,0 +1,38 @@
+.order-container {
+    flex-direction: column;
+    border: 1px solid;
+    border-bottom-right-radius: 10px;
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 15px;
+    display: flex;
+    position: relative;
+}
+
+.order-number {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    
+}
+
+.order-container > span, .order-header > span {
+    width: 25%;
+    text-align: center;
+}
+
+.order-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-items span {
+    width: 25%;
+    text-align: center;
+}
+
+.order-header {
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+}

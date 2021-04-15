@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-import Total from './OrderTotal';
 import { Provider } from '../menus/Context';
+import Order from './Order/Order';
+
 
 class ViewOrders extends Component {
 	constructor() {
@@ -17,41 +18,35 @@ class ViewOrders extends Component {
 			.get('http://localhost:5000/Api/Orders/View')
 			.then((res) => {
 				const data = res.data;
-				this.setState({ orders: data.Orders });
+				this.setState({ orders: data.Orders.reverse() });
 			})
 			.catch((err) => this.setState({ error: err }));
 	}
 
 	render() {
 		const { orders } = this.state;
+		console.log(orders)
+
+		const allOrders = orders.map((order, index) => {
+			return (
+				<Order order={order.Order} index={index} key={index} ordersLength={orders.length}/>
+			)
+		})
+
 		return (
 			<Provider>
-				<div className='container'>
-					<h2>Your Orders</h2>
+			<div className="container" >
+					
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
 						Place another order:
 					</Link>
 					<br />
 					<section className='extras'>
-						<h2 className='mains-heading'>Order History</h2>
-						{orders.map((order, index) => (
-							<article key={index}>
-								<p>{index}</p>
-								{order.Order.map((item, idx) => {
-									return (
-										<li key={idx}>
-											<h3 className='extras-name'>{item.Name}</h3>
-											<strong className='mains-price'>${item.Price}</strong>
-											<Total data={this.state.orders} />
-										</li>
-									);
-								})}
-								;
-							</article>
-						))}
+						<h2 className='extras-heading'>Order History</h2>
+						{allOrders}
 					</section>
-
+						
 					<div>
 						<Link to='/dashboard/customer/Dashboards'>
 							<button>Back To Dashboard</button>
