@@ -8,7 +8,7 @@ export default function Total({ data }) {
 	const tax = (totalPrice * 0.0875).toFixed(2);
 	
 	return (
-		<div>
+		<div className='total'>
 			<span className='total-title'>Subtotal:</span>
 			<span className='total-price'>${totalPrice.toLocaleString()}</span>
 			<span className='tax-title'>Tax:</span>

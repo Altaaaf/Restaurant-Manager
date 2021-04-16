@@ -10,11 +10,11 @@ import { red } from '@material-ui/core/colors';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import './OrdersCss.css';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import OrderDetailPage from './OrderModle';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
+import FastfoodTwoToneIcon from '@material-ui/icons/FastfoodTwoTone';
 import MotorcycleIcon from '@material-ui/icons/Motorcycle';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,13 +39,13 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     border: '3px solid lightseagreen',
-    backgroundColor: 'whit'
+    backgroundColor: 'white'
   },
   registerButton: {
     width: '100%'
   },
   catalogIcon: {
-    color: 'black',
+    color: '#b38917',
     cursor : 'pointer'
   }
 }));
@@ -89,7 +89,7 @@ export default function RecipeReviewCard(props) {
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" src={props.logo} className={classes.avatar}>
-              <AddShoppingCartIcon className={classes.catalogIcon} />
+              <ShoppingBasketIcon className={classes.catalogIcon} />
             </Avatar>
           }
           action={
@@ -98,12 +98,12 @@ export default function RecipeReviewCard(props) {
             </IconButton>
           }
           title={`Order id : ${props.id}`}
-          subheader={`Date : ${props.createdDate ? props.createdDate : new Date().toLocaleTimeString()}`}
+          subheader={`Date : ${props.createdDate ? props.createdDate : new Date().toUTCString()}`}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             <div className='card_items'>
-              <FastfoodIcon style={{ color: '#b38917' }} />
+              <FastfoodTwoToneIcon style={{ color: '#b38917' }} />
               <b>Total Items : </b>
               <p>{props.orders.length}</p>
             </div>
@@ -115,11 +115,11 @@ export default function RecipeReviewCard(props) {
             <div className='card_items'>
               <AttachMoneyIcon color='primary' />
               <b>Subtotal :</b>
-              <p>{calculateSubtotal()}</p>
+              <p>{totalPrice}</p>
             </div>
             <div className='card_items_subtotal'>
               <b>Total :</b>
-              <p>$ {(totalPrice.toLocaleString() * 1.0875).toFixed(2)}</p>
+              <p>$ {(totalPrice.toString() * 1.0875).toFixed(2)}</p>
             </div>
           </Typography>
         </CardContent>

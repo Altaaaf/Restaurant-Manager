@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import toastr from 'toastr';
 import axios from 'axios';
-import Total from './OrderTotal/OrderTotal';
+import Total from './OrderTotal';
+import './OrdersCss.css';
 
 import { FiEdit } from 'react-icons/fi';
 class OrdersPage extends Component {
@@ -36,23 +37,26 @@ class OrdersPage extends Component {
 						Add more to your cart
 					</Link>
 					<br />
-					<section className='order-container'>
-						<h2 className='mains-heading'>Order Detail</h2>
-						<div className="order-header">
-            			<span>Name</span>
-           				 <span>Quantity</span>
-           				 <span>Price</span>
-           				 <span>Total</span>
-       					 </div>
+				
+						<h2 className='extras-heading'>Order Detail</h2>
+						<table className='order-table'>
+                            <tr>
+                                <th style={{ width: '80px' }} >Name</th>
+                                <th style={{ width: '60px' }}  >Quantity</th>
+                                <th style={{ width: '60px' }}  >Price</th>
+                                <th style={{ width: '46px' }}  >Total</th>
+                            </tr>
+							
 						{Order.map((Item, index) => (
-							<li key={index} className='order-items'>
-							<span>{Item.Name}</span>
-            				<span>{Item.Quantity}</span>
-           					 <span>{Item.Price}</span>
-            				<span>{Item.Total}</span>
-							</li>
+							<tr key={index} > 
+							<td >{Item.Name}</td>
+            				<td >{Item.Quantity}</td>
+           					<td >{Item.Price}</td>
+            				<td >{Item.Total}</td>
+							</tr>
 						))}
-					</section>
+						</table>
+					
 					<Total data={this.props.location.state.Order} />
 
 					<div className='col s6 center-align'>

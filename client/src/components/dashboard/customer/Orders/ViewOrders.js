@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-import Total from './OrderTotal';
-import { Provider } from '../menus/Context';
+
 import './OrdersCss.css';
 import Button from '@material-ui/core/Button';
 import Card from './Card'
@@ -34,7 +33,7 @@ class ViewOrders extends Component {
 						Place another order
 					</Link>
 				</div>
-				<div className='back__button'>
+				<div className='back_button'>
 					<Link to='/dashboard/customer/Dashboards'>
 						<Button variant="contained" color="secondary" ><ArrowBackIosIcon />Dashboard</Button>
 					</Link>
