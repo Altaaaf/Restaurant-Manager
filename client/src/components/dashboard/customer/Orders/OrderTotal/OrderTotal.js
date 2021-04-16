@@ -20,4 +20,4 @@ export default function Total(props) {
 			<span className='Order-price'>${(totalPrice.toLocaleString() * 1.0875).toFixed(2)}</span>
 		</div>
 	);
-}
+	}
