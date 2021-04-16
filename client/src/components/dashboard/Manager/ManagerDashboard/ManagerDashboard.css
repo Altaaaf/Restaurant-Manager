@@ -1,7 +1,6 @@
 .admin-home-main-container {
     display: flex;
     height: 80%;
-    height: 98%;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -12,7 +11,7 @@
   }
   
   .admin-home-main-content {
-    height: 90vh;
+    height: 85vh;
     width: 95%;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -31,7 +30,7 @@
   .admin-home-main-content-welcome-text
 {
   background-color: #f0ebec;
-  margin-bottom: -60px;
+  margin-bottom: 60px;
   border: 3px solid black;
   padding: 10px;
   margin-left: -30px;

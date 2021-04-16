@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
+import Total from './OrderTotal';
 import { Provider } from '../menus/Context';
-import Order from './Order/Order';
-
+import './OrdersCss.css';
+import Button from '@material-ui/core/Button';
+import Card from './Card'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 class ViewOrders extends Component {
 	constructor() {
@@ -14,47 +17,45 @@ class ViewOrders extends Component {
 		};
 	}
 	componentDidMount() {
-		axios
-			.get('http://localhost:5000/Api/Orders/View')
-			.then((res) => {
-				const data = res.data;
-				this.setState({ orders: data.Orders.reverse() });
-			})
-			.catch((err) => this.setState({ error: err }));
+		axios.get('http://localhost:5000/Api/Orders/View').then((res) => {
+			const data = res.data;
+			this.setState({ orders: data.Orders });
+		}).catch((err) => this.setState({ error: err }));
 	}
 
 	render() {
 		const { orders } = this.state;
 		console.log(orders)
-
-		const allOrders = orders.map((order, index) => {
-			return (
-				<Order order={order.Order} index={index} key={index} ordersLength={orders.length}/>
-			)
-		})
-
 		return (
-			<Provider>
-			<div className="container" >
-					
+			<div className='order_container'>
+				<div className='create_order_link' >
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
-						Place another order:
+						Place another order
 					</Link>
-					<br />
-					<section className='extras'>
-						<h2 className='extras-heading'>Order History</h2>
-						{allOrders}
-					</section>
-						
-					<div>
-						<Link to='/dashboard/customer/Dashboards'>
-							<button>Back To Dashboard</button>
-						</Link>
-					</div>
 				</div>
-			</Provider>
+				<div className='back__button'>
+					<Link to='/dashboard/customer/Dashboards'>
+						<Button variant="contained" color="secondary" ><ArrowBackIosIcon />Dashboard</Button>
+					</Link>
+				</div>
+				<h2 className='mains-heading'>Order History</h2>
+				<div className="recomendedVideo_video">
+					{orders && orders.map((order, index) => {
+						console.log('===', order.createdDate)
+						return <div key={index}>
+							<Card
+								orders={order.Order}
+								id={index + 1}
+								createdDate={order.createdDate}
+							/>
+						</div>
+					})}
+				</div>
+			</div>
+
 		);
 	}
 }
 export default ViewOrders;
+

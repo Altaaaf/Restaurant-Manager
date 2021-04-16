@@ -21,6 +21,7 @@ export default function Total({ data }) {
 	} catch (err) {
 		console.log(err);
 	}
+	console.log(Order);
 
 	return (
 		<Link

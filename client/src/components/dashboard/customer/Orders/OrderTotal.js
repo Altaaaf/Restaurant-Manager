@@ -1,17 +1,14 @@
 import React from 'react';
-import './OrderTotal.css'
 
-export default function Total(props) {
+export default function Total({ data }) {
 	var totalPrice = 0;
-	console.log(props.data)
-	props.data.forEach(function (item) {
+	data.forEach(function (item) {
 		totalPrice += item.Quantity * item.Price;
 	});
 	const tax = (totalPrice * 0.0875).toFixed(2);
 	
-
 	return (
-		<div className='total'>
+		<div>
 			<span className='total-title'>Subtotal:</span>
 			<span className='total-price'>${totalPrice.toLocaleString()}</span>
 			<span className='tax-title'>Tax:</span>
@@ -20,4 +17,4 @@ export default function Total(props) {
 			<span className='Order-price'>${(totalPrice.toLocaleString() * 1.0875).toFixed(2)}</span>
 		</div>
 	);
-	}
+}
