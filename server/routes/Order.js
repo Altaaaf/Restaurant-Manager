@@ -35,6 +35,7 @@ router.get('/View', async (req, res) => {
 				});
 			}
 		}
+		console.log(orderList);
 		res.status(200).json({ Orders: orderList });
 	} catch (err) {
 		console.error(err);

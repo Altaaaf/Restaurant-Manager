@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import './OrdersCss.css';
 import Button from '@material-ui/core/Button';
-import Card from './Card'
+import Card from './Card';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 class ViewOrders extends Component {
@@ -16,18 +16,21 @@ class ViewOrders extends Component {
 		};
 	}
 	componentDidMount() {
-		axios.get('http://localhost:5000/Api/Orders/View').then((res) => {
-			const data = res.data;
-			this.setState({ orders: data.Orders });
-		}).catch((err) => this.setState({ error: err }));
+		axios
+			.get('http://localhost:5000/Api/Orders/View')
+			.then((res) => {
+				const data = res.data;
+				this.setState({ orders: data.Orders });
+			})
+			.catch((err) => this.setState({ error: err }));
 	}
 
 	render() {
 		const { orders } = this.state;
-		console.log(orders)
+		console.log(orders);
 		return (
 			<div className='order_container'>
-				<div className='create_order_link' >
+				<div className='create_order_link'>
 					<Link to='/customer/menus'>
 						<FiEdit size={16} color='#0c71c3' />
 						Place another order
@@ -35,26 +38,26 @@ class ViewOrders extends Component {
 				</div>
 				<div className='back_button'>
 					<Link to='/dashboard/customer/Dashboards'>
-						<Button variant="contained" color="secondary" ><ArrowBackIosIcon />Dashboard</Button>
+						<Button variant='contained' color='secondary'>
+							<ArrowBackIosIcon />
+							Dashboard
+						</Button>
 					</Link>
 				</div>
 				<h2 className='mains-heading'>Order History</h2>
-				<div className="recomendedVideo_video">
-					{orders && orders.map((order, index) => {
-						console.log('===', order.createdDate)
-						return <div key={index}>
-							<Card
-								orders={order.Order}
-								id={index + 1}
-								createdDate={order.createdDate}
-							/>
-						</div>
-					})}
+				<div className='recomendedVideo_video'>
+					{orders &&
+						orders.map((order, index) => {
+							console.log('===', order.createdDate);
+							return (
+								<div key={index}>
+									<Card orders={order.Order} id={index + 1} createdDate={order.createdDate} />
+								</div>
+							);
+						})}
 				</div>
 			</div>
-
 		);
 	}
 }
 export default ViewOrders;
-

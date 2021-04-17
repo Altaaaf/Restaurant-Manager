@@ -17,8 +17,8 @@ class OrdersPage extends Component {
 		axios
 			.post('http://localhost:5000/Api/Orders/Create', { Order: Order })
 			.then((res) => {
-				console.log('Successfully created order ')
-				this.props.history.replace('/')
+				console.log('Successfully created order ');
+				this.props.history.replace('/');
 			})
 			.catch((err) => console.log('Error occured: ' + err));
 		toastr.success('Successfully saved order');
@@ -29,53 +29,51 @@ class OrdersPage extends Component {
 		const { Order } = this.props.location.state;
 
 		return (
-			
-				<div className='container'>
+			<div className='container'>
 				<h2>Your Orders</h2>
-					<Link to='/customer/menus'>
-						<FiEdit size={16} color='#0c71c3' />
-						Add more to your cart
-					</Link>
-					<br />
-				
-						<h2 className='extras-heading'>Order Detail</h2>
-						<table className='order-table'>
-                            <tr>
-                                <th style={{ width: '80px' }} >Name</th>
-                                <th style={{ width: '60px' }}  >Quantity</th>
-                                <th style={{ width: '60px' }}  >Price</th>
-                                <th style={{ width: '46px' }}  >Total</th>
-                            </tr>
-							
-						{Order.map((Item, index) => (
-							<tr key={index} > 
-							<td >{Item.Name}</td>
-            				<td >{Item.Quantity}</td>
-           					<td >{Item.Price}</td>
-            				<td >{Item.Total}</td>
-							</tr>
-						))}
-						</table>
-					
-					<Total data={this.props.location.state.Order} />
+				<Link to='/customer/menus'>
+					<FiEdit size={16} color='#0c71c3' />
+					Add more to your cart
+				</Link>
+				<br />
 
-					<div className='col s6 center-align'>
-						<Link
-							to=""
-							style={{
-								width: '140px',
-								borderRadius: '3px',
-								letterSpacing: '1.5px',
-								marginTop: '3rem',
-								textSize: '12px',
-							}}
-							onClick={this.onSaveForm}
-							className='btn small waves-effect waves-light hoverable navy accent-3'>
-							Submit
-						</Link>
-					</div>
+				<h2 className='extras-heading'>Order Detail</h2>
+				<table className='order-table'>
+					<tr>
+						<th style={{ width: '80px' }}>Name</th>
+						<th style={{ width: '60px' }}>Quantity</th>
+						<th style={{ width: '60px' }}>Price</th>
+						<th style={{ width: '46px' }}>Total</th>
+					</tr>
+
+					{Order.map((Item, index) => (
+						<tr key={index}>
+							<td>{Item.Name}</td>
+							<td>{Item.Quantity}</td>
+							<td>{Item.Price}</td>
+							<td>{Item.Total}</td>
+						</tr>
+					))}
+				</table>
+
+				<Total data={this.props.location.state.Order} />
+
+				<div className='col s6 center-align'>
+					<Link
+						to=''
+						style={{
+							width: '140px',
+							borderRadius: '3px',
+							letterSpacing: '1.5px',
+							marginTop: '3rem',
+							textSize: '12px',
+						}}
+						onClick={this.onSaveForm}
+						className='btn small waves-effect waves-light hoverable navy accent-3'>
+						Submit
+					</Link>
 				</div>
-		
+			</div>
 		);
 	}
 }
