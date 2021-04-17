@@ -4,13 +4,17 @@ import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
 import './ManagerOrder.css';
 import OrderCard from './OrderCard';
+
+import PaginationHandler from './Pagination';
+
 class ManagerOrder extends Component {
 	constructor() {
 		super();
 		this.state = {
 			orders: [],
-		};
-	}
+			
+		}
+		}; 
 	componentDidMount() {
 		axios
 			.get('http://localhost:5000/Api/Orders/View')
@@ -21,7 +25,11 @@ class ManagerOrder extends Component {
 			})
 			.catch((err) => this.setState({ error: err }));
 	}
-
+	pageHandler = (offset) =>{
+		this.setState(({ paging }) => ({
+		  paging: { ...paging, offset: offset }
+		}));
+	 }
 	render() {
 		const { orders } = this.state;
 		return (
@@ -37,16 +45,24 @@ class ManagerOrder extends Component {
 								id={index + 1}
 								CustomerName= {order.CustomerName}
 							/>
+							
 						</div>
+						
 					})}
+				
+          
+         
+    
 				</div>
 					<div>
 						<Link to='/dashboard/manager/ManagerDashboard'>
 							<button> Dashboard</button>
 						</Link>
 					</div>
+					<PaginationHandler />
 				</div>
-		
+				
+				
 		);
 	}
 }
