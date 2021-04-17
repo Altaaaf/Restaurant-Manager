@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
 import './ManagerOrder.css';
+import OrderCard from './OrderCard';
 class ManagerOrder extends Component {
 	constructor() {
 		super();
@@ -24,50 +25,29 @@ class ManagerOrder extends Component {
 	render() {
 		const { orders } = this.state;
 		return (
-			<div className='admin-view-menu-container'>
-				<div className='admin-view-menu-content'>
+			<div className='order_container'>
+				
 					<h2>All orders</h2>
 
-					<ul>
-						{orders.map((order, index) => (
-							<li key={index}>
-								<strong>Order ID:</strong>
-								<p>{index}</p>
-
-								<strong>Customer Name:</strong>
-								<p>{order.CustomerName}</p>
-
-								{order.Order.map((item, idx) => {
-									return (
-										<li key={idx}>
-											<strong>Item Number: </strong>
-											<p>{idx}</p>
-
-											<strong>Item Name: </strong>
-											<p>{item.Name}</p>
-
-											<strong>Item Quantity: </strong>
-											<p>{item.Quantity}</p>
-
-											<strong>Item Price: </strong>
-											<p>{item.Price}</p>
-
-											<strong>Order Total: </strong>
-											<p>{item.Price * item.Quantity}</p>
-										</li>
-									);
-								})}
-							</li>
-						))}
-					</ul>
-
+					<div className="recomendedVideo_video">
+					{orders && orders.map((order, index) => {
+						console.log('===', order.createdDate)
+						return <div key={index}>
+							<OrderCard
+								orders={order.Order}
+								id={index + 1}
+								CustomerName= {order.CustomerName}
+							/>
+						</div>
+					})}
+				</div>
 					<div>
 						<Link to='/dashboard/manager/ManagerDashboard'>
 							<button> Dashboard</button>
 						</Link>
 					</div>
 				</div>
-			</div>
+		
 		);
 	}
 }
