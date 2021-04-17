@@ -29,7 +29,7 @@ router.get('/View', async (req, res) => {
 			console.log('Customer');
 			const Orders = await Order.find({ CustomerName: jwtAuth.name });
 
-			console.log('Orders', Orders)
+			console.log('Orders', Orders);
 			for (var item_ = 0; item_ < Orders.length; item_++) {
 				var item = Orders[item_];
 				orderList.push({ Order: item.Order, createdDate: item.createdAt });
