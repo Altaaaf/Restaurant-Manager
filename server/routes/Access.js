@@ -68,10 +68,10 @@ router.post('/Register', async (req, res) => {
 			} else {
 				try {
 					const RegisterUser = new Access({
-						Username: req.body.Username,
-						Email: req.body.Email,
 						FirstName: req.body.FirstName,
 						LastName: req.body.LastName,
+						Username: req.body.Username,
+						Email: req.body.Email,
 						Password: bcrypt.hashSync(req.body.Password, 10),
 						AccountType: req.body.AccountType,
 					});

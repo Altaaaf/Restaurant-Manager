@@ -59,8 +59,8 @@ class Register extends Component {
 		e.preventDefault();
 
 		const newUser = {
-			FirstName: this.state.FirstName,
-			LastName: this.state.LastName,
+			FirstName: this.state.firstname,
+			LastName: this.state.lastname,
 			Username: this.state.name,
 			Email: this.state.email,
 			Password: this.state.password,
@@ -95,13 +95,13 @@ class Register extends Component {
 									onChange={this.onChange}
 									value={this.state.firstname}
 									error={errors.firstname}
-									id='name'
+									id='firstname'
 									type='text'
 									className={classnames('', {
 										invalid: errors.firstname,
 									})}
 								/>
-								<label className='dark-text' htmlFor='name'>
+								<label className='dark-text' htmlFor='firstname'>
 									First Name
 								</label>
 								<span className='red-text'>{errors.firstname}</span>
@@ -111,13 +111,13 @@ class Register extends Component {
 									onChange={this.onChange}
 									value={this.state.lastname}
 									error={errors.lastname}
-									id='name'
+									id='lastname'
 									type='text'
 									className={classnames('', {
 										invalid: errors.lastname,
 									})}
 								/>
-								<label className='dark-text' htmlFor='name'>
+								<label className='dark-text' htmlFor='lastname'>
 									Last Name
 								</label>
 								<span className='red-text'>{errors.lastname}</span>

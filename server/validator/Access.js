@@ -12,11 +12,9 @@ const Login = (data) => {
 
 const Register = (data) => {
 	const schema = Joi.object({
-		FirstName: Joi.string()
-			.regex(/^[A-Z]+$/)
+		FirstName: Joi.string().min(2)
 			.required(),
-		lastName: Joi.string()
-			.regex(/^[A-Z]+$/)
+		lastName: Joi.string().min(2)
 			.required(),
 		Username: Joi.string().min(7).required(),
 		Email: Joi.string()

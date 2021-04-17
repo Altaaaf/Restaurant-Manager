@@ -13,7 +13,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Customer Name',
@@ -21,7 +21,7 @@ router.get('/Orders', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Subtotal',
@@ -29,7 +29,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Tax',
@@ -44,7 +44,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 		];
 		let orderList = [];
