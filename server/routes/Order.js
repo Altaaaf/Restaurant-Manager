@@ -28,11 +28,11 @@ router.get('/View', async (req, res) => {
 		else if (jwtAuth.accountType == 'Customer') {
 			console.log('Customer');
 			const Orders = await Order.find({ CustomerName: jwtAuth.name });
+
+			console.log('Orders', Orders)
 			for (var item_ = 0; item_ < Orders.length; item_++) {
 				var item = Orders[item_];
-				orderList.push({
-					Order: item.Order,
-				});
+				orderList.push({ Order: item.Order, createdDate: item.createdAt });
 			}
 		}
 		console.log(orderList);
