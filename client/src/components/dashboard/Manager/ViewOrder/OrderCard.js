@@ -98,7 +98,7 @@ export default function RecipeReviewCard(props) {
             </IconButton>
           }
           title={`Order id : ${props.id}`}
-          subheader={`CustomerName : ${props.orders.CustomerName}`}
+          subheader={`Customer Name : ${props.CustomerName}`}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">

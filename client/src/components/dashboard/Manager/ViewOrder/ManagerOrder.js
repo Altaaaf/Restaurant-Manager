@@ -27,11 +27,10 @@ class ManagerOrder extends Component {
 		return (
 			<div className='order_container'>
 				
-					<h2>All orders</h2>
-
+				<h2 className='mains-heading'>Customer Orders</h2>
 					<div className="recomendedVideo_video">
 					{orders && orders.map((order, index) => {
-						console.log('===', order.createdDate)
+						
 						return <div key={index}>
 							<OrderCard
 								orders={order.Order}

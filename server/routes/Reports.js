@@ -1,11 +1,72 @@
 const express = require('express');
 const Access = require('../Database/Models/Access');
 const Reservation = require('../Database/Models/Reservation');
+const Order = require('../Database/Models/Orders');
 const router = express.Router();
 
 router.get('/Orders', async (req, res) => {
-	try {
-		res.status(200).json({});
+
+	try { 
+		let TableColumns = [
+	    	{
+			headerName: 'ID',
+			field: 'id',
+			sortable: true,
+			filter: true,
+			checkboxSelection: true,
+		},
+		{
+			headerName: 'Customer Name',
+			field: 'CustomerName',
+			sortable: true,
+			filter: true,
+			checkboxSelection: true,
+		},
+		{
+			headerName: 'Subtotal',
+			field: 'Subtotao',
+			sortable: true,
+			filter: true,
+			checkboxSelection: true,
+		},
+		{
+			headerName: 'Tax',
+			field: 'Tax',
+			editable: true,
+			sortable: true,
+			filter: true,
+		},
+		{
+			headerName: 'Total',
+			field: 'Total',
+			editable: true,
+			sortable: true,
+			filter: true,
+			checkboxSelection: true,
+		},
+		{
+			headerName: 'Order Date',
+			field: 'createdDate',
+			editable: true,
+			sortable: true,
+			filter: true,
+			checkboxSelection: true,
+		},
+	];
+	let orderList = [];
+	if (jwtAuth.accountType == 'Manager') {
+		console.log('Manager');
+    let Orders = await Order.find();
+			for (var item_ = 0; item_ < Orders.length; item_++) {
+				var item = Orders[item_];
+				orderList.push({
+					CustomerName: item.CustomerName,
+					Order: item.Order,
+					
+				});
+			}
+	}
+		res.status(200).json({Columns: TableColumns, RowInformation: orderList});
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ status: 'Server Error' });
@@ -95,6 +156,7 @@ router.get('/Managers', async (req, res) => {
 				{
 					headerName: 'Username',
 					field: 'Username',
+					editable: true,
 					sortable: true,
 					filter: true,
 					checkboxSelection: true,
