@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
-
-const Header = props => {
-  return (
-    <div>
-      <div className="title1">Todo List</div>
-    </div>
-  );
+const Header = (props) => {
+	return (
+		<div>
+			<div className='title1'>Todo List</div>
+		</div>
+	);
 };
 
 export default Header;

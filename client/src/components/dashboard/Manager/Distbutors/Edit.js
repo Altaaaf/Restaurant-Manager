@@ -11,9 +11,9 @@ class Edit extends Component {
 		this.state = {
 			Name: '',
 			Product: '',
-            Manager:'',
-            Email:'',
-            Number:'',
+			Manager: '',
+			Email: '',
+			Number: '',
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,9 +33,9 @@ class Edit extends Component {
 		const PostRequestData = {
 			Name: this.state.Name,
 			Product: this.state.Product,
-            Manager: this.state.Manager,
-            Email: this.state.Email,
-            Number: this.state.Number,
+			Manager: this.state.Manager,
+			Email: this.state.Email,
+			Number: this.state.Number,
 		};
 		axios
 			.post('http://localhost:5000/Api/Inventory/item', PostRequestData)
@@ -74,27 +74,17 @@ class Edit extends Component {
 							value={Product}
 							onChange={this.handleChange}
 						/>
-                        <strong>Manager:</strong>
+						<strong>Manager:</strong>
 						<input
 							name='Manager'
 							placeholder='Manager'
 							value={Manager}
 							onChange={this.handleChange}
 						/>
-                        <strong>Email:</strong>
-						<input
-							name='Email'
-							placeholder='Email'
-							value={Email}
-							onChange={this.handleChange}
-						/>
-                        <strong>Number:</strong>
-						<input
-							name='Number'
-							placeholder='Number'
-							value={Number}
-							onChange={this.handleChange}
-						/>
+						<strong>Email:</strong>
+						<input name='Email' placeholder='Email' value={Email} onChange={this.handleChange} />
+						<strong>Number:</strong>
+						<input name='Number' placeholder='Number' value={Number} onChange={this.handleChange} />
 						<button className='botton' type='submit'>
 							Add Item
 						</button>

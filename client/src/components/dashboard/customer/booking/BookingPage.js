@@ -3,10 +3,9 @@ import toastr from 'toastr';
 import BookingApi from '../api/BookingApi';
 import BookingForm from './BookingForm';
 
-
 class BookingPage extends React.Component {
 	constructor() {
-		super ()
+		super();
 		this.state = {
 			booking: {},
 		};
@@ -57,7 +56,7 @@ class BookingPage extends React.Component {
 						/>
 					</div>
 				</div>
-				</div>
+			</div>
 		);
 	}
 }

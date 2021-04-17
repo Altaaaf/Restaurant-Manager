@@ -104,11 +104,9 @@ class View extends Component {
 						))}
 					</ul>
 					<div>
-					<Link to='/dashboard/manager/ManagerDashboard'>
-						<button >
-						Dashboard
-						</button>
-					</Link>
+						<Link to='/dashboard/manager/ManagerDashboard'>
+							<button>Dashboard</button>
+						</Link>
 					</div>
 				</div>
 			</div>

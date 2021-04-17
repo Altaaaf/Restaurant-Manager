@@ -38,12 +38,11 @@ class Dashboard extends Component {
 							<FiBookOpen size={16} color='#e02041' />
 							Bookings
 						</Link>
-						
 					</div>
 					<img src={barnsLink} alt='' />
 
 					<div className='logged-right-links'>
-					<Link to='/customer/Orders'>
+						<Link to='/customer/Orders'>
 							<FiBookOpen size={16} color='#e02041' />
 							Orders
 						</Link>

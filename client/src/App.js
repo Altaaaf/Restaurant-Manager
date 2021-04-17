@@ -31,11 +31,9 @@ import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
 import CustomerOrdersPage from './components/dashboard/customer/Orders/ViewOrders';
 import Task from './components/dashboard/Manager/ManagerTask/Task';
 
-
 import View from './components/dashboard/Manager/Distbutors/View';
 import Edit from './components/dashboard/Manager/Distbutors/Edit';
-import {LicenseManager} from "@ag-grid-enterprise/core";
-
+import { LicenseManager } from '@ag-grid-enterprise/core';
 
 import './App.css';
 import PublicRoute from './components/public-route/PublicRoute';
@@ -60,9 +58,10 @@ if (localStorage.jwtToken) {
 	}
 }
 export default function App() {
-	LicenseManager.setLicenseKey("For_Trialing_ag-Grid_Only-Not_For_Real_Development_Or_Production_Projects-Valid_Until-5_June_2021_[v2]_MTYyMjg0NzYwMDAwMA==5b68c05fc0cc6643272084120d86f3c7");
+	LicenseManager.setLicenseKey(
+		'For_Trialing_ag-Grid_Only-Not_For_Real_Development_Or_Production_Projects-Valid_Until-5_June_2021_[v2]_MTYyMjg0NzYwMDAwMA==5b68c05fc0cc6643272084120d86f3c7',
+	);
 	return (
-		
 		<Provider store={store}>
 			<Router>
 				<Navbar />
@@ -81,8 +80,6 @@ export default function App() {
 					<Route exact path='/Manager/EditMenu' component={EditMenu} />
 					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
 					<Route exact path='/Manager/EditInventory' component={EditInventory} />
-					<Route exact path='/Manager/ViewInventory' component={ViewInventory} />
-					<Route exact path='/Manager/EditInventory' component={EditInventory} />
 					<Route exact path='/Manager/ViewBooking' component={ManagerBooking} />
 					<Route exact path='/Manager/Users' component={ViewUsers} />
 					<Route exact path='/Manager/ViewOrder' component={ManagerOrder} />
@@ -97,7 +94,7 @@ export default function App() {
 							path='/dashboard/manager/ManagerDashboard'
 							component={ManagerDashboard}
 						/>
-						<PublicRoute exact path='/' component={Landing}/>
+						<PublicRoute exact path='/' component={Landing} />
 					</Switch>
 				</div>
 			</Router>

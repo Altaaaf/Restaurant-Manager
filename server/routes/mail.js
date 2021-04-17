@@ -4,12 +4,11 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const { getMaxListeners } = require('../Database/Models/Access');
 
-
 const contactEmail = nodemailer.createTransport({
 	service: 'hotmail',
 	auth: {
-		user: "Barnslink@hotmail.com",
-		pass: "Nyit2021",
+		user: 'Barnslink@hotmail.com',
+		pass: 'Nyit2021',
 	},
 });
 

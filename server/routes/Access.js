@@ -71,7 +71,7 @@ router.post('/Register', async (req, res) => {
 						Username: req.body.Username,
 						Email: req.body.Email,
 						FirstName: req.body.FirstName,
-						LastName:req.body.LastName,
+						LastName: req.body.LastName,
 						Password: bcrypt.hashSync(req.body.Password, 10),
 						AccountType: req.body.AccountType,
 					});

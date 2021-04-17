@@ -1,22 +1,20 @@
-
-
 .card {
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	width: 100%;
-  }
-  
-  .card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-  
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
 .container {
 	padding: 2px 16px;
 }
 
 .view__orders {
-    display: flex;
-    flex-wrap: wrap; 
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .item__name {
@@ -25,7 +23,7 @@
 }
 
 .recomendedVideo_video {
-    display: flex;
+	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 }
@@ -35,18 +33,18 @@
 	padding-top: 10px;
 }
 
-.order_table  {
+.order_table {
 	padding: 5px;
 }
 
 .order_table th {
- background-color: lightseagreen;
+	background-color: lightseagreen;
 }
 
 .order_table tr:hover {
 	background-color: #ddd;
-	opacity:0.5;
-	opacity:1;
+	opacity: 0.5;
+	opacity: 1;
 	transform-style: preserve-3d;
 	border-radius: 20px;
 }
@@ -57,14 +55,14 @@
 	font-size: 50px;
 }
 
-.create_order_link  {
-	padding-top : 10px;
+.create_order_link {
+	padding-top: 10px;
 }
 .create_order_link:hover {
 	border-radius: 10px;
 	transform: skew(-10deg);
 	transform-style: preserve-3d;
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .card_items {
@@ -108,4 +106,4 @@
 
 .order_container {
 	padding: 35px;
-} 
+}

@@ -1,62 +1,62 @@
 .profile-container {
-    margin: 20px auto;
-    width: 1000px;
-    height: 768px;
-    background: #ffffff;
-    padding: 30px;
-    box-shadow: 0px 39px 18px 6px rgba(0, 0, 0, 0.15);
-    border-radius: 30px;
-    color: #514444;
-  }
-  .profile-container h1 {
-    font-size: 3rem;
-  }
-  
-  form {
-    padding: 30px;
-    margin: 20px auto;
-    width: 800px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .Pinput {
-    width: 20rem;
-    height: 4rem;
-    margin: 20px;
-  }
-  
-  .Pinput p {
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-  
-  input {
-    height: 3rem;
-    width: 20rem;
-    border-radius: 10px;
-    border: 0.5px #514444 solid;
-    padding: 10px;
-  }
-  
-  .text-area p {
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-  
-  .text-area textarea {
-    width: 680px;
-    height: 200px;
-    border-radius: 10px;
-    border: 0.5px #514444 solid;
-    resize: none;
-    padding: 10px;
-  }
-  
-  .button {
-    width: 200px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: 30px;
-  }
+	margin: 20px auto;
+	width: 1000px;
+	height: 768px;
+	background: #ffffff;
+	padding: 30px;
+	box-shadow: 0px 39px 18px 6px rgba(0, 0, 0, 0.15);
+	border-radius: 30px;
+	color: #514444;
+}
+.profile-container h1 {
+	font-size: 3rem;
+}
+
+form {
+	padding: 30px;
+	margin: 20px auto;
+	width: 800px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.Pinput {
+	width: 20rem;
+	height: 4rem;
+	margin: 20px;
+}
+
+.Pinput p {
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+input {
+	height: 3rem;
+	width: 20rem;
+	border-radius: 10px;
+	border: 0.5px #514444 solid;
+	padding: 10px;
+}
+
+.text-area p {
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.text-area textarea {
+	width: 680px;
+	height: 200px;
+	border-radius: 10px;
+	border: 0.5px #514444 solid;
+	resize: none;
+	padding: 10px;
+}
+
+.button {
+	width: 200px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: 30px;
+}

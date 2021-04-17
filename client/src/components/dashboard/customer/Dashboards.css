@@ -1,66 +1,63 @@
 @media (min-width: 660px) {
-	
 }
 
 .home-page-body {
-  grid-area: mainContent;
-  display: block;
-  position: relative;
-  
-  align-items: center;
-  justify-content: center;
+	grid-area: mainContent;
+	display: block;
+	position: relative;
+
+	align-items: center;
+	justify-content: center;
 }
 
 .home-page-body img {
-  height: 90%;
-  width: 100%;
+	height: 90%;
+	width: 100%;
 }
 
 .navigation-menu {
-    grid-area: navigationMenu;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-  }
-  
-  .navigation-menu .left-links {
-    position: absolute;
-    left: 200px;
-  }
-  
-  .navigation-menu .right-links {
-    position: absolute;
-    right: 200px;
-  }
-  
-  .navigation-menu .logged-right-links {
-    position: absolute;
-    right: 250px;
-  }
-  
-  .navigation-menu img {
-    height: 80px;
-    width: 100px;
-    
-  }
-  
-  .navigation-menu a {
-    text-decoration: none;
-    color: #000;
-    font-size: 24px;
-    font-weight: 500;
-    margin: 15px;
-    transition: opacity 0.2s;
-  }
-  
-  .navigation-menu a:hover {
-    opacity: 0.5;
-  }
-  
-  
-  .navigation-menu svg {
-    margin-right: 10px;
-  }
+	grid-area: navigationMenu;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+}
+
+.navigation-menu .left-links {
+	position: absolute;
+	left: 200px;
+}
+
+.navigation-menu .right-links {
+	position: absolute;
+	right: 200px;
+}
+
+.navigation-menu .logged-right-links {
+	position: absolute;
+	right: 250px;
+}
+
+.navigation-menu img {
+	height: 80px;
+	width: 100px;
+}
+
+.navigation-menu a {
+	text-decoration: none;
+	color: #000;
+	font-size: 24px;
+	font-weight: 500;
+	margin: 15px;
+	transition: opacity 0.2s;
+}
+
+.navigation-menu a:hover {
+	opacity: 0.5;
+}
+
+.navigation-menu svg {
+	margin-right: 10px;
+}

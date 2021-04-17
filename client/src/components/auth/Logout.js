@@ -6,11 +6,11 @@ class Logout extends Component {
 		console.log('Logging user out..?');
 		this.props.logoutUser();
 		setTimeout(() => {
-			this.props.history.replace('/')
+			this.props.history.replace('/');
 		}, 2000);
 	}
 	render() {
-		return <h4 style={{display:'flex', justifyContent:'center'}}> Successfully logged out.</h4>;
+		return <h4 style={{ display: 'flex', justifyContent: 'center' }}> Successfully logged out.</h4>;
 	}
 }
 const mapStateToProps = (state) => ({
@@ -18,5 +18,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { logoutUser })(Logout);
-
-

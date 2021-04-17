@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
-import './ManagerBooking.css'
-
+import './ManagerBooking.css';
 
 class ManagerBooking extends Component {
 	constructor() {
@@ -37,11 +36,10 @@ class ManagerBooking extends Component {
 				<div className='admin-view-bookings-content'>
 					<h2>Reservations</h2>
 					<div className='new-form-button'>
-					<Link to=''>
-						<FiEdit size={16} color='grey' />
-						<button> Create Reservation</button>
-						
-					</Link>
+						<Link to=''>
+							<FiEdit size={16} color='grey' />
+							<button> Create Reservation</button>
+						</Link>
 					</div>
 					<h3>Reservation Details</h3>
 					<ul>
@@ -68,11 +66,9 @@ class ManagerBooking extends Component {
 						))}
 					</ul>
 					<div>
-					<Link to='/dashboard/manager/ManagerDashboard'>
-						<button >
-							Back To Dashboard
-						</button>
-					</Link>
+						<Link to='/dashboard/manager/ManagerDashboard'>
+							<button>Back To Dashboard</button>
+						</Link>
 					</div>
 				</div>
 			</div>

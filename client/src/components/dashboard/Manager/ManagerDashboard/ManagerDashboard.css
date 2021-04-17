@@ -1,124 +1,116 @@
 .admin-home-main-container {
-    display: flex;
-    height: 80%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  
-    overflow: auto;
-    background: #f0ebec;
+	display: flex;
+	height: 80%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 
-  }
-  
-  .admin-home-main-content {
-    height: 80vh;
-    width: 95%;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    align-items: center;
-    justify-items: center;
-    padding: 30px;
-  
-  
-  
-    border-radius: 8px;
-  
-    background: #ffffff;
-  
-  }
-
-  .admin-home-main-content-welcome-text
-{
-  background-color: #f0ebec;
-  margin-bottom: 60px;
-  border: 3px solid black;
-  padding: 10px;
-  margin-left: -30px;
-  margin-right: -30px;
-  height: -20px;
-  margin-top: -30px;
-  border-right: -30px;
+	overflow: auto;
+	background: #f0ebec;
 }
-  
-  .admin-home-main-content a {
-    font-size: 18px;
-    color: #5f6670;
-    text-decoration: none;
-    font-weight: 400;
-    transition: opacity 0.5s;
-    margin-left: -10px;
-    margin-top: -10px;
-  }
-  
-  .admin-home-main-content a:hover  {
-    opacity: 0.6;
-  }
-  
-  .links {
-    height: 30%;
-    width: 50%;
-    color: #aaaaaa;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 140px 140px;
-    grid-template-rows: repeat(9,50px);
-    grid-template-areas: 
-    'usersLogo usersText'
-    'menuLogo menuText'
-    'bookingsLogo bookingsText'
-    'OrderLogo orderText'
-    'InventoryLogo InventoryText'
-    'reportLogo reportText'
-    'taskLogo taskText'
-    'distLogo distText'
-    'logoutLogo logoutText'
-    
-    ;
-    margin-top: 90px;
-    margin-left: 25%;
-    align-items: center;
-    justify-items: left;
-  }
-  
-  .users-icon{
-    grid-area: usersLogo;
-  }
-  
-  .Inventory-icon{
-    grid-area: InventoryLogo;
-  }
-  
-  .bookings-icon{
-    grid-area: bookingsLogo;
-  }
-  
-  .menu-icon{
-    grid-area: menuLogo;
-  }
-  .Order-icon{
-    grid-area: OrderLogo;
-  }
 
-  .report-icon{
-    grid-area:reportLogo;
-  }
-  .task-icon{
-    grid-area: taskLogo;
-  }
+.admin-home-main-content {
+	height: 80vh;
+	width: 95%;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	align-items: center;
+	justify-items: center;
+	padding: 30px;
 
-  .distbute-icon{
-    grid-area: distLogo;
-  }
-  
+	border-radius: 8px;
 
-  .logout-icon {
-      grid-area: logoutLogo;
-  }
-  
-  .admin-home-main-content .strong-link:active {
-    background: black;
-  }
-  
-  .admin-home-main-content svg {
-    margin-right: 15px;
-  }
+	background: #ffffff;
+}
+
+.admin-home-main-content-welcome-text {
+	background-color: #f0ebec;
+	margin-bottom: 60px;
+	border: 3px solid black;
+	padding: 10px;
+	margin-left: -30px;
+	margin-right: -30px;
+	height: -20px;
+	margin-top: -30px;
+	border-right: -30px;
+}
+
+.admin-home-main-content a {
+	font-size: 18px;
+	color: #5f6670;
+	text-decoration: none;
+	font-weight: 400;
+	transition: opacity 0.5s;
+	margin-left: -10px;
+	margin-top: -10px;
+}
+
+.admin-home-main-content a:hover {
+	opacity: 0.6;
+}
+
+.links {
+	height: 30%;
+	width: 50%;
+	color: #aaaaaa;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 140px 140px;
+	grid-template-rows: repeat(9, 50px);
+	grid-template-areas:
+		'usersLogo usersText'
+		'menuLogo menuText'
+		'bookingsLogo bookingsText'
+		'OrderLogo orderText'
+		'InventoryLogo InventoryText'
+		'reportLogo reportText'
+		'taskLogo taskText'
+		'distLogo distText'
+		'logoutLogo logoutText';
+	margin-top: 90px;
+	margin-left: 25%;
+	align-items: center;
+	justify-items: left;
+}
+
+.users-icon {
+	grid-area: usersLogo;
+}
+
+.Inventory-icon {
+	grid-area: InventoryLogo;
+}
+
+.bookings-icon {
+	grid-area: bookingsLogo;
+}
+
+.menu-icon {
+	grid-area: menuLogo;
+}
+.Order-icon {
+	grid-area: OrderLogo;
+}
+
+.report-icon {
+	grid-area: reportLogo;
+}
+.task-icon {
+	grid-area: taskLogo;
+}
+
+.distbute-icon {
+	grid-area: distLogo;
+}
+
+.logout-icon {
+	grid-area: logoutLogo;
+}
+
+.admin-home-main-content .strong-link:active {
+	background: black;
+}
+
+.admin-home-main-content svg {
+	margin-right: 15px;
+}

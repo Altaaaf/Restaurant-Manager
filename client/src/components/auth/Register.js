@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import classnames from 'classnames';
-import { faGrinTongueSquint } from '@fortawesome/free-regular-svg-icons';
 
 class Register extends Component {
 	constructor() {
@@ -12,7 +11,7 @@ class Register extends Component {
 		this.state = {
 			firstname: '',
 			lastname: '',
-			name:'',
+			name: '',
 			email: '',
 			password: '',
 			password2: '',

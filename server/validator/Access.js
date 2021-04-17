@@ -2,7 +2,9 @@ const Joi = require('joi');
 
 const Login = (data) => {
 	const schema = Joi.object({
-		Email: Joi.string().email({minDomainSegments:2, tlds:{allow: ['com','edu']}}).required(),
+		Email: Joi.string()
+			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
+			.required(),
 		Password: Joi.string().min(8).required(),
 	});
 	return schema.validate(data);
@@ -10,11 +12,17 @@ const Login = (data) => {
 
 const Register = (data) => {
 	const schema = Joi.object({
-		FirstName:Joi.string().regex(/^[A-Z]+$/).required(),
-		lastName:Joi.string().regex(/^[A-Z]+$/).required(),
+		FirstName: Joi.string()
+			.regex(/^[A-Z]+$/)
+			.required(),
+		lastName: Joi.string()
+			.regex(/^[A-Z]+$/)
+			.required(),
 		Username: Joi.string().min(7).required(),
-		Email: Joi.string().email({minDomainSegments:2, tlds:{allow: ['com','edu']}}).required(),
-		Password: Joi.string().min(8).required("Password needs 8 letters or numbers"),
+		Email: Joi.string()
+			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
+			.required(),
+		Password: Joi.string().min(8).required('Password needs 8 letters or numbers'),
 		PasswordConfirmation: Joi.string().min(8).required(),
 		AccountType: Joi.string(),
 	});
@@ -23,10 +31,16 @@ const Register = (data) => {
 
 const BookingPage = (data) => {
 	const schema = Joi.object({
-		firstName: Joi.string().regex(/^[A-Z]+$/).required(),
-		lastName: Joi.string().regex(/^[A-Z]+$/).required(),
+		firstName: Joi.string()
+			.regex(/^[A-Z]+$/)
+			.required(),
+		lastName: Joi.string()
+			.regex(/^[A-Z]+$/)
+			.required(),
 		coverNo: Joi.number().min(2).required('reservation for 2 people and up'),
-		phone: Joi.string().regex(/^\d{3}-\d{3}-\d{4}$/).required('10 digits phone number'),
+		phone: Joi.string()
+			.regex(/^\d{3}-\d{3}-\d{4}$/)
+			.required('10 digits phone number'),
 	});
 	return schema.validate(data);
 };

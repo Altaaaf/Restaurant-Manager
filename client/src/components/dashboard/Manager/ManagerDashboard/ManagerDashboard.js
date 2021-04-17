@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../../actions/authActions';
-import { FiUsers, FiMenu, FiShoppingBag, FiLogOut,FiBarChart } from 'react-icons/fi';
-import { FaTruckMoving } from "react-icons/fa";
+import { FiUsers, FiMenu, FiShoppingBag, FiLogOut, FiBarChart } from 'react-icons/fi';
+import { FaTruckMoving } from 'react-icons/fa';
 import { RiCalendar2Fill } from 'react-icons/ri';
-import { GoChecklist,GoListOrdered } from 'react-icons/go';
+import { GoChecklist, GoListOrdered } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import './ManagerDashboard.css';
 
@@ -25,16 +25,15 @@ class ManagerDashboard extends Component {
 		return (
 			<div className='admin-home-main-container'>
 				<div className='admin-home-main-content center-align'>
-					
-						<div className='admin-home-main-content-welcome-text'>
+					<div className='admin-home-main-content-welcome-text'>
 						<h4>
-						<b>Welcome back,</b> {user.name.split(' ')[0]}
-						<p className='flow-text dark-text text-darken'>
-							Your Restaurant Automation Management Hub{' '}
-							<span style={{ fontFamily: 'monospace' }}></span> 👏
-						</p>
-					  </h4>
-					  </div>
+							<b>Welcome back,</b> {user.name.split(' ')[0]}
+							<p className='flow-text dark-text text-darken'>
+								Your Restaurant Automation Management Hub{' '}
+								<span style={{ fontFamily: 'monospace' }}></span> 👏
+							</p>
+						</h4>
+					</div>
 
 					<div className='links'>
 						<FiUsers className='users-icon' size={35} color='black' />
