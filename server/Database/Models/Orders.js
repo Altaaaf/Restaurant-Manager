@@ -11,11 +11,10 @@ const Orders = mongoose.Schema(
 			type: Array,
 			required: true,
 		},
-	},
-	{
-		timestamps: {
-			createdAt: 'createdAt',
-			updatedAt: 'updatedAt',
+		createdDate: {
+			type: Date,
+			required: true,
+			default: Date.now,
 		},
 	},
 	{ versionKey: false },

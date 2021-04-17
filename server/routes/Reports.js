@@ -61,7 +61,7 @@ router.get('/Orders', async (req, res) => {
 				CustomerName: item.CustomerName,
 				Subtotal: (total.toLocaleString() * 1.0875).toFixed(2),
 				Tax: (total * 0.0875).toFixed(2),
-				createdDate: `${item.createdAt ? item.createdAt : new Date().toUTCString()}`,
+				createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
 			});
 		}
 		res.status(200).json({ Columns: TableColumns, RowInformation: orderList });
