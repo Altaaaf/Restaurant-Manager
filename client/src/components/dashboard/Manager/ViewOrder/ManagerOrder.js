@@ -4,6 +4,7 @@ import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
 import './ManagerOrder.css';
 import OrderCard from './OrderCard';
+import uuid from "react-uuid";
 
 
 
@@ -20,7 +21,7 @@ class ManagerOrder extends Component {
 			.then((res) => {
 				const data = res.data;
 				//console.log(data);
-				this.setState({ orders: data.Orders });
+				this.setState({ orders: data.Orders.reverse() });
 			})
 			.catch((err) => this.setState({ error: err }));
 	}
@@ -41,7 +42,7 @@ class ManagerOrder extends Component {
 								<div key={index}>
 									<OrderCard
 										orders={order.Order}
-										id={index + 1}
+										id={uuid()}
 										CustomerName={order.CustomerName}
 										createdDate={order.createdDate}
 									/>

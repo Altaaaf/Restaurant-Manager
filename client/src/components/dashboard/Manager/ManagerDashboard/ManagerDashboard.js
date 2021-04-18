@@ -71,10 +71,7 @@ class ManagerDashboard extends Component {
 							To Do List
 						</Link>
 
-						<FaTruckMoving className='distbute-icon' size={35} color='black' />
-						<Link className='dist-text' to='/Manager/View'>
-							Distributors
-						</Link>
+						
 
 						<FiLogOut className='logout-icon' size={35} color='black' />
 						<Link className='logout-text' to='/Logout'>

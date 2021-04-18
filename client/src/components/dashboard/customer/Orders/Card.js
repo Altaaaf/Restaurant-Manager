@@ -97,7 +97,7 @@ export default function RecipeReviewCard(props) {
 							</IconButton>
 						}
 						title={`Order id : ${props.id}`}
-						subheader={`Date : ${props.createdDate ? props.createdDate : new Date().toDateString()}`}
+						subheader={`Date : ${props.createdDate ? props.createdDate : new Date().toLocaleString('en-US',{timeZone: 'America/New_York'})}`}
 					/>
 					<CardContent>
 						<Typography variant='body2' color='textSecondary' component='p'>

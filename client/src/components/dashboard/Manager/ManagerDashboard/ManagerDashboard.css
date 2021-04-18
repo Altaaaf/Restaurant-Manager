@@ -56,7 +56,7 @@
 	display: grid;
 	justify-content: center;
 	grid-template-columns: 140px 140px;
-	grid-template-rows: repeat(9, 50px);
+	grid-template-rows: repeat(8, 50px);
 	grid-template-areas:
 		'usersLogo usersText'
 		'menuLogo menuText'
@@ -65,7 +65,6 @@
 		'InventoryLogo InventoryText'
 		'reportLogo reportText'
 		'taskLogo taskText'
-		'distLogo distText'
 		'logoutLogo logoutText';
 	margin-top: 90px;
 	margin-left: 25%;

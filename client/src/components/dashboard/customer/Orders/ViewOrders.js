@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
+import uuid from "react-uuid";
 
 import './OrdersCss.css';
 import Button from '@material-ui/core/Button';
@@ -14,13 +15,18 @@ class ViewOrders extends Component {
 		this.state = {
 			orders: [],
 		};
+		
 	}
+uuid() {
+	var uuid = Math.random().toString(36).slice(-6);
+}
+
 	componentDidMount() {
 		axios
 			.get('http://localhost:5000/Api/Orders/View')
 			.then((res) => {
 				const data = res.data;
-				this.setState({ orders: data.Orders });
+				this.setState({ orders: data.Orders.reverse() });
 			})
 			.catch((err) => this.setState({ error: err }));
 	}
@@ -28,6 +34,7 @@ class ViewOrders extends Component {
 	render() {
 		const { orders } = this.state;
 		console.log(orders);
+		
 		return (
 			<div className='order_container'>
 				<div className='create_order_link'>
@@ -45,13 +52,17 @@ class ViewOrders extends Component {
 					</Link>
 				</div>
 				<h2 className='mains-heading'>Order History</h2>
+				
 				<div className='recomendedVideo_video'>
+				
 					{orders &&
 						orders.map((order, index) => {
 							console.log('===', order.createdDate);
 							return (
 								<div key={index}>
-									<Card orders={order.Order} id={index + 1} createdDate={order.createdDate} />
+									<Card orders={order.Order} 
+									id={uuid(Math.random().toString(36).slice(-6))}
+									createdDate={order.createdDate} />
 								</div>
 							);
 						})}
