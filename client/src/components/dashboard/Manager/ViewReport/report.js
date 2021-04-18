@@ -18,6 +18,7 @@ class report extends Component {
 			changes: [],
 			DataSource: '',
 		};
+		
 		this.onSelectionChange = this.onSelectionChange.bind(this);
 		this.handleDataSourceChange = this.handleDataSourceChange.bind(this);
 	}
@@ -122,6 +123,7 @@ class report extends Component {
 							rowSelection='multiple'
 							sideBar={'filters'}
 							pagination={true}
+							paginationAutoPageSize={true}
 							columnDefs={this.state.columnDefs}
 							rowData={this.state.rowData}></AgGridReact>
 						<div>

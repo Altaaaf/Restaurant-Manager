@@ -5,7 +5,7 @@ import axios from 'axios';
 import './ManagerOrder.css';
 import OrderCard from './OrderCard';
 
-import PaginationHandler from './Pagination';
+
 
 class ManagerOrder extends Component {
 	constructor() {
@@ -43,6 +43,7 @@ class ManagerOrder extends Component {
 										orders={order.Order}
 										id={index + 1}
 										CustomerName={order.CustomerName}
+										createdDate={order.createdDate}
 									/>
 								</div>
 							);
@@ -53,7 +54,7 @@ class ManagerOrder extends Component {
 						<button> Dashboard</button>
 					</Link>
 				</div>
-				<PaginationHandler />
+			
 			</div>
 		);
 	}

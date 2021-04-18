@@ -16,17 +16,19 @@ body {
 		Apple Color Emoji, Segoe UI Emoji;
 }
 
+
 input {
 	width: 1.75rem;
 	height: 1.75rem;
 	padding: 0.25rem;
-	margin: 0 0.75rem;
+	margin: 0 1rem;
 	background-color: transparent;
 	border: 1px solid var(--secondary);
 	border-radius: 50%;
-	margin-left: 190px;
 	text-align: left;
-	justify-items: right;
+	position: relative;
+	
+	
 }
 
 .menu {
@@ -71,6 +73,17 @@ input {
 	font-size: 1rem;
 	color: rgb(25, 53, 65);
 	font-weight: bold;
+}
+.extras-price {
+	
+	display: flex;
+	flex-wrap: wrap;
+	text-align: justify;
+	justify-content: space-between;
+	margin-left: 1.5rem;
+	font-size: 1rem;
+	justify-items: left;
+	color: rgb(25, 53, 65);
 }
 
 .mains-description {

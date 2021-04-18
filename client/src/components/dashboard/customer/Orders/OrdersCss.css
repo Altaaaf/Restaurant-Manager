@@ -50,9 +50,9 @@
 }
 
 .mains-heading {
-	text-align: center;
+	text-align: left;
 	font-weight: 900;
-	font-size: 50px;
+	font-size: 30px;
 }
 
 .create_order_link {

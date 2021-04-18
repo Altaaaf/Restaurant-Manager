@@ -14,7 +14,7 @@ const Register = (data) => {
 	const schema = Joi.object({
 		FirstName: Joi.string().min(2)
 			.required(),
-		lastName: Joi.string().min(2)
+		LastName: Joi.string().min(2)
 			.required(),
 		Username: Joi.string().min(7).required(),
 		Email: Joi.string()

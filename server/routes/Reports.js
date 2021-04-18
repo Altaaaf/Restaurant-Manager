@@ -32,6 +32,14 @@ router.get('/Orders', async (req, res) => {
 				
 			},
 			{
+				headerName: 'Total',
+				field: 'Total',
+				editable: false,
+				sortable: true,
+				filter: true,
+				
+			},
+			{
 				headerName: 'Tax',
 				field: 'Tax',
 				editable: false,
@@ -60,6 +68,7 @@ router.get('/Orders', async (req, res) => {
 				ID: item._id,
 				CustomerName: item.CustomerName,
 				Subtotal: (total.toLocaleString() * 1.0875).toFixed(2),
+				Total:(total.toLocaleString()),
 				Tax: (total * 0.0875).toFixed(2),
 				createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
 			});
