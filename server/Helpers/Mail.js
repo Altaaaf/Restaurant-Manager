@@ -2,8 +2,8 @@ const nodemailer = require('nodemailer');
 const contactEmail = nodemailer.createTransport({
 	service: 'hotmail',
 	auth: {
-		user: process.env.EMAIL,
-		pass: process.env.PASSWORD,
+		user: 'Barnslink@hotmail.com',
+		pass: 'Nyit2021'
 	},
 	tls: {
 		// do not fail on invalid certs
@@ -21,4 +21,4 @@ const verify = () => {
 	});
 };
 
-module.exports = { verify, contactEmail };
+module.exports = { verify };

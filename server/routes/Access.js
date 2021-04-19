@@ -6,9 +6,11 @@ const Verification = require('../Database/Models/Verification');
 const { AlphanumericGen } = require('../Helpers/Generators');
 const jwt = require('jsonwebtoken');
 require('dotenv/config');
-const Mail = require('../Helpers/Mail');
+const nodemailer = require('nodemailer');
 const router = express.Router();
 // /api/account/Login
+
+
 router.post('/Login', async (req, res) => {
 	try {
 		const { error } = Login(req.body);
@@ -53,13 +55,30 @@ router.post('/Login', async (req, res) => {
 							Code: VerificationCode,
 						});
 						addVerification.save();
+						const contactEmail = nodemailer.createTransport({
+							service: 'gmail',
+							auth: {
+							user: 'Barnslink@gmail.com',
+							pass: 'Nyit2021',
+	},
+						});
+						
+						const verify = () => {
+							contactEmail.verify((error) => {
+								if (error) {
+									console.log(error);
+								} else {
+									console.log('Ready to Send');
+								}
+							});
+						};
 						const mail = {
-							from: process.env.EMAIL,
+							from: 'Barnslink@gmail.com',
 							to: req.body.Email,
 							subject: 'Email Verification!',
 							html: `<p>Your verfication link is http://localhost:5000/Api/Misc/Verify/${VerificationCode}</p>`,
 						};
-						Mail.contactEmail.sendMail(mail, (error) => {
+						contactEmail.sendMail(mail, (error) => {
 							if (error) {
 								console.log(error);
 								res.status(400).json({ status: 'Please try logging in again!' });
