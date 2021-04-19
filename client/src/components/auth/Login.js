@@ -80,6 +80,9 @@ class Login extends Component {
 							<p className='dark-text text-darken-1'>
 								Don't have an account? <Link to='/register'>Register</Link>
 							</p>
+							<p className='dark-text text-darken-1'>
+								Forgot Password? <Link to='/ForgotPassword'>Forgot Password!</Link>
+							</p>
 						</div>
 						<form noValidate onSubmit={this.onSubmit}>
 							<p className='red-text text-darken-1 col s12'> {this.state.errors.status}</p>

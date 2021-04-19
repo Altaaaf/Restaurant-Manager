@@ -10,6 +10,7 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import ForgotPassword from './components/auth/ForgotPassword';
 import Logout from './components/auth/Logout';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/customer/Dashboards';
@@ -68,6 +69,7 @@ export default function App() {
 				<div className='App'>
 					<Route exact path='/' component={Landing} />
 					<Route exact path='/register' component={Register} />
+					<Route exact path='/ForgotPassword' component={ForgotPassword} />
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/logout' component={Logout} />
 					<Route exact path='/customer/menus' component={Menus} />

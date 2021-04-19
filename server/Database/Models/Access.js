@@ -36,6 +36,11 @@ const Account = mongoose.Schema(
 			required: false,
 			default: 20,
 		},
+		EmailVerified: {
+			type: Boolean,
+			required: false,
+			default: false,
+		},
 	},
 	{ versionKey: false },
 );
