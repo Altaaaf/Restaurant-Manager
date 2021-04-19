@@ -32,8 +32,7 @@ import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
 import CustomerOrdersPage from './components/dashboard/customer/Orders/ViewOrders';
 import Task from './components/dashboard/Manager/ManagerTask/Task';
 
-import View from './components/dashboard/Manager/Distbutors/View';
-import Edit from './components/dashboard/Manager/Distbutors/Edit';
+
 import { LicenseManager } from '@ag-grid-enterprise/core';
 
 import './App.css';
@@ -87,8 +86,7 @@ export default function App() {
 					<Route exact path='/Manager/ViewOrder' component={ManagerOrder} />
 					<Route exact path='/Manager/ViewReport' component={report} />
 					<Route exact path='/Manager/ManagerTask' component={Task} />
-					<Route exact path='/Manager/View' component={View} />
-					<Route exact path='/Manager/Edit' component={Edit} />
+				
 					<Switch>
 						<PrivateRoute exact path='/dashboard/customer/Dashboards' component={Dashboard} />
 						<PrivateRoute
