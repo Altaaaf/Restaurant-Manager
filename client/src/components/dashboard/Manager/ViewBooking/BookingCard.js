@@ -9,12 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
-import './ManagerOrder.css';
-import OrderDetailPage from './OrderModle';
-import FastfoodTwoToneIcon from '@material-ui/icons/FastfoodTwoTone';
-
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import './ManagerBooking.css';
+import BookingPage from './BookingModal';
+import CallOutlinedIcon from '@material-ui/icons/CallOutlined';
+import DeckIcon from '@material-ui/icons/Deck';
+import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -37,14 +37,14 @@ const useStyles = makeStyles((theme) => ({
 		transform: 'rotate(180deg)',
 	},
 	avatar: {
-		border: '3px solid lightseagreen',
+		border: '3px solid lightnavy',
 		backgroundColor: 'white',
 	},
 	registerButton: {
 		width: '100%',
 	},
 	catalogIcon: {
-		color: '#b38917',
+		color: 'black',
 		cursor: 'pointer',
 	},
 }));
@@ -61,28 +61,11 @@ export default function RecipeReviewCard(props) {
 		setOpen(false);
 	};
 
-	var totalPrice = 0;
-	var tax = 0;
-	var subTotal = 0;
-
-	const calculateSubtotal = () => {
-		props.orders.forEach((item) => {
-			totalPrice += item.Quantity * item.Price;
-		});
-		return totalPrice;
-	};
-
-	const calculateTax = () => {
-		props.orders.forEach((item) => {
-			totalPrice += item.Quantity * item.Price;
-		});
-		tax = (totalPrice * 0.0875).toFixed(2);
-		return tax;
-	};
+	
 
 	return (
 		<>
-			<OrderDetailPage orders={props.orders} open={open} handleClose={() => handleClose()} />
+			<BookingPage booking={props.booking} open={open} handleClose={() => handleClose()} />
 			{
 				<Card className={classes.root}>
 					<CardHeader style = {{
@@ -90,7 +73,7 @@ export default function RecipeReviewCard(props) {
 					}}
 						avatar={
 							<Avatar aria-label='recipe' src={props.logo} className={classes.avatar}>
-								<ShoppingBasketIcon className={classes.catalogIcon} />
+								<DeckIcon className={classes.catalogIcon} />
 							</Avatar>
 						}
 						action={
@@ -98,43 +81,41 @@ export default function RecipeReviewCard(props) {
 								<MoreVertIcon />
 							</IconButton>
 						}
-						title={`Order id : ${props.id}`}
-						subheader={`Date: ${props.createdDate ? props.createdDate : new Date().toLocaleString('en-US',{timeZone: 'America/New_York'})}
-						Customer Name : ${props.CustomerName}`}
+						title={`Booking id : ${props.id}`}
+						subheader={`Customer Name : ${props.CustomerName}`}
 						
 					/>
 					<CardContent>
-						<Typography variant='body2' color='textSecondary' component='p'>
+                    <Typography variant='body2' color='textSecondary' component='p'>
 							<div className='card_items'>
-								<FastfoodTwoToneIcon style={{ color: '#b38917' }} />
-								<b>Total Items : </b>
-								<p>{props.orders.length}</p>
+								<GroupOutlinedIcon style={{ color: '#b38917' }} />
+								<b>Total People : </b>
+								<p>{props.coverNo}</p>
 							</div>
+						
 							<div className='card_items'>
-								<AttachMoneyIcon color='primary' />
-								<b>Tax : </b>
-								<p>{calculateTax()}</p>
+								<CallOutlinedIcon color='primary' />
+								<b>Contact Number :</b>
+								<p>{props.phone}</p>
 							</div>
-							<div className='card_items'>
-								<AttachMoneyIcon color='primary' />
-								<b>Subtotal :</b>
-								<p>{totalPrice}</p>
+                            <div className='card_items'>
+								<DateRangeOutlinedIcon color='primary' />
+								<b>Create Time :</b>
+								<p>{props.createdDate}</p>
 							</div>
-							<div className='card_items_subtotal'>
-								<b>Total :</b>
-								<p>$ {(totalPrice.toString() * 1.0875).toFixed(2)}</p>
-							</div>
+							
 						</Typography>
+                    
 					</CardContent>
 					<Button
 						onClick={() => handleChangeView()}
 						className={classes.registerButton}
 						variant='contained'
 						color='lightgreen'>
-						View This Order
+						View This Reservation
 					</Button>
 				</Card>
 			}
 		</>
-	);
-}
+    );
+        }

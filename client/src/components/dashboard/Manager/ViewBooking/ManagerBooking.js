@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
+import BookingCard from './BookingCard';
 import './ManagerBooking.css';
+
+
 
 class ManagerBooking extends Component {
 	constructor() {
 		super();
 		this.state = {
-			booking: [
-				{
-					Name: 'Testing',
-					phone: 'Testingggggg',
-					diningDate: 'Testing',
-					coverNo: 5,
-				},
-			],
+			booking: [],
 		};
 	}
 	componentDidMount() {
@@ -24,54 +20,46 @@ class ManagerBooking extends Component {
 			.then((res) => {
 				const data = res.data;
 				console.log(data);
-				this.setState({ booking: data.Bookings });
+				this.setState({ booking: data.Bookings.reverse() });
 			})
 			.catch((err) => this.setState({ error: err }));
 		this.setState({ loading: false });
 	}
+
+	pageHandler = (offset) => {
+		this.setState(({ paging }) => ({
+			paging: { ...paging, offset: offset },
+		}));
+	};
 	render() {
 		const { booking, error, loading } = this.state;
 		return (
-			<div className='admin-view-bookings-container'>
-				<div className='admin-view-bookings-content'>
-					<h2>Reservations</h2>
-					<div className='new-form-button'>
-						<Link to=''>
-							<FiEdit size={16} color='grey' />
-							<button> Create Reservation</button>
-						</Link>
-					</div>
-					<h3>Reservation Details</h3>
-					<ul>
-						{booking.map((BookingsList, index) => (
-							<li key={index}>
-								<strong>Booking ID:</strong>
-								<p>{index}</p>
-
-								<strong>Name:</strong>
-								<p>{BookingsList.Name}</p>
-
-								<strong>Date:</strong>
-								<p>{BookingsList.ReservationTime}</p>
-
-								<strong>Number of People:</strong>
-								<p>{BookingsList.coverNo}</p>
-
-								<strong>Phone:</strong>
-								<p>{BookingsList.phone}</p>
-
-								<strong>Time:</strong>
-								<p>{BookingsList.lastName}</p>
-							</li>
-						))}
-					</ul>
+			<div className='order_container'>
+				<h2 className='mains-heading'>Reservation Details</h2>
+				<div className='recomendedVideo_video'>
+					{booking &&
+						booking.map((BookingsList, index) => {
+							return (
+								<div key={index}>
+									<BookingCard
+										
+										id={index+1}
+										CustomerName={BookingsList.lastName}
+										createdDate={BookingsList.ReservationTime}
+										coverNo={BookingsList.coverNo}
+										phone={BookingsList.phone}
+									/>
+								</div>
+							);
+						})}
+				</div>
 					<div>
 						<Link to='/dashboard/manager/ManagerDashboard'>
 							<button>Back To Dashboard</button>
 						</Link>
 					</div>
 				</div>
-			</div>
+			
 		);
 	}
 }

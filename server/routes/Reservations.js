@@ -15,7 +15,7 @@ router.get('/View', async (req, res) => {
 				ReservationTime: item.ReservationTime,
 				coverNo: item.coverNo,
 				phone: item.phone,
-				FirstName: item.FirstName,
+				FirstName: item.firstName,
 				lastName: item.lastName,
 			});
 		}
@@ -37,7 +37,7 @@ router.post('/BookingPage', async (req, res) => {
 		//}
 		console.log(req.body);
 		const CreateReservation_ = new Reservation({
-			FirstName: req.body.firstName,
+			FirstName: req.body.FirstName,
 			lastName: req.body.lastName,
 			phone: req.body.phone,
 			ReservationTime: req.body.ReservationTime,
