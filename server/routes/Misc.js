@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const Access = require('../Database/Models/Access');
 const Verification = require('../Database/Models/Verification');
 const { AlphanumericGen } = require('../Helpers/Generators');
-const Mail = require('../Helpers/Mail');
+const nodemailer = require('nodemailer');
 require('dotenv/config');
 const router = express.Router();
 
@@ -55,13 +55,30 @@ router.post('/verify', async (req, res) => {
 			Code: VerificationCode,
 		});
 		addVerification.save();
+        const contactEmail = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+            user: 'Barnslink@gmail.com',
+            pass: 'Nyit2021',
+},
+        });
+        
+        const verify = () => {
+            contactEmail.verify((error) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Ready to Send');
+                }
+            });
+        };
 		const mail = {
 			from: process.env.EMAIL,
 			to: EmailAddress,
 			subject: 'Email Verification!',
 			html: `<p>Your verfication link is http://localhost:5000/Api/Misc/Verify/${VerificationCode}</p>`,
 		};
-		Mail.contactEmail.sendMail(mail, (error) => {
+		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);
 				res.json({ status: error });
@@ -92,14 +109,30 @@ router.post('/ForgotPassword', async (req, res) => {
 			Password: bcrypt.hashSync(newPassword, 10),
 		});
 		console.log(updatePassword);
-
+        const contactEmail = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+            user: 'Barnslink@gmail.com',
+            pass: 'Nyit2021',
+},
+        });
+        
+        const verify = () => {
+            contactEmail.verify((error) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Ready to Send');
+                }
+            });
+        };
 		const mail = {
 			from: process.env.EMAIL,
 			to: EmailAddress,
 			subject: 'Forgot password!',
 			html: `<p>Your new password is: ${newPassword} </p>`,
 		};
-		Mail.contactEmail.sendMail(mail, (error) => {
+		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);
 				res.json({ status: error });
