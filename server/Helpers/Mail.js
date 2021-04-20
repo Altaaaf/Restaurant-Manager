@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
 const contactEmail = nodemailer.createTransport({
-	service: 'hotmail',
+	service: 'gmail',
 	auth: {
-		user: 'Barnslink@hotmail.com',
+		user: 'Barnslink@gmail.com',
 		pass: 'Nyit2021'
 	},
 	tls: {
