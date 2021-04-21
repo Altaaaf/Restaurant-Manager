@@ -85,9 +85,10 @@ export default function RecipeReviewCard(props) {
 			<OrderDetailPage orders={props.orders} open={open} handleClose={() => handleClose()} />
 			{
 				<Card className={classes.root}>
-					<CardHeader style = {{
-						whiteSpace: "pre-line",
-					}}
+					<CardHeader
+						style={{
+							whiteSpace: 'pre-line',
+						}}
 						avatar={
 							<Avatar aria-label='recipe' src={props.logo} className={classes.avatar}>
 								<ShoppingBasketIcon className={classes.catalogIcon} />
@@ -99,9 +100,12 @@ export default function RecipeReviewCard(props) {
 							</IconButton>
 						}
 						title={`Order id : ${props.id}`}
-						subheader={`Date: ${props.createdDate ? props.createdDate : new Date().toLocaleString('en-US',{timeZone: 'America/New_York'})}
+						subheader={`Date: ${
+							props.createdDate
+								? props.createdDate
+								: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
+						}
 						Customer Name : ${props.CustomerName}`}
-						
 					/>
 					<CardContent>
 						<Typography variant='body2' color='textSecondary' component='p'>

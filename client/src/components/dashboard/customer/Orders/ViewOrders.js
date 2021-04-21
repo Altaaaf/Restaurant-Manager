@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-import uuid from "react-uuid";
 
 import './OrdersCss.css';
 import Button from '@material-ui/core/Button';
@@ -15,11 +14,10 @@ class ViewOrders extends Component {
 		this.state = {
 			orders: [],
 		};
-		
 	}
-uuid() {
-	var uuid = Math.random().toString(36).slice(-6);
-}
+	uuid() {
+		var uuid = Math.random().toString(36).slice(-6);
+	}
 
 	componentDidMount() {
 		axios
@@ -34,7 +32,7 @@ uuid() {
 	render() {
 		const { orders } = this.state;
 		console.log(orders);
-		
+
 		return (
 			<div className='order_container'>
 				<div className='create_order_link'>
@@ -52,17 +50,14 @@ uuid() {
 					</Link>
 				</div>
 				<h2 className='mains-heading'>Order History</h2>
-				
+
 				<div className='recomendedVideo_video'>
-				
 					{orders &&
 						orders.map((order, index) => {
 							console.log('===', order.createdDate);
 							return (
 								<div key={index}>
-									<Card orders={order.Order} 
-									id={uuid(Math.random().toString(36).slice(-6))}
-									createdDate={order.createdDate} />
+									<Card orders={order.Order} id={order.ID} createdDate={order.createdDate} />
 								</div>
 							);
 						})}

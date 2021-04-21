@@ -5,8 +5,6 @@ import axios from 'axios';
 import BookingCard from './BookingCard';
 import './ManagerBooking.css';
 
-
-
 class ManagerBooking extends Component {
 	constructor() {
 		super();
@@ -42,8 +40,7 @@ class ManagerBooking extends Component {
 							return (
 								<div key={index}>
 									<BookingCard
-										
-										id={index+1}
+										id={BookingsList.ID}
 										CustomerName={BookingsList.lastName}
 										createdDate={BookingsList.ReservationTime}
 										coverNo={BookingsList.coverNo}
@@ -53,13 +50,12 @@ class ManagerBooking extends Component {
 							);
 						})}
 				</div>
-					<div>
-						<Link to='/dashboard/manager/ManagerDashboard'>
-							<button>Back To Dashboard</button>
-						</Link>
-					</div>
+				<div>
+					<Link to='/dashboard/manager/ManagerDashboard'>
+						<button>Back To Dashboard</button>
+					</Link>
 				</div>
-			
+			</div>
 		);
 	}
 }

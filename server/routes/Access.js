@@ -10,7 +10,6 @@ const nodemailer = require('nodemailer');
 const router = express.Router();
 // /api/account/Login
 
-
 router.post('/Login', async (req, res) => {
 	try {
 		const { error } = Login(req.body);
@@ -58,11 +57,11 @@ router.post('/Login', async (req, res) => {
 						const contactEmail = nodemailer.createTransport({
 							service: 'gmail',
 							auth: {
-							user: 'Barnslink@gmail.com',
-							pass: 'Nyit2021',
-	},
+								user: 'Barnslink@gmail.com',
+								pass: 'Nyit2021',
+							},
 						});
-						
+
 						const verify = () => {
 							contactEmail.verify((error) => {
 								if (error) {

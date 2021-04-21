@@ -21,6 +21,8 @@ router.get('/View', async (req, res) => {
 				orderList.push({
 					CustomerName: item.CustomerName,
 					Order: item.Order,
+					createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
+					ID: item._id,
 				});
 			}
 		}
@@ -32,7 +34,11 @@ router.get('/View', async (req, res) => {
 			console.log('Orders', Orders);
 			for (var item_ = 0; item_ < Orders.length; item_++) {
 				var item = Orders[item_];
-				orderList.push({ Order: item.Order, createdDate: item.createdDate.toDateString() });
+				orderList.push({
+					Order: item.Order,
+					createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
+					ID: item._id,
+				});
 			}
 		}
 		console.log(orderList);

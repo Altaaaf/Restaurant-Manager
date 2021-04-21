@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
 import './ManagerOrder.css';
 import OrderCard from './OrderCard';
-import uuid from "react-uuid";
-
-
 
 class ManagerOrder extends Component {
 	constructor() {
@@ -42,7 +38,7 @@ class ManagerOrder extends Component {
 								<div key={index}>
 									<OrderCard
 										orders={order.Order}
-										id={uuid()}
+										id={order.ID}
 										CustomerName={order.CustomerName}
 										createdDate={order.createdDate}
 									/>
@@ -55,7 +51,6 @@ class ManagerOrder extends Component {
 						<button> Dashboard</button>
 					</Link>
 				</div>
-			
 			</div>
 		);
 	}

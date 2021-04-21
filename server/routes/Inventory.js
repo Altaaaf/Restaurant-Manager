@@ -37,6 +37,13 @@ router.get('/view', async (req, res) => {
 // add item to database
 router.post('/item', async (req, res) => {
 	try {
+		const MenuItems = await Menu.findOne({ Name: req.body.Name });
+		if (typeof MenuItems === undefined || MenuItems === null) {
+			return res
+				.status(400)
+				.json({ status: 'You are only allowed to add items that are on menu!' });
+		}
+
 		const Item = await Inventory.findOne({ Name: req.body.Name });
 		if (typeof Item === undefined || Item === null) {
 			// item doesn't exist in database so adding it as new item...
