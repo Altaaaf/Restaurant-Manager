@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { AgGridReact, AgGridColumn } from 'ag-grid-react';
+import { AgGridReact } from 'ag-grid-react';
 import { AllModules } from '@ag-grid-enterprise/all-modules';
 import axios from 'axios';
 
@@ -18,7 +18,7 @@ class report extends Component {
 			changes: [],
 			DataSource: '',
 		};
-		
+
 		this.onSelectionChange = this.onSelectionChange.bind(this);
 		this.handleDataSourceChange = this.handleDataSourceChange.bind(this);
 	}
@@ -51,7 +51,6 @@ class report extends Component {
 	onBtExport = () => {
 		this.gridApi.exportDataAsExcel({});
 	};
-
 	updateRow = () => {
 		axios
 			.put('http://localhost:5000/Api/Reports/Modify/' + this.state.DataSource, {

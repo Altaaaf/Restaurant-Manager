@@ -2,7 +2,6 @@ const express = require('express');
 const Order = require('../Database/Models/Orders');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-require('dotenv/config');
 router.get('/View', async (req, res) => {
 	try {
 		// split to remove bearer!
@@ -14,7 +13,6 @@ router.get('/View', async (req, res) => {
 		let orderList = [];
 		// manager can view all orders
 		if (jwtAuth.accountType == 'Manager') {
-			console.log('Manager');
 			const Orders = await Order.find();
 			for (var item_ = 0; item_ < Orders.length; item_++) {
 				var item = Orders[item_];
@@ -23,6 +21,7 @@ router.get('/View', async (req, res) => {
 					Order: item.Order,
 					createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
 					ID: item._id,
+					Status: item.Status,
 				});
 			}
 		}
@@ -31,17 +30,16 @@ router.get('/View', async (req, res) => {
 			console.log('Customer');
 			const Orders = await Order.find({ CustomerName: jwtAuth.name });
 
-			console.log('Orders', Orders);
 			for (var item_ = 0; item_ < Orders.length; item_++) {
 				var item = Orders[item_];
 				orderList.push({
 					Order: item.Order,
 					createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
 					ID: item._id,
+					Status: item.Status,
 				});
 			}
 		}
-		console.log(orderList);
 		res.status(200).json({ Orders: orderList });
 	} catch (err) {
 		console.error(err);
@@ -64,6 +62,32 @@ router.post('/Create', async (req, res) => {
 		CreateOrder.save();
 
 		res.json({ status: 'successfully saved order' });
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ status: 'Server Error' });
+	}
+});
+router.put('/setDelivered', async (req, res) => {
+	try {
+		console.log(req.body.ID);
+		const updateStatus = await Order.findByIdAndUpdate(req.body.ID, {
+			Status: 'Ready',
+		});
+		console.log(updateStatus);
+		res.status(200).json({ status: 'Successfully changed status' });
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ status: 'Server Error' });
+	}
+});
+router.put('/setCancelled', async (req, res) => {
+	try {
+		console.log(req.body.ID);
+		const updateStatus = await Order.findByIdAndUpdate(req.body.ID, {
+			Status: 'Cancelled',
+		});
+		console.log(updateStatus);
+		res.status(200).json({ status: 'Successfully changed status' });
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ status: 'Server Error' });

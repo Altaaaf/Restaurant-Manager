@@ -7,7 +7,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Popper } from '@material-ui/core';
 import './OrdersCss.css';
-
+import axios from 'axios';
+import toastr from 'toastr';
 export default function ScrollDialog(props) {
 	const [open, setOpen] = React.useState(props.open ? props.open : false);
 	const [scroll, setScroll] = React.useState('paper');
@@ -44,6 +45,26 @@ export default function ScrollDialog(props) {
 			}
 		}
 	}, [open]);
+
+	const setCancelled = () => {
+		try {
+			console.log(props);
+			axios
+				.put('http://localhost:5000/Api/Orders/setCancelled', { ID: props.id })
+				.then((res) => {
+					const data = res.data;
+					console.log(data);
+					toastr.success('Successfully updated order status');
+				})
+				.catch((err) => {
+					console.log(err);
+					toastr.error('Error occured when attempting to update order status');
+				});
+		} catch (err) {
+			toastr.error('Error occured!');
+			console.log(err);
+		}
+	};
 
 	console.log('props', props);
 	return (
@@ -82,6 +103,9 @@ export default function ScrollDialog(props) {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
+					<Button onClick={setCancelled} variant='contained' color='secondary'>
+						Cancel Order
+					</Button>
 					<Button onClick={handleClose} variant='contained' color='secondary'>
 						Close
 					</Button>

@@ -86,30 +86,4 @@ router.delete('/item', async (req, res) => {
 		res.json({ status: err.message });
 	}
 });
-router.put('/item', async (req, res) => {
-	try {
-		let modifyItem = {};
-		Menu.findOne({ Name: req.body.Name }).then((item) => {
-			if (item) {
-				try {
-					const { Price, Description, Type } = req.body;
-					if (Price) modifyItem.Price = Price;
-					if (Description) modifyItem.Description = Description;
-					if (Type) modifyItem.Type = Type;
-
-					Menu.findOneAndUpdate({ Name: req.body.Name }, { $set: modifyItem });
-
-					return res.status(200).json({ status: 'successfully updated item on menu' });
-				} catch (err) {
-					console.log(err.message);
-					return res.status(400).json({ status: 'failed to update item on menu' });
-				}
-			} else {
-				return res.status(400).json({ status: 'item does not exist on menu' });
-			}
-		});
-	} catch (err) {
-		res.json({ status: err.message });
-	}
-});
 module.exports = router;

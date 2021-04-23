@@ -5,8 +5,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Popper } from '@material-ui/core';
 import './ManagerOrder.css';
+import axios from 'axios';
+import toastr from 'toastr';
 
 export default function ScrollDialog(props) {
 	const [open, setOpen] = React.useState(props.open ? props.open : false);
@@ -43,6 +44,45 @@ export default function ScrollDialog(props) {
 			}
 		}
 	}, [open]);
+
+	const setReady = () => {
+		try {
+			console.log(props);
+			axios
+				.put('http://localhost:5000/Api/Orders/setDelivered', { ID: props.id })
+				.then((res) => {
+					const data = res.data;
+					console.log(data);
+					toastr.success('Successfully updated order status');
+				})
+				.catch((err) => {
+					console.log(err);
+					toastr.error('Error occured when attempting to update order status');
+				});
+		} catch (err) {
+			toastr.error('Error occured!');
+			console.log(err);
+		}
+	};
+	const setCancelled = () => {
+		try {
+			console.log(props);
+			axios
+				.put('http://localhost:5000/Api/Orders/setCancelled', { ID: props.id })
+				.then((res) => {
+					const data = res.data;
+					console.log(data);
+					toastr.success('Successfully updated order status');
+				})
+				.catch((err) => {
+					console.log(err);
+					toastr.error('Error occured when attempting to update order status');
+				});
+		} catch (err) {
+			toastr.error('Error occured!');
+			console.log(err);
+		}
+	};
 
 	console.log('props', props);
 	return (
@@ -81,6 +121,12 @@ export default function ScrollDialog(props) {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
+					<Button onClick={setReady} variant='contained' color='secondary'>
+						Set order as Ready
+					</Button>
+					<Button onClick={setCancelled} variant='contained' color='secondary'>
+						Set order as Cancelled
+					</Button>
 					<Button onClick={handleClose} variant='contained' color='secondary'>
 						Close
 					</Button>

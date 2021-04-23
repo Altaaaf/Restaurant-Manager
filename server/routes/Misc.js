@@ -55,23 +55,23 @@ router.post('/verify', async (req, res) => {
 			Code: VerificationCode,
 		});
 		addVerification.save();
-        const contactEmail = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-            user: 'Barnslink@gmail.com',
-            pass: 'Nyit2021',
-},
-        });
-        
-        const verify = () => {
-            contactEmail.verify((error) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Ready to Send');
-                }
-            });
-        };
+		const contactEmail = nodemailer.createTransport({
+			service: 'gmail',
+			auth: {
+				user: 'Barnslink@gmail.com',
+				pass: 'Nyit2021',
+			},
+		});
+
+		const verify = () => {
+			contactEmail.verify((error) => {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log('Ready to Send');
+				}
+			});
+		};
 		const mail = {
 			from: process.env.EMAIL,
 			to: EmailAddress,
@@ -109,29 +109,30 @@ router.post('/ForgotPassword', async (req, res) => {
 			Password: bcrypt.hashSync(newPassword, 10),
 		});
 		console.log(updatePassword);
-        const contactEmail = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-            user: 'Barnslink@gmail.com',
-            pass: 'Nyit2021',
-},
-        });
-        
-        const verify = () => {
-            contactEmail.verify((error) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Ready to Send');
-                }
-            });
-        };
+		const contactEmail = nodemailer.createTransport({
+			service: 'gmail',
+			auth: {
+				user: 'Barnslink@gmail.com',
+				pass: 'Nyit2021',
+			},
+		});
+
+		const verify = () => {
+			contactEmail.verify((error) => {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log('Ready to Send');
+				}
+			});
+		};
 		const mail = {
 			from: process.env.EMAIL,
 			to: EmailAddress,
 			subject: 'Forgot password!',
 			html: `<p>Your new password is: ${newPassword} </p>`,
 		};
+		console.log(newPassword);
 		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);

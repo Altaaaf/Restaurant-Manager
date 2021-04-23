@@ -57,7 +57,12 @@ class ViewOrders extends Component {
 							console.log('===', order.createdDate);
 							return (
 								<div key={index}>
-									<Card orders={order.Order} id={order.ID} createdDate={order.createdDate} />
+									<Card
+										orders={order.Order}
+										id={order.ID}
+										createdDate={order.createdDate}
+										Status={order.Status}
+									/>
 								</div>
 							);
 						})}

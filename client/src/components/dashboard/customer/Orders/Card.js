@@ -82,7 +82,12 @@ export default function RecipeReviewCard(props) {
 
 	return (
 		<>
-			<OrderDetailPage orders={props.orders} open={open} handleClose={() => handleClose()} />
+			<OrderDetailPage
+				orders={props.orders}
+				open={open}
+				handleClose={() => handleClose()}
+				id={props.id}
+			/>
 			{
 				<Card className={classes.root}>
 					<CardHeader
@@ -97,10 +102,19 @@ export default function RecipeReviewCard(props) {
 							</IconButton>
 						}
 						title={`Order id : ${props.id}`}
-						subheader={`Date : ${props.createdDate ? props.createdDate : new Date().toLocaleString('en-US',{timeZone: 'America/New_York'})}`}
+						subheader={`Date : ${
+							props.createdDate
+								? props.createdDate
+								: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
+						}`}
 					/>
 					<CardContent>
 						<Typography variant='body2' color='textSecondary' component='p'>
+							<div className='card_items'>
+								<FastfoodTwoToneIcon style={{ color: '#b38917' }} />
+								<b>Order Status</b>
+								<p>{props.Status}</p>
+							</div>
 							<div className='card_items'>
 								<FastfoodTwoToneIcon style={{ color: '#b38917' }} />
 								<b>Total Items : </b>

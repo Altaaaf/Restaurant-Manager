@@ -16,6 +16,11 @@ const Orders = mongoose.Schema(
 			required: true,
 			default: Date.now,
 		},
+		Status: {
+			type: String,
+			required: false,
+			default: 'Processing',
+		},
 	},
 	{ versionKey: false },
 );

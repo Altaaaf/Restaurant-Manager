@@ -39,6 +39,7 @@ class ManagerOrder extends Component {
 									<OrderCard
 										orders={order.Order}
 										id={order.ID}
+										Status={order.Status}
 										CustomerName={order.CustomerName}
 										createdDate={order.createdDate}
 									/>
