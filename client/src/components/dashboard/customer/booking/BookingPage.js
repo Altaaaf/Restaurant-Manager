@@ -45,8 +45,7 @@ class BookingPage extends React.Component {
 
 	render() {
 		return (
-			<div style={{ height: '65vh' }} className='container valign-wrapper'>
-				<div className='row'>
+			
 					<div className='col s18 dark-text center-align'>
 						<BookingForm
 							booking={this.state.booking}
@@ -55,8 +54,7 @@ class BookingPage extends React.Component {
 							updateDate={this.handleDate}
 						/>
 					</div>
-				</div>
-			</div>
+				
 		);
 	}
 }

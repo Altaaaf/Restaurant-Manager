@@ -14,7 +14,7 @@ function Footer(props) {
 							1855 Broadway, New York, NY 10023
 							<br />
 							<FiPhoneCall size={25} /> +1 (212)-212-2222 <br />
-							<FiMail size={25} /> <a href='barnslink@hotmail.com'>barnslink@hotmail.com</a> <br />
+							<FiMail size={25} /> <a href='barnslink@hotmail.com'>barnslink@gmail.com</a> <br />
 							<GoGlobe size={25} />{' '}
 							<a href='https://github.com/Altaaaf/Restaurant-Manager'>About us</a>
 						</address>

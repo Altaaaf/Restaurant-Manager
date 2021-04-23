@@ -2,12 +2,13 @@
 }
 
 .home-page-body {
-	grid-area: mainContent;
+	grid-area:auto;
 	display: block;
 	position: relative;
 
 	align-items: center;
 	justify-content: center;
+	font-family: monospace;
 }
 
 .home-page-body img {
@@ -23,6 +24,7 @@
 	align-items: center;
 	justify-content: center;
 	background-color: white;
+	font-family: monospace;
 }
 
 .navigation-menu .left-links {
@@ -33,11 +35,13 @@
 .navigation-menu .right-links {
 	position: absolute;
 	right: 200px;
+	font-family: monospace;
 }
 
 .navigation-menu .logged-right-links {
 	position: absolute;
 	right: 250px;
+	font-family: monospace;
 }
 
 .navigation-menu img {
@@ -52,6 +56,7 @@
 	font-weight: 500;
 	margin: 15px;
 	transition: opacity 0.2s;
+	font-family: monospace;
 }
 
 .navigation-menu a:hover {
@@ -61,3 +66,43 @@
 .navigation-menu svg {
 	margin-right: 10px;
 }
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Titillium Web', sans-serif;
+	text-align: center;
+  }
+  p{
+	font-weight: 300;
+	color: #111;
+	text-align:unset;
+  }
+  .banner1{
+	position: relative;
+	width: 100%;
+	min-height: 88vh;
+	display: flex;
+	font-family: monospace;
+	justify-content: center;
+	align-items: center;
+	background: url("../../../img/dining.jpeg");
+	background-size: cover;
+	
+  }
+  .banner1 .content1{
+	max-width: 900px;
+	text-align: center;
+  }
+  .banner1 .content1 h1{
+	font-size: 5em;
+	color: #fff;
+  }
+  .banner1 .content1 p{
+	font-size: 1em;
+	color: rgb(255, 255, 255);
+	font-family: monospace;
+	font-weight: bold;
+  }
+  
+  

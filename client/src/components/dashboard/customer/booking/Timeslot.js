@@ -40,6 +40,7 @@ class Timeslot extends Component {
 						placeholderText='Select a date'
 						timeFormat='HH:mm'
 						timeIntervals={30}
+						Timeslot={2}
 						dateFormat='MMMM dd, yyyy'
 						minDate={new Date()}
 						maxDate={addDays(new Date(), 7)}
