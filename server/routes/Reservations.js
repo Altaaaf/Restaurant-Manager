@@ -17,7 +17,7 @@ router.get('/View', async (req, res) => {
 				phone: item.phone,
 				FirstName: item.firstName,
 				lastName: item.lastName,
-				ID: item._id,
+				ID: `${item.ID ? item.ID : item._id}`,
 			});
 		}
 		res.status(200).json({ Bookings: BookingsList });
@@ -36,8 +36,14 @@ router.post('/BookingPage', async (req, res) => {
 		//		status: error.message,
 		//	});
 		//}
-		console.log(req.body);
+		// create ReservationID
+		var newID = 1;
+		const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });
+		if (mostRecentReservation[0].ID !== undefined && mostRecentReservation[0].ID !== null) {
+			newID = mostRecentReservation[0].ID + 1;
+		}
 		const CreateReservation_ = new Reservation({
+			ID: newID,
 			FirstName: req.body.FirstName,
 			lastName: req.body.lastName,
 			phone: req.body.phone,

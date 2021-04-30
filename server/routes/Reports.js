@@ -13,7 +13,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Customer Name',
@@ -21,7 +20,6 @@ router.get('/Orders', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Subtotal',
@@ -29,7 +27,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Total',
@@ -37,7 +34,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Tax',
@@ -52,7 +48,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 		];
 		let orderList = [];
@@ -65,10 +60,10 @@ router.get('/Orders', async (req, res) => {
 				total += EntireOrder[i].Quantity * EntireOrder[i].Price;
 			}
 			orderList.push({
-				ID: item._id,
+				ID: `${item.ID ? item.ID : item._id}`,
 				CustomerName: item.CustomerName,
 				Subtotal: (total.toLocaleString() * 1.0875).toFixed(2),
-				Total:(total.toLocaleString()),
+				Total: total.toLocaleString(),
 				Tax: (total * 0.0875).toFixed(2),
 				createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
 			});
@@ -135,7 +130,7 @@ router.get('/Reservations', async (req, res) => {
 			var item = Booking[item_];
 
 			BookingsList.push({
-				ID: item._id,
+				ID: `${item.ID ? item.ID : item._id}`,
 				ReservationTime: item.ReservationTime,
 				coverNo: item.coverNo,
 				phone: item.phone,

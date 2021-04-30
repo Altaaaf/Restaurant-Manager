@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const Reservation = mongoose.Schema(
 	{
+		ID: {
+			type: Number,
+			required: false,
+		},
 		ReservationTime: {
 			type: String,
 			required: false,
