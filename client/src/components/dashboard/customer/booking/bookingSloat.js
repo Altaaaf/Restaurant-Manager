@@ -37,52 +37,52 @@ const rows = [
 
 const slots = [
     {
-        sloat: '12-PM to 01-PM',
+        slot: '12-PM to 01-PM',
         book_count: [],
         id: '1'
     },
     {
-        sloat: '01-PM to 02-PM',
+        slot: '01-PM to 02-PM',
         book_count: [],
         id: '2'
     },
     {
-        sloat: '02-PM to 03-PM',
+        slot: '02-PM to 03-PM',
         book_count: [],
         id: '3'
     },
     {
-        sloat: '03-PM to 04-PM',
+        slot: '03-PM to 04-PM',
         book_count: [],
         id: '4'
     },
     {
-        sloat: '04-PM to 05-PM',
+        slot: '04-PM to 05-PM',
         book_count: [],
         id: '5'
     },
     {
-        sloat: '05-PM to 06-PM',
+        slot: '05-PM to 06-PM',
         book_count: [],
         id: '6'
     },
     {
-        sloat: '06-PM to 07-PM',
+        slot: '06-PM to 07-PM',
         book_count: [],
         id: '7'
     },
     {
-        sloat: '07-PM to 08-PM',
+        slot: '07-PM to 08-PM',
         book_count: [],
         id: '8'
     },
     {
-        sloat: '08-PM to 09-PM',
+        slot: '08-PM to 09-PM',
         book_count: [],
         id: '9'
     },
     {
-        sloat: '09-PM to 10-PM',
+        slot: '09-PM to 10-PM',
         book_count: [],
         id: '10'
     },
@@ -185,7 +185,7 @@ const DenseTable = () => {
                             <TableCell >Sr.No</TableCell>
                             <TableCell>Booking Time</TableCell>
                             <TableCell align="right">Booked Slots</TableCell>
-                            <TableCell align="right">Avalabe Slots</TableCell>
+                            <TableCell align="right">Available Slots</TableCell>
                             <TableCell align="right">Click To Book Slot</TableCell>
                         </TableRow>
                     </TableHead>
@@ -194,11 +194,11 @@ const DenseTable = () => {
                             <TableRow key={row.name}>
                                 <TableCell >{index + 1}</TableCell>
                                 <TableCell component="th" scope="row">
-                                    <Typography>{row.sloat}</Typography>
+                                    <Typography>{row.slot}</Typography>
                                 </TableCell>
-                                <TableCell align="right">{row.book_count.length ? row.book_count.length + '-Sloets Booked' : '0 - Sloets'}</TableCell>
-                                <TableCell align="right">{row.book_count.length === '0' ? '3 - Slots Avalable' : row.book_count.length === 1 ? '2 - Slots Avalable' : row.book_count.length === 2 ? '1 - Slots Avalable' : row.book_count.length === 3 ? 'All Slots Booked' : 'All Slots Avalable'}</TableCell>
-                                <TableCell align="right"><Button disabled={row.book_count.length >= 3 ? true : false} onClick={() => handleOpenBookingForm(row.sloat, row.id)} size='sm' variant="contained" color="primary"  >Book</Button></TableCell>
+                                <TableCell align="right">{row.book_count.length ? row.book_count.length + '-Slots Booked' : '0 - Slots'}</TableCell>
+                                <TableCell align="right">{row.book_count.length === '0' ? '3 - Slots Available' : row.book_count.length === 1 ? '2 - Slots Available' : row.book_count.length === 2 ? '1 - Slots Avalable' : row.book_count.length === 3 ? 'All Slots Booked' : 'All Slots Avalable'}</TableCell>
+                                <TableCell align="right"><Button disabled={row.book_count.length >= 3 ? true : false} onClick={() => handleOpenBookingForm(row.slot, row.id)} size='sm' variant="contained" color="primary"  >Book</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
