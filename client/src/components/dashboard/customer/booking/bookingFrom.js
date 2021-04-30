@@ -89,7 +89,7 @@ export default function FullScreenDialog(props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [moble, setMobile] = useState('');
+    const [mobile, setMobile] = useState('');
     const [bookingDate, setBookingDate] = useState(props.bookingDate);
     const [bookingTime, setBookingTime] = useState('');
 
@@ -104,7 +104,7 @@ export default function FullScreenDialog(props) {
         setOpen(false);
     };
 
-    const [currency, setCurrency] = React.useState('EUR');
+    const [currency, setCurrency] = React.useState('USD');
     const [bokingData, setBookingData] = useState([]);
     const [comment, setComment] = useState('');
     const [members, setMembers] = useState('');
@@ -135,7 +135,7 @@ export default function FullScreenDialog(props) {
             booking_time: props.time,
             slot_id: props.slot_id,
             coverNo: '1',
-            phone: moble,
+            phone: mobile,
             email: email,
             FirstName: firstName,
             lastName: lastName,
@@ -295,7 +295,7 @@ export default function FullScreenDialog(props) {
                                         />
                                         <TextField
                                             error={false}
-                                            value={moble}
+                                            value={mobile}
                                             id="standard-error-helper-text"
                                             label="Phone"
                                             onChange={(e) => setMobile(e.target.value)}
@@ -364,7 +364,7 @@ export default function FullScreenDialog(props) {
                                             </IconButton>
                                         }
                                     >
-                                        Booking confirm Thanks for your booking!
+                                        Booking confirmed Thanks for your booking!
                                     </Alert> : null}
                                     <div>
                                         <Button style={{ width: '97%', marginTop: '30px' }} onClick={() => handleSaveBooking()} size='sm' variant="contained" color="primary"  >Confirm Booking</Button>
