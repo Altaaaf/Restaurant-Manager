@@ -40,7 +40,7 @@ router.post('/booking', async (req, res) => {
             lastName: req.body.lastName,
             comment: req.body.comment,
             members: req.body.members,
-            food_type: req.body.food_type
+          area_type: req.body.area_type
         }
 
         const createBooking = new Reservation(paylod)

@@ -108,7 +108,7 @@ export default function FullScreenDialog(props) {
     const [bokingData, setBookingData] = useState([]);
     const [comment, setComment] = useState('');
     const [members, setMembers] = useState('');
-    const [food_type, setFood_type] = useState('');
+    const [area_type, setArea_type] = useState('');
     const [alert, setAlert] = useState('');
 
     const handleChange = (event) => {
@@ -141,7 +141,7 @@ export default function FullScreenDialog(props) {
             lastName: lastName,
             comment: comment,
             members: members,
-            food_type: food_type
+            area_type: area_type
         }
         console.log('paylod', paylod)
         bookingAPI(paylod)
@@ -192,14 +192,14 @@ export default function FullScreenDialog(props) {
         },
     ];
 
-    const foodType = [
+    const areaType = [
         {
-            value: 'VEG',
-            label: 'VEG',
+            value: 'Outdoor',
+            label: 'Outdoor',
         },
         {
-            value: 'NON-VEG',
-            label: 'NON-VEG',
+            value: 'Indoor',
+            label: 'Indoor',
         },
     ];
 
@@ -309,13 +309,13 @@ export default function FullScreenDialog(props) {
                                         <TextField
                                             id="filled-select-currency"
                                             select
-                                            label="Veg Or Nonveg"
-                                            value={food_type}
-                                            onChange={(e) => setFood_type(e.target.value)}
+                                            label="Outdoor or Indoor"
+                                            value={area_type}
+                                            onChange={(e) => setArea_type(e.target.value)}
                                             helperText="Please select"
                                             variant="outlined"
                                         >
-                                            {foodType.map((option) => (
+                                            {areaType.map((option) => (
                                                 <MenuItem key={option.value} value={option.value}>
                                                     {option.label}
                                                 </MenuItem>

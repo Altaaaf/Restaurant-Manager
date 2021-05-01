@@ -35,7 +35,10 @@ const BookingPage = (data) => {
 		lastName: Joi.string()
 			.regex(/^[A-Z]+$/)
 			.required(),
-		coverNo: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
+		email: Joi.string()
+			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
+			.required(),
+		members: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
 		phone: Joi.string()
 			.regex(/^\d{3}-\d{3}-\d{4}$/)
 			.required('10 digits phone number'),

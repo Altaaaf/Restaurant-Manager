@@ -14,7 +14,7 @@ class ManagerBooking extends Component {
 	}
 	componentDidMount() {
 		axios
-			.get('http://localhost:5000/Api/Reservations/View')
+			.get('http://localhost:5000/Api/booking/View')
 			.then((res) => {
 				const data = res.data;
 				console.log(data);

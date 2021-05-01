@@ -18,7 +18,7 @@ const Booking = mongoose.Schema(
             type: String,
             required: false,
         },
-        food_type: {
+        area_type: {
             type: String,
             required: false,
         },

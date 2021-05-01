@@ -34,24 +34,24 @@ const ContactForm = () => {
 				</Link>
 
 				<h2>Send us a message</h2>
-				<div class='column col-lg-8 col-md-12 col-sm-12'>
+				<div class='column col-lg-8 col-md-12 dark-text col-sm-12'>
 					<div class='row clearfix'>
 						<div class='contact-form'>
 							<form onSubmit={handleSubmit}>
 								<div class='row clearfix'>
-									<div htmlFor='name' class='col-lg-6 col-md-12 col-sm-12 form-group'>
+									<div htmlFor='name' class='col-lg-6 col-md-12 dark-text col-sm-12 form-group'>
 										<input type='text' name='name' id='name' placeholder='Name' required />
 									</div>
 
-									<div htmlFor='email' class='col-lg-6 col-md-12 col-sm-12 form-group'>
-										<input type='email' name='email' id='email' placeholder='Email' required />
+									<div htmlFor='email' class='col-lg-6 col-md-12 dark-text col-sm-12 form-group'>
+										<input style={{color:"dark"}} type='email' name='email' id='email' placeholder ='Email' required />
 									</div>
 
-									<div htmlFor='subject' class='col-lg-6 col-md-12 col-sm-12 form-group'>
+									<div htmlFor='subject' class='col-lg-6 col-md-12 dark-text col-sm-12 form-group'>
 										<input type='text' name='subject' id='subject' placeholder='Subject' required />
 									</div>
 
-									<div htmlFor='message' class='col-lg-12 col-md-12 col-sm-12 form-group'>
+									<div htmlFor='message' class='col-lg-12 col-md-12 dark-text col-sm-12 form-group'>
 										<input type='text' id='message' placeholder='Massage' required />
 									</div>
 

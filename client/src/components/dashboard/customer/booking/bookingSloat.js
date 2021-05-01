@@ -14,6 +14,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
+import addDays from 'date-fns/addDays';
 
 const useStyles = makeStyles({
     table: {
@@ -23,17 +24,9 @@ const useStyles = makeStyles({
 
 
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+
+
 
 const slots = [
     {
@@ -97,6 +90,7 @@ const DenseTable = () => {
     const [time, setTime] = useState();
     const [slot_id, setSlotId] = useState();
     const [bookingData, setBookingData] = useState([]);
+
 
 
     const handleCompare = async () => {
@@ -169,13 +163,15 @@ const DenseTable = () => {
             <div style={{ float: 'left', marginBottom: '10px', backgroundColor: 'white', borderRadius: '10px', padding: '20px' }}>
                 <h6>Select Your Booking Date</h6>
                 <DatePicker
-                    selected={selectedDate}
+                     selected={selectedDate}
                     onChange={date => handleDateChange(date)}
                     showTimeSelect
                     placeholderText="Select a date"
-                    
-                   
+                    timeFormat='HH:mm'
+                    timeIntervals={30}
                     dateFormat='MMMM dd, yyyy'
+                    minDate={new Date()}
+					maxDate={addDays(new Date(), 7)}
                 />
             </div>
             <TableContainer component={Paper}>

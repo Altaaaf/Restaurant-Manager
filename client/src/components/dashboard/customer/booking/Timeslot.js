@@ -44,7 +44,8 @@ class Timeslot extends Component {
 						dateFormat='MMMM dd, yyyy'
 						minDate={new Date()}
 						maxDate={addDays(new Date(), 7)}
-						
+						minTime={setHours(setMinutes(new Date(), 0), 11)}
+						maxTime={setHours(setMinutes(new Date(), 0), 21)}
 					/>
 				</div>
 			</form>
