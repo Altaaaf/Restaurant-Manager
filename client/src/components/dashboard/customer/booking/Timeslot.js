@@ -28,26 +28,20 @@ class Timeslot extends Component {
 	render() {
 		return (
 			<form onSubmit={this.onFormSubmit}>
-				<div className='form-group'>
-					<label>Select Date:</label>
 					<DatePicker
 						selected={this.state.startDate}
 						onChange={(e) => {
 							this.handleChange(e);
 							this.props.onChange(e);
 						}}
-						showTimeSelect
+						
 						placeholderText='Select a date'
-						timeFormat='HH:mm'
-						timeIntervals={30}
-						Timeslot={2}
 						dateFormat='MMMM dd, yyyy'
 						minDate={new Date()}
 						maxDate={addDays(new Date(), 7)}
-						minTime={setHours(setMinutes(new Date(), 0), 11)}
-						maxTime={setHours(setMinutes(new Date(), 0), 21)}
+						
 					/>
-				</div>
+				
 			</form>
 		);
 	}

@@ -1,11 +1,13 @@
 import React from 'react';
 import toastr from 'toastr';
-import BookingApi from '../api/BookingApi';
+import BookingApi from '../api/BookingApi.js';
 import BookingForm from './BookingForm';
+import BookingSlot from './bookingSloat';
+
 
 class BookingPage extends React.Component {
 	constructor() {
-		super();
+		super()
 		this.state = {
 			booking: {},
 		};
@@ -44,6 +46,7 @@ class BookingPage extends React.Component {
 
 	render() {
 		return (
+<<<<<<< HEAD
 			<div className='col s18 dark-text center-align'>
 				<BookingForm
 					booking={this.state.booking}
@@ -52,6 +55,28 @@ class BookingPage extends React.Component {
 					updateDate={this.handleDate}
 				/>
 			</div>
+=======
+			<div>
+				<h2 style={{ textAlign: 'center' }}>Book Your Slot</h2>
+				<div className='booking__sloat__container'>
+					<BookingSlot />
+				</div>
+
+			</div>
+			// <div style={{ height: '65vh' }} className='container valign-wrapper'>
+			// 	<div className='row'>
+			// 		<div className='col s18 dark-text center-align'>
+			// 			{/* <BookingForm
+			// 				booking={this.state.booking}
+			// 				onSave={this.onSaveForm}
+			// 				onChange={this.onFieldChange}
+			// 				updateDate={this.handleDate}
+			// 			/> */}
+
+			// 		</div>
+			// 	</div>
+			// </div>
+>>>>>>> 3aa9f7bbd6dfbbe30220d7947ce1efa251389c50
 		);
 	}
 }
