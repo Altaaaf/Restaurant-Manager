@@ -54,7 +54,19 @@ class BookingPage extends React.Component {
 				</div>
 
 			</div>
-			
+			// <div style={{ height: '65vh' }} className='container valign-wrapper'>
+			// 	<div className='row'>
+			// 		<div className='col s18 dark-text center-align'>
+			// 			{/* <BookingForm
+			// 				booking={this.state.booking}
+			// 				onSave={this.onSaveForm}
+			// 				onChange={this.onFieldChange}
+			// 				updateDate={this.handleDate}
+			// 			/> */}
+
+			// 		</div>
+			// 	</div>
+			// </div>
 		);
 	}
 }

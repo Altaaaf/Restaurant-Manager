@@ -14,7 +14,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
-import addDays from 'date-fns/addDays';
+import Timeslot from './Timeslot';
+
 
 const useStyles = makeStyles({
     table: {
@@ -162,16 +163,11 @@ const DenseTable = () => {
         </Alert> : null}
             <div style={{ float: 'left', marginBottom: '10px', backgroundColor: 'white', borderRadius: '10px', padding: '20px' }}>
                 <h6>Select Your Booking Date</h6>
-                <DatePicker
-                     selected={selectedDate}
+                <Timeslot
+                    selected={selectedDate}
                     onChange={date => handleDateChange(date)}
-                    showTimeSelect
-                    placeholderText="Select a date"
-                    timeFormat='HH:mm'
-                    timeIntervals={30}
-                    dateFormat='MMMM dd, yyyy'
-                    minDate={new Date()}
-					maxDate={addDays(new Date(), 7)}
+                    
+                  
                 />
             </div>
             <TableContainer component={Paper}>
