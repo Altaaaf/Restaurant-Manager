@@ -41,10 +41,10 @@ router.get('/View', async (req, res) => {
 				});
 			}
 		}
-		res.status(200).json({ Orders: orderList });
+		return res.status(200).json({ Orders: orderList });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.post('/Create', async (req, res) => {
@@ -97,7 +97,7 @@ router.post('/Create', async (req, res) => {
 		});
 		CreateOrder.save();
 
-		return res.json({ status: 'successfully saved order' });
+		return res.status(200).json({ status: 'successfully saved order' });
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ status: 'Server Error' });
@@ -128,10 +128,10 @@ router.put('/setCancelled', async (req, res) => {
 		const updateStatus = await Order.findByIdAndUpdate(GatherOrder._id, {
 			Status: 'Cancelled',
 		});
-		res.status(200).json({ status: 'Successfully changed status' });
+		return res.status(200).json({ status: 'Successfully changed status' });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.put('/setDelivered', async (req, res) => {
@@ -147,10 +147,10 @@ router.put('/setDelivered', async (req, res) => {
 			Status: 'Ready',
 		});
 		console.log(updateStatus);
-		res.status(200).json({ status: 'Successfully changed status' });
+		return res.status(200).json({ status: 'Successfully changed status' });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 module.exports = router;

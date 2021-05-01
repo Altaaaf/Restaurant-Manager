@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors');
-const nodemailer = require("nodemailer");
-const { getMaxListeners } = require("../Database/Models/Access");
-
+const nodemailer = require('nodemailer');
 
 const contactEmail = nodemailer.createTransport({
 	service: 'gmail',
@@ -14,12 +11,11 @@ const contactEmail = nodemailer.createTransport({
 });
 contactEmail.verify((error) => {
 	if (error) {
-	  console.log(error);
+		console.log(error);
 	} else {
-	  console.log("Ready to Send");
+		console.log('Ready to Send');
 	}
-  });
-
+});
 
 router.post('/contact', (req, res) => {
 	const name = req.body.name;
@@ -38,9 +34,9 @@ router.post('/contact', (req, res) => {
 	};
 	contactEmail.sendMail(mail, (error) => {
 		if (error) {
-			res.json({ status: 'ERROR' });
+			return res.status(400).json({ status: 'ERROR' });
 		} else {
-			res.json({ status: 'Message Sent' });
+			return res.status(200).json({ status: 'Message Sent' });
 		}
 	});
 });

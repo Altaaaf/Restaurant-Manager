@@ -24,7 +24,7 @@ router.get('/verify/:code', async (req, res) => {
 		const deleteAllVerificationEmails = await Verification.deleteMany({
 			Email: findverification.Email,
 		});
-		res.json({ status: 'Successfully verified email account!' });
+		return res.status(200).json({ status: 'Successfully verified email account!' });
 	} catch (err) {
 		console.log(err);
 		return res.status(500).json({ status: 'Server Error!' });
@@ -81,9 +81,11 @@ router.post('/verify', async (req, res) => {
 		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);
-				res.json({ status: error });
+				return res.status(400).json({ status: error });
 			} else {
-				res.json({ status: 'Successfully sent an email with verification link' });
+				return res
+					.status(200)
+					.json({ status: 'Successfully sent an email with verification link' });
 			}
 		});
 	} catch (err) {
@@ -136,9 +138,9 @@ router.post('/ForgotPassword', async (req, res) => {
 		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);
-				res.json({ status: error });
+				res.status(400).json({ status: error });
 			} else {
-				res.json({ status: 'Successfully sent an email with new login password!' });
+				res.status(200).json({ status: 'Successfully sent an email with new login password!' });
 			}
 		});
 	} catch (err) {

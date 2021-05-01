@@ -8,9 +8,9 @@ const jwt = require('jsonwebtoken');
 require('dotenv/config');
 const nodemailer = require('nodemailer');
 const router = express.Router();
-// /api/account/Login
 
-router.post('/Login', async (req, res) => {
+// login api which requires email verification
+router.post('/v2/Login', async (req, res) => {
 	try {
 		const { error } = Login(req.body);
 		if (error) {
@@ -102,6 +102,51 @@ router.post('/Login', async (req, res) => {
 	}
 });
 
+// login route which doesnt require email verification
+router.post('/Login', async (req, res) => {
+	try {
+		const { error } = Login(req.body);
+		if (error) {
+			console.error(error.message);
+			return res.status(400).json({
+				status: error.message,
+			});
+		}
+		// validate email exists before checking password
+		Access.findOne({ Email: req.body.Email }).then((user) => {
+			if (user) {
+				if (bcrypt.compareSync(req.body.Password, user.Password)) {
+					jwt.sign(
+						{
+							id: user.id,
+							name: user.Username,
+							accountType: user.AccountType,
+						},
+						process.env.secretOrKey,
+						{
+							expiresIn: 31556926, // 1 year in seconds
+						},
+						(err, token) => {
+							return res.status(200).json({
+								success: true,
+								token: 'Bearer ' + token,
+								error: err,
+							});
+						},
+					);
+				} else {
+					return res.status(400).json({ status: 'incorrect password!' });
+				}
+			} else {
+				return res.status(400).json({ status: 'username does not exist' });
+			}
+		});
+	} catch (err) {
+		console.error(err.message);
+		return res.status(500).json({ status: 'Server Error' });
+	}
+});
+
 // /api/account/Register
 router.post('/Register', async (req, res) => {
 	try {
@@ -127,15 +172,15 @@ router.post('/Register', async (req, res) => {
 						AccountType: req.body.AccountType,
 					});
 					RegisterUser.save();
-					return res.status(200).json({ status: 'Successfully registered user' });
+					return res.status(200).json({ status: 'Successfully registered user!' });
 				} catch {
-					res.status(500).json({ status: 'Server Error' });
+					return res.status(400).json({ status: 'Unexpected failure when registering!' });
 				}
 			}
 		});
 	} catch (err) {
 		console.error(err.message);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 

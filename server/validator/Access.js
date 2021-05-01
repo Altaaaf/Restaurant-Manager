@@ -12,10 +12,8 @@ const Login = (data) => {
 
 const Register = (data) => {
 	const schema = Joi.object({
-		FirstName: Joi.string().min(2)
-			.required(),
-		LastName: Joi.string().min(2)
-			.required(),
+		FirstName: Joi.string().min(2).required(),
+		LastName: Joi.string().min(2).required(),
 		Username: Joi.string().min(7).required(),
 		Email: Joi.string()
 			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
@@ -29,16 +27,13 @@ const Register = (data) => {
 
 const BookingPage = (data) => {
 	const schema = Joi.object({
-		firstName: Joi.string()
+		FirstName: Joi.string()
 			.regex(/^[A-Z]+$/)
 			.required(),
 		lastName: Joi.string()
 			.regex(/^[A-Z]+$/)
 			.required(),
-		email: Joi.string()
-			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
-			.required(),
-		members: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
+		coverNo: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
 		phone: Joi.string()
 			.regex(/^\d{3}-\d{3}-\d{4}$/)
 			.required('10 digits phone number'),

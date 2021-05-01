@@ -83,9 +83,6 @@ class ViewInventory extends Component {
 								<strong>Quantity:</strong>
 								<p>{item.Quantity.toLocaleString()}</p>
 
-								<strong>Possible Profits:</strong>
-								<p>${item.ProjectedProfit.toLocaleString()}</p>
-
 								<strong>Dish last purchased </strong>
 								<p>{item.LastRequested}</p>
 

@@ -30,10 +30,10 @@ router.get('/View', async (req, res) => {
 				});
 			}
 		}
-		res.status(200).json({ Customers: Customers, Managers: Managers });
+		return res.status(200).json({ Customers: Customers, Managers: Managers });
 	} catch (err) {
-		console.error(err.message);
-		res.status(500).json({ status: 'Server Error' });
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 module.exports = router;

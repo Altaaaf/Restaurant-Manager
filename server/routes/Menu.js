@@ -3,6 +3,7 @@ const Menu = require('../Database/Models/Menu');
 const { AddItem } = require('../validator/Access');
 const router = express.Router();
 
+// change this to be more effecient!
 router.get('/view', async (req, res) => {
 	try {
 		let Menu_ = {
@@ -32,9 +33,10 @@ router.get('/view', async (req, res) => {
 				});
 			}
 		}
-		res.json(Menu_);
+		return res.status(200).json(Menu_);
 	} catch (err) {
-		res.json({ status: err.message });
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.post('/item', async (req, res) => {
@@ -65,7 +67,8 @@ router.post('/item', async (req, res) => {
 			}
 		});
 	} catch (err) {
-		res.json({ status: err.message });
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.delete('/item', async (req, res) => {
@@ -83,7 +86,8 @@ router.delete('/item', async (req, res) => {
 			}
 		});
 	} catch (err) {
-		res.json({ status: err.message });
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 module.exports = router;

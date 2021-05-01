@@ -68,10 +68,10 @@ router.get('/Orders', async (req, res) => {
 				createdDate: `${item.createdDate ? item.createdDate : new Date().toUTCString()}`,
 			});
 		}
-		res.status(200).json({ Columns: TableColumns, RowInformation: orderList });
+		return res.status(200).json({ Columns: TableColumns, RowInformation: orderList });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return es.status(500).json({ status: 'Server Error' });
 	}
 });
 router.get('/Reservations', async (req, res) => {
@@ -138,10 +138,10 @@ router.get('/Reservations', async (req, res) => {
 				lastName: item.lastName,
 			});
 		}
-		res.status(200).json({ Columns: TableColumns, RowInformation: BookingsList });
+		return res.status(200).json({ Columns: TableColumns, RowInformation: BookingsList });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.get('/Managers', async (req, res) => {
@@ -212,14 +212,14 @@ router.get('/Managers', async (req, res) => {
 					});
 				}
 			}
-			res.status(200).json({ Columns: TableColumns, RowInformation: Managers });
+			return res.status(200).json({ Columns: TableColumns, RowInformation: Managers });
 		} catch (err) {
 			console.error(err);
-			res.status(500).json({ status: 'Server Error' });
+			return res.status(500).json({ status: 'Server Error' });
 		}
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.get('/Customers', async (req, res) => {
@@ -287,10 +287,10 @@ router.get('/Customers', async (req, res) => {
 				});
 			}
 		}
-		res.status(200).json({ Columns: TableColumns, RowInformation: Customers });
+		return res.status(200).json({ Columns: TableColumns, RowInformation: Customers });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 
@@ -303,10 +303,10 @@ router.put('/Modify/Reservations', async (req, res) => {
 			delete newRecord['ID'];
 			await Reservation.findByIdAndUpdate(ID, newRecord);
 		}
-		res.status(200).json({ status: 'Successfully made changes' });
+		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.put('/Modify/Customers', async (req, res) => {
@@ -318,10 +318,10 @@ router.put('/Modify/Customers', async (req, res) => {
 			delete newRecord['ID'];
 			await Access.findByIdAndUpdate(ID, newRecord);
 		}
-		res.status(200).json({ status: 'Successfully made changes' });
+		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.put('/Modify/Managers', async (req, res) => {
@@ -333,18 +333,18 @@ router.put('/Modify/Managers', async (req, res) => {
 			delete newRecord['ID'];
 			await Access.findByIdAndUpdate(ID, newRecord);
 		}
-		res.status(200).json({ status: 'Successfully made changes' });
+		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.put('/Modify/Orders', async (req, res) => {
 	try {
-		res.status(200).json({ status: 'Successfully made changes' });
+		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 module.exports = router;

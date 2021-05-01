@@ -20,22 +20,22 @@ router.get('/View', async (req, res) => {
 				ID: `${item.ID ? item.ID : item._id}`,
 			});
 		}
-		res.status(200).json({ Bookings: BookingsList });
+		return res.status(200).json({ Bookings: BookingsList });
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 
 router.post('/BookingPage', async (req, res) => {
 	try {
-		//const { error } = BookingPage(req.body);
-		//if (error) {
-		//	console.error(error.message);
-		//	return res.status(400).json({
-		//		status: error.message,
-		//	});
-		//}
+		const { error } = BookingPage(req.body);
+		if (error) {
+			console.error(error.message);
+			return res.status(400).json({
+				status: error.message,
+			});
+		}
 		// create ReservationID
 		var newID = 1;
 		const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });
@@ -51,9 +51,10 @@ router.post('/BookingPage', async (req, res) => {
 			coverNo: req.body.coverNo,
 		});
 		CreateReservation_.save();
-		res.json({ status: 'successfully saved booking!' });
+		return res.status(200).json({ status: 'successfully saved booking!' });
 	} catch (err) {
-		res.json({ status: err.message });
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 module.exports = router;
