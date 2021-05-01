@@ -13,6 +13,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
+				checkboxSelection: true,
 			},
 			{
 				headerName: 'Customer Name',
@@ -20,6 +21,7 @@ router.get('/Orders', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
+				checkboxSelection: true,
 			},
 			{
 				headerName: 'Subtotal',
@@ -27,6 +29,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
+				checkboxSelection: true,
 			},
 			{
 				headerName: 'Total',
@@ -34,6 +37,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
+				checkboxSelection: true,
 			},
 			{
 				headerName: 'Tax',
@@ -41,6 +45,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
+				checkboxSelection: true,
 			},
 			{
 				headerName: 'Order Date',
@@ -48,6 +53,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
+				checkboxSelection: true,
 			},
 		];
 		let orderList = [];
@@ -71,7 +77,7 @@ router.get('/Orders', async (req, res) => {
 		return res.status(200).json({ Columns: TableColumns, RowInformation: orderList });
 	} catch (err) {
 		console.error(err);
-		return es.status(500).json({ status: 'Server Error' });
+		return res.status(500).json({ status: 'Server Error' });
 	}
 });
 router.get('/Reservations', async (req, res) => {
@@ -87,6 +93,7 @@ router.get('/Reservations', async (req, res) => {
 			{
 				headerName: 'First Name',
 				field: 'FirstName',
+				editable: true,
 				sortable: true,
 				filter: true,
 				checkboxSelection: true,
@@ -94,6 +101,7 @@ router.get('/Reservations', async (req, res) => {
 			{
 				headerName: 'Last Name',
 				field: 'lastName',
+				editable: true,
 				sortable: true,
 				filter: true,
 				checkboxSelection: true,
@@ -109,7 +117,7 @@ router.get('/Reservations', async (req, res) => {
 			{
 				headerName: 'Number of People',
 				field: 'coverNo',
-				editable: true,
+				editable: false,
 				sortable: true,
 				filter: true,
 				checkboxSelection: true,
@@ -117,7 +125,7 @@ router.get('/Reservations', async (req, res) => {
 			{
 				headerName: 'ReservationTime',
 				field: 'ReservationTime',
-				editable: true,
+				editable: false,
 				sortable: true,
 				filter: true,
 				checkboxSelection: true,
@@ -166,6 +174,7 @@ router.get('/Managers', async (req, res) => {
 				{
 					headerName: 'Email',
 					field: 'Email',
+					editable: true,
 					sortable: true,
 					filter: true,
 					checkboxSelection: true,
@@ -235,6 +244,7 @@ router.get('/Customers', async (req, res) => {
 			{
 				headerName: 'Username',
 				field: 'Username',
+				editable: true,
 				sortable: true,
 				filter: true,
 				checkboxSelection: true,
@@ -242,6 +252,7 @@ router.get('/Customers', async (req, res) => {
 			{
 				headerName: 'Email',
 				field: 'Email',
+				editable: true,
 				sortable: true,
 				filter: true,
 				checkboxSelection: true,
@@ -301,7 +312,8 @@ router.put('/Modify/Reservations', async (req, res) => {
 			const newRecord = Changes[index];
 			const ID = newRecord.ID;
 			delete newRecord['ID'];
-			await Reservation.findByIdAndUpdate(ID, newRecord);
+			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
+			await Reservation.updateOne(Query, { $set: newRecord });
 		}
 		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
@@ -316,7 +328,8 @@ router.put('/Modify/Customers', async (req, res) => {
 			const newRecord = Changes[index];
 			const ID = newRecord.ID;
 			delete newRecord['ID'];
-			await Access.findByIdAndUpdate(ID, newRecord);
+			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
+			await Access.updateOne(Query, { $set: newRecord });
 		}
 		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
@@ -331,7 +344,8 @@ router.put('/Modify/Managers', async (req, res) => {
 			const newRecord = Changes[index];
 			const ID = newRecord.ID;
 			delete newRecord['ID'];
-			await Access.findByIdAndUpdate(ID, newRecord);
+			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
+			await Access.updateOne(Query, { $set: newRecord });
 		}
 		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
@@ -341,6 +355,14 @@ router.put('/Modify/Managers', async (req, res) => {
 });
 router.put('/Modify/Orders', async (req, res) => {
 	try {
+		const Changes = req.body.updates;
+		for (var index = 0; index < Changes.length; index++) {
+			const newRecord = Changes[index];
+			const ID = newRecord.ID;
+			delete newRecord['ID'];
+			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
+			await Order.updateOne(Query, { $set: newRecord });
+		}
 		return res.status(200).json({ status: 'Successfully made changes' });
 	} catch (err) {
 		console.error(err);
