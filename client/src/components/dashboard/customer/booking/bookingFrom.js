@@ -70,8 +70,8 @@ const useStyles = makeStyles((theme) => ({
     },
     cardConatainer: {
         marginTop: 100,
-        marginLeft: 420,
-        marginLeft: 400,
+        marginLeft: 320,
+        marginLeft: 550,
         textAlign: 'center',
         width: 800,
         alignItems: 'center',
