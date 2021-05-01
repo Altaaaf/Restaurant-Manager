@@ -1,22 +1,25 @@
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
-
+import toastr from 'toastr';
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './types';
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
 	axios
 		.post('http://localhost:5000/api/Account/register', userData)
-		.then((res) => history.push('/login'))
-		.catch((err) =>
+		.then((res) => {
+			toastr.success('Successfully registered');
+			history.push('/login');
+		})
+		.catch((err) => {
 			dispatch({
 				type: GET_ERRORS,
 				payload: err.response.data,
-			}),
-		);
+			});
+			toastr.error(err.response.data.status);
+		});
 };
-
 // Login - get user token
 export const loginUser = (userData) => (dispatch) => {
 	axios
@@ -34,13 +37,15 @@ export const loginUser = (userData) => (dispatch) => {
 			// Set current user
 			// Auth user becomes jwt token that was created on backend!!
 			dispatch(setCurrentUser(decoded));
+			toastr.success('Successfully logged in');
 		})
-		.catch((err) =>
+		.catch((err) => {
 			dispatch({
 				type: GET_ERRORS,
 				payload: err.response.data,
-			}),
-		);
+			});
+			toastr.error(err.response.data.status);
+		});
 };
 
 // Set logged in user

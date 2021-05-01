@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import axios from 'axios';
 import BookingCard from './BookingCard';
 import './ManagerBooking.css';
-
+import toastr from 'toastr';
 class ManagerBooking extends Component {
 	constructor() {
 		super();
@@ -16,12 +15,17 @@ class ManagerBooking extends Component {
 		axios
 			.get('http://localhost:5000/Api/Reservations/View')
 			.then((res) => {
-				const data = res.data;
-				console.log(data);
-				this.setState({ booking: data.Bookings.reverse() });
+				if (res.status == 200) {
+					const data = res.data;
+					this.setState({ booking: data.Bookings.reverse() });
+					toastr.success('Successfully retrieved data');
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
 			})
-			.catch((err) => this.setState({ error: err }));
-		this.setState({ loading: false });
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	}
 
 	pageHandler = (offset) => {

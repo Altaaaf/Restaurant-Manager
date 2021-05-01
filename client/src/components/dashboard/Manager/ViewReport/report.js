@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AgGridReact } from 'ag-grid-react';
 import { AllModules } from '@ag-grid-enterprise/all-modules';
 import axios from 'axios';
-
+import toastr from 'toastr';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
@@ -36,12 +36,21 @@ class report extends Component {
 			value == 'Customers' ||
 			value == 'Managers'
 		) {
-			axios.get('http://localhost:5000/Api/Reports/' + value).then((res) => {
-				const data = res.data;
-				console.log(data);
-				this.setState({ rowData: data.RowInformation });
-				this.setState({ columnDefs: data.Columns });
-			});
+			axios
+				.get('http://localhost:5000/Api/Reports/' + value)
+				.then((res) => {
+					if (res.status == 200) {
+						const data = res.data;
+						this.setState({ rowData: data.RowInformation });
+						this.setState({ columnDefs: data.Columns });
+						toastr.success('Successfully retrieved data');
+					} else {
+						toastr.error('Unexpected failure occured');
+					}
+				})
+				.catch((err) => {
+					toastr.error(err.response.data.status);
+				});
 		}
 	}
 	onGridReady = (params) => {
@@ -57,9 +66,15 @@ class report extends Component {
 				updates: this.state.changes,
 			})
 			.then((res) => {
-				const data = res.data;
-				console.log(data);
-				alert(data.status);
+				if (res.status == 200) {
+					const data = res.data;
+					toastr.success('Successfully updated data');
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
+			})
+			.catch((err) => {
+				toastr.error(err.response.data.status);
 			});
 		console.log('updating changes');
 	};

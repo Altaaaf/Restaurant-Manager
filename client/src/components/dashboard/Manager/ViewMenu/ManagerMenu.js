@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
 import './ManagerMenu.css';
+import toastr from 'toastr';
 class ManagerMenu extends Component {
 	constructor() {
 		super();
@@ -35,12 +36,17 @@ class ManagerMenu extends Component {
 		axios
 			.get('http://localhost:5000/Api/Menu/View')
 			.then((res) => {
-				const data = res.data;
-				console.log(data);
-				this.setState({ menu: data });
+				if (res.status == 200) {
+					const data = res.data;
+					this.setState({ menu: data });
+					toastr.success('Successfully retrieved data');
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
 			})
-			.catch((err) => this.setState({ error: err }));
-		this.setState({ loading: false });
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	}
 	render() {
 		const { menu } = this.state;

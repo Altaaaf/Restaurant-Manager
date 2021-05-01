@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './ViewUsers.css';
+import toastr from 'toastr';
 class ViewUsers extends Component {
 	constructor() {
 		super();
@@ -27,16 +28,23 @@ class ViewUsers extends Component {
 			error: '',
 		};
 	}
+
 	componentDidMount() {
 		axios
 			.get('http://localhost:5000/Api/Users/View')
 			.then((res) => {
-				const data = res.data;
-				console.log(data);
-				this.setState({ Customers: data.Customers });
-				this.setState({ Managers: data.Managers });
+				if (res.status == 200) {
+					const data = res.data;
+					this.setState({ Customers: data.Customers });
+					this.setState({ Managers: data.Managers });
+					toastr.success('Successfully retrieved data!');
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
 			})
-			.catch((err) => this.setState({ error: err }));
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	}
 	render() {
 		const { Customers, Managers } = this.state;

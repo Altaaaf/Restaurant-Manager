@@ -37,13 +37,14 @@ class ViewInventory extends Component {
 			axios
 				.delete('http://localhost:5000/Api/Inventory/item', { data: { Name: name } })
 				.then((res) => {
-					const data = res.data;
-					console.log(data);
-					toastr.success('Successfully removed item from inventory!');
+					if (res.status == 200) {
+						toastr.success('Successfully removed from inventory');
+					} else {
+						toastr.error('Unexpected failure occured');
+					}
 				})
 				.catch((err) => {
-					console.log(err);
-					toastr.error('Error occured when attempting to remove item!');
+					toastr.error(err.response.data.status);
 				});
 		} catch (err) {
 			toastr.error('Error occured when attempting to remove item!');

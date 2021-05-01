@@ -39,12 +39,10 @@ class EditMenu extends Component {
 		axios
 			.post('http://localhost:5000/Api/Menu/item', PostRequestData)
 			.then((res) => {
-				const data = res.data;
-				console.log(data);
 				if (res.status == 200) {
 					toastr.success('Successfully added item to menu!');
 				} else {
-					toastr.error('Unexpected failure when adding item to menu!');
+					toastr.error('Unexpected failure occured');
 				}
 			})
 			.catch((err) => {

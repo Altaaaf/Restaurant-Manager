@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit } from 'react-icons/fi';
 import axios from 'axios';
-
+import toastr from 'toastr';
 import './OrdersCss.css';
 import Button from '@material-ui/core/Button';
 import Card from './Card';
@@ -23,12 +23,18 @@ class ViewOrders extends Component {
 		axios
 			.get('http://localhost:5000/Api/Orders/View')
 			.then((res) => {
-				const data = res.data;
-				this.setState({ orders: data.Orders.reverse() });
+				if (res.status == 200) {
+					const data = res.data;
+					toastr.success('Successfully retrieved data');
+					this.setState({ orders: data.Orders.reverse() });
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
 			})
-			.catch((err) => this.setState({ error: err }));
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	}
-
 	render() {
 		const { orders } = this.state;
 		console.log(orders);

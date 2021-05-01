@@ -7,7 +7,7 @@ import Total from './Total';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import GatherOrder from '../Orders/GatherOrder';
-
+import toastr from 'toastr';
 class Menus extends Component {
 	constructor() {
 		super();
@@ -40,16 +40,21 @@ class Menus extends Component {
 			loading: true,
 		};
 	}
-
 	componentDidMount() {
 		axios
 			.get('http://localhost:5000/Api/Menu/View')
 			.then((res) => {
-				const data = res.data;
-				//console.log(data);
-				this.setState({ menu: data });
+				if (res.status == 200) {
+					const data = res.data;
+					this.setState({ menu: data });
+					toastr.success('Successfully retrieved data!');
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
 			})
-			.catch((err) => this.setState({ error: err }));
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	}
 
 	// add a loading page while retrieving data from back end

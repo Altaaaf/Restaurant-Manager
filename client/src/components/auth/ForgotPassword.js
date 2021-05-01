@@ -23,12 +23,15 @@ class ForgotPassword extends Component {
 			.post('http://localhost:5000/Api/Misc/ForgotPassword', { Email: this.state.EmailAddress })
 			.then((res) => {
 				if (res.status == 200) {
-					toastr.success('Successfully sent new password to email');
+					const data = res.data;
+					toastr.success('Successfully sent new password');
 				} else {
-					toastr.error('Unexpected failure when sending password...');
+					toastr.error('Unexpected failure occured');
 				}
 			})
-			.catch((err) => toastr.error(err.response.data.status));
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	};
 
 	render() {

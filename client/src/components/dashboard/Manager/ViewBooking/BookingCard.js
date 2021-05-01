@@ -61,16 +61,15 @@ export default function RecipeReviewCard(props) {
 		setOpen(false);
 	};
 
-	
-
 	return (
 		<>
 			<BookingPage booking={props.booking} open={open} handleClose={() => handleClose()} />
 			{
 				<Card className={classes.root}>
-					<CardHeader style = {{
-						whiteSpace: "pre-line",
-					}}
+					<CardHeader
+						style={{
+							whiteSpace: 'pre-line',
+						}}
 						avatar={
 							<Avatar aria-label='recipe' src={props.logo} className={classes.avatar}>
 								<DeckIcon className={classes.catalogIcon} />
@@ -83,29 +82,26 @@ export default function RecipeReviewCard(props) {
 						}
 						title={`Booking id : ${props.id}`}
 						subheader={`Customer Name : ${props.CustomerName}`}
-						
 					/>
 					<CardContent>
-                    <Typography variant='body2' color='textSecondary' component='p'>
+						<Typography variant='body2' color='textSecondary' component='p'>
 							<div className='card_items'>
 								<GroupOutlinedIcon style={{ color: '#b38917' }} />
 								<b>Total People : </b>
 								<p>{props.coverNo}</p>
 							</div>
-						
+
 							<div className='card_items'>
 								<CallOutlinedIcon color='primary' />
 								<b>Contact Number :</b>
 								<p>{props.phone}</p>
 							</div>
-                            <div className='card_items'>
+							<div className='card_items'>
 								<DateRangeOutlinedIcon color='primary' />
 								<b>Create Time :</b>
 								<p>{props.createdDate}</p>
 							</div>
-							
 						</Typography>
-                    
 					</CardContent>
 					<Button
 						onClick={() => handleChangeView()}
@@ -117,5 +113,5 @@ export default function RecipeReviewCard(props) {
 				</Card>
 			}
 		</>
-    );
-        }
+	);
+}

@@ -39,22 +39,19 @@ class BookingPage extends React.Component {
 	onSaveForm(event) {
 		event.preventDefault();
 		BookingApi.saveBooking(this.state.booking);
-		toastr.success('Successfully created booking!');
 		this.setState({ booking: {} });
 	}
 
 	render() {
 		return (
-			
-					<div className='col s18 dark-text center-align'>
-						<BookingForm
-							booking={this.state.booking}
-							onSave={this.onSaveForm}
-							onChange={this.onFieldChange}
-							updateDate={this.handleDate}
-						/>
-					</div>
-				
+			<div className='col s18 dark-text center-align'>
+				<BookingForm
+					booking={this.state.booking}
+					onSave={this.onSaveForm}
+					onChange={this.onFieldChange}
+					updateDate={this.handleDate}
+				/>
+			</div>
 		);
 	}
 }

@@ -51,13 +51,15 @@ export default function ScrollDialog(props) {
 			axios
 				.put('http://localhost:5000/Api/Orders/setDelivered', { ID: props.id })
 				.then((res) => {
-					const data = res.data;
-					console.log(data);
-					toastr.success('Successfully updated order status');
+					if (res.status == 200) {
+						const data = res.data;
+						toastr.success('Successfully updated status');
+					} else {
+						toastr.error('Unexpected failure occured');
+					}
 				})
 				.catch((err) => {
-					console.log(err);
-					toastr.error('Error occured when attempting to update order status');
+					toastr.error(err.response.data.status);
 				});
 		} catch (err) {
 			toastr.error('Error occured!');
@@ -70,13 +72,15 @@ export default function ScrollDialog(props) {
 			axios
 				.put('http://localhost:5000/Api/Orders/setCancelled', { ID: props.id })
 				.then((res) => {
-					const data = res.data;
-					console.log(data);
-					toastr.success('Successfully updated order status');
+					if (res.status == 200) {
+						const data = res.data;
+						toastr.success('Successfully updated status');
+					} else {
+						toastr.error('Unexpected failure occured');
+					}
 				})
 				.catch((err) => {
-					console.log(err);
-					toastr.error('Error occured when attempting to update order status');
+					toastr.error(err.response.data.status);
 				});
 		} catch (err) {
 			toastr.error('Error occured!');

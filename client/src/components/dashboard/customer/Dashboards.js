@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../../actions/authActions';
 import { Link } from 'react-router-dom';
-import { FiHome, FiMenu, FiLogIn, FiEdit, FiUser, FiBookOpen, FiLogOut } from 'react-icons/fi';
+import { FiHome, FiMenu, FiBookOpen, FiLogOut } from 'react-icons/fi';
 import { MdRateReview } from 'react-icons/md';
 
 import './Dashboards.css';
 
 import barnsLink from '../../../img/BarnsLinkLogo.png';
-import Q2 from '../../../img/Q2.png';
-
-
 
 class Dashboard extends Component {
 	onLogoutClick = (e) => {
@@ -59,14 +56,18 @@ class Dashboard extends Component {
 						</Link>
 					</div>
 				</div>
-				<section className="banner1" id="banner1" >
-				<div className="content1">
-            <h1>About us</h1>
-            <p> We are the last authentic Amrican restaurant in New York, serving delicious Amrican cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Amrican culinary experience.</p>
-        </div>
-        
-    </section>
-
+				<section className='banner1' id='banner1'>
+					<div className='content1'>
+						<h1>About us</h1>
+						<p>
+							{' '}
+							We are the last authentic Amrican restaurant in New York, serving delicious Amrican
+							cuisine cooked by the best chefs. It only takes a few minutes to browse through our
+							website and check out our menu. We hope you'll soon join us for a superb Amrican
+							culinary experience.
+						</p>
+					</div>
+				</section>
 			</div>
 		);
 	}

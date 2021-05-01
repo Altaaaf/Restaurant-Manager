@@ -34,12 +34,10 @@ class EditInventory extends Component {
 		axios
 			.post('http://localhost:5000/Api/Inventory/item', PostRequestData)
 			.then((res) => {
-				const data = res.data;
-				console.log(data);
 				if (res.status == 200) {
 					toastr.success('Successfully added item to Inventory!');
 				} else {
-					toastr.error('Unexpected failure when adding item to Inventory!');
+					toastr.error('Unexpected failure occured');
 				}
 			})
 			.catch((err) => {

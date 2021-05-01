@@ -17,11 +17,17 @@ class OrdersPage extends Component {
 		axios
 			.post('http://localhost:5000/Api/Orders/Create', { Order: Order })
 			.then((res) => {
-				console.log('Successfully created order ');
-				this.props.history.replace('/');
+				if (res.status == 200) {
+					const data = res.data;
+					toastr.success('Successfully created order');
+					this.props.history.replace('/');
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
 			})
-			.catch((err) => console.log('Error occured: ' + err));
-		toastr.success('Successfully saved order');
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 	}
 
 	// add a loading page while retrieving data from back end
