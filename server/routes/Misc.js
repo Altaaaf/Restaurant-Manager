@@ -138,9 +138,11 @@ router.post('/ForgotPassword', async (req, res) => {
 		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);
-				res.status(400).json({ status: error });
+				return res.status(400).json({ status: error });
 			} else {
-				res.status(200).json({ status: 'Successfully sent an email with new login password!' });
+				return res
+					.status(200)
+					.json({ status: 'Successfully sent an email with new login password!' });
 			}
 		});
 	} catch (err) {

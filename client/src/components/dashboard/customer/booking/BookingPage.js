@@ -1,7 +1,6 @@
 import React from 'react';
 import toastr from 'toastr';
 import BookingApi from '../api/BookingApi.js';
-import BookingForm from './BookingForm';
 import BookingSlot from './bookingSloat';
 
 class BookingPage extends React.Component {

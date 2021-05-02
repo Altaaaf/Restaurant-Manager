@@ -4,21 +4,7 @@ const router = express.Router();
 
 router.get('/View', async (req, res) => {
 	try {
-		let BookingsList = [];
-
-		let Booking = await Reservation.find();
-		for (var item_ = 0; item_ < Booking.length; item_++) {
-			var item = Booking[item_];
-
-			BookingsList.push({
-				ReservationTime: item.ReservationTime,
-				coverNo: item.coverNo,
-				phone: item.phone,
-				FirstName: item.FirstName,
-				lastName: item.lastName,
-			});
-		}
-		return res.status(200).json({ Bookings: BookingsList });
+		return res.status(200).json({ Bookings: await Reservation.find({}, { _id: 0 }) });
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ status: 'Server Error' });
@@ -29,7 +15,7 @@ router.post('/booking', async (req, res) => {
 	try {
 		console.log(req.body);
 		let paylod = {
-			booking_date: req.body.booking_date,
+			booking_date: req.body.booking_date.split('T')[0],
 			booking_time: req.body.booking_time,
 			slot_id: req.body.slot_id,
 			coverNo: req.body.coverNo,
@@ -47,6 +33,7 @@ router.post('/booking', async (req, res) => {
 			return res.json({ status: 'successfully saved booking!', data: response });
 		});
 	} catch (err) {
+		console.log(err);
 		res.json({ status: err.message });
 	}
 });
@@ -54,8 +41,12 @@ router.post('/booking', async (req, res) => {
 router.post('/booking/get', async (req, res) => {
 	try {
 		console.log('==============', req.body);
-		Reservation.find({ booking_date: req.body.booking_date })
+		var booking_time = req.body.booking_date;
+		booking_time = booking_time.split('T')[0];
+		console.log('==============', booking_time);
+		Reservation.find({ booking_date: booking_time })
 			.then((response) => {
+				//console.log(response);
 				return res.send(response);
 			})
 			.catch((err) => {
@@ -63,6 +54,7 @@ router.post('/booking/get', async (req, res) => {
 				return res.send(err);
 			});
 	} catch (err) {
+		console.log(err);
 		res.json({ status: err.message });
 	}
 });
