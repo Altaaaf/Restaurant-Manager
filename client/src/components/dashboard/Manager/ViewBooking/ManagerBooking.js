@@ -44,7 +44,7 @@ class ManagerBooking extends Component {
 							return (
 								<div key={index}>
 									<BookingCard
-										booking={BookingsList}
+										
 										id={BookingsList.ID}
 										CustomerName={BookingsList.lastName}
 										createdDate={BookingsList.booking_time}
