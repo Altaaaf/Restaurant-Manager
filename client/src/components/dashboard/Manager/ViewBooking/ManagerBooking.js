@@ -43,10 +43,16 @@ class ManagerBooking extends Component {
 						booking.map((BookingsList, index) => {
 							return (
 								<div key={index}>
+									{console.log(BookingsList)}
 									<BookingCard
+										BookingDate={BookingsList.booking_date}
+										Email={BookingsList.email}
+										Area={BookingsList.area_type}
+										Comment={BookingsList.comment}
+										SlotID={BookingsList.slot_id}
 										id={BookingsList.ID}
-										CustomerName={BookingsList.lastName}
-										createdDate={BookingsList.ReservationTime}
+										CustomerName={BookingsList.FirstName + ' ' + BookingsList.lastName}
+										createdDate={BookingsList.booking_time}
 										coverNo={BookingsList.coverNo}
 										phone={BookingsList.phone}
 									/>

@@ -63,7 +63,15 @@ export default function RecipeReviewCard(props) {
 
 	return (
 		<>
-			<BookingPage booking={props.booking} open={open} handleClose={() => handleClose()} />
+			<BookingPage
+				BookingDate={props.BookingDate}
+				Email={props.Email}
+				Area={props.Area}
+				Comment={props.Comment}
+				SlotID={props.SlotID}
+				open={open}
+				handleClose={() => handleClose()}
+			/>
 			{
 				<Card className={classes.root}>
 					<CardHeader

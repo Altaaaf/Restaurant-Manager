@@ -18,7 +18,6 @@ export default function ScrollDialog(props) {
 
 	const descriptionElementRef = React.useRef(null);
 
-
 	React.useEffect(() => {
 		if (open) {
 			const { current: descriptionElement } = descriptionElementRef;
@@ -45,22 +44,21 @@ export default function ScrollDialog(props) {
 						tabIndex={-1}>
 						<table className='order_table'>
 							<tr>
-								<th style={{ width: '150px' }}>Name</th>
-								<th style={{ width: '150px' }}>Date</th>
-								<th style={{ width: '150px' }}>Party No.</th>
-								<th style={{ width: '150px' }}>Phone</th>
+								<th style={{ width: '150px' }}>Email</th>
+								<th style={{ width: '150px' }}>Area</th>
+								<th style={{ width: '150px' }}>Comments</th>
+								<th style={{ width: '150px' }}>SlotID</th>
+								<th style={{ width: '150px' }}>Booking Date</th>
 							</tr>
-							{props.booking &&
-								props.booking.map((BookingsList, index) => {
-									return (
-										<tr>
-											<td>{BookingsList.lastName}</td>
-											<td>{BookingsList.ReservationTime}</td>
-											<td>{BookingsList.coverNo}</td>
-											<td>{BookingsList.phone}</td>
-										</tr>
-									);
-								})}
+							{
+								<tr>
+									<td>{props.Email}</td>
+									<td>{props.Area}</td>
+									<td>{props.Comment}</td>
+									<td>{props.SlotID}</td>
+									<td>{props.BookingDate}</td>
+								</tr>
+							}
 						</table>
 					</DialogContentText>
 				</DialogContent>
