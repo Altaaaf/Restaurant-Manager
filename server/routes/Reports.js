@@ -1,7 +1,8 @@
 const express = require('express');
 const Access = require('../Database/Models/Access');
-const Reservation = require('../Database/Models/Reservation');
+const Reservation = require('../Database/Models/Booking');
 const Order = require('../Database/Models/Orders');
+const Inventory = require('../Database/Models/Inventory');
 const router = express.Router();
 
 router.get('/Orders', async (req, res) => {
@@ -13,7 +14,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Customer Name',
@@ -21,7 +22,7 @@ router.get('/Orders', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Subtotal',
@@ -29,7 +30,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Total',
@@ -37,7 +38,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Tax',
@@ -45,7 +46,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Order Date',
@@ -53,7 +54,7 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 		];
 		let orderList = [];
@@ -80,7 +81,53 @@ router.get('/Orders', async (req, res) => {
 		return res.status(500).json({ status: 'Server Error' });
 	}
 });
-router.get('/Reservations', async (req, res) => {
+
+router.get('/Inventory', async (req, res) => {
+	try {
+		let TableColumns = [
+			{
+				headerName: 'Item Name',
+				field: 'Name',
+				editable: false,
+				sortable: true,
+				filter: true,
+				
+			},
+			{
+				headerName: 'Quantity',
+				field: 'Quantity',
+				editable: true,
+				sortable: true,
+				filter: true,
+				
+			},
+			{
+				headerName: 'Total Used',
+				field: 'TotalRequests',
+				editable: true,
+				sortable: true,
+				filter: true,
+				
+			},
+			
+		];
+		let inventoryList = [];
+		let inventory = await Inventory.find();
+		for (var item_ = 0; item_ < inventory.length; item_++) {
+			const Inventory = inventory[item_];
+			inventoryList.push({
+					Name: Inventory.Name,
+					Quantity: Inventory.Quantity,
+					TotalRequests: Inventory.TotalRequests,
+			});
+		}
+		return res.status(200).json({ Columns: TableColumns, RowInformation: inventoryList });
+	} catch (err) {
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
+	}
+});
+router.get('/Booking', async (req, res) => {
 	try {
 		let TableColumns = [
 			{
@@ -96,7 +143,7 @@ router.get('/Reservations', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
 			},
 			{
 				headerName: 'Last Name',
@@ -104,7 +151,7 @@ router.get('/Reservations', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+			
 			},
 			{
 				headerName: 'phone',
@@ -112,38 +159,58 @@ router.get('/Reservations', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+			
 			},
 			{
 				headerName: 'Number of People',
-				field: 'coverNo',
+				field: 'members',
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+				
+			},
+			{
+				headerName: 'Area',
+				field: 'area_type',
+				editable: true,
+				sortable: true,
+				filter: true,
+				
 			},
 			{
 				headerName: 'ReservationTime',
-				field: 'ReservationTime',
+				field: 'booking_date',
 				editable: false,
 				sortable: true,
 				filter: true,
-				checkboxSelection: true,
+			},
+			{
+				headerName: 'ReservationTime',
+				field: 'booking_time',
+				editable: false,
+				sortable: true,
+				filter: true,
+				
 			},
 		];
 		let BookingsList = [];
 
 		let Booking = await Reservation.find();
 		for (var item_ = 0; item_ < Booking.length; item_++) {
-			var item = Booking[item_];
+			const booking = Booking[item_];
 
-			BookingsList.push({
-				ID: `${item.ID ? item.ID : item._id}`,
-				ReservationTime: item.ReservationTime,
-				coverNo: item.coverNo,
-				phone: item.phone,
-				FirstName: item.FirstName,
-				lastName: item.lastName,
+			BookingsList.push({	
+			booking_date: booking.booking_date,
+			booking_time: booking.booking_time,
+			slot_id: booking.slot_id,
+			coverNo: booking.coverNo,
+			phone: booking.phone,
+			email: booking.email,
+			FirstName: booking.FirstName,
+			lastName: booking.lastName,
+			comment: booking.comment,
+			members: booking.members,
+			area_type: booking.area_type,
 			});
 		}
 		return res.status(200).json({ Columns: TableColumns, RowInformation: BookingsList });

@@ -97,7 +97,7 @@ export default function RecipeReviewCard(props) {
 							<div className='card_items'>
 								<GroupOutlinedIcon style={{ color: '#b38917' }} />
 								<b>Total People : </b>
-								<p>{props.coverNo}</p>
+								<p>{props.members}</p>
 							</div>
 
 							<div className='card_items'>

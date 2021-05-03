@@ -53,7 +53,7 @@ class ManagerBooking extends Component {
 										id={BookingsList.ID}
 										CustomerName={BookingsList.FirstName + ' ' + BookingsList.lastName}
 										createdDate={BookingsList.booking_time}
-										coverNo={BookingsList.coverNo}
+										members={BookingsList.members}
 										phone={BookingsList.phone}
 										FirstName={BookingsList.FirstName}
 									/>

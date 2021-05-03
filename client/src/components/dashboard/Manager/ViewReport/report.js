@@ -32,7 +32,7 @@ class report extends Component {
 		if (
 			value == 'Reservations' ||
 			value == 'Orders' ||
-			value == 'Users' ||
+			value == 'Inventory' ||
 			value == 'Customers' ||
 			value == 'Managers'
 		) {
@@ -112,6 +112,7 @@ class report extends Component {
 							<option value='Orders' />
 							<option value='Customers' />
 							<option value='Managers' />
+							<option value='Inventory' />
 						</datalist>
 					</select>
 					<div
@@ -135,7 +136,7 @@ class report extends Component {
 							}}
 							rowMultiSelectWithClick={true}
 							rowSelection='multiple'
-							sideBar={'filters'}
+							
 							pagination={true}
 							paginationAutoPageSize={true}
 							columnDefs={this.state.columnDefs}
