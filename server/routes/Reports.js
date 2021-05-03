@@ -109,6 +109,14 @@ router.get('/Inventory', async (req, res) => {
 				filter: true,
 				
 			},
+			{
+				headerName: 'In stock quantity',
+				field: 'TotalLeft',
+				editable: true,
+				sortable: true,
+				filter: true,
+				
+			},
 			
 		];
 		let inventoryList = [];
@@ -119,6 +127,7 @@ router.get('/Inventory', async (req, res) => {
 					Name: Inventory.Name,
 					Quantity: Inventory.Quantity,
 					TotalRequests: Inventory.TotalRequests,
+					TotalLeft:((Inventory.Quantity)-(Inventory.TotalRequests)),
 			});
 		}
 		return res.status(200).json({ Columns: TableColumns, RowInformation: inventoryList });
