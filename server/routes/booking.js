@@ -15,6 +15,7 @@ router.post('/booking', async (req, res) => {
 	try {
 		console.log(req.body);
 		let paylod = {
+			ID: `${item.ID ? item.ID : item._id}`,
 			booking_date: req.body.booking_date.split('T')[0],
 			booking_time: req.body.booking_time,
 			slot_id: req.body.slot_id,
@@ -27,7 +28,11 @@ router.post('/booking', async (req, res) => {
 			members: req.body.members,
 			area_type: req.body.area_type,
 		};
-
+		var newID = 1;
+		const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });
+		if (mostRecentReservation[0].ID !== undefined && mostRecentReservation[0].ID !== null) {
+			newID = mostRecentReservation[0].ID + 1;
+		}
 		const createBooking = new Reservation(paylod);
 		createBooking.save().then((response) => {
 			return res.json({ status: 'successfully saved booking!', data: response });

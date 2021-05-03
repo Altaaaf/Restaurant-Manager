@@ -106,7 +106,7 @@ export default function RecipeReviewCard(props) {
 							</div>
 							<div className='card_items'>
 								<DateRangeOutlinedIcon color='primary' />
-								<b>Create Time :</b>
+								<b>Reservation Time :</b>
 								<p>{props.createdDate}</p>
 							</div>
 						</Typography>

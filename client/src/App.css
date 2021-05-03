@@ -30,3 +30,8 @@ textarea {
 	text-decoration: line-through;
 	color: #db3545;
 }
+
+::placeholder{
+	color: darkblue;
+	opacity: 1;
+}

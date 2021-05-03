@@ -12,12 +12,19 @@ router.get('/View', async (req, res) => {
 			var item = Booking[item_];
 
 			BookingsList.push({
-				ReservationTime: item.ReservationTime,
-				coverNo: item.coverNo,
-				phone: item.phone,
-				FirstName: item.firstName,
-				lastName: item.lastName,
-				ID: `${item.ID ? item.ID : item._id}`,
+			
+			booking_date: req.body.booking_date.split('T')[0],
+			booking_time: req.body.booking_time,
+			slot_id: req.body.slot_id,
+			coverNo: req.body.coverNo,
+			phone: req.body.phone,
+			email: req.body.email,
+			FirstName: req.body.FirstName,
+			lastName: req.body.lastName,
+			comment: req.body.comment,
+			members: req.body.members,
+			area_type: req.body.area_type,
+			ID: `${item.ID ? item.ID : item._id}`,
 			});
 		}
 		return res.status(200).json({ Bookings: BookingsList });
