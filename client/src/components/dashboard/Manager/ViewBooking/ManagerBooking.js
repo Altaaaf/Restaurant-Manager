@@ -44,10 +44,11 @@ class ManagerBooking extends Component {
 							return (
 								<div key={index}>
 									<BookingCard
+										booking={BookingsList}
 										id={BookingsList.ID}
 										CustomerName={BookingsList.lastName}
-										createdDate={BookingsList.ReservationTime}
-										coverNo={BookingsList.coverNo}
+										createdDate={BookingsList.booking_time}
+										coverNo={BookingsList.members}
 										phone={BookingsList.phone}
 									/>
 								</div>

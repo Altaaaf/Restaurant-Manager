@@ -44,7 +44,7 @@ const ContactForm = () => {
 									</div>
 
 									<div htmlFor='email' class='col-lg-6 col-md-12 dark-text col-sm-12 form-group'>
-										<input style={{color:"dark"}} type='email' name='email' id='email' placeholder ='Email' required />
+										<input type='email' name='email' id='email' placeholder ='Email' required />
 									</div>
 
 									<div htmlFor='subject' class='col-lg-6 col-md-12 dark-text col-sm-12 form-group'>

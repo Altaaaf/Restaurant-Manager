@@ -48,16 +48,16 @@ export default function ScrollDialog(props) {
 								<th style={{ width: '150px' }}>Name</th>
 								<th style={{ width: '150px' }}>Date</th>
 								<th style={{ width: '150px' }}>Party No.</th>
-								<th style={{ width: '150px' }}>Phone</th>
+								<th style={{ width: '150px' }}>Email</th>
 							</tr>
 							{props.booking &&
 								props.booking.map((BookingsList, index) => {
 									return (
 										<tr>
 											<td>{BookingsList.lastName}</td>
-											<td>{BookingsList.ReservationTime}</td>
-											<td>{BookingsList.coverNo}</td>
-											<td>{BookingsList.phone}</td>
+											<td>{BookingsList.booking_date}</td>
+											<td>{BookingsList.members}</td>
+											<td>{BookingsList.email}</td>
 										</tr>
 									);
 								})}

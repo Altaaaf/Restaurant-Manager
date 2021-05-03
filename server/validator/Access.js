@@ -25,7 +25,7 @@ const Register = (data) => {
 	return schema.validate(data);
 };
 
-const BookingPage = (data) => {
+const booking = (data) => {
 	const schema = Joi.object({
 		FirstName: Joi.string()
 			.regex(/^[A-Z]+$/)
@@ -33,7 +33,7 @@ const BookingPage = (data) => {
 		lastName: Joi.string()
 			.regex(/^[A-Z]+$/)
 			.required(),
-		coverNo: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
+		members: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
 		phone: Joi.string()
 			.regex(/^\d{3}-\d{3}-\d{4}$/)
 			.required('10 digits phone number'),
@@ -51,4 +51,4 @@ const AddItem = (data) => {
 	return schema.validate(data);
 };
 
-module.exports = { Login, Register, BookingPage, AddItem };
+module.exports = { Login, Register, booking, AddItem };
