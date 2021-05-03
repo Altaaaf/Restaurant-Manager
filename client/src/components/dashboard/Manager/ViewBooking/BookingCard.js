@@ -69,6 +69,7 @@ export default function RecipeReviewCard(props) {
 				Area={props.Area}
 				Comment={props.Comment}
 				SlotID={props.SlotID}
+				FirstName={props.FirstName}
 				open={open}
 				handleClose={() => handleClose()}
 			/>

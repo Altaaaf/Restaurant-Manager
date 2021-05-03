@@ -44,18 +44,18 @@ export default function ScrollDialog(props) {
 						tabIndex={-1}>
 						<table className='order_table'>
 							<tr>
+								<th style={{ width: '150px' }}>First Name</th>
 								<th style={{ width: '150px' }}>Email</th>
 								<th style={{ width: '150px' }}>Area</th>
 								<th style={{ width: '150px' }}>Comments</th>
-								<th style={{ width: '150px' }}>SlotID</th>
 								<th style={{ width: '150px' }}>Booking Date</th>
 							</tr>
 							{
 								<tr>
+									<td>{props.FirstName}</td>
 									<td>{props.Email}</td>
 									<td>{props.Area}</td>
 									<td>{props.Comment}</td>
-									<td>{props.SlotID}</td>
 									<td>{props.BookingDate}</td>
 								</tr>
 							}

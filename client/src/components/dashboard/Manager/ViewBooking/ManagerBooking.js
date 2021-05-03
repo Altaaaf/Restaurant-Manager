@@ -45,7 +45,6 @@ class ManagerBooking extends Component {
 								<div key={index}>
 									{console.log(BookingsList)}
 									<BookingCard
-<<<<<<< HEAD
 										BookingDate={BookingsList.booking_date}
 										Email={BookingsList.email}
 										Area={BookingsList.area_type}
@@ -55,14 +54,8 @@ class ManagerBooking extends Component {
 										CustomerName={BookingsList.FirstName + ' ' + BookingsList.lastName}
 										createdDate={BookingsList.booking_time}
 										coverNo={BookingsList.coverNo}
-=======
-										
-										id={BookingsList.ID}
-										CustomerName={BookingsList.lastName}
-										createdDate={BookingsList.booking_time}
-										coverNo={BookingsList.members}
->>>>>>> a6ae2606384e06a36f5a366c163a89a62334f7fb
 										phone={BookingsList.phone}
+										FirstName={BookingsList.FirstName}
 									/>
 								</div>
 							);
