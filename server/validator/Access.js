@@ -30,13 +30,12 @@ const Booking = (data) => {
 		booking_date: Joi.string().required(),
 		booking_time: Joi.string().required(),
 		slot_id: Joi.number().required(),
-		coverNo: Joi.number().required(),
 		phone: Joi.string().required(),
 		email: Joi.email().required(),
 		FirstName: Joi.string().required(),
 		lastName: Joi.string().required(),
 		comment: Joi.string(),
-		members: Joi.number(),
+		members: Joi.number().required(),
 		area_type: Joi.string(),
 	});
 	return schema.validate(data);
@@ -52,4 +51,4 @@ const AddItem = (data) => {
 	return schema.validate(data);
 };
 
-module.exports = { Login, Register, booking, AddItem };
+module.exports = { Login, Register, Booking, AddItem };

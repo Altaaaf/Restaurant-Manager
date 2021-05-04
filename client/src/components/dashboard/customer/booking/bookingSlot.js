@@ -8,14 +8,15 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button, Typography } from '@material-ui/core';
-import BookingForm from './bookingForm';
+import BookingForm from './BookingForm';
 import Alert from '@material-ui/lab/Alert';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
-import Timeslot from './Timeslot';
 import toastr from 'toastr';
+import Timeslot from './Timeslot';
+
 const useStyles = makeStyles({
 	table: {},
 });
@@ -104,9 +105,9 @@ const DenseTable = () => {
 
 	const [selectedDate, setSelectedDate] = useState();
 
-	const GetbookingAPI = async (payload) => {
+	const GetbookingAPI = async (paylod) => {
 		const result = axios
-			.post('http://localhost:5000/Api/booking/booking/get', payload)
+			.post('http://localhost:5000/Api/booking/booking/get', paylod)
 			.then((res) => {
 				if (res.status == 200) {
 					toastr.success('Successfully retrieved information');
@@ -127,7 +128,7 @@ const DenseTable = () => {
 		console.log('clearing count');
 		clearSlots();
 		//setBookingData([]);
-		GetbookingAPI({ booking_date: date.toISOString() });
+		GetbookingAPI({ booking_date: date.toDateString() });
 		handleCompare();
 	};
 

@@ -22,6 +22,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Alert from '@material-ui/lab/Alert';
 import toastr from 'toastr';
+
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -69,8 +70,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cardConatainer: {
 		marginTop: 100,
-		marginLeft: 320,
-		marginLeft: 550,
+		marginLeft: 270,
+		marginLeft: 650,
 		textAlign: 'center',
 		width: 800,
 		alignItems: 'center',
@@ -113,9 +114,9 @@ export default function FullScreenDialog(props) {
 		setCurrency(event.target.value);
 	};
 
-	const bookingAPI = async (payload) => {
+	const bookingAPI = async (paylod) => {
 		const result = axios
-			.post('http://localhost:5000/Api/booking/booking', payload)
+			.post('http://localhost:5000/Api/booking/booking', paylod)
 			.then((res) => {
 				if (res.status == 200) {
 					toastr.success('Successfully saved reservation');
