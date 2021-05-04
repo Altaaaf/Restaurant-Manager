@@ -24,7 +24,7 @@ router.get('/View', async (req, res) => {
 			comment: req.body.comment,
 			members: req.body.members,
 			area_type: req.body.area_type,
-			ID: `${item.ID ? item.ID : item._id}`,
+			ID: req.body.ID,
 			});
 		}
 		return res.status(200).json({ Bookings: BookingsList });

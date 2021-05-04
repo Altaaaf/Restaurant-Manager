@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button, Typography } from '@material-ui/core';
-import BookingForm from './BookingForm';
+import BookingForm from './bookingForm';
 import Alert from '@material-ui/lab/Alert';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
@@ -86,18 +86,16 @@ const DenseTable = () => {
 	const handleCompare = async () => {
 		await slots.map((sl) => {
 			bookingData.filter((fil) => {
+				console.log(sl);
+				console.log(fil);
 				if (sl.id === fil.slot_id) {
+					console.log('found');
 					sl.book_count.push(fil);
 				}
 			});
 		});
 	};
-	const clearSlots = async () => {
-		await slots.map((sl) => {
-			console.log(sl.book_count);
-			sl.book_count.length = 0;
-		});
-	};
+	console.log(handleCompare());
 
 	const handleClose = () => {
 		setOpen(false);
@@ -106,34 +104,15 @@ const DenseTable = () => {
 	const [selectedDate, setSelectedDate] = useState();
 
 	const GetbookingAPI = async (paylod) => {
-		const result = axios
-			.post('http://localhost:5000/Api/booking/booking/get', paylod)
-			.then((res) => {
-				if (res.status == 200) {
-					toastr.success('Successfully retrieved information');
-					console.log('clearing count');
-					clearSlots();
-					setBookingData(res.data);
-					console.log('Booking data: ' + bookingData);
-				} else {
-					toastr.error('Unexpected failure occured');
-				}
-			})
-			.catch((err) => {
-				toastr.error(err.response.data.status);
-			});
-
+		const result = await axios.post('http://localhost:5000/Api/booking/booking/get', paylod);
+		setBookingData(result.data);
 		return result;
 	};
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
-		// reset state data
-		//setBookingData([]);
-		GetbookingAPI({ booking_date: date });
-		if (bookingData) {
-			handleCompare();
-		}
+		GetbookingAPI({ booking_date: date.toISOString() });
+		handleCompare();
 	};
 
 	const handleOpenBookingForm = (time, id) => {
@@ -144,6 +123,10 @@ const DenseTable = () => {
 		setOpen(true);
 	};
 
+	useEffect(() => {
+		GetbookingAPI({ booking_date: new Date().toISOString() });
+		handleCompare();
+	}, []);
 	return (
 		<div>
 			<BookingForm
@@ -203,9 +186,9 @@ const DenseTable = () => {
 								</TableCell>
 								<TableCell align='right'>
 									{row.book_count.length === '0'
-										? '3 - Slots Available'
+										? '3 - Slots Avalable'
 										: row.book_count.length === 1
-										? '2 - Slots Available'
+										? '2 - Slots Avalable'
 										: row.book_count.length === 2
 										? '1 - Slots Avalable'
 										: row.book_count.length >= 3
