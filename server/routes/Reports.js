@@ -187,9 +187,9 @@ router.get('/Reservations', async (req, res) => {
 		];
 		let BookingsList = [];
 
-		let Booking = await Reservation.find();
-		for (var item_ = 0; item_ < Booking.length; item_++) {
-			const booking = Booking[item_];
+		let Bookings = await Reservation.find();
+		for (var item_ = 0; item_ < Bookings.length; item_++) {
+			const booking = Bookings[item_];
 
 			BookingsList.push({
 				ID: booking.ID ? booking.ID : booking._id,
