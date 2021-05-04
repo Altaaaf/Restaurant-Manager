@@ -191,17 +191,11 @@ const DenseTable = () => {
 								<TableCell align='right'>
 									{row.book_count.length ? row.book_count.length + '-Slots Booked' : '0 - Slots'}
 								</TableCell>
-								<TableCell align='right'>
-									{row.book_count.length === '0'
-										? '3 - Slots Avalable'
-										: row.book_count.length === 1
-										? '2 - Slots Avalable'
-										: row.book_count.length === 2
-										? '1 - Slots Avalable'
-										: row.book_count.length >= 3
-										? 'All Slots Booked'
-										: 'All Slots Avalable'}
-								</TableCell>
+								<TableCell align="right">{row.book_count.length === '0' 
+								? '3 - Slots Available' : row.book_count.length === 1 
+								? '2 - Slots Available' : row.book_count.length === 2 
+								? '1 - Slots Available' : row.book_count.length === 3 
+								? 'All Slots Booked' : 'All Slots Available'}</TableCell>
 								<TableCell align='right'>
 									<Button
 										disabled={row.book_count.length >= 3 ? true : false}
