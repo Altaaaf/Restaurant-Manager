@@ -31,7 +31,7 @@ const Booking = (data) => {
 		booking_time: Joi.string().required(),
 		slot_id: Joi.number().required(),
 		phone: Joi.string().required(),
-		email: Joi.email().required(),
+		email: Joi.string().email().required(),
 		FirstName: Joi.string().required(),
 		lastName: Joi.string().required(),
 		comment: Joi.string(),

@@ -104,7 +104,6 @@ export default function FullScreenDialog(props) {
 	};
 
 	const [currency, setCurrency] = React.useState('USD');
-	const [bokingData, setBookingData] = useState([]);
 	const [comment, setComment] = useState('');
 	const [members, setMembers] = useState('');
 	const [area_type, setArea_type] = useState('');
@@ -120,7 +119,6 @@ export default function FullScreenDialog(props) {
 			.then((res) => {
 				if (res.status == 200) {
 					toastr.success('Successfully saved reservation');
-					setAlert(true);
 				} else {
 					toastr.error('Unexpected failure occured');
 				}
@@ -128,6 +126,7 @@ export default function FullScreenDialog(props) {
 			.catch((err) => {
 				toastr.error(err.response.data.status);
 			});
+		setAlert(true);
 		return result;
 	};
 
@@ -136,7 +135,6 @@ export default function FullScreenDialog(props) {
 			booking_date: props.bookingDate,
 			booking_time: props.time,
 			slot_id: props.slot_id,
-			coverNo: '1',
 			phone: mobile,
 			email: email,
 			FirstName: firstName,
@@ -203,7 +201,6 @@ export default function FullScreenDialog(props) {
 		},
 	];
 
-	console.log('bokingData', bokingData);
 	return (
 		<div>
 			<Dialog fullScreen open={props.open} onClose={handleClose} TransitionComponent={Transition}>

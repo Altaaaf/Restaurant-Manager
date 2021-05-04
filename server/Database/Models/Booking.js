@@ -4,7 +4,7 @@ const Booking = mongoose.Schema(
 	{
 		ID: {
 			type: Number,
-			required: false,
+			required: true,
 		},
 		booking_date: {
 			type: Date,

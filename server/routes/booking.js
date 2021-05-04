@@ -29,12 +29,13 @@ router.post('/booking', async (req, res) => {
 			newID = mostRecentReservation[0].ID + 1;
 		}
 
+		console.log('Reservation ID: ' + newID);
+
 		let paylod = {
 			ID: newID,
 			booking_date: req.body.booking_date.split('T')[0],
 			booking_time: req.body.booking_time,
 			slot_id: req.body.slot_id,
-			coverNo: req.body.coverNo,
 			phone: req.body.phone,
 			email: req.body.email,
 			FirstName: req.body.FirstName,

@@ -111,7 +111,10 @@ const DenseTable = () => {
 			.then((res) => {
 				if (res.status == 200) {
 					toastr.success('Successfully retrieved information');
-					setBookingData(result.data);
+					console.log('clearing count');
+					clearSlots();
+					setBookingData(res.data);
+					console.log('Booking data: ' + bookingData);
 				} else {
 					toastr.error('Unexpected failure occured');
 				}
@@ -119,17 +122,18 @@ const DenseTable = () => {
 			.catch((err) => {
 				toastr.error(err.response.data.status);
 			});
+
 		return result;
 	};
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
 		// reset state data
-		console.log('clearing count');
-		clearSlots();
 		//setBookingData([]);
-		GetbookingAPI({ booking_date: date.toDateString() });
-		handleCompare();
+		GetbookingAPI({ booking_date: date });
+		if (bookingData) {
+			handleCompare();
+		}
 	};
 
 	const handleOpenBookingForm = (time, id) => {
@@ -139,10 +143,6 @@ const DenseTable = () => {
 		setTime(time);
 		setOpen(true);
 	};
-
-	useEffect(() => {
-		handleCompare();
-	}, []);
 
 	return (
 		<div>
@@ -208,7 +208,7 @@ const DenseTable = () => {
 										? '2 - Slots Available'
 										: row.book_count.length === 2
 										? '1 - Slots Avalable'
-										: row.book_count.length === 3
+										: row.book_count.length >= 3
 										? 'All Slots Booked'
 										: 'All Slots Avalable'}
 								</TableCell>
