@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
 import Timeslot from './Timeslot';
-
+import toastr from 'toastr';
 const useStyles = makeStyles({
 	table: {},
 });
