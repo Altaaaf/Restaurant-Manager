@@ -29,7 +29,7 @@ const Account = mongoose.Schema(
 		AccountType: {
 			type: String,
 			required: false,
-			default: 'Manager',
+			default: 'Customer',
 		},
 		Salary: {
 			type: Number,

@@ -1,5 +1,6 @@
 const express = require('express');
 const Reservation = require('../Database/Models/Booking');
+const { Booking } = require('../validator/Access');
 const router = express.Router();
 
 router.get('/View', async (req, res) => {
@@ -14,6 +15,13 @@ router.get('/View', async (req, res) => {
 router.post('/booking', async (req, res) => {
 	try {
 		console.log(req.body);
+		const { error } = Booking(req.body);
+		if (error) {
+			console.error(error.message);
+			return res.status(400).json({
+				status: error.message,
+			});
+		}
 		// create ReservationID
 		var newID = 1;
 		const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });

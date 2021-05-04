@@ -25,18 +25,19 @@ const Register = (data) => {
 	return schema.validate(data);
 };
 
-const booking = (data) => {
+const Booking = (data) => {
 	const schema = Joi.object({
-		FirstName: Joi.string()
-			.regex(/^[A-Z]+$/)
-			.required(),
-		lastName: Joi.string()
-			.regex(/^[A-Z]+$/)
-			.required(),
-		members: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
-		phone: Joi.string()
-			.regex(/^\d{3}-\d{3}-\d{4}$/)
-			.required('10 digits phone number'),
+		booking_date: Joi.string().required(),
+		booking_time: Joi.string().required(),
+		slot_id: Joi.number().required(),
+		coverNo: Joi.number().required(),
+		phone: Joi.string().required(),
+		email: Joi.email().required(),
+		FirstName: Joi.string().required(),
+		lastName: Joi.string().required(),
+		comment: Joi.string(),
+		members: Joi.number(),
+		area_type: Joi.string(),
 	});
 	return schema.validate(data);
 };
