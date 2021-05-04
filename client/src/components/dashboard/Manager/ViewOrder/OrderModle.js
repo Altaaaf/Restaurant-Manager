@@ -126,10 +126,10 @@ export default function ScrollDialog(props) {
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={setReady} variant='contained' color='secondary'>
-						Set order as Ready
+						Order Ready
 					</Button>
 					<Button onClick={setCancelled} variant='contained' color='secondary'>
-						Set order as Cancelled
+						Cancel Order
 					</Button>
 					<Button onClick={handleClose} variant='contained' color='secondary'>
 						Close

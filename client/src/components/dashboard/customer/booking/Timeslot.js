@@ -36,7 +36,6 @@ class Timeslot extends Component {
 						}}
 						
 						placeholderText='Select a date'
-						dateFormat='MMMM dd, yyyy'
 						minDate={new Date()}
 						maxDate={addDays(new Date(), 7)}
 						

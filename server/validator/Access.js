@@ -29,14 +29,19 @@ const Booking = (data) => {
 	const schema = Joi.object({
 		booking_date: Joi.string().required(),
 		booking_time: Joi.string().required(),
-		slot_id: Joi.number().required(),
-		phone: Joi.string().required(),
-		email: Joi.email().required(),
+		email: Joi.string()
+			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
+			.required(),
 		FirstName: Joi.string().required(),
 		lastName: Joi.string().required(),
+		members: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
+		phone: Joi.string()
+			.regex(/^\d{3}-\d{3}-\d{4}$/)
+			.required('10 digits phone number'),
+		area_type: Joi.string().required(),
+		slot_id: Joi.number().required(),
+		coverNo: Joi.number().required(),
 		comment: Joi.string(),
-		members: Joi.number().required(),
-		area_type: Joi.string(),
 	});
 	return schema.validate(data);
 };

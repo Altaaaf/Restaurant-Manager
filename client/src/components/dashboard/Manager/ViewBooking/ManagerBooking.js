@@ -50,7 +50,7 @@ class ManagerBooking extends Component {
 										Area={BookingsList.area_type}
 										Comment={BookingsList.comment}
 										SlotID={BookingsList.slot_id}
-										id={BookingsList.ID}
+										id={index}
 										CustomerName={BookingsList.FirstName + ' ' + BookingsList.lastName}
 										createdDate={BookingsList.booking_time}
 										members={BookingsList.members}

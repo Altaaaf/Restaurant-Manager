@@ -84,20 +84,18 @@ const DenseTable = () => {
 	const [bookingData, setBookingData] = useState([]);
 
 	const handleCompare = async () => {
-		await slots.map((sl) => {
-			bookingData.filter((fil) => {
-				if (sl.id === fil.slot_id) {
-					sl.book_count.push(fil);
+        await slots.map(sl => {
+            bookingData.filter(fil => {
+                console.log(sl)
+                console.log(fil)
+                if (sl.id === fil.slot_id) {
+                    console.log('found')
+                    sl.book_count.push(fil)
 				}
-			});
-		});
-	};
-	const clearSlots = async () => {
-		await slots.map((sl) => {
-			console.log(sl.book_count);
-			sl.book_count.length = 0;
-		});
-	};
+			})
+		})
+	}
+	console.log(handleCompare())
 
 	const handleClose = () => {
 		setOpen(false);
@@ -106,29 +104,14 @@ const DenseTable = () => {
 	const [selectedDate, setSelectedDate] = useState();
 
 	const GetbookingAPI = async (paylod) => {
-		const result = axios
-			.post('http://localhost:5000/Api/booking/booking/get', paylod)
-			.then((res) => {
-				if (res.status == 200) {
-					toastr.success('Successfully retrieved information');
-					setBookingData(result.data);
-				} else {
-					toastr.error('Unexpected failure occured');
-				}
-			})
-			.catch((err) => {
-				toastr.error(err.response.data.status);
-			});
-		return result;
-	};
+		const result = await axios.post('http://localhost:5000/Api/booking/booking/get', paylod)
+        setBookingData(result.data)
+        return result;
+	}
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
-		// reset state data
-		console.log('clearing count');
-		clearSlots();
-		//setBookingData([]);
-		GetbookingAPI({ booking_date: date.toDateString() });
+		GetbookingAPI({ booking_date: date.toISOString() });
 		handleCompare();
 	};
 
@@ -141,9 +124,9 @@ const DenseTable = () => {
 	};
 
 	useEffect(() => {
-		handleCompare();
-	}, []);
-
+		GetbookingAPI({ booking_date: new Date().toISOString() })
+        handleCompare();
+    }, [])
 	return (
 		<div>
 			<BookingForm
@@ -178,7 +161,8 @@ const DenseTable = () => {
 					padding: '20px',
 				}}>
 				<h6>Select Your Booking Date</h6>
-				<Timeslot selected={selectedDate} onChange={(date) => handleDateChange(date)} />
+				<Timeslot selected={selectedDate} 
+				onChange={(date) => handleDateChange(date)} />
 			</div>
 			<TableContainer component={Paper}>
 				<Table style={{ width: '100%', height: '100%' }} size='small' aria-label='a dense table'>
@@ -201,17 +185,7 @@ const DenseTable = () => {
 								<TableCell align='right'>
 									{row.book_count.length ? row.book_count.length + '-Slots Booked' : '0 - Slots'}
 								</TableCell>
-								<TableCell align='right'>
-									{row.book_count.length === '0'
-										? '3 - Slots Available'
-										: row.book_count.length === 1
-										? '2 - Slots Available'
-										: row.book_count.length === 2
-										? '1 - Slots Avalable'
-										: row.book_count.length === 3
-										? 'All Slots Booked'
-										: 'All Slots Avalable'}
-								</TableCell>
+								<TableCell align="right">{row.book_count.length === '0' ? '3 - Slots Avalable' : row.book_count.length === 1 ? '2 - Slots Avalable' : row.book_count.length === 2 ? '1 - Slots Avalable' : row.book_count.length >= 3 ? 'All Slots Booked' : 'All Slots Avalable'}</TableCell>
 								<TableCell align='right'>
 									<Button
 										disabled={row.book_count.length >= 3 ? true : false}
