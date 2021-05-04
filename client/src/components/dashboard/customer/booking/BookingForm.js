@@ -113,9 +113,20 @@ export default function FullScreenDialog(props) {
 		setCurrency(event.target.value);
 	};
 
-	const bookingAPI = async (paylod) => {
-		const result = await axios.post('http://localhost:5000/Api/booking/booking', paylod);
-		if (result.data) setAlert(true);
+	const bookingAPI = async (payload) => {
+		const result = axios
+			.post('http://localhost:5000/Api/booking/booking', payload)
+			.then((res) => {
+				if (res.status == 200) {
+					toastr.success('Successfully saved reservation');
+					setAlert(true);
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
+			})
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 		return result;
 	};
 

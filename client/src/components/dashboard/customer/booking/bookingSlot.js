@@ -104,9 +104,20 @@ const DenseTable = () => {
 
 	const [selectedDate, setSelectedDate] = useState();
 
-	const GetbookingAPI = async (paylod) => {
-		const result = await axios.post('http://localhost:5000/Api/booking/booking/get', paylod);
-		setBookingData(result.data);
+	const GetbookingAPI = async (payload) => {
+		const result = axios
+			.post('http://localhost:5000/Api/booking/booking/get', payload)
+			.then((res) => {
+				if (res.status == 200) {
+					toastr.success('Successfully retrieved information');
+					setBookingData(result.data);
+				} else {
+					toastr.error('Unexpected failure occured');
+				}
+			})
+			.catch((err) => {
+				toastr.error(err.response.data.status);
+			});
 		return result;
 	};
 
