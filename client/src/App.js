@@ -24,7 +24,6 @@ import ManagerBooking from './components/dashboard/Manager/ViewBooking/ManagerBo
 import ContactForm from './components/dashboard/customer/Contact/Contact';
 import BookingPage from './components/dashboard/customer/booking/BookingPage';
 import ViewUsers from './components/dashboard/Manager/Users/ViewUsers';
-import Profile from './components/dashboard/customer/Profile/profile';
 import report from './components/dashboard/Manager/ViewReport/report';
 import ManagerOrder from './components/dashboard/Manager/ViewOrder/ManagerOrder';
 import OrdersPage from './components/dashboard/customer/Orders/OrdersPage';
@@ -73,7 +72,6 @@ export default function App() {
 					<Route exact path='/customer/menus' component={Menus} />
 					<Route exact path='/customer/cart' component={OrdersPage} />
 					<Route exact path='/customer/booking' component={BookingPage} />
-					<Route exact path='/customer/profile' component={Profile} />
 					<Route exact path='/customer/Contact' component={ContactForm} />
 					<Route exact path='/customer/Orders' component={CustomerOrdersPage} />
 					<Route exact path='/Manager/ViewMenu' component={ManagerMenu} />

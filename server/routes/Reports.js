@@ -14,7 +14,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Customer Name',
@@ -22,7 +21,6 @@ router.get('/Orders', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Subtotal',
@@ -30,7 +28,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Total',
@@ -38,7 +35,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Tax',
@@ -46,7 +42,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Order Date',
@@ -54,7 +49,6 @@ router.get('/Orders', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 		];
 		let orderList = [];
@@ -91,7 +85,6 @@ router.get('/Inventory', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Quantity',
@@ -99,7 +92,6 @@ router.get('/Inventory', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Total Used',
@@ -107,7 +99,6 @@ router.get('/Inventory', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'In stock quantity',
@@ -115,19 +106,17 @@ router.get('/Inventory', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
-			
 		];
 		let inventoryList = [];
 		let inventory = await Inventory.find();
 		for (var item_ = 0; item_ < inventory.length; item_++) {
 			const Inventory = inventory[item_];
 			inventoryList.push({
-					Name: Inventory.Name,
-					Quantity: Inventory.Quantity,
-					TotalRequests: Inventory.TotalRequests,
-					TotalLeft:((Inventory.Quantity)-(Inventory.TotalRequests)),
+				Name: Inventory.Name,
+				Quantity: Inventory.Quantity,
+				TotalRequests: Inventory.TotalRequests,
+				TotalLeft: Inventory.Quantity - Inventory.TotalRequests,
 			});
 		}
 		return res.status(200).json({ Columns: TableColumns, RowInformation: inventoryList });
@@ -136,7 +125,7 @@ router.get('/Inventory', async (req, res) => {
 		return res.status(500).json({ status: 'Server Error' });
 	}
 });
-router.get('/Booking', async (req, res) => {
+router.get('/Reservations', async (req, res) => {
 	try {
 		let TableColumns = [
 			{
@@ -152,7 +141,6 @@ router.get('/Booking', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Last Name',
@@ -160,7 +148,6 @@ router.get('/Booking', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-			
 			},
 			{
 				headerName: 'phone',
@@ -168,7 +155,6 @@ router.get('/Booking', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-			
 			},
 			{
 				headerName: 'Number of People',
@@ -176,7 +162,6 @@ router.get('/Booking', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'Area',
@@ -184,7 +169,6 @@ router.get('/Booking', async (req, res) => {
 				editable: true,
 				sortable: true,
 				filter: true,
-				
 			},
 			{
 				headerName: 'ReservationTime',
@@ -199,7 +183,6 @@ router.get('/Booking', async (req, res) => {
 				editable: false,
 				sortable: true,
 				filter: true,
-				
 			},
 		];
 		let BookingsList = [];
@@ -208,18 +191,15 @@ router.get('/Booking', async (req, res) => {
 		for (var item_ = 0; item_ < Booking.length; item_++) {
 			const booking = Booking[item_];
 
-			BookingsList.push({	
-			booking_date: booking.booking_date,
-			booking_time: booking.booking_time,
-			slot_id: booking.slot_id,
-			coverNo: booking.coverNo,
-			phone: booking.phone,
-			email: booking.email,
-			FirstName: booking.FirstName,
-			lastName: booking.lastName,
-			comment: booking.comment,
-			members: booking.members,
-			area_type: booking.area_type,
+			BookingsList.push({
+				ID: booking.ID ? booking.ID : booking._id,
+				booking_date: booking.booking_date,
+				booking_time: booking.booking_time,
+				phone: booking.phone,
+				FirstName: booking.FirstName,
+				lastName: booking.lastName,
+				members: booking.members,
+				area_type: booking.area_type,
 			});
 		}
 		return res.status(200).json({ Columns: TableColumns, RowInformation: BookingsList });
