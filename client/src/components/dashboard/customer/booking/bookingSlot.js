@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button, Typography } from '@material-ui/core';
-import BookingForm from './bookingForm';
+import BookingForm from './BookingForm';
 import Alert from '@material-ui/lab/Alert';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
@@ -86,17 +86,22 @@ const DenseTable = () => {
 	const handleCompare = async () => {
 		await slots.map((sl) => {
 			bookingData.filter((fil) => {
-				console.log(sl);
-				console.log(fil);
-				if (sl.id === fil.slot_id) {
+				//console.log(sl);
+				//console.log(fil);
+				if (sl.id === fil.slot_id && sl.book_count.length < 3) {
 					console.log('found');
 					sl.book_count.push(fil);
 				}
 			});
 		});
 	};
-	console.log(handleCompare());
-
+	//console.log(handleCompare());
+	const clearSlots = async () => {
+		console.log();
+		await slots.map((sl) => {
+			sl.book_count.length = 0;
+		});
+	};
 	const handleClose = () => {
 		setOpen(false);
 	};
@@ -104,6 +109,7 @@ const DenseTable = () => {
 	const [selectedDate, setSelectedDate] = useState();
 
 	const GetbookingAPI = async (paylod) => {
+		clearSlots();
 		const result = await axios.post('http://localhost:5000/Api/booking/booking/get', paylod);
 		setBookingData(result.data);
 		return result;
@@ -175,6 +181,7 @@ const DenseTable = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody style={{ marginTop: '20px' }}>
+						{console.log(slots)}
 						{slots.map((row, index) => (
 							<TableRow key={row.name}>
 								<TableCell>{index + 1}</TableCell>

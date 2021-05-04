@@ -29,15 +29,9 @@ const Booking = (data) => {
 	const schema = Joi.object({
 		booking_date: Joi.string().required(),
 		booking_time: Joi.string().required(),
-<<<<<<< HEAD
-		slot_id: Joi.number().required(),
-		phone: Joi.string().required(),
-		email: Joi.string().email().required(),
-=======
 		email: Joi.string()
 			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'edu'] } })
 			.required(),
->>>>>>> be77be49856e1276a4f10c1f0b67af0e33251d1f
 		FirstName: Joi.string().required(),
 		lastName: Joi.string().required(),
 		members: Joi.number().min(2).max(10).required('reservation for 2 people and up'),
@@ -46,7 +40,6 @@ const Booking = (data) => {
 			.required('10 digits phone number'),
 		area_type: Joi.string().required(),
 		slot_id: Joi.number().required(),
-		coverNo: Joi.number().required(),
 		comment: Joi.string(),
 	});
 	return schema.validate(data);

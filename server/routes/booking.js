@@ -23,18 +23,14 @@ router.post('/booking', async (req, res) => {
 			});
 		}
 		// create ReservationID
-<<<<<<< HEAD
 		var newID = 1;
 		const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });
 		if (mostRecentReservation[0].ID !== undefined && mostRecentReservation[0].ID !== null) {
 			newID = mostRecentReservation[0].ID + 1;
 		}
-
 		console.log('Reservation ID: ' + newID);
-
-=======
->>>>>>> be77be49856e1276a4f10c1f0b67af0e33251d1f
 		let paylod = {
+			ID: newID,
 			booking_date: req.body.booking_date.split('T')[0],
 			booking_time: req.body.booking_time,
 			slot_id: req.body.slot_id,
