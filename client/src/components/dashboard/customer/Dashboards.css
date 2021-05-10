@@ -79,18 +79,25 @@
 	
   }
   .banner1 .content1{
-	max-width: 900px;
+	max-width: 600px;
 	text-align: center;
+	background: rgb(0, 0, 0); /* Fallback color */
+  	background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  	color: #f1f1f1; /* Grey text */
+  	width: 100%; /* Full width */
+  	padding: 20px; /* Some padding */
   }
   .banner1 .content1 h1{
-	font-size: 5em;
+	font-size: 3em;
 	color: #fff;
+	text-align: fixed;
   }
   .banner1 .content1 p{
 	font-size: 1em;
 	color: rgb(255, 255, 255);
 	font-family: monospace;
 	font-weight: bold;
+	text-align:justify ;
   }
   
   

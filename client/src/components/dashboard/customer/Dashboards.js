@@ -61,10 +61,9 @@ class Dashboard extends Component {
 						<h1>About us</h1>
 						<p>
 							{' '}
-							We are the last authentic Amrican restaurant in New York, serving delicious Amrican
-							cuisine cooked by the best chefs. It only takes a few minutes to browse through our
-							website and check out our menu. We hope you'll soon join us for a superb Amrican
-							culinary experience.
+							This project is created by Five New York Insititute of Technology Senior Students
+							Using the new generation technology i.e Node.JS and React.JS. Our mission is to bring convinience to the small restaurant business
+							We hope you'll enjoy the presentation.
 						</p>
 					</div>
 				</section>
