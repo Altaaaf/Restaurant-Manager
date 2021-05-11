@@ -134,7 +134,7 @@ router.post('/ForgotPassword', async (req, res) => {
 			subject: 'Forgot password!',
 			html: `<p>Your new password is: ${newPassword} </p>`,
 		};
-		console.log(newPassword);
+		console.log("You're new password unhashed: " + newPassword);
 		contactEmail.sendMail(mail, (error) => {
 			if (error) {
 				console.log('the error is: ' + error);

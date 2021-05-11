@@ -3,6 +3,17 @@ const Reservation = require('../Database/Models/Booking');
 const { Booking } = require('../validator/Access');
 const router = express.Router();
 
+router.get('/Customer/View', async (req, res) => {
+	try {
+		return res
+			.status(200)
+			.json({ Bookings: await Reservation.find({ email: req.body.CustomerEmail }, { _id: 0 }) });
+	} catch (err) {
+		console.error(err);
+		return res.status(500).json({ status: 'Server Error' });
+	}
+});
+
 router.get('/View', async (req, res) => {
 	try {
 		return res.status(200).json({ Bookings: await Reservation.find({}, { _id: 0 }) });
@@ -54,13 +65,10 @@ router.post('/booking', async (req, res) => {
 
 router.post('/booking/get', async (req, res) => {
 	try {
-		console.log('==============', req.body);
 		var booking_time = req.body.booking_date;
 		booking_time = booking_time.split('T')[0];
-		console.log('==============', booking_time);
 		Reservation.find({ booking_date: booking_time })
 			.then((response) => {
-				//console.log(response);
 				return res.send(response);
 			})
 			.catch((err) => {

@@ -24,7 +24,6 @@ app.use(passport.initialize());
 
 app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
-app.use('/Api/Reservations', require('./routes/Reservations'));
 app.use('/Api/Inventory', require('./routes/Inventory'));
 app.use('/Api/Users', require('./routes/Users'));
 app.use('/Api/Orders', require('./routes/Order'));

@@ -19,7 +19,7 @@ export default function Total({ data }) {
 			<span className='tax-title'>Tax:</span>
 			<span className='tax-price'>${tax}</span>
 			<span className='Order-title'>Order Total:</span>
-			<span className='Order-price'>${(totalPrice.toLocaleString() * 1.0875).toFixed(2)}</span>
+			<span className='Order-price'>${(totalPrice + tax).toLocaleString()}</span>
 		</div>
 	);
 }

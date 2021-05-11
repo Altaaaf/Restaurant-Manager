@@ -70,6 +70,7 @@ router.post('/Create', async (req, res) => {
 				return res.status(400).json({ status: RequestedItemName + ' is out of stock' });
 			}
 		}
+		console.log('Updating quantity');
 		// update inventory quantities
 		for (var item = 0; item < RequestedOrder.length; item++) {
 			// find each item in inventory tab

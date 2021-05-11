@@ -377,6 +377,7 @@ router.put('/Modify/Reservations', async (req, res) => {
 		return res.status(500).json({ status: 'Server Error' });
 	}
 });
+
 router.put('/Modify/Customers', async (req, res) => {
 	try {
 		const Changes = req.body.updates;
