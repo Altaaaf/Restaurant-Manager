@@ -11,6 +11,7 @@ export default function Total({ data }) {
 		return acc + amount;
 	}, 0);
 	const tax = (totalPrice * 0.0875).toFixed(2);
+	const subtotal = (totalPrice * 1.0875).toFixed(2);
 
 	return (
 		<div className='total'>
@@ -19,7 +20,7 @@ export default function Total({ data }) {
 			<span className='tax-title'>Tax:</span>
 			<span className='tax-price'>${tax}</span>
 			<span className='Order-title'>Order Total:</span>
-			<span className='Order-price'>${(totalPrice + tax).toLocaleString()}</span>
+			<span className='Order-price'>${subtotal.toLocaleString()}</span>
 		</div>
 	);
 }
