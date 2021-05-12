@@ -22,7 +22,6 @@ app.use(express.json());
 
 //Passport middleware
 app.use(passport.initialize());
-/*
 app.use(function (req, res, next) {
 	try {
 		if (req.headers.authorization === null || req.headers.authorization === undefined) {
@@ -53,7 +52,6 @@ app.use(function (req, res, next) {
 	}
 	next();
 });
-*/
 
 // Routes
 app.use('/Api/Account', require('./routes/Access'));
