@@ -5,6 +5,57 @@ const Order = require('../Database/Models/Orders');
 const Inventory = require('../Database/Models/Inventory');
 const router = express.Router();
 
+const AccountTableInformation = [
+	{
+		headerName: 'ID',
+		field: '_id',
+		sortable: true,
+		filter: true,
+		checkboxSelection: true,
+	},
+	{
+		headerName: 'Username',
+		field: 'Username',
+		editable: true,
+		sortable: true,
+		filter: true,
+		checkboxSelection: true,
+	},
+	{
+		headerName: 'Email',
+		field: 'Email',
+		editable: true,
+		sortable: true,
+		filter: true,
+		checkboxSelection: true,
+	},
+	{
+		headerName: 'PhoneNumber',
+		field: 'PhoneNumber',
+		editable: true,
+		sortable: true,
+		filter: true,
+		checkboxSelection: true,
+	},
+	{
+		headerName: 'FirstName',
+		field: 'FirstName',
+		editable: true,
+		sortable: true,
+		filter: true,
+		checkboxSelection: true,
+	},
+	{
+		headerName: 'LastName',
+		field: 'LastName',
+		editable: true,
+		sortable: true,
+		filter: true,
+		checkboxSelection: true,
+	},
+];
+
+// recode to be more effecient
 router.get('/Orders', async (req, res) => {
 	try {
 		let TableColumns = [
@@ -87,39 +138,30 @@ router.get('/Inventory', async (req, res) => {
 				filter: true,
 			},
 			{
-				headerName: 'Quantity',
+				headerName: 'In stock Quantity',
 				field: 'Quantity',
 				editable: true,
 				sortable: true,
 				filter: true,
 			},
 			{
-				headerName: 'Total Used',
+				headerName: 'Total purchases',
 				field: 'TotalRequests',
 				editable: true,
 				sortable: true,
 				filter: true,
 			},
 			{
-				headerName: 'In stock quantity',
-				field: 'TotalLeft',
+				headerName: 'Last Purchased',
+				field: 'LastRequested',
 				editable: true,
 				sortable: true,
 				filter: true,
 			},
 		];
-		let inventoryList = [];
-		let inventory = await Inventory.find();
-		for (var item_ = 0; item_ < inventory.length; item_++) {
-			const Inventory = inventory[item_];
-			inventoryList.push({
-				Name: Inventory.Name,
-				Quantity: Inventory.Quantity,
-				TotalRequests: Inventory.TotalRequests,
-				TotalLeft: Inventory.Quantity - Inventory.TotalRequests,
-			});
-		}
-		return res.status(200).json({ Columns: TableColumns, RowInformation: inventoryList });
+		return res
+			.status(200)
+			.json({ Columns: TableColumns, RowInformation: await Inventory.find({}, { _id: 0 }) });
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ status: 'Server Error' });
@@ -185,23 +227,10 @@ router.get('/Reservations', async (req, res) => {
 				filter: true,
 			},
 		];
-		let BookingsList = [];
-
-		let Bookings = await Reservation.find();
-		for (var item_ = 0; item_ < Bookings.length; item_++) {
-			const booking = Bookings[item_];
-
-			BookingsList.push({
-				ID: booking.ID ? booking.ID : booking._id,
-				booking_date: booking.booking_date,
-				booking_time: booking.booking_time,
-				phone: booking.phone,
-				FirstName: booking.FirstName,
-				lastName: booking.lastName,
-				members: booking.members,
-				area_type: booking.area_type,
-			});
-		}
+		let BookingsList = await Reservation.find(
+			{},
+			{ _id: 0, slot_id: 0, coverNo: 0, email: 0, comment: 0 },
+		);
 		return res.status(200).json({ Columns: TableColumns, RowInformation: BookingsList });
 	} catch (err) {
 		console.error(err);
@@ -211,73 +240,13 @@ router.get('/Reservations', async (req, res) => {
 router.get('/Managers', async (req, res) => {
 	try {
 		try {
-			let TableColumns = [
-				{
-					headerName: 'ID',
-					field: 'ID',
-					sortable: true,
-					filter: true,
-					checkboxSelection: true,
-				},
-				{
-					headerName: 'Username',
-					field: 'Username',
-					editable: true,
-					sortable: true,
-					filter: true,
-					checkboxSelection: true,
-				},
-				{
-					headerName: 'Email',
-					field: 'Email',
-					editable: true,
-					sortable: true,
-					filter: true,
-					checkboxSelection: true,
-				},
-				{
-					headerName: 'PhoneNumber',
-					field: 'PhoneNumber',
-					editable: true,
-					sortable: true,
-					filter: true,
-					checkboxSelection: true,
-				},
-				{
-					headerName: 'FirstName',
-					field: 'FirstName',
-					editable: true,
-					sortable: true,
-					filter: true,
-					checkboxSelection: true,
-				},
-				{
-					headerName: 'LastName',
-					field: 'LastName',
-					editable: true,
-					sortable: true,
-					filter: true,
-					checkboxSelection: true,
-				},
-			];
-			let Managers = [];
-
-			let AllUsers = await Access.find();
-			for (var user = 0; user < AllUsers.length; user++) {
-				var current_user = AllUsers[user];
-
-				if (current_user.AccountType == 'Manager') {
-					Managers.push({
-						ID: current_user._id,
-						Username: current_user.Username,
-						Email: current_user.Email,
-						PhoneNumber: current_user.PhoneNumber,
-						FirstName: current_user.FirstName,
-						LastName: current_user.LastName,
-					});
-				}
-			}
-			return res.status(200).json({ Columns: TableColumns, RowInformation: Managers });
+			return res.status(200).json({
+				Columns: AccountTableInformation,
+				RowInformation: await Access.find(
+					{ AccountType: 'Manager' },
+					{ Password: 0, EmailVerified: 0, AccountType: 0, Salary: 0 },
+				),
+			});
 		} catch (err) {
 			console.error(err);
 			return res.status(500).json({ status: 'Server Error' });
@@ -289,72 +258,13 @@ router.get('/Managers', async (req, res) => {
 });
 router.get('/Customers', async (req, res) => {
 	try {
-		let TableColumns = [
-			{
-				headerName: 'ID',
-				field: 'ID',
-				sortable: true,
-				filter: true,
-				checkboxSelection: true,
-			},
-			{
-				headerName: 'Username',
-				field: 'Username',
-				editable: true,
-				sortable: true,
-				filter: true,
-				checkboxSelection: true,
-			},
-			{
-				headerName: 'Email',
-				field: 'Email',
-				editable: true,
-				sortable: true,
-				filter: true,
-				checkboxSelection: true,
-			},
-			{
-				headerName: 'PhoneNumber',
-				field: 'PhoneNumber',
-				editable: true,
-				sortable: true,
-				filter: true,
-			},
-			{
-				headerName: 'FirstName',
-				field: 'FirstName',
-				editable: true,
-				sortable: true,
-				filter: true,
-				checkboxSelection: true,
-			},
-			{
-				headerName: 'LastName',
-				field: 'LastName',
-				editable: true,
-				sortable: true,
-				filter: true,
-				checkboxSelection: true,
-			},
-		];
-		let Customers = [];
-
-		let AllUsers = await Access.find();
-		for (var user = 0; user < AllUsers.length; user++) {
-			var current_user = AllUsers[user];
-
-			if (current_user.AccountType == 'Customer') {
-				Customers.push({
-					ID: current_user._id,
-					Username: current_user.Username,
-					Email: current_user.Email,
-					PhoneNumber: current_user.PhoneNumber,
-					FirstName: current_user.FirstName,
-					LastName: current_user.LastName,
-				});
-			}
-		}
-		return res.status(200).json({ Columns: TableColumns, RowInformation: Customers });
+		return res.status(200).json({
+			Columns: AccountTableInformation,
+			RowInformation: await Access.find(
+				{ AccountType: 'Customer' },
+				{ Password: 0, EmailVerified: 0, AccountType: 0, Salary: 0 },
+			),
+		});
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ status: 'Server Error' });
@@ -368,7 +278,7 @@ router.put('/Modify/Reservations', async (req, res) => {
 			const newRecord = Changes[index];
 			const ID = newRecord.ID;
 			delete newRecord['ID'];
-			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
+			var Query = { ID: ID };
 			await Reservation.updateOne(Query, { $set: newRecord });
 		}
 		return res.status(200).json({ status: 'Successfully made changes' });
@@ -383,7 +293,7 @@ router.put('/Modify/Customers', async (req, res) => {
 		const Changes = req.body.updates;
 		for (var index = 0; index < Changes.length; index++) {
 			const newRecord = Changes[index];
-			const ID = newRecord.ID;
+			const ID = newRecord._id;
 			delete newRecord['ID'];
 			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
 			await Access.updateOne(Query, { $set: newRecord });
@@ -399,7 +309,7 @@ router.put('/Modify/Managers', async (req, res) => {
 		const Changes = req.body.updates;
 		for (var index = 0; index < Changes.length; index++) {
 			const newRecord = Changes[index];
-			const ID = newRecord.ID;
+			const ID = newRecord._id;
 			delete newRecord['ID'];
 			var Query = ID.length > 7 ? { _id: ID } : { ID: ID };
 			await Access.updateOne(Query, { $set: newRecord });

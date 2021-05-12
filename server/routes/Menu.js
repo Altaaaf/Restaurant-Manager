@@ -6,34 +6,11 @@ const router = express.Router();
 // change this to be more effecient!
 router.get('/view', async (req, res) => {
 	try {
-		let Menu_ = {
-			mains: [],
-			sides: [],
-			drinks: [],
-		};
-		let Items = await Menu.find();
-		for (var item_ = 0; item_ < Items.length; item_++) {
-			var item = Items[item_];
-
-			if (item.Type == 'mains') {
-				Menu_.mains.push({
-					Name: item.Name,
-					Price: item.Price,
-					Description: item.Description,
-				});
-			} else if (item.Type == 'sides') {
-				Menu_.sides.push({
-					Name: item.Name,
-					Price: item.Price,
-				});
-			} else if (item.Type == 'drinks') {
-				Menu_.drinks.push({
-					Name: item.Name,
-					Price: item.Price,
-				});
-			}
-		}
-		return res.status(200).json(Menu_);
+		return res.status(200).json({
+			mains: await Menu.find({ Type: 'mains' }, { _id: 0 }),
+			sides: await Menu.find({ Type: 'sides' }, { _id: 0 }),
+			drinks: await Menu.find({ Type: 'drinks' }, { _id: 0 }),
+		});
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ status: 'Server Error' });

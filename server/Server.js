@@ -4,7 +4,10 @@ const helmet = require('helmet');
 const DatabaseConnection = require('./Database/Connection');
 const { verify } = require('./Helpers/Mail');
 const passport = require('passport');
+const User = require('./Database/Models/Access');
+const jwt = require('jsonwebtoken');
 const app = express();
+
 // Connect to Mongo DB
 DatabaseConnection();
 
@@ -19,9 +22,40 @@ app.use(express.json());
 
 //Passport middleware
 app.use(passport.initialize());
+/*
+app.use(function (req, res, next) {
+	try {
+		if (req.headers.authorization === null || req.headers.authorization === undefined) {
+			return res.status(404).json({ status: 'Please first log in before accessing API' });
+		}
+		const jwtAuth = jwt.decode(req.headers.authorization.split(' ')[1]);
+		if (jwtAuth === null || jwtAuth === undefined) {
+			return res
+				.status(404)
+				.json({ status: 'Invalid login session, please relogin to your account' });
+		}
+		User.findOne({ _id: jwtAuth.id }).then((user) => {
+			if (user) {
+				if (!(user.AccountType == 'Customer' || user.AccountType == 'Manager')) {
+					return res.status(404).json({
+						Status: 'You do not have privileges to be accessing the API at the moment',
+					});
+				}
+			} else {
+				return res.status(404).json({ status: 'Please first log in before accessing API' });
+			}
+		});
+	} catch (err) {
+		console.log(err);
+		return res.status(404).json({
+			Status: 'Unexpected failure when validating login session!',
+		});
+	}
+	next();
+});
+*/
 
 // Routes
-
 app.use('/Api/Account', require('./routes/Access'));
 app.use('/Api/Menu', require('./routes/Menu'));
 app.use('/Api/Inventory', require('./routes/Inventory'));

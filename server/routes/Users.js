@@ -4,33 +4,18 @@ const router = express.Router();
 
 router.get('/View', async (req, res) => {
 	try {
-		let Customers = [];
-		let Managers = [];
-
-		let AllUsers = await Access.find();
-		for (var user = 0; user < AllUsers.length; user++) {
-			var current_user = AllUsers[user];
-			console.log(current_user.AccountType);
-
-			if (current_user.AccountType == 'Customer') {
-				Customers.push({
-					Username: current_user.Username,
-					Email: current_user.Email,
-					PhoneNumber: current_user.PhoneNumber,
-					FirstName: current_user.FirstName,
-					LastName: current_user.LastName,
-				});
-			} else if (current_user.AccountType == 'Manager') {
-				Managers.push({
-					Username: current_user.Username,
-					Email: current_user.Email,
-					PhoneNumber: current_user.PhoneNumber,
-					FirstName: current_user.FirstName,
-					LastName: current_user.LastName,
-				});
-			}
-		}
-		return res.status(200).json({ Customers: Customers, Managers: Managers });
+		return res
+			.status(200)
+			.json({
+				Customers: await Access.find(
+					{ AccountType: 'Customer' },
+					{ _id: 0, Password: 0, EmailVerified: 0, AccountType: 0, Salary: 0 },
+				),
+				Managers: await Access.find(
+					{ AccountType: 'Manager' },
+					{ _id: 0, Password: 0, EmailVerified: 0, AccountType: 0, Salary: 0 },
+				),
+			});
 	} catch (err) {
 		console.error(err);
 		return res.status(500).json({ status: 'Server Error' });
