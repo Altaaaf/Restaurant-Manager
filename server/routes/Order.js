@@ -51,10 +51,10 @@ router.post('/Create', async (req, res) => {
 	try {
 		// split to remove bearer!
 		const jwtAuth = jwt.decode(req.headers.authorization.split(' ')[1]);
+		console.log(jwtAuth);
 		if (jwtAuth === undefined || jwtAuth == null) {
-			return res.status(500).json({ status: 'not authenticated to use this route.' });
+			res.status(500).json({ status: 'not authenticated to use this route.' });
 		}
-
 		// validate all items exist in inventory before creating order
 		const RequestedOrder = req.body.Order;
 
@@ -63,14 +63,21 @@ router.post('/Create', async (req, res) => {
 			const RequestedItemName = RequestedOrder[item].Name;
 			const RequestedItemQuantity = RequestedOrder[item].Quantity;
 			const ValidateItem = await Inventory.findOne({ Name: RequestedItemName });
-			if (typeof ValidateItem.Quantity === undefined || ValidateItem.Quantity === null) {
-				return res.status(400).json({ status: 'This item is no longer available for sale!' });
-			}
-			if (ValidateItem.Quantity < RequestedItemQuantity) {
+
+			console.log('Quantity available: ' + ValidateItem);
+			if (ValidateItem === null || ValidateItem === undefined) {
 				return res.status(400).json({ status: RequestedItemName + ' is out of stock' });
 			}
+			if (ValidateItem.Quantity < RequestedItemQuantity) {
+				return res
+					.status(400)
+					.json({
+						status:
+							RequestedItemName + ' is out of stock.. stock available: ' + ValidateItem.Quantity,
+					});
+			}
 		}
-		console.log('Updating quantity');
+
 		// update inventory quantities
 		for (var item = 0; item < RequestedOrder.length; item++) {
 			// find each item in inventory tab
@@ -86,9 +93,11 @@ router.post('/Create', async (req, res) => {
 		// create orderID
 		var newID = 1;
 		const mostRecentOrder = await Order.find().limit(1).sort({ _id: -1 });
-		if (mostRecentOrder[0].ID !== undefined && mostRecentOrder[0].ID !== null) {
-			newID = mostRecentOrder[0].ID + 1;
-		}
+		try {
+			if (mostRecentOrder[0].ID !== undefined && mostRecentOrder[0].ID !== null) {
+				newID = mostRecentOrder[0].ID + 1;
+			}
+		} catch {}
 
 		// create Order
 		const CreateOrder = new Order({

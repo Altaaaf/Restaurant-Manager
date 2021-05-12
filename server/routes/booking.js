@@ -35,10 +35,12 @@ router.post('/booking', async (req, res) => {
 		}
 		// create ReservationID
 		var newID = 1;
-		const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });
-		if (mostRecentReservation[0].ID !== undefined && mostRecentReservation[0].ID !== null) {
-			newID = mostRecentReservation[0].ID + 1;
-		}
+		try {
+			const mostRecentReservation = await Reservation.find().limit(1).sort({ _id: -1 });
+			if (mostRecentReservation[0].ID !== undefined && mostRecentReservation[0].ID !== null) {
+				newID = mostRecentReservation[0].ID + 1;
+			}
+		} catch {}
 		console.log('Reservation ID: ' + newID);
 		let paylod = {
 			ID: newID,

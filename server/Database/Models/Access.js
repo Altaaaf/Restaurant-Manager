@@ -31,11 +31,6 @@ const Account = mongoose.Schema(
 			required: false,
 			default: 'Customer',
 		},
-		Salary: {
-			type: Number,
-			required: false,
-			default: 20,
-		},
 		EmailVerified: {
 			type: Boolean,
 			required: false,
