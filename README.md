@@ -10,4 +10,4 @@ Restaurant Management PWA
 * Created Login page and Register page
 * Created Menu for customer selection and inform customer their totoal and appliicable tax
 * Created Header and Footer
-* Created Manager Dashboard (in progress)
+* Created Manager Dashboard 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import BookingCard from './BookingCard';
 import './ManagerBooking.css';
 import toastr from 'toastr';
+import Timeslot from "../../customer/booking/Timeslot";
 class ManagerBooking extends Component {
 	constructor() {
 		super();
@@ -38,6 +39,8 @@ class ManagerBooking extends Component {
 		return (
 			<div className='order_container'>
 				<h2 className='mains-heading'>Reservation Details</h2>
+				<h6>Select dates to view booking</h6>
+				<Timeslot/>
 				<div className='recomendedVideo_video'>
 					{booking &&
 						booking.map((BookingsList, index) => {
