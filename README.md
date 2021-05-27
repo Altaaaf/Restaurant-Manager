@@ -26,6 +26,7 @@ Prerequisites:
 * Install Node.js version 14.15.1
 * Install Visual Studio Code
 * Clone the GitHub Repository.(https://github.com/Altaaaf/Restaurant-Manager)
+* run npm install if first time
 
 > Starting backend, open a new terminal in visual studio code
 ```
