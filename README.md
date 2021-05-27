@@ -95,7 +95,7 @@ nodemon server.js
 | /Api/booking/Customer/View | GET | Used by customers to view their reservations created in last 24 hours |
 | /Api/booking/View | GET | View all reservations created in last 24 hours for all customers |
 | /Api/booking/booking | POST | Create a new reservation  |
-| /Api/booking/booking/get | PUT | View all time slots reserved in the lsat 24 hours  |
+| /Api/booking/booking/get | POST | View all time slots reserved in the lsat 24 hours  |
 
 <br>
 
