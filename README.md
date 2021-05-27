@@ -5,7 +5,7 @@
 ---
 <b>College: </b>New York Institute of Technology<br>
 <b>Course:</b> CSCI 455 - M01/ Spring 2021<br>
-<b>Mentor:</b> <a>Maherukh Akhtar</a><br>
+<b>Adviser:</b> <a>Maherukh Akhtar</a><br>
 <b>Team Leads:</b> <a href="https://github.com/Altaaaf">Altaaf Ali</a>, <a href="https://github.com/chrisyu0818">Christopher Yu</a> <br>
 <b>Team Member:</b> <a href="https://github.com/Altaaaf">Altaaf Ali</a>, <a href="https://github.com/mdove01">Martin Dove</a>, <a href="https://github.com/ksanket981">Fnu Sanket</a>, <a href="https://github.com/chrisyu0818">Christopher Yu</a>, and <a href="https://github.com/sophiaz03">Sophia Zuleta</a>
 
